@@ -179,8 +179,7 @@
     
 			//Start (Start)
 			global.button[input.start] = gp_start;
-}
 		#endregion
 	}
-
+	
 #endregion

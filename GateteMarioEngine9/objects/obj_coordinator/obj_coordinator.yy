@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_eventmarker",
+    "path": "sprites/spr_eventmarker/spr_eventmarker.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

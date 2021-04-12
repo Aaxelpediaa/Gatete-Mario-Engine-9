@@ -3,6 +3,9 @@
 //Initialize palette system
 /* UNDER CONSTRUCTION */
 
+//Set game caption
+window_set_caption("Gatete Mario Engine 9");
+
 //Initialize global variables
 #region GLOBAL GAME VARIABLES
 
@@ -289,10 +292,10 @@ global.reservedrop = true;
 global.file = 0;
 
 //Game Width
-global.gw = 384;
+global.gw = room_width;
 
 //Game Height
-global.gh = 216;
+global.gh = room_height;
 
 //Font Variables
 /* UNDER CONSTRUCTION */
