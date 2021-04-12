@@ -1,6 +1,6 @@
 {
   "resources": [
-    {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},"order":0,},
+    {"id":{"name":"obj_coordinator","path":"objects/obj_coordinator/obj_coordinator.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},

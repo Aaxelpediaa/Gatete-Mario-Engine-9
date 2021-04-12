@@ -1,20 +1,16 @@
-///Gatete Mario Engine 9 Controller Object (This is required for the game to run, do not remove it.)
+///Gatete Mario Engine 9 Game Coordinator (This is required for the game to run, do not remove it.)
 
 //Initialize palette system
-
+/* UNDER CONSTRUCTION */
 
 //Initialize global variables
 #region GLOBAL GAME VARIABLES
 
 //World Number
-global.world = 1;
+global.world = "1";
 
-//Level ID (Used for star coin management)
-global.level = 0;
-
-//How many level does the game have? 
-//(Make sure is 1 number higher than the amount of levels)
-global.levelmax = cs_levels;
+//Level Number
+global.level = "1";
 
 //Exits found
 global.exits = ds_map_create();
@@ -67,7 +63,9 @@ global.powerup = cs_small;
 
 //Reserve item
 global.reserve = cs_small;
-global.reservedrop = true;
+
+//Safeguard
+global.safeguard = 0;
 
 //Checkpoint
 global.checkpoint = noone;
@@ -148,7 +146,7 @@ global.carriedsprite = noone;
 //The object to return when carrying a SMB2 enemy between rooms
 global.turnback = 0;
 
-//Initialize star coin system
+//Initialize star coin system (Replace '999' with the amount of levels your game will have)
 //0: Not collected
 //1: Collected, not saved
 //2: Collected, saved with checkpoint
@@ -156,8 +154,8 @@ global.turnback = 0;
 for (var i = 0; i < 3; i++) {
 
     global.sc[i] = ds_map_create();
-    for (var j = 0; j < global.levelmax; j++)
-        ds_map_add(global.sc[i],j,0);
+    for (var j = 0; j < 999; j++)
+        ds_map_add(global.sc[i], j, 0);
 }
 
 //Star Coins collected
@@ -167,7 +165,7 @@ global.starcoins = 0;
 global.mapscreen = ds_map_create();
 
 //Map inventory variables
-for (var i=0; i<13; i++) {
+for (var i=0; i<15; i++) {
 
     global.inventory[i] = 0;
 }
@@ -191,6 +189,73 @@ global.flighttime = 4;
 //Climb time (In seconds, how much time allow Mario to climb walls as Cat Mario)
 global.cattime = 3;
 
+//Allow reserve of items if enabled
+global.reservedrop = true;
+
+#endregion
+
+//Powerup Macros
+#region POWERUP MACROS
+
+	#macro cs_tiny 0;
+	#macro cs_small	1;
+	#macro cs_big 2;
+	#macro cs_fire 3;
+	#macro cs_ice 4;
+	#macro cs_carrot 5;
+	#macro cs_raccoon 6;
+	#macro cs_cape 7;
+	#macro cs_frog 8;
+	#macro cs_tanooki 9;
+	#macro cs_hammer 10;
+	#macro cs_boomerang	11;
+	#macro cs_superball 12;
+	#macro cs_shell	13;
+	#macro cs_bee 14;
+	#macro cs_volt 15;
+	#macro cs_penguin 16;
+	#macro cs_propeller 17;
+	#macro cs_bell 18;
+	#macro cs_football 19;
+	#macro cs_ranger 20;
+	#macro cs_squirrel 21;
+	#macro cs_hare 22;
+	#macro cs_gold 23;
+	#macro cs_mega 24;
+
+#endregion
+
+//Item Macros
+#region ITEM MACROS
+
+	#macro cs_billy -27;
+	#macro cs_beanstalk -26;
+	#macro cs_propellerblock -25;
+	#macro cs_trampoline -24;
+	#macro cs_sswitch -23;
+	#macro cs_pswitch -22;
+	#macro cs_starman -21;
+	#macro cs_3up -20;
+	#macro cs_1up -19;
+	#macro cs_lifeshroom -18;
+	#macro cs_shoe_pentaro -17;
+	#macro cs_shoe_jugemu -16;
+	#macro cs_shoe_dossun -15;
+	#macro cs_shoe_baburu -14;
+	#macro cs_shoe_kuribo -13;
+	#macro cs_yoshi_p -12;
+	#macro cs_yoshi_t -11;
+	#macro cs_yoshi_b -10;
+	#macro cs_yoshi_y -9;
+	#macro cs_yoshi_r -8;
+	#macro cs_yoshi_g -7;
+	#macro cs_area_b -6;
+	#macro cs_area_r -5;
+	#macro cs_area_g -4;
+	#macro cs_area_y -3;
+	#macro cs_coin_s -2;
+	#macro cs_coin -1;
+	
 #endregion
 
 //Current File
@@ -201,3 +266,15 @@ global.gw = 384;
 
 //Game Height
 global.gh = 216;
+
+//Font Variables
+/* UNDER CONSTRUCTION */
+
+//Data structure for picked up 3up moons
+global.moons = ds_map_create();
+
+//Disable application surface automatic drawing
+application_surface_draw_enable(false);
+
+//Set up epsilon for floating point numbers
+math_set_epsilon(0.0001);
