@@ -258,6 +258,33 @@ global.reservedrop = true;
 	
 #endregion
 
+//Key Enums
+#region KEY ENUMS
+
+	enum input {
+	
+		//Directions
+		up,
+		down,
+		left,
+		right,
+		
+		//A Key
+		action_0,
+		
+		//B Key
+		action_1,
+		
+		//X Key
+		action_2,
+		
+		//Start / Select
+		start,
+		select,
+	}
+	
+#endregion
+
 //Current File
 global.file = 0;
 
