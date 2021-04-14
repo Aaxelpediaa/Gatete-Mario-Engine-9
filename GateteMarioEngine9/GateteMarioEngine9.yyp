@@ -1,6 +1,9 @@
 {
   "resources": [
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},"order":0,},
+    {"id":{"name":"input_check_pressed","path":"scripts/input_check_pressed/input_check_pressed.yy",},"order":1,},
+    {"id":{"name":"input_check_released","path":"scripts/input_check_released/input_check_released.yy",},"order":2,},
+    {"id":{"name":"input_check","path":"scripts/input_check/input_check.yy",},"order":0,},
     {"id":{"name":"spr_eventmarker","path":"sprites/spr_eventmarker/spr_eventmarker.yy",},"order":0,},
     {"id":{"name":"obj_coordinator","path":"objects/obj_coordinator/obj_coordinator.yy",},"order":0,},
   ],
@@ -35,6 +38,7 @@
     {"folderPath":"folders/Curvas de animación.yy","order":12,"resourceVersion":"1.0","name":"Curvas de animación","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Notas.yy","order":13,"resourceVersion":"1.0","name":"Notas","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Extensiones.yy","order":14,"resourceVersion":"1.0","name":"Extensiones","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Scripts/Input.yy","order":1,"resourceVersion":"1.0","name":"Input","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

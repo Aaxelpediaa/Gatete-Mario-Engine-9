@@ -297,11 +297,11 @@ global.gw = room_width;
 //Game Height
 global.gh = room_height;
 
-//Font Variables
-/* UNDER CONSTRUCTION */
-
 //Data structure for picked up 3up moons
 global.moons = ds_map_create();
+
+//Font Variables
+/* UNDER CONSTRUCTION */
 
 //Disable application surface automatic drawing
 application_surface_draw_enable(false);
