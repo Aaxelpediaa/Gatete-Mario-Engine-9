@@ -1,4 +1,4 @@
-///Gatete Mario Engine 9 Game Coordinator (This is required for the game to run, do not remove it.)
+/// @description Gatete Mario Engine 9 Game Coordinator (This is required for the game to run, do not remove it.)
 
 //Initialize palette system
 /* UNDER CONSTRUCTION */
@@ -200,64 +200,64 @@ global.reservedrop = true;
 //Powerup Macros
 #region POWERUP MACROS
 
-	#macro cs_tiny 0;
-	#macro cs_small	1;
-	#macro cs_big 2;
-	#macro cs_fire 3;
-	#macro cs_ice 4;
-	#macro cs_carrot 5;
-	#macro cs_raccoon 6;
-	#macro cs_cape 7;
-	#macro cs_frog 8;
-	#macro cs_tanooki 9;
-	#macro cs_hammer 10;
-	#macro cs_boomerang	11;
-	#macro cs_superball 12;
-	#macro cs_shell	13;
-	#macro cs_bee 14;
-	#macro cs_volt 15;
-	#macro cs_penguin 16;
-	#macro cs_propeller 17;
-	#macro cs_bell 18;
-	#macro cs_football 19;
-	#macro cs_ranger 20;
-	#macro cs_squirrel 21;
-	#macro cs_hare 22;
-	#macro cs_gold 23;
-	#macro cs_mega 24;
+	#macro cs_tiny 0
+	#macro cs_small	1
+	#macro cs_big 2
+	#macro cs_fire 3
+	#macro cs_ice 4
+	#macro cs_carrot 5
+	#macro cs_raccoon 6
+	#macro cs_cape 7
+	#macro cs_frog 8
+	#macro cs_tanooki 9
+	#macro cs_hammer 10
+	#macro cs_boomerang	11
+	#macro cs_superball 12
+	#macro cs_shell	13
+	#macro cs_bee 14
+	#macro cs_volt 15
+	#macro cs_penguin 16
+	#macro cs_propeller 17
+	#macro cs_bell 18
+	#macro cs_football 19
+	#macro cs_ranger 20
+	#macro cs_squirrel 21
+	#macro cs_hare 22
+	#macro cs_gold 23
+	#macro cs_mega 24
 
 #endregion
 
 //Item Macros
 #region ITEM MACROS
 
-	#macro cs_billy -27;
-	#macro cs_beanstalk -26;
-	#macro cs_propellerblock -25;
-	#macro cs_trampoline -24;
-	#macro cs_sswitch -23;
-	#macro cs_pswitch -22;
-	#macro cs_starman -21;
-	#macro cs_3up -20;
-	#macro cs_1up -19;
-	#macro cs_lifeshroom -18;
-	#macro cs_shoe_pentaro -17;
-	#macro cs_shoe_jugemu -16;
-	#macro cs_shoe_dossun -15;
-	#macro cs_shoe_baburu -14;
-	#macro cs_shoe_kuribo -13;
-	#macro cs_yoshi_p -12;
-	#macro cs_yoshi_t -11;
-	#macro cs_yoshi_b -10;
-	#macro cs_yoshi_y -9;
-	#macro cs_yoshi_r -8;
-	#macro cs_yoshi_g -7;
-	#macro cs_area_b -6;
-	#macro cs_area_r -5;
-	#macro cs_area_g -4;
-	#macro cs_area_y -3;
-	#macro cs_coin_s -2;
-	#macro cs_coin -1;
+	#macro cs_billy -27
+	#macro cs_beanstalk -26
+	#macro cs_propellerblock -25
+	#macro cs_trampoline -24
+	#macro cs_sswitch -23
+	#macro cs_pswitch -22
+	#macro cs_starman -21
+	#macro cs_3up -20
+	#macro cs_1up -19
+	#macro cs_lifeshroom -18
+	#macro cs_shoe_pentaro -17
+	#macro cs_shoe_jugemu -16
+	#macro cs_shoe_dossun -15
+	#macro cs_shoe_baburu -14
+	#macro cs_shoe_kuribo -13
+	#macro cs_yoshi_p -12
+	#macro cs_yoshi_t -11
+	#macro cs_yoshi_b -10
+	#macro cs_yoshi_y -9
+	#macro cs_yoshi_r -8
+	#macro cs_yoshi_g -7
+	#macro cs_area_b -6
+	#macro cs_area_r -5
+	#macro cs_area_g -4
+	#macro cs_area_y -3
+	#macro cs_coin_s -2
+	#macro cs_coin -1
 	
 #endregion
 
@@ -297,6 +297,9 @@ global.gw = room_width;
 //Game Height
 global.gh = room_height;
 
+//Rescale the surface (sub-pixels)
+rescale_surface = false;
+
 //Data structure for picked up 3up moons
 global.moons = ds_map_create();
 
@@ -311,3 +314,6 @@ math_set_epsilon(0.0001);
 
 //Initialize Colour Swap Shader
 pal_swap_init_system();
+
+//Initialize Player Sprites
+index_powerups();

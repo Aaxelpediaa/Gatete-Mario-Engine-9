@@ -1,3 +1,3 @@
-///Close the game
+/// @description Close the game
 
 game_end();

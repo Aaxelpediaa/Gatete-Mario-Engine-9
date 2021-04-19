@@ -1,4 +1,4 @@
-///Restart the game when both ALT+R are pressed
+/// @description Restart the game when both ALT+R are pressed
 
 if (keyboard_check_pressed(ord("R"))) {
 
@@ -179,4 +179,5 @@ if (keyboard_check_pressed(ord("R"))) {
 	
 	//Go to the title screen
 	room_goto(rm_title);
+	
 }

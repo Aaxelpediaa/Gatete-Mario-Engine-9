@@ -1,4 +1,4 @@
-///Save screen type, keys and vertical syncronization
+/// @description Save screen type, keys and vertical syncronization
 
 //Open the file
 var file = file_text_open_write("settings.dat");

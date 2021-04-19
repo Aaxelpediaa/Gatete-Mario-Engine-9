@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Utility",
-    "path": "folders/Scripts/Utility.yy",
+    "name": "Shaders",
+    "path": "folders/Scripts/Shaders.yy",
   },
   "resourceVersion": "1.0",
   "name": "pal_swap",

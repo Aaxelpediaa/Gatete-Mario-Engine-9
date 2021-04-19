@@ -1,4 +1,4 @@
-///Load screen type, keys and vertical syncronization
+/// @description Load screen type, keys and vertical syncronization
 
 //SETTINGS LOAD
 #region LOAD
@@ -183,3 +183,6 @@
 	}
 	
 #endregion
+
+// Apply camera settings
+alarm[0] = 1;
