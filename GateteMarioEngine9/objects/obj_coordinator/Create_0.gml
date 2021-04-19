@@ -308,3 +308,6 @@ application_surface_draw_enable(false);
 
 //Set up epsilon for floating point numbers
 math_set_epsilon(0.0001);
+
+//Initialize Colour Swap Shader
+pal_swap_init_system();
