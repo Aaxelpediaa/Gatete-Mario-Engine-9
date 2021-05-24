@@ -12,4 +12,10 @@ yspeed += yadd;
 //Manage timer actions
 #region TIMERS
 
+	//TIMER 1: INVINCIBILITY
+	invincibility = function() {
+	
+		
+	}
+	
 #endregion

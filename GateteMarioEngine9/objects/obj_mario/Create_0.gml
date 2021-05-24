@@ -3,12 +3,6 @@
 //Inherit event from matrix
 event_inherited();
 
-//Timers
-#region TIMERS
-
-
-#endregion
-
 //Custom movement 
 xspeed = 0;
 yspeed = 0;
