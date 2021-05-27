@@ -8,14 +8,3 @@ x += xspeed;
 y += yspeed;
 xspeed += xadd;
 yspeed += yadd;
-
-//Manage timer actions
-#region TIMERS
-
-	//TIMER 1: INVINCIBILITY
-	invincibility = function() {
-	
-		
-	}
-	
-#endregion
