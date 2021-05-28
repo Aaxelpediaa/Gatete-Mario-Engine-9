@@ -42,6 +42,7 @@ walldir2 = 0;
 //1: Front (SMB3 / SMW)
 //2: Overhead (SMB2)
 //3: Boomerang (SMA4)
+//4: On Yoshi / Kuribo Shoe
 holding = 0;
 
 //Handle Mario's jumping state
@@ -73,7 +74,6 @@ sliding = 0;
 //Makes Mario able to fly
 flying = 0;
 flyfix = 0;
-flighttime = 0;
 
 //Makes Mario able to crouch down
 crouch = 0;

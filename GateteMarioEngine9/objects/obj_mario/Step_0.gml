@@ -21,7 +21,7 @@ if (global.pwing == 1) {
 	pmeter = 112;
 	
 	//Keep flight time active
-	flighttime = 60 * global.flighttime;
+	timer(pmeter_end, 60 * global.flighttime, false);
 	
 	//If the 'P-Meter' sound is not playing, play it
 	if (!audio_is_playing(snd_pmeter)) {
@@ -121,4 +121,25 @@ if (enable_gravity == 1) {
 			event_user(6);
 		}
 	}
+	
+	//Make sure Mario is spinning when not having the propeller powerup
+	if (global.powerup != cs_propeller)
+	&& (jumpstyle == 2)
+		jumpstyle = 1;
+		
+	//Make sure Mario stops spinning when holding something
+	if ((holding > 0) && (holding < 4))
+	&& (jumpstyle > 0)
+		jumpstyle = 0;
+		
+	//Mute sounds when climbing or while swimming when having either frog or penguin powerups
+	if (state == 3)
+	|| ((state == 2) && (swimming == true) && ((global.powerup == cs_frog) || (global.powerup == cs_penguin)))
+		noisy = 1;
+	else
+		noisy = 0;
+		
+	#region COLLISIONS
+	
+	#endregion
 }
