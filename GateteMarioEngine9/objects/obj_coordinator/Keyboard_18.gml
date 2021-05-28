@@ -53,6 +53,9 @@ if (keyboard_check_pressed(ord("R"))) {
 		global.card[0] = -1;
 		global.card[1] = -1;
 		global.card[2] = -1;
+		
+		//P-Wing
+		global.pwing = 0;
 
 		//Berries
 		global.berries = 0;

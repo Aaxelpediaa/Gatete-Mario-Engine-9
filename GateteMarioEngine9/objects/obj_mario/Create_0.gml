@@ -72,7 +72,8 @@ sliding = 0;
 
 //Makes Mario able to fly
 flying = 0;
-//flyfix = 0; (Uncomment if required)
+flyfix = 0;
+flighttime = 0;
 
 //Makes Mario able to crouch down
 crouch = 0;
