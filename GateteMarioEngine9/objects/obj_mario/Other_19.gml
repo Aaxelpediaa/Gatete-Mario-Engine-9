@@ -1,4 +1,4 @@
-/// @description Timer actions
+/// @description Timer Actions
 
 //Make Mario vulnerable to all hazards
 become_vulnerable = function(_timer) {
