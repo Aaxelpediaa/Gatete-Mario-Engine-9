@@ -1,7 +1,6 @@
 /// @description Semisolid parent
 
-//Set coordinates
-x1 = 0;
-y1 = 0;
-x1 = sprite_width;
-y1 = sprite_height;
+slope_x1 = x + 0;
+slope_x2 = x + sprite_width;
+slope_y1 = y + 0;
+slope_y2 = y + 0;
