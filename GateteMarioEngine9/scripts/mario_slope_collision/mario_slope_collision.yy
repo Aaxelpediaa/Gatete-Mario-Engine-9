@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Main/Mario.yy",
   },
   "resourceVersion": "1.0",
-  "name": "index_powerups",
+  "name": "mario_slope_collision",
   "tags": [],
   "resourceType": "GMScript",
 }

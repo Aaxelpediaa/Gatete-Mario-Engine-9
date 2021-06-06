@@ -139,7 +139,6 @@ if (enable_gravity == 1) {
 	else
 		noisy = 0;
 		
-	#region COLLISIONS
-	
-	#endregion
+	//Manage semisolid collisions
+	mario_slope_collision();
 }
