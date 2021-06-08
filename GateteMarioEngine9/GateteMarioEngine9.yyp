@@ -73,6 +73,7 @@
     {"id":{"name":"spr_mario_raccoon_swim","path":"sprites/spr_mario_raccoon_swim/spr_mario_raccoon_swim.yy",},"order":6,},
     {"id":{"name":"scr_walrustimer","path":"scripts/scr_walrustimer/scr_walrustimer.yy",},"order":2,},
     {"id":{"name":"spr_mario_raccoon_carry_jump","path":"sprites/spr_mario_raccoon_carry_jump/spr_mario_raccoon_carry_jump.yy",},"order":8,},
+    {"id":{"name":"spr_mario_balloon","path":"sprites/spr_mario_balloon/spr_mario_balloon.yy",},"order":5,},
     {"id":{"name":"spr_mario_carrot_jump","path":"sprites/spr_mario_carrot_jump/spr_mario_carrot_jump.yy",},"order":1,},
     {"id":{"name":"spr_mario_small_goal","path":"sprites/spr_mario_small_goal/spr_mario_small_goal.yy",},"order":13,},
     {"id":{"name":"spr_mario_small_clear","path":"sprites/spr_mario_small_clear/spr_mario_small_clear.yy",},"order":14,},
@@ -433,7 +434,6 @@
     {"folderPath":"folders/Sprites/Masks/Player.yy","order":1,"resourceVersion":"1.0","name":"Player","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Scripts/Main/Mario.yy","order":1,"resourceVersion":"1.0","name":"Mario","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Mario/Main/Squirrel.yy","order":16,"resourceVersion":"1.0","name":"Squirrel","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Sprites/Mario/Main/Hare.yy","order":17,"resourceVersion":"1.0","name":"Hare","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Mario/Main/Ranger.yy","order":15,"resourceVersion":"1.0","name":"Ranger","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Mario/Main/Tanooki.yy","order":5,"resourceVersion":"1.0","name":"Tanooki","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Objetos/Main.yy","order":1,"resourceVersion":"1.0","name":"Main","tags":[],"resourceType":"GMFolder",},
@@ -449,6 +449,7 @@
     {"folderPath":"folders/Objetos/Main/Collision/Slopes/Semisolid.yy","order":2,"resourceVersion":"1.0","name":"Semisolid","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Scripts/Main/Mario/Behaviour.yy","order":1,"resourceVersion":"1.0","name":"Behaviour","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Scripts/Main/Mario/Animation.yy","order":0,"resourceVersion":"1.0","name":"Animation","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/Mario/Main/Mega.yy","order":18,"resourceVersion":"1.0","name":"Mega","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
