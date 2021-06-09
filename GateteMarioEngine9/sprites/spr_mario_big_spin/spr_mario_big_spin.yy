@@ -72,7 +72,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_mario_big_spin","path":"sprites/spr_mario_big_spin/spr_mario_big_spin.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "spr_mario_big_spin",
     "tags": [],
     "resourceType": "GMSequence",
   },

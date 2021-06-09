@@ -1,7 +1,7 @@
 /// @function index_powerups();
 function index_powerups() {
 
-	var powerup_count = 24;
+	var powerup_count = 23;
 
 	for (var i = 0; i < powerup_count; i ++) {
 		
@@ -29,6 +29,7 @@ function index_powerups() {
 		global.swim_sprite[i] =			asset_get_index("spr_mario_"+powerup_get_name(i)+"_swim");
 		global.walk_sprite[i] =			asset_get_index("spr_mario_"+powerup_get_name(i)+"_walk");
 		global.walljump_sprite[i] =		asset_get_index("spr_mario_"+powerup_get_name(i)+"_walljump");
+		global.float_sprite[i] =		asset_get_index("spr_mario_"+powerup_get_name(i)+"_float");
 		
 	}
 

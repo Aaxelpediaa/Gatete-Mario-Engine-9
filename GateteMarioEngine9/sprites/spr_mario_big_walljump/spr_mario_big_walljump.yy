@@ -60,7 +60,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_mario_big_walljump","path":"sprites/spr_mario_big_walljump/spr_mario_big_walljump.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "spr_mario_big_walljump",
     "tags": [],
     "resourceType": "GMSequence",
   },

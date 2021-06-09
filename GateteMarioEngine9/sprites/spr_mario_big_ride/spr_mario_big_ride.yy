@@ -64,7 +64,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_mario_big_ride","path":"sprites/spr_mario_big_ride/spr_mario_big_ride.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "spr_mario_big_ride",
     "tags": [],
     "resourceType": "GMSequence",
   },

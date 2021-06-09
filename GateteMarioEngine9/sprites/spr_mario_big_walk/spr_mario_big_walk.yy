@@ -68,7 +68,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_mario_big_walk","path":"sprites/spr_mario_big_walk/spr_mario_big_walk.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "spr_mario_big_walk",
     "tags": [],
     "resourceType": "GMSequence",
   },
