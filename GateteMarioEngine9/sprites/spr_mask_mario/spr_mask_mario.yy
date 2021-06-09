@@ -10,12 +10,12 @@
   "bbox_left": 0,
   "bbox_right": 9,
   "bbox_top": 0,
-  "bbox_bottom": 23,
+  "bbox_bottom": 12,
   "HTile": false,
   "VTile": false,
   "For3D": false,
   "width": 10,
-  "height": 24,
+  "height": 13,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"cac9c566-6e1e-43d6-af21-0069cd50c6d3","path":"sprites/spr_bigmask/spr_bigmask.yy",},"LayerId":null,"resourceVersion":"1.0","name":"imported","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"cac9c566-6e1e-43d6-af21-0069cd50c6d3","path":"sprites/spr_bigmask/spr_bigmask.yy",},"LayerId":{"name":"1268bc63-244a-4809-8319-92ae67a7b555","path":"sprites/spr_bigmask/spr_bigmask.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_bigmask","path":"sprites/spr_bigmask/spr_bigmask.yy",},"resourceVersion":"1.0","name":"cac9c566-6e1e-43d6-af21-0069cd50c6d3","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"4d0cc66d-9342-4f6f-9f56-cd9072efb310","path":"sprites/spr_mask_mario/spr_mask_mario.yy",},"LayerId":null,"resourceVersion":"1.0","name":"imported","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"4d0cc66d-9342-4f6f-9f56-cd9072efb310","path":"sprites/spr_mask_mario/spr_mask_mario.yy",},"LayerId":{"name":"37c9f927-7c21-4e17-941c-e59c6a83d929","path":"sprites/spr_mask_mario/spr_mask_mario.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_mask_mario","path":"sprites/spr_mask_mario/spr_mask_mario.yy",},"resourceVersion":"1.0","name":"4d0cc66d-9342-4f6f-9f56-cd9072efb310","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_bigmask","path":"sprites/spr_bigmask/spr_bigmask.yy",},
+    "spriteId": {"name":"spr_mask_mario","path":"sprites/spr_mask_mario/spr_mask_mario.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 1.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"da1a7487-611e-4a33-842f-5b8340f40121","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"cac9c566-6e1e-43d6-af21-0069cd50c6d3","path":"sprites/spr_bigmask/spr_bigmask.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f08fd3ca-5cff-4537-888e-149371785981","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4d0cc66d-9342-4f6f-9f56-cd9072efb310","path":"sprites/spr_mask_mario/spr_mask_mario.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -55,25 +55,25 @@
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
     "xorigin": 5,
-    "yorigin": 8,
+    "yorigin": -3,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_bigmask","path":"sprites/spr_bigmask/spr_bigmask.yy",},
+    "parent": {"name":"spr_mask_mario","path":"sprites/spr_mask_mario/spr_mask_mario.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "spr_mask_mario",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"1268bc63-244a-4809-8319-92ae67a7b555","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"37c9f927-7c21-4e17-941c-e59c6a83d929","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Player",
-    "path": "folders/Sprites/Masks/Player.yy",
+    "name": "Mario",
+    "path": "folders/Sprites/Masks/Mario.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_bigmask",
+  "name": "spr_mask_mario",
   "tags": [],
   "resourceType": "GMSprite",
 }
