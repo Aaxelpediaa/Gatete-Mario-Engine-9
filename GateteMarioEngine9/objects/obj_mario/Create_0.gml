@@ -143,11 +143,11 @@ _timer = 0;
 event_user(9);
 
 //Slope sensors
-slopesensor_x = 0;
-slopesensor_y1 = 8;
-slopesensor_y2 = 16;
-slopesensor_extendedcheck = 0;
-slopesensor_slopeid = noone;
+floorsensor_x = 0;
+floorsensor_y1 = 8;
+floorsensor_y2 = 16;
+floorsensor_extendedcheck = 0;
+floorsensor_floorid = noone;
 
 /*Create player markers
 instance_create_layer(0, 0, "Main", obj_marker_head);
