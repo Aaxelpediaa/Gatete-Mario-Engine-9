@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Semisolid",
-    "path": "folders/Objetos/Main/Collision/Slopes/Semisolid.yy",
+    "path": "folders/Objetos/Collision/Slopes/Semisolid.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_slope_ss_l",

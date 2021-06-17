@@ -32,3 +32,9 @@ pmeter_end = function() {
 	if (audio_is_playing(snd_pmeter))
 		audio_stop_sound(snd_pmeter);
 }
+
+//Throws projectiles
+throw_projectile = function() {
+
+	
+}

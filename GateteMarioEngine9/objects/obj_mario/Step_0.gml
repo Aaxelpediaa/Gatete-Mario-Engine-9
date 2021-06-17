@@ -23,11 +23,11 @@ if (global.pwing == 1) {
 	//Keep flight time active
 	timer(pmeter_end, 60 * global.flighttime, false);
 	
-	//If the 'P-Meter' sound is not playing, play it
+	/*If the 'P-Meter' sound is not playing, play it
 	if (!audio_is_playing(snd_pmeter)) {
 		
 		audio_play_sound(snd_pmeter, 0, true);
-	}
+	}*/
 	
 	//If the player is on the ground, do not apply fix
 	if (state != 2)
@@ -48,11 +48,6 @@ else {
 
 //If gravity is enabled
 if (enable_gravity == 1) {
-
-	//Reset hspeed, vspeed and gravity default variables as they are not used in this object
-	hspeed = 0;
-	vspeed = 0;
-	gravity = 0;
 	
 	//Update position based on xspeed and yspeed values
 	x += xspeed;
@@ -355,6 +350,284 @@ if (enable_gravity == 1) {
             run = false;
             if (pmeter > 0)
                 pmeter--;
+        }
+    }
+	
+	//If moving right and there's a wall in position
+	if (xspeed > 0)
+	&& (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, par_solid, 1, 0)) {
+		
+		//Check for a block
+		var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom, par_block, 0, 0);
+	
+		//If Mario is sliding
+		if (sliding == true) {
+		
+			//If the player has the shell powerup
+			if (global.mount == 0)
+			&& (global.powerup == cs_shell) {
+			
+				//Play 'Bump' sound
+				//audio_play_sound(snd_bump, 0, false);
+				
+				//Reverse horizontal speed
+				xspeed = -xspeed;
+				
+				//Create effect
+				instance_create_layer(x+5, y+8, "Front", obj_shellbump);
+				
+				//Bump block if there's one in position
+				if (block_r) {
+				
+					with (block_r) {
+						
+					}
+				}
+				
+				//Exit this event
+				exit;
+			}
+			
+			//Otherwise, stop sliding behaviour
+			else				
+				sliding = false;
+		}
+		
+		//Stop horizontal movement
+		xspeed = 0;
+		
+		//Prevent Mario from getting embed on the wall
+		while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, par_solid, 1, 0))
+		&& (!collision_point(x, bbox_top+4, par_solid, 0, 0))
+			x--;
+	}
+	
+	//Otherwise, if moving left
+	else if (xspeed < 0)
+	&& (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, par_solid, 1, 0)) {
+		
+		//Check for a block
+		var block_l = collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom, par_block, 0, 0);
+	
+		//If Mario is sliding
+		if (sliding == true) {
+		
+			//If the player has the shell powerup
+			if (global.mount == 0)
+			&& (global.powerup == cs_shell) {
+			
+				//Play 'Bump' sound
+				//audio_play_sound(snd_bump, 0, false);
+				
+				//Reverse horizontal speed
+				xspeed = -xspeed;
+				
+				//Create effect
+				instance_create_layer(x-5, y+8, "Front", obj_shellbump);
+				
+				//Bump block if there's one in position
+				if (block_l) {
+				
+					with (block_l) {
+						
+					}
+				}
+				
+				//Exit this event
+				exit;
+			}
+			
+			//Otherwise, stop sliding behaviour
+			else				
+				sliding = false;
+		}
+		
+		//Stop horizontal movement
+		xspeed = 0;
+		
+		//Prevent Mario from getting embed on the wall
+		while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, par_solid, 1, 0))
+		&& (!collision_point(x, bbox_top+4, par_solid, 0, 0))
+			x++;
+	}
+	
+	//If moving upwards
+	if (yspeed < 0) 
+	&& (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, par_solid, 1, 0)) {
+		
+		//Check for a block above
+		var block_u = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top, par_block, 0, 0);
+	
+		//Prevent the player from getting stuck on a ceiling when jumping/climbing
+		if (state > 1) {
+			
+			while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, par_solid, 1, 0))
+				y++;
+		}
+		
+		//Stop vertical movement
+		yspeed = 0;
+		
+		//If there's a bumpable block above
+		if (block_u) {
+		
+			with (block_u) {
+				
+			}
+		}
+		
+		//If the player does not have the frog/penguin powerups and it's not climbing
+		if (state < 3)
+		&& (noisy == false) {
+		
+			//Max out bee powerup flight timer
+			if (global.powerup == cs_bee) {
+			
+				beefly = 128;
+			}
+			
+			//Stop variable jump
+			jumping = 2;
+			
+			/*Play 'Bump' sound
+			if (!audio_is_playing(snd_bump))
+				audio_play_sound(snd_bump, 0, 0); */
+		}
+	}
+	
+	//Prevent the player from overlappin' the ceiling
+	if (state > 1) {
+	
+		while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, par_solid, 1, 0))
+			y++;
+	}
+	
+	//If the player is not climbing
+	if (state != 3) {
+	
+		//If the player controls are enabled and it's not jumping
+		if (state != 2)
+		&& (sliding == false)
+		&& (enable_control == true) {
+		
+			//Make the player crouch down when the 'Down' key is held
+			if (input_check(input.down))
+			&& (global.powerup != cs_frog)
+			&& (crouch == false)
+			&& (noisy == false)
+				crouch = true;
+				
+			//Otherwise, if the 'Down' key is no longer pressed
+			else if (!input_check(input.down))
+				crouch = false;
+		}
+		
+		//Handles powerup specific projectiles, tail spin, cat scratching, etc...
+		if (input_check_pressed(input.action_1))
+		&& (obj_levelcontrol.barrier == false)
+		&& (enable_control == true)
+			timer(throw_projectile, 1, false);
+	}
+
+	//Otherwise, cancel crouch and spin jump
+    else {
+    
+        //Make the player get up
+        crouch = false;
+        
+        //Stop special jump
+        jumpstyle = 0;
+    }
+	
+	//If the player gets stuck in a wall
+	if (yspeed == 0)
+	&& (crouch == false)
+	&& (mask_index == spr_bigmask) {
+	
+        //If the player gets stuck
+        if (collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_top+4, par_solid, 1, 0)) 
+        && (inwall == 0) {
+        
+            //If the direction was not set
+            if (direct2 == 0) {
+            
+                //Set it up
+                direct2 = xscale;
+            }
+            
+            //Begin movement
+            inwall = 1;
+            
+            //Set the movement direction
+            direct = -direct2;
+        }
+        
+        //Otherwise, if the player gets stuck on a wall.
+        else if (inwall == 1) {
+            
+            //Move the player until it's not embed in a wall.
+            x += 1*sign(direct);       
+            
+            //If the player is not longer embed on a wall, make him able to move.
+            if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, par_solid, 1, 0)) {
+            
+                inwall = 0;
+                direct2 = 0;
+            }
+            
+            //If the player collides with a wall while being stuck
+            if ((direct == -1) && (collision_line(bbox_left, y+4, bbox_left, bbox_bottom-4, par_solid, 1, 0)))
+            || ((direct == 1) && (collision_line(bbox_right, y+4, bbox_right, bbox_bottom-4, par_solid, 1, 0)))
+                direct = -direct;
+        }		
+	}
+	
+    /*Unstuck in case of overlapping a solid completely
+    if (state < 2)
+    && (inwall == 0) {
+    
+        //If overlapping
+        while (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_mblock, 0, 0))
+        || (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_propellerblock, 0, 0))
+            y--;
+    }*/
+        
+    //Handle tail whip animation
+    if ((state == 2) && (wiggle > 0))
+        wiggle--;
+    else
+        wiggle = 0;
+    
+    //If the player is not in contact with water.
+    if (!collision_rectangle(bbox_left, y, bbox_right, bbox_bottom, obj_swim, 0, 0)) {
+    
+        //If the player is swimming.
+        if (swimming)  
+            swimming = false;
+    }
+    
+    //Prevent the player from going too high on the level
+    if (y < -96)
+        y = -96;
+        
+    //Otherwise, if he is falling.
+    else {
+    
+        //If the player is below the bottom room boundary and didn't activate a warp, restart the room.
+        if (bbox_bottom > room_height+32) {
+                    
+            if (pitwarp == false) {
+            
+                instance_create_layer(x, y, "Front", obj_mario_dead);
+                instance_destroy();
+                exit;  
+            }
+            
+            else {
+            
+                //Force the player to fall.
+                yspeed = 4;
+            }       
         }
     }
 }

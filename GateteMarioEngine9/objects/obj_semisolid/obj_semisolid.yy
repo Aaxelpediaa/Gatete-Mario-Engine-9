@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Collision",
-    "path": "folders/Objetos/Main/Collision.yy",
+    "path": "folders/Objetos/Collision.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_semisolid",

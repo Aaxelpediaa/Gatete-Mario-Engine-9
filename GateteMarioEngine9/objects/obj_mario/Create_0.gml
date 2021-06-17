@@ -142,7 +142,7 @@ pitwarp = false;
 _timer = 0;
 event_user(9);
 
-//Slope sensors
+//Floor sensors
 floorsensor_x = 0;
 floorsensor_y1 = 8;
 floorsensor_y2 = 16;

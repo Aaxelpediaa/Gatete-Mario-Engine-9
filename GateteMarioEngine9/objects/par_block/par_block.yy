@@ -1,16 +1,10 @@
 {
-  "spriteId": {
-    "name": "spr_slope_ss_r",
-    "path": "sprites/spr_slope_ss_r/spr_slope_ss_r.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "par_semisolid",
-    "path": "objects/par_semisolid/par_semisolid.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -27,11 +21,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Semisolid",
-    "path": "folders/Objetos/Collision/Slopes/Semisolid.yy",
+    "name": "Parents",
+    "path": "folders/Objetos/Special/Parents.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_slope_ss_r",
+  "name": "par_block",
   "tags": [],
   "resourceType": "GMObject",
 }

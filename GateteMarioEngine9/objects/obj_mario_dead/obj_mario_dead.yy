@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "spr_slope_ss_r",
-    "path": "sprites/spr_slope_ss_r/spr_slope_ss_r.yy",
+    "name": "spr_mario_dead",
+    "path": "sprites/spr_mario_dead/spr_mario_dead.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "par_semisolid",
-    "path": "objects/par_semisolid/par_semisolid.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -27,11 +24,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Semisolid",
-    "path": "folders/Objetos/Collision/Slopes/Semisolid.yy",
+    "name": "Mario",
+    "path": "folders/Objetos/Special/Do Not Use!/Mario.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_slope_ss_r",
+  "name": "obj_mario_dead",
   "tags": [],
   "resourceType": "GMObject",
 }
