@@ -4,11 +4,8 @@
 if (yspeed >= 0) {
 
     //Manage position in a slope
-    if (collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, par_semisolid, 0, 0)) {
-    
-        //Begin walking across any surface
-        mario_floor_collision()
-    }
+    if (collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, par_semisolid, 1, 0))
+        mario_floor_collision();
 }
 
 //If active, manage P-Wing
@@ -147,7 +144,7 @@ if (enable_gravity == 1) {
 		noisy = 0;
 
 	//Check for any nearby ground collision
-	var ground = collision_rectangle(x, bbox_bottom, x, bbox_bottom+yspeed, par_semisolid, 0, 0);
+	var ground = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+yspeed, par_semisolid, 1, 0);
 	
 	//If there's ground below and Mario is not moving upwards
 	if (ground) 
