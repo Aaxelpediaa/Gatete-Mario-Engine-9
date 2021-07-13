@@ -25,7 +25,7 @@ function mario_floor_collision() {
 	    && ((obj_mario.y + obj_mario.floorsensor_y2 + obj_mario.floorsensor_extendedcheck) >= mariopointinfloor_y) //If the bottom of obj_mario's checking line (floorsensor_y2) is lower than "mariopointinfloor_y".
 	    && (obj_mario.y + obj_mario.floorsensor_y1) <= mariopointinfloor_y //If the top of obj_mario's checking line (floorsensor_y1) is higher than "mariopointinfloor_y".
     
-	    && obj_mario._ysp >= 0 //Will only check for floors when the player's vspeed is equal or higher than 0.
+	    && obj_mario.yspeed >= 0 //Will only check for floors when the player's vspeed is equal or higher than 0.
 	        obj_mario.floorsensor_floorid = id; //The ID of the floor found by obj_mario's checking line will be stored in "floorsensor_floorid".
 	}
 

@@ -6,9 +6,8 @@ if (yspeed >= 0) {
     //Manage position in a slope
     if (collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, par_semisolid, 0, 0)) {
     
-        //manage slope
-        with (par_semisolid) 
-            floor_collision();
+        //Begin walking across any surface
+        mario_floor_collision()
     }
 }
 

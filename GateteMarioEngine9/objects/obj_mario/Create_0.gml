@@ -79,6 +79,9 @@ swimming = 0;
 //Makes Mario able to butt-slide slopes
 sliding = 0;
 
+//Is Mario running?
+run = false;
+
 //Makes Mario able to fly
 flying = 0;
 flyfix = 0;
