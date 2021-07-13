@@ -1,15 +1,5 @@
-///input_check_released(enum);
-
-/*
-**  Usage:
-**      input_check_released(enum);
-**
-**  Given:
-**      enum = The key enum (Check obj_coordinator for a full list)
-**
-**  Purpose:
-**      Check if the given input is being released and return the result
-*/
+/// @function input_check_released(enum);
+/// @param {_enum} The key enum to check
 
 function input_check_released(_enum) {
 

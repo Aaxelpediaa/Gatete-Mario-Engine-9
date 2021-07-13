@@ -1,15 +1,5 @@
-///input_check(enum);
-
-/*
-**  Usage:
-**      input_check(enum);
-**
-**  Given:
-**      enum = The key enum (Check obj_coordinator for a full list)
-**
-**  Purpose:
-**      Check if the given input is being held down and return the result
-*/
+/// @function input_check(enum);
+/// @param {_enum} The key enum to check
 
 function input_check(_enum) {
 

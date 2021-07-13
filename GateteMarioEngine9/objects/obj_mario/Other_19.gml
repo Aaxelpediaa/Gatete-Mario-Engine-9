@@ -33,6 +33,12 @@ pmeter_end = function() {
 		audio_stop_sound(snd_pmeter);
 }
 
+//End turning
+turning_end = function() {
+
+	turning = 0;
+}
+
 //Throws projectiles
 throw_projectile = function() {
 

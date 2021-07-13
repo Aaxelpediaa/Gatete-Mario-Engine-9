@@ -1,15 +1,5 @@
-///input_check_pressed(enum);
-
-/*
-**  Usage:
-**      input_check_pressed(enum);
-**
-**  Given:
-**      enum = The key enum (Check obj_coordinator for a full list)
-**
-**  Purpose:
-**      Check if the given input is being pressed and return the result
-*/
+/// @function input_check_pressed(enum);
+/// @param {_enum} The key enum to check
 
 function input_check_pressed(_enum) {
 

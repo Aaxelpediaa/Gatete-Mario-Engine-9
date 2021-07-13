@@ -87,8 +87,8 @@ if (enable_gravity == 1) {
 		//If the freeze status is about to end
 		if (freezetime == 1) {
 		
-			//Play 'Shatter' sound
-			//audio_stop_play_sound(snd_shatter, 0, false);
+			/*Play 'Shatter' sound
+			audio_stop_play_sound(snd_shatter, 0, false);
 			
 			//Repeat 32 times
 			repeat (32) {
@@ -104,7 +104,8 @@ if (enable_gravity == 1) {
 					//Motion
 					motion_set(random(360), random(1));
 				}
-			}
+			
+			*/
 			
 			//Stop freeze status
 			freezetime = 0;
@@ -262,7 +263,7 @@ if (enable_gravity == 1) {
                             run = false;
                             
                             //Restart flying.
-                            alarm[9] = 0;
+                            //
                             
                             //Empty P-Meter.
                             if (pmeter > 0)       

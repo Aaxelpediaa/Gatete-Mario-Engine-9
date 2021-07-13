@@ -1,7 +1,7 @@
 /// @description It's a me, Mario!
 
 //Enable / disable gravity
-enable_gravity = false;
+enable_gravity = true;
 
 //Enable / disable control
 enable_control = true;
@@ -16,7 +16,7 @@ invulnerable = 0;
 xspeed = 0;
 yspeed = 0;
 xadd = 0;
-yadd = 0;
+yadd = 0.3625;
 
 //Handle Mario's current state
 //0: Idle
@@ -30,6 +30,11 @@ statedelay = 0;
 //1: Right
 //-1: Left
 xscale = 1;
+
+//Handle Mario's vertical scale
+//1: Normal
+//-1: Ceiling
+yscale = 1;
 
 //Handle Mario's direction when stuck in a wall
 //1: Right
