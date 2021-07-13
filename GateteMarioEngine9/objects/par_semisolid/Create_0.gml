@@ -1,5 +1,6 @@
 /// @description Semisolid parent
 
+isslope = false;
 floor_x1 = x + 0;
 floor_x2 = x + sprite_width;
 floor_y1 = y + 0;

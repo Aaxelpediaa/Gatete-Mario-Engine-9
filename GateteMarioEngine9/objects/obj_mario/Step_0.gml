@@ -4,7 +4,9 @@
 if (yspeed >= 0) {
 
     //Manage position in a slope
-    if (collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, par_semisolid, 1, 0))
+	var check = collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, par_semisolid, 0, 0);
+	if (check)
+	&& (check.isslope == true)
         mario_floor_collision();
 }
 
@@ -144,11 +146,18 @@ if (enable_gravity == 1) {
 		noisy = 0;
 
 	//Check for any nearby ground collision
-	var ground = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+yspeed, par_semisolid, 1, 0);
+	var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+yspeed, par_semisolid, 0, 0);
 	
 	//If there's ground below and Mario is not moving upwards
-	if (ground) 
-	&& (yspeed > 0) { 
+	if (yspeed >= 0)
+	&& (semisolid)  
+	&& (bbox_bottom < semisolid.yprevious+5) {
+		
+		//Snap above the semisolid if it is not sloped
+		if (semisolid.isslope == false) {
+			
+			y = semisolid.bbox_top-16;
+		}
 	
 		//Stop vertical movement
 		yadd = 0;
