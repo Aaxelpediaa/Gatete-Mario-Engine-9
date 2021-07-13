@@ -1,5 +1,17 @@
 /// @description Mario's logic!
 
+//If moving down
+if (yspeed >= 0) {
+
+    //Manage position in a slope
+    if (collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, par_semisolid, 0, 0)) {
+    
+        //manage slope
+        with (par_semisolid) 
+            floor_collision();
+    }
+}
+
 //If active, manage P-Wing
 if (global.pwing == 1) {
 
@@ -134,9 +146,21 @@ if (enable_gravity == 1) {
 		noisy = 1;
 	else
 		noisy = 0;
+
+	//Check for any nearby ground collision
+	var ground = collision_rectangle(x, bbox_bottom, x, bbox_bottom+yspeed, par_semisolid, 0, 0);
+	
+	//If there's ground below and Mario is not moving upwards
+	if (ground) 
+	&& (yspeed > 0) { 
+	
+		//Stop vertical movement
+		yadd = 0;
+		yspeed = 0;
 		
-	//Manage semisolid collisions
-	floor_collision();
+		//Reset values
+		event_user(15);
+	}
 	
 	//Conveyor collisions
 	//conveyor_collision();
@@ -523,11 +547,12 @@ if (enable_gravity == 1) {
 				crouch = false;
 		}
 		
-		//Handles powerup specific projectiles, tail spin, cat scratching, etc...
+		/*Handles powerup specific projectiles, tail spin, cat scratching, etc...
 		if (input_check_pressed(input.action_1))
 		&& (obj_levelcontrol.barrier == false)
 		&& (enable_control == true)
 			timer(throw_projectile, 1, false);
+		*/
 	}
 
 	//Otherwise, cancel crouch and spin jump
@@ -543,7 +568,7 @@ if (enable_gravity == 1) {
 	//If the player gets stuck in a wall
 	if (yspeed == 0)
 	&& (crouch == false)
-	&& (mask_index == spr_bigmask) {
+	&& (mask_index == spr_mask_mario_big) {
 	
         //If the player gets stuck
         if (collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_top+4, par_solid, 1, 0)) 

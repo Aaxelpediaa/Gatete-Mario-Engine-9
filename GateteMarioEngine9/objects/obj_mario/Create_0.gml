@@ -61,6 +61,9 @@ jumping = 0;
 //1: Spin Jump
 jumpstyle = 0;
 
+//Checks for slippery surfaces
+isslip = 0;
+
 //Plays a sound when Mario is climbing or swimming with the frog suit
 noisy = 0;
 
@@ -109,6 +112,7 @@ wiggle = 0;
 dir = 1;
 
 //Makes Mario able to jump in walls
+wallkick = 0;
 walljump = 0;
 
 //Carrot / Bee powerup flight variables

@@ -1,4 +1,4 @@
-function mario_floor_collision(){
+function mario_floor_collision() {
 
 	floorsensor_floorid = noone;
 

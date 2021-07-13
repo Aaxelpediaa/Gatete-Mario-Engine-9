@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "spr_slope_ss_r",
-    "path": "sprites/spr_slope_ss_r/spr_slope_ss_r.yy",
+    "name": "spr_square_d",
+    "path": "sprites/spr_square_d/spr_square_d.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "par_semisolid",
-    "path": "objects/par_semisolid/par_semisolid.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -23,17 +20,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Semisolid",
-    "path": "folders/Objetos/Collision/Slopes/Semisolid.yy",
+    "name": "Collision",
+    "path": "folders/Objetos/Collision.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_slope_ss_r",
+  "name": "obj_swim",
   "tags": [],
   "resourceType": "GMObject",
 }

@@ -111,7 +111,7 @@ if (inwall == 0)
     //Allow propeller the player to do his special jump
     || ((global.powerup == cs_propeller)
     && (keyboard_check(input.up)) 
-    && (!stompstyle) 
+    && (!jumpstyle) 
     && (!crouch) 
     && (holding == 0))
     
@@ -142,12 +142,12 @@ if (inwall == 0)
                     xspeed = 1*(xscale*-1);
                 
                     //Set spin jump variable
-                    stompstyle = true;        
+                    jumpstyle = true;        
                 }
                 else {
                 
                     //Do not set spin jump
-                    stompstyle = false;
+                    jumpstyle = false;
                 
                     //Play 'Jump' sound
                     //audio_play_sound(snd_jump, 0, false);
@@ -167,12 +167,12 @@ if (inwall == 0)
                     xspeed = 1*(xscale*-1);
                 
                     //Set spin jump variable
-                    stompstyle = true;        
+                    jumpstyle = true;        
                 }
                 else {
                 
                     //Do not set spin jump
-                    stompstyle = false;
+                    jumpstyle = false;
                 
                     //Play 'Jump' sound
                     //audio_play_sound(snd_jump, 0, false);
@@ -182,7 +182,7 @@ if (inwall == 0)
             else {
             
                 //Set spin jump variable
-                stompstyle = true;
+                jumpstyle = true;
 
                 //Play spin jump sound
                 //audio_play_sound(snd_spin, 0, false);
@@ -193,7 +193,7 @@ if (inwall == 0)
         else {
                 
             //Do not set spin jump
-            stompstyle = false;
+            jumpstyle = false;
         
             //Play 'Jump' sound
             //audio_play_sound(snd_jump, 0, false);
@@ -483,7 +483,7 @@ if ((state == 2) || (statedelay != 0)) {
     if (global.powerup == cs_propeller) {
 
         //If the player is spin jumping normally
-        if ((stompstyle != 0) && (global.mount == 0)) {
+        if ((jumpstyle != 0) && (global.mount == 0)) {
            
             //Lower the gravity
             yadd = 0.162;
@@ -491,8 +491,8 @@ if ((state == 2) || (statedelay != 0)) {
             //Allow the player to charge downwards
             if ((input_check(input.down)) && (yspeed > 0)) {
             
-                //Do stompstyle
-                stompstyle = 1;
+                //Do jumpstyle
+                jumpstyle = 1;
                 
                 //Stop horizontal movement
                 xspeed = 0
@@ -503,8 +503,8 @@ if ((state == 2) || (statedelay != 0)) {
             }
             else {
             
-                //Keep stompstyle
-                stompstyle = 2;
+                //Keep jumpstyle
+                jumpstyle = 2;
             
                 //Cap vertical speed
                 if (yspeed > 1)
@@ -604,7 +604,7 @@ if (input_check(input.down))
 
 //If the player is jumping, not ducking, not spin jumping, can control himself, is not riding anything and it's not holding a propeller block
 if (state == 2)
-&& (stompstyle == 0)
+&& (jumpstyle == 0)
 && (enable_control == 1) {
 
     /*If a propeller block is being held, do not use powerups
