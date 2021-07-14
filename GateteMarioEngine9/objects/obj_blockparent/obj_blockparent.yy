@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_square",
-    "path": "sprites/spr_square/spr_square.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -24,11 +21,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Collision Parents",
-    "path": "folders/Objetos/Special/Parents/Collision Parents.yy",
+    "name": "Parents",
+    "path": "folders/Objetos/Special/Parents.yy",
   },
   "resourceVersion": "1.0",
-  "name": "par_solid",
+  "name": "obj_blockparent",
   "tags": [],
   "resourceType": "GMObject",
 }

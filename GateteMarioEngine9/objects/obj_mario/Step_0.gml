@@ -1,13 +1,30 @@
 /// @description Mario's logic!
 
-//If moving down
-if (yspeed >= 0) {
-
-    //Manage position in a slope
-	var check = collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, par_semisolid, 0, 0);
-	if (check)
-	&& (check.isslope == true)
-        mario_floor_collision();
+//Handle position when on a slope
+if (yspeed >= -0.85) {
+	
+	//If there's a slope collision in-position
+	if (collision_rectangle(x-1, bbox_bottom-3, x+1, bbox_bottom+4, obj_slopeparent, 1, 0)) {
+		
+		//Calculate slope position
+		slope_collision();
+		
+		//Stop vertical movement
+		yadd = 0;
+		yspeed = 0;
+			
+		//Reset values
+		event_user(15);
+			
+		//Reset state delay
+		statedelay = 0;	
+			
+		//Set up the appropiate state
+		if (xspeed != 0)
+			state = 1;
+		else
+			state = 0;
+	}
 }
 
 //If active, manage P-Wing
@@ -144,27 +161,29 @@ if (enable_gravity == 1) {
 		noisy = 1;
 	else
 		noisy = 0;
+		
+	//If moving down
+	if (yspeed >= 0) {
 
-	//Check for any nearby ground collision
-	var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+yspeed, par_semisolid, 0, 0);
+		//Check for any nearby ground collision
+		var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+yspeed, obj_semisolid, 0, 0);
 	
-	//If there's ground below and Mario is not moving upwards
-	if (yspeed >= 0)
-	&& (semisolid)  
-	&& (bbox_bottom < semisolid.yprevious+5) {
+		//If there's ground below and Mario is not moving upwards
+		if (semisolid)
+		&& (bbox_bottom < semisolid.yprevious+5)
+		&& (!collision_rectangle(x, bbox_bottom+1, x, bbox_bottom+4, obj_slopeparent, 1, 0))
+		&& (!collision_rectangle(bbox_left, bbox_bottom, bbox_right, semisolid.y-1, obj_solid, 1, 0)) {
 		
-		//Snap above the semisolid if it is not sloped
-		if (semisolid.isslope == false) {
-			
+			//Snap above the semisolid
 			y = semisolid.bbox_top-16;
-		}
 	
-		//Stop vertical movement
-		yadd = 0;
-		yspeed = 0;
+			//Stop vertical movement
+			yadd = 0;
+			yspeed = 0;
 		
-		//Reset values
-		event_user(15);
+			//Reset values
+			event_user(15);
+		}
 	}
 	
 	//Conveyor collisions
@@ -385,10 +404,10 @@ if (enable_gravity == 1) {
 	
 	//If moving right and there's a wall in position
 	if (xspeed > 0)
-	&& (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, par_solid, 1, 0)) {
+	&& (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, obj_solid, 1, 0)) {
 		
 		//Check for a block
-		var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom, par_block, 0, 0);
+		var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom, obj_blockparent, 0, 0);
 	
 		//If Mario is sliding
 		if (sliding == true) {
@@ -427,17 +446,17 @@ if (enable_gravity == 1) {
 		xspeed = 0;
 		
 		//Prevent Mario from getting embed on the wall
-		while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, par_solid, 1, 0))
-		&& (!collision_point(x, bbox_top+4, par_solid, 0, 0))
+		while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
+		&& (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
 			x--;
 	}
 	
 	//Otherwise, if moving left
 	else if (xspeed < 0)
-	&& (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, par_solid, 1, 0)) {
+	&& (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0)) {
 		
 		//Check for a block
-		var block_l = collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom, par_block, 0, 0);
+		var block_l = collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom, obj_blockparent, 0, 0);
 	
 		//If Mario is sliding
 		if (sliding == true) {
@@ -476,22 +495,22 @@ if (enable_gravity == 1) {
 		xspeed = 0;
 		
 		//Prevent Mario from getting embed on the wall
-		while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, par_solid, 1, 0))
-		&& (!collision_point(x, bbox_top+4, par_solid, 0, 0))
+		while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
+		&& (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
 			x++;
 	}
 	
 	//If moving upwards
 	if (yspeed < 0) 
-	&& (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, par_solid, 1, 0)) {
+	&& (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) {
 		
 		//Check for a block above
-		var block_u = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top, par_block, 0, 0);
+		var block_u = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top, obj_blockparent, 0, 0);
 	
 		//Prevent the player from getting stuck on a ceiling when jumping/climbing
 		if (state > 1) {
 			
-			while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, par_solid, 1, 0))
+			while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
 				y++;
 		}
 		
@@ -528,7 +547,7 @@ if (enable_gravity == 1) {
 	//Prevent the player from overlappin' the ceiling
 	if (state > 1) {
 	
-		while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, par_solid, 1, 0))
+		while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
 			y++;
 	}
 	
@@ -576,7 +595,7 @@ if (enable_gravity == 1) {
 	&& (mask_index == spr_mask_mario_big) {
 	
         //If the player gets stuck
-        if (collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_top+4, par_solid, 1, 0)) 
+        if (collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_top+4, obj_solid, 1, 0)) 
         && (inwall == 0) {
         
             //If the direction was not set
@@ -600,15 +619,15 @@ if (enable_gravity == 1) {
             x += 1*sign(direct);       
             
             //If the player is not longer embed on a wall, make him able to move.
-            if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, par_solid, 1, 0)) {
+            if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_solid, 1, 0)) {
             
                 inwall = 0;
                 direct2 = 0;
             }
             
             //If the player collides with a wall while being stuck
-            if ((direct == -1) && (collision_line(bbox_left, y+4, bbox_left, bbox_bottom-4, par_solid, 1, 0)))
-            || ((direct == 1) && (collision_line(bbox_right, y+4, bbox_right, bbox_bottom-4, par_solid, 1, 0)))
+            if ((direct == -1) && (collision_line(bbox_left, y+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0)))
+            || ((direct == 1) && (collision_line(bbox_right, y+4, bbox_right, bbox_bottom-4, obj_solid, 1, 0)))
                 direct = -direct;
         }		
 	}

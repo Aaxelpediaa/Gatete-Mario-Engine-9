@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Main/Mario.yy",
   },
   "resourceVersion": "1.0",
-  "name": "floor_collision",
+  "name": "slope_collision",
   "tags": [],
   "resourceType": "GMScript",
 }

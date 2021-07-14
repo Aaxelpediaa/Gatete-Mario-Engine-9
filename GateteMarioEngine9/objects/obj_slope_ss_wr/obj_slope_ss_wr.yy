@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "par_semisolid",
-    "path": "objects/par_semisolid/par_semisolid.yy",
+    "name": "obj_slopeparent",
+    "path": "objects/obj_slopeparent/obj_slopeparent.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

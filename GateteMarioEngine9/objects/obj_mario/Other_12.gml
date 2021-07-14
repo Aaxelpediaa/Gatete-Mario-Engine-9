@@ -1,8 +1,8 @@
 /// @description Mario's main behaviour script
 
-//Figure out Mario's state
+//Check if there's a collision below and if Mario is on the ground
 if (yadd == 0)
-&& (collision_rectangle(x, bbox_bottom, x, bbox_bottom+1, par_semisolid, 0, 0)) {
+&& (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0)) {
 
 	//If the player is flying and moving upwards...
 	if ((flying) && (yspeed < 0))
@@ -565,23 +565,24 @@ if (input_check(input.down))
 
     //If the player does have the penguin suit
     if ((global.powerup == cs_shell)
-    || ((global.powerup == cs_penguin) && (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_slippery, 1, 0))))
+    || ((global.powerup == cs_penguin) && (isslip == false)))
     && (global.mount == 0)
     && (state == 1)
     && (!sliding)
-    && ((holding == 0) || (holding == 4)) {
+    && ((holding == 0) || (holding == 4)) 
+	&& (collision_rectangle(x, bbox_bottom+1, x, bbox_bottom+2, obj_slopeparent, 1, 0)) {
     
         //Start sliding
         sliding = true;
         
         //Boost slide if overlapping a semisolid
-        if (place_meeting(x, bbox_bottom+1, par_semisolid))
+        if (place_meeting(x, bbox_bottom+1, obj_semisolid))
         && (xspeed == 0)
             xspeed = 0.05*sign(xscale);     
     }
 
     //If the player is on a slope, and the above didn't happen, slide normally
-    else if (collision_rectangle(x-1, bbox_bottom+1, x+1, bbox_bottom+2, obj_slopeparent, 1, 0))
+    else if (collision_rectangle(x, bbox_bottom+1, x, bbox_bottom+2, obj_slopeparent, 1, 0))
     && (global.powerup != cs_frog) {
             
         //If the player can slide and it's not holding anything.
@@ -591,7 +592,7 @@ if (input_check(input.down))
             sliding = true;
             
             //Boost slide if overlapping a semisolid
-            if (place_meeting(x,bbox_bottom+1,obj_semisolid))
+            if (place_meeting(x, bbox_bottom+1, obj_semisolid))
                 xspeed = 0.05*sign(xscale);        
         }
                 
@@ -688,7 +689,7 @@ if (state == 2)
 
             //Bee Mario flies upwards if the ceiling is not above him
             if (global.powerup == cs_bee)
-            && (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, par_solid, 0, 0)) {
+            && (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 0, 0)) {
 
                 //Fly upwards
                 yspeed = -1;
