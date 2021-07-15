@@ -55,7 +55,7 @@
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
     "xorigin": 3,
-    "yorigin": -6,
+    "yorigin": -9,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_mask_mario_tiny","path":"sprites/spr_mask_mario_tiny/spr_mask_mario_tiny.yy",},

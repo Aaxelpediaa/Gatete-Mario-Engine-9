@@ -1,10 +1,16 @@
 /// @description Mario's logic!
 
+var tiny_fix;
+if (global.powerup == cs_tiny)
+	tiny_fix = 1;
+else
+	tiny_fix = -3;
+
 //Handle position when on a slope
 if (yspeed >= -0.85) {
 	
 	//If there's a slope collision in-position
-	if (collision_rectangle(x-1, bbox_bottom-3, x+1, bbox_bottom+4, obj_slopeparent, 1, 0)) {
+	if (collision_rectangle(x-1, bbox_bottom+tiny_fix, x+1, bbox_bottom+4-tiny_fix, obj_slopeparent, 1, 0)) {
 		
 		//Calculate slope position
 		slope_collision();
@@ -404,7 +410,7 @@ if (enable_gravity == 1) {
 	
 	//If moving right and there's a wall in position
 	if (xspeed > 0)
-	&& (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, obj_solid, 1, 0)) {
+	&& (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-1, obj_solid, 1, 0)) {
 		
 		//Check for a block
 		var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom, obj_blockparent, 0, 0);
@@ -417,13 +423,13 @@ if (enable_gravity == 1) {
 			&& (global.powerup == cs_shell) {
 			
 				//Play 'Bump' sound
-				//audio_play_sound(snd_bump, 0, false);
+				audio_play_sound(snd_bump, 0, false);
 				
 				//Reverse horizontal speed
 				xspeed = -xspeed;
 				
 				//Create effect
-				instance_create_layer(x+5, y+8, "Front", obj_shellbump);
+				//instance_create_layer(x+5, y+8, "Front", obj_shellbump);
 				
 				//Bump block if there's one in position
 				if (block_r) {
@@ -453,7 +459,7 @@ if (enable_gravity == 1) {
 	
 	//Otherwise, if moving left
 	else if (xspeed < 0)
-	&& (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0)) {
+	&& (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0)) {
 		
 		//Check for a block
 		var block_l = collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom, obj_blockparent, 0, 0);
@@ -466,13 +472,13 @@ if (enable_gravity == 1) {
 			&& (global.powerup == cs_shell) {
 			
 				//Play 'Bump' sound
-				//audio_play_sound(snd_bump, 0, false);
+				audio_play_sound(snd_bump, 0, false);
 				
 				//Reverse horizontal speed
 				xspeed = -xspeed;
 				
 				//Create effect
-				instance_create_layer(x-5, y+8, "Front", obj_shellbump);
+				//instance_create_layer(x-5, y+8, "Front", obj_shellbump);
 				
 				//Bump block if there's one in position
 				if (block_l) {
@@ -538,18 +544,16 @@ if (enable_gravity == 1) {
 			//Stop variable jump
 			jumping = 2;
 			
-			/*Play 'Bump' sound
+			//Play 'Bump' sound
 			if (!audio_is_playing(snd_bump))
-				audio_play_sound(snd_bump, 0, 0); */
+				audio_play_sound(snd_bump, 0, false);
 		}
 	}
 	
 	//Prevent the player from overlappin' the ceiling
-	if (state > 1) {
-	
+	if (state > 1)	
 		while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
 			y++;
-	}
 	
 	//If the player is not climbing
 	if (state != 3) {
@@ -631,16 +635,6 @@ if (enable_gravity == 1) {
                 direct = -direct;
         }		
 	}
-	
-    /*Unstuck in case of overlapping a solid completely
-    if (state < 2)
-    && (inwall == 0) {
-    
-        //If overlapping
-        while (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_mblock, 0, 0))
-        || (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_propellerblock, 0, 0))
-            y--;
-    }*/
         
     //Handle tail whip animation
     if ((state == 2) && (wiggle > 0))

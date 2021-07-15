@@ -49,8 +49,16 @@ else {
 }
 
 //Prevent Mario from falling too fast
-if (yspeed > 4)
-	yspeed = 4;
+if (global.powerup == cs_tiny) {
+	
+	if (yspeed > 2.5)
+		yspeed = 2.5;
+}
+else {
+	
+	if (yspeed > 4)
+		yspeed = 4;	
+}
 	
 //Set up the player's maximum horizontal speed.
 if (!flying) { //If the player is not flying
@@ -73,8 +81,12 @@ if (!flying) { //If the player is not flying
                     xspeedmax = 2.6;                
             }
         }
+		
+		//If Mario does have the Tiny powerup
+		else if (global.powerup == cs_tiny)
+			xspeedmax = 2;
         
-        //Otherwise, if Mario does not have the frog powerup
+        //Otherwise, if Mario does not have the frog, tiny or mega powerup
         else {
             
             //If the P-Meter is filled up.
@@ -88,8 +100,13 @@ if (!flying) { //If the player is not flying
     }               
     
     //Otherwise, do not reduce speed until the player makes contact with the ground.  
-    else     
-        xspeedmax = 1.3;
+    else {
+		
+		if (global.powerup == cs_tiny)
+			xspeedmax = 1;
+		else
+			xspeedmax = 1.3;
+	}
 }
 
 //If controls are enabled and the player is not stuck in a wall
@@ -127,6 +144,8 @@ if (inwall == 0)
         //Make the player spin jump
         if ((input_check(input.up))
         && (!crouch)
+		&& (!global.powerup != cs_tiny)
+		&& (!global.powerup != cs_mega)
         && ((holding == 0) || (holding == 4))) {
         
             //If a kuribo shoe is being ridden, dismount from it.
@@ -136,7 +155,7 @@ if (inwall == 0)
                 if (state < 2) {
                     
                     //Play 'Spin' sound
-                    //audio_play_sound(snd_spin, 0, false);
+                    audio_play_sound(snd_spin, 0, false);
                     
                     //Set horizontal speed
                     xspeed = 1*(xscale*-1);
@@ -161,7 +180,7 @@ if (inwall == 0)
                 if (state < 2) {
                     
                     //Play 'Spin' sound
-                    //audio_play_sound(snd_spin, 0, false);
+                    audio_play_sound(snd_spin, 0, false);
                     
                     //Set horizontal speed
                     xspeed = 1*(xscale*-1);
@@ -175,7 +194,7 @@ if (inwall == 0)
                     jumpstyle = false;
                 
                     //Play 'Jump' sound
-                    //audio_play_sound(snd_jump, 0, false);
+                    audio_play_sound(snd_jump, 0, false);
                 }              
             }
             
@@ -185,7 +204,7 @@ if (inwall == 0)
                 jumpstyle = true;
 
                 //Play spin jump sound
-                //audio_play_sound(snd_spin, 0, false);
+                audio_play_sound(snd_spin, 0, false);
             }
         }
     
@@ -194,14 +213,23 @@ if (inwall == 0)
                 
             //Do not set spin jump
             jumpstyle = false;
-        
-            //Play 'Jump' sound
-            //audio_play_sound(snd_jump, 0, false);
+			
+			//Play sound based on powerup
+			switch (global.powerup) {
+				
+				//Mega Mario
+				case (cs_mega): audio_play_sound(snd_jump_big, 0, false); break;
+				
+				//Tiny Mario
+				case (cs_tiny): audio_play_sound(snd_jump_tiny, 0, false); break;
+				
+				//Default
+				default: audio_play_sound(snd_jump, 0, false); break;
+			}
             
             //If the player is doing a somersault
-            /*if (instance_exists(obj_invincibility))
-                somersault = 1;
-			*/
+            //if (instance_exists(obj_invincibility))
+                //somersault = 1;
         }
     
         //Switch to the jump state
@@ -215,8 +243,14 @@ if (inwall == 0)
             yspeed = -3.7675;
     
         //Jump depending of the horizontal speed.
-        else     
-            yspeed = -3.4675+abs(xspeed)/7.5*-1;   
+        else {
+			
+			if (jumpstyle == 0)
+			&& (global.powerup != cs_tiny)
+				yspeed = -3.4675+abs(xspeed)/7.5*-1;
+			else
+				yspeed = -2.7375+abs(xspeed)/7.5*-1;
+		}
     }
     
     //Check if the player should still be variable jumping
@@ -238,7 +272,7 @@ if (inwall == 0)
         }
         
         //If the player is not overlapping a wall
-        if (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_top+4, obj_solid, 0, 0))
+        if (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_top-1, obj_solid, 0, 0))
             xscale = 1;
         
         //Check up the player's horizontal speed
@@ -306,7 +340,7 @@ if (inwall == 0)
         }
         
         //If the player is not overlapping a wall
-        if (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_top+4, obj_solid, 0, 0))
+        if (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_top-1, obj_solid, 0, 0))
             xscale = -1;
         
         //Check up the player's horizontal speed.
@@ -463,21 +497,48 @@ if (state != 2) {
 
 //If the player is jumping
 if ((state == 2) || (statedelay != 0)) {
+	
+	//Switch between powerups
+	switch (global.powerup) {
     
-    //Variable jumping
-    if (yspeed < -2) && (jumping == 1)
-        yadd = 0.0625;
+		//Tiny Mario
+		case (cs_tiny): {
+			
+		    //Variable jumping
+		    if (yspeed < -2) && (jumping == 1)
+		        yadd = 0.03125;
     
-    //Otherwise, use default gravity.     
-    else {
+		    //Otherwise, use default gravity.     
+		    else {
         
-        //Use default gravity
-        yadd = 0.3625;
+		        //Use default gravity
+		        yadd = 0.18125;
                 
-        //End variable jumping if it never ends manually.
-        if (jumping = 1)
-            jumping = 2;
-    }
+		        //End variable jumping if it never ends manually.
+		        if (jumping = 1)
+		            jumping = 2;
+		    }			
+		} break;
+		
+		//Other powerups
+		default: {
+			
+		    //Variable jumping
+		    if (yspeed < -2) && (jumping == 1)
+		        yadd = 0.0625;
+    
+		    //Otherwise, use default gravity.     
+		    else {
+        
+		        //Use default gravity
+		        yadd = 0.3625;
+                
+		        //End variable jumping if it never ends manually.
+		        if (jumping = 1)
+		            jumping = 2;
+		    }
+		}
+	}
     
     //Propeller player jumping
     if (global.powerup == cs_propeller) {
