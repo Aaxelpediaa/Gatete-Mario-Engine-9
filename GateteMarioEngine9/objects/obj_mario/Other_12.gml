@@ -2,7 +2,8 @@
 
 //Check if there's a collision below and if Mario is on the ground
 if (yadd == 0)
-&& (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0)) {
+&& (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0)) 
+|| (collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+3, obj_slopeparent, 1, 0)) {
 
 	//If the player is flying and moving upwards...
 	if ((flying) && (yspeed < 0))

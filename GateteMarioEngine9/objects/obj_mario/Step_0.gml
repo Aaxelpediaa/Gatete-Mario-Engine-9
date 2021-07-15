@@ -1,16 +1,10 @@
 /// @description Mario's logic!
 
-var tiny_fix;
-if (global.powerup == cs_tiny)
-	tiny_fix = 1;
-else
-	tiny_fix = -3;
-
 //Handle position when on a slope
-if (yspeed >= -0.85) {
+if (yspeed >= 0) {
 	
 	//If there's a slope collision in-position
-	if (collision_rectangle(x-1, bbox_bottom+tiny_fix, x+1, bbox_bottom+4-tiny_fix, obj_slopeparent, 1, 0)) {
+	if (collision_rectangle(x-1, bbox_bottom, x+1, bbox_bottom+4, obj_slopeparent, 1, 0)) {
 		
 		//Calculate slope position
 		slope_collision();
@@ -21,15 +15,6 @@ if (yspeed >= -0.85) {
 			
 		//Reset values
 		event_user(15);
-			
-		//Reset state delay
-		statedelay = 0;	
-			
-		//Set up the appropiate state
-		if (xspeed != 0)
-			state = 1;
-		else
-			state = 0;
 	}
 }
 
@@ -177,8 +162,7 @@ if (enable_gravity == 1) {
 		//If there's ground below and Mario is not moving upwards
 		if (semisolid)
 		&& (bbox_bottom < semisolid.yprevious+5)
-		&& (!collision_rectangle(x, bbox_bottom+1, x, bbox_bottom+4, obj_slopeparent, 1, 0))
-		&& (!collision_rectangle(bbox_left, bbox_bottom, bbox_right, semisolid.y-1, obj_solid, 1, 0)) {
+		&& (!collision_rectangle(x-1, bbox_bottom+1, x+1, bbox_bottom+4, obj_slopeparent, 1, 0)) {
 		
 			//Snap above the semisolid
 			y = semisolid.bbox_top-16;
@@ -410,7 +394,7 @@ if (enable_gravity == 1) {
 	
 	//If moving right and there's a wall in position
 	if (xspeed > 0)
-	&& (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-1, obj_solid, 1, 0)) {
+	&& (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, obj_solid, 1, 0)) {
 		
 		//Check for a block
 		var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom, obj_blockparent, 0, 0);
@@ -452,14 +436,14 @@ if (enable_gravity == 1) {
 		xspeed = 0;
 		
 		//Prevent Mario from getting embed on the wall
-		while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
+		while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-4, obj_solid, 1, 0))
 		&& (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
 			x--;
 	}
 	
 	//Otherwise, if moving left
 	else if (xspeed < 0)
-	&& (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0)) {
+	&& (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0)) {
 		
 		//Check for a block
 		var block_l = collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom, obj_blockparent, 0, 0);
@@ -501,7 +485,7 @@ if (enable_gravity == 1) {
 		xspeed = 0;
 		
 		//Prevent Mario from getting embed on the wall
-		while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
+		while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0))
 		&& (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
 			x++;
 	}
