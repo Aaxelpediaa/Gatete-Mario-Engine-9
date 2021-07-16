@@ -42,8 +42,8 @@ yscale = 1;
 //Handle Mario's direction when stuck in a wall
 //1: Right
 //-1: Left
-walldir = 1;
-walldir2 = 0;
+direct = 1;
+direct2 = 0;
 
 //Handle Mario's holding state
 //0: No holding

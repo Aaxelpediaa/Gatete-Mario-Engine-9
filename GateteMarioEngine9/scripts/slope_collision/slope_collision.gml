@@ -2,7 +2,7 @@ function slope_collision() {
 
 	slopesensor_slopeid = noone;
 
-	if (state < 2)
+	if (yadd == 0)
 	    slopesensor_extendedcheck = 6; //The checking line will be longer when the player is not on air, to prevent him from not checking while moving.
 	else
 	    slopesensor_extendedcheck = 0;
@@ -25,11 +25,11 @@ function slope_collision() {
 	    && ((obj_mario.y + obj_mario.slopesensor_y2 + obj_mario.slopesensor_extendedcheck) >= mariopointinslope_y) //If the bottom of obj_mario's checking line (slopesensor_y2) is lower than "mariopointinslope_y".
 	    && (obj_mario.y + obj_mario.slopesensor_y1) <= mariopointinslope_y //If the top of obj_mario's checking line (slopesensor_y1) is higher than "mariopointinslope_y".
     
-	    && obj_mario.yspeed >= 0 //Will only check for slopes when the player's vspeed is equal or higher than 0.
+	    && obj_mario.yspeed >= -0.85 //Will only check for slopes when the player's vspeed is equal or higher than 0.
 	        obj_mario.slopesensor_slopeid = id; //The ID of the slope found by obj_mario's checking line will be stored in "slopesensor_slopeid".
 	}
 
-	if (state < 2)
+	if (yadd == 0)
 	&& (slopesensor_slopeid != noone)
 	    y = (slopesensor_slopeid).mariopointinslope_y - slopesensor_y2; //Set obj_mario on top of the slope found by the "sensor line".
 }
