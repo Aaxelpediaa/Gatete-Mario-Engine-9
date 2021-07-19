@@ -322,6 +322,7 @@
     {"id":{"name":"spr_mario_propeller_walk","path":"sprites/spr_mario_propeller_walk/spr_mario_propeller_walk.yy",},"order":0,},
     {"id":{"name":"spr_mario_squirrel_walk","path":"sprites/spr_mario_squirrel_walk/spr_mario_squirrel_walk.yy",},"order":0,},
     {"id":{"name":"spr_mario_boomerang_hold2","path":"sprites/spr_mario_boomerang_hold2/spr_mario_boomerang_hold2.yy",},"order":9,},
+    {"id":{"name":"snd_stomp","path":"sounds/snd_stomp/snd_stomp.yy",},"order":11,},
     {"id":{"name":"spr_mario_shoe","path":"sprites/spr_mario_shoe/spr_mario_shoe.yy",},"order":4,},
     {"id":{"name":"spr_mario_big_attack","path":"sprites/spr_mario_big_attack/spr_mario_big_attack.yy",},"order":16,},
     {"id":{"name":"spr_mario_cat_skid","path":"sprites/spr_mario_cat_skid/spr_mario_cat_skid.yy",},"order":2,},
