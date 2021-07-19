@@ -549,6 +549,7 @@ if (enable_gravity == 1) {
 		
 			//Make the player crouch down when the 'Down' key is held
 			if (input_check(input.down))
+			&& (global.powerup != cs_tiny)
 			&& (global.powerup != cs_frog)
 			&& (crouch == false)
 			&& (noisy == false)

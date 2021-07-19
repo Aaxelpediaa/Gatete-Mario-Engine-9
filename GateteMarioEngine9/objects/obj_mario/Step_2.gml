@@ -7,8 +7,13 @@ if (global.powerup != cs_tiny)
 	//If the player is crouched down
 	if (crouch)
 		mask_index = spr_mask_mario;
-	else
-		mask_index = spr_mask_mario_big;
+	else {
+		
+		if (global.powerup == cs_small)
+			mask_index = spr_mask_mario;
+		else
+			mask_index = spr_mask_mario_big;
+	}
 }
 
 //Otherwise, if the player is Tiny

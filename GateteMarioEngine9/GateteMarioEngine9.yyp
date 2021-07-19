@@ -525,6 +525,7 @@
     {"folderPath":"folders/Scripts/Main/Mario/Collision.yy","order":0,"resourceVersion":"1.0","name":"Collision","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sonidos/Action.yy","order":1,"resourceVersion":"1.0","name":"Action","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sonidos/Action/Kick.yy","order":0,"resourceVersion":"1.0","name":"Kick","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/Special.yy","order":3,"resourceVersion":"1.0","name":"Special","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

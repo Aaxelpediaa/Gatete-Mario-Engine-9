@@ -3,7 +3,7 @@
 /// @function index_powerups();
 function index_powerups() {
 
-	var powerup_count = 23;
+	var powerup_count = 24;
 
 	for (var i = 0; i < powerup_count; i++) {
 		

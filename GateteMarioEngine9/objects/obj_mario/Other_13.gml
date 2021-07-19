@@ -1,15 +1,14 @@
 /// @description Mario's walljump behaviour script
 
-///scr_player_behaviour_wall()
+//Exit this event if you have the mega powerup
+if (global.powerup == cs_mega) {
 
-/*
-**  Usage:
-**      scr_player_behaviour_wall()
-**
-**  Purpose:
-**      Handles the actions of a player what they are in contact of a wall.
-*/
+	wallkick = 0;
+	wallready = 0;
+	exit;
+}
 
+//If moving down, and not crouched down or flying or not doing a spin jump
 if (yspeed > 0) 
 && (!crouch) 
 && (!flying)
@@ -23,7 +22,7 @@ if (yspeed > 0)
     if ((input_check(input.right)) && (xscale == 1)) {
     
         //Check for a wall at the right
-        wall_r = collision_line(bbox_right, bbox_top+4, bbox_right+2, bbox_bottom-4, obj_solid, 0, 0);
+        wall_r = collision_line(bbox_right, bbox_top+4, bbox_right+2, bbox_bottom-1, obj_solid, 0, 0);
         
         //If the player hugs a wall at the right
         if (wall_r) {
@@ -33,8 +32,7 @@ if (yspeed > 0)
             wallready = 0;
             
             //Enable gravity if disabled
-            if (disablegrav > 0)
-                disablegrav = 0;
+            enable_gravity = true;
         }            
         else
             wallkick = 0;
@@ -44,7 +42,7 @@ if (yspeed > 0)
     else if ((input_check(input.left)) && (xscale == -1)) {
     
         //Check for a wall to the left
-        wall_l = collision_line(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 0, 0);
+        wall_l = collision_line(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 0, 0);
     
         //If the player hugs a wall at the left
         if (wall_l) {
@@ -54,8 +52,7 @@ if (yspeed > 0)
             wallready = 1;
             
             //Enable gravity if disabled
-            if (disablegrav > 0)
-                disablegrav = 0;
+            enable_gravity = true;
         }
         else
             wallkick = 0;
@@ -121,7 +118,15 @@ if (wallkick == 1) {
     if (input_check_pressed(input.action_0)) {
     
         //Set the vertical speed
-        yspeed = -3.3628;
+		switch (global.powerup) {	
+			
+			case (cs_tiny): 
+				yspeed = -2.7375; break;
+			
+			//Rest of powerups
+			default: 
+				yspeed = -3.3628; break;
+		}
         
         //Perform spin jump if 'Up' is pressed and Mario does not have the Propeller or Cat powerups
         if (input_check(input.up)) 
@@ -145,7 +150,7 @@ if (wallkick == 1) {
         if (xscale > 0) {
         
             //Set the horizontal speed
-            xspeed = xspeedmax*-0.8;
+            xspeed = -2;
             
             //Move 2 pixels to the left
             x -= 2;
@@ -169,7 +174,7 @@ if (wallkick == 1) {
         else if (xscale < 0) {
         
             //Set the horizontal speed.
-            xspeed = xspeedmax*+0.8;
+            xspeed = 2;
             
             //Perform spin jump if 'Up' is pressed and Mario does not have the Propeller or Cat powerups
             if (input_check(input.up)) 

@@ -58,7 +58,7 @@ function init_globals() {
 	global.cherries = 0;
 
 	//Powerup
-	global.powerup = cs_big;
+	global.powerup = cs_small;
 
 	//Reserve item
 	global.reserve = cs_small;

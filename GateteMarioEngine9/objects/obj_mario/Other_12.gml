@@ -122,15 +122,15 @@ if (inwall == 0)
 	
     //Allow the player to jump off of Yoshi or a shoe while in midair
     || ((input_check(input.up))
-    && (!crouch)
+    && (crouch == 0)
     && (holding == 4)
     && (global.mount != 0))
     
     //Allow propeller the player to do his special jump
     || ((global.powerup == cs_propeller)
     && (keyboard_check(input.up)) 
-    && (!jumpstyle) 
-    && (!crouch) 
+    && (jumpstyle == 0) 
+    && (crouch == 0) 
     && (holding == 0))
     
     //Allow the player to jump in mid-air while riding a kuribo shoe
@@ -144,9 +144,9 @@ if (inwall == 0)
     
         //Make the player spin jump
         if ((input_check(input.up))
-        && (!crouch)
-		&& (!global.powerup != cs_tiny)
-		&& (!global.powerup != cs_mega)
+        && (crouch == 0)
+		&& (global.powerup != cs_tiny)
+		&& (global.powerup != cs_mega)
         && ((holding == 0) || (holding == 4))) {
         
             //If a kuribo shoe is being ridden, dismount from it.
@@ -162,15 +162,15 @@ if (inwall == 0)
                     xspeed = 1*(xscale*-1);
                 
                     //Set spin jump variable
-                    jumpstyle = true;        
+                    jumpstyle = 1;        
                 }
                 else {
                 
                     //Do not set spin jump
-                    jumpstyle = false;
+                    jumpstyle = 0;
                 
                     //Play 'Jump' sound
-                    //audio_play_sound(snd_jump, 0, false);
+                    audio_play_sound(snd_jump, 0, false);
                 }            
             }
             
@@ -192,7 +192,7 @@ if (inwall == 0)
                 else {
                 
                     //Do not set spin jump
-                    jumpstyle = false;
+                    jumpstyle = 0;
                 
                     //Play 'Jump' sound
                     audio_play_sound(snd_jump, 0, false);
@@ -202,7 +202,7 @@ if (inwall == 0)
             else {
             
                 //Set spin jump variable
-                jumpstyle = true;
+                jumpstyle = 1;
 
                 //Play spin jump sound
                 audio_play_sound(snd_spin, 0, false);
@@ -213,7 +213,7 @@ if (inwall == 0)
         else {
                 
             //Do not set spin jump
-            jumpstyle = false;
+            jumpstyle = 0;
 			
 			//Play sound based on powerup
 			switch (global.powerup) {
@@ -246,9 +246,15 @@ if (inwall == 0)
         //Jump depending of the horizontal speed.
         else {
 			
-			if (jumpstyle == 0)
-			&& (global.powerup != cs_tiny)
-				yspeed = -3.4675+abs(xspeed)/7.5*-1;
+			//If Mario is not tiny
+			if (global.powerup != cs_tiny) {
+				
+				//If the player is not doing a spin-jump
+				if (jumpstyle == 0)
+					yspeed = -3.4675+abs(xspeed)/7.5*-1;
+				else
+					yspeed = -3.23775+abs(xspeed)/7.5*-1;
+			}
 			else
 				yspeed = -2.7375+abs(xspeed)/7.5*-1;
 		}
