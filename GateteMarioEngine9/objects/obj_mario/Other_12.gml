@@ -279,7 +279,7 @@ if (inwall == 0)
         }
         
         //If the player is not overlapping a wall
-        if (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_top-1, obj_solid, 0, 0))
+        if (!inwall)
             xscale = 1;
         
         //Check up the player's horizontal speed
@@ -347,7 +347,7 @@ if (inwall == 0)
         }
         
         //If the player is not overlapping a wall
-        if (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_top-1, obj_solid, 0, 0))
+        if (!inwall)
             xscale = -1;
         
         //Check up the player's horizontal speed.
@@ -613,11 +613,12 @@ if ((state == 2) || (statedelay != 0)) {
         disablegrav = 0;
 }
 
-/*Climb if overlapping a climbing surface.
+//Climb if overlapping a climbing surface.
 if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_climb, 0, 0))
+&& (input_check(input.up))
 && (holding = 0)
-&& (!disablecontrol)
-&& (input_check(input.up)) {
+&& (enable_control == true) 
+&& (global.powerup != cs_mega) {
 
     //Change to climbing state
     state = 3;
@@ -627,6 +628,7 @@ if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_climb, 0,
     ygrav = 0;    
 }
 
+/*
 //Makes the player butt-slide down slopes
 if (input_check(input.down)) 
 && (!disablecontrol) {
