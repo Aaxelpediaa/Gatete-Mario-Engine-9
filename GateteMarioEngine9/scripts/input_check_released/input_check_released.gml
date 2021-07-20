@@ -8,10 +8,10 @@ function input_check_released(_enum) {
 	
 	//If there's a gamepad connected
 	if (gamepad_is_connected(0)) {
-	
-		//Check if the button to check is released
+		
 		_gamepad = gamepad_button_check_released(0, global.button[argument[0]]);
+		return _gamepad;
 	}
-	
-	return _keyboard + _gamepad;
+	else
+		return _keyboard;
 }
