@@ -20,8 +20,7 @@ function pal_swap_set_player() {
 			case (cs_ice): pal = 2;	break;			// Ice palette
 			case (cs_superball): pal = 3; break;	// Superball palette
 			case (cs_volt): pal = 4; break;			// Volt palette
-			case (cs_gold): pal = 5; break;			// Gold palette
-		
+			case (cs_gold): pal = 5; break;			// Gold palette		
 		}
 		
 	} else {
@@ -38,6 +37,6 @@ function pal_swap_set_player() {
 		exit;
 	
 	//Otherwise, set the palette swap
-	pal_swap_set(spr,pal);
+	pal_swap_set(spr, pal);
 
 }

@@ -12,14 +12,14 @@ if (global.powerup == cs_mega) {
 if (yspeed > 0) 
 && (!crouch) 
 && (!flying)
-&& (!jumpstyle) 
 && (holding == 0)
+&& (jumpstyle != 2)
 && (global.pwing = 0)
 && (global.mount = 0) {
 //&& (!instance_exists(obj_spinner)) {
         
     //If the 'Right' key is pressed and the player is facing right.
-    if ((input_check(input.right)) && (xscale == 1)) {
+    if (((input_check(input.right)) || (gamepad_axis_value(0, gp_axislh) > 0.5)) && (xscale == 1)) {
     
         //Check for a wall at the right
         wall_r = collision_line(bbox_right, bbox_top+4, bbox_right+2, bbox_bottom-1, obj_solid, 0, 0);
@@ -39,7 +39,7 @@ if (yspeed > 0)
     }
     
     //Otherwise, if the 'Left' key is pressed and the player is facing left.
-    else if ((input_check(input.left)) && (xscale == -1)) {
+    else if (((input_check(input.left)) || (gamepad_axis_value(0, gp_axislh) < -0.5)) && (xscale == -1)) {
     
         //Check for a wall to the left
         wall_l = collision_line(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 0, 0);
@@ -74,7 +74,7 @@ if (wallkick == 1) {
         wallkick = 0;
 
     //If the player does have the cat powerup.
-    if ((global.powerup == cs_bell) && (input_check(input.up))) {
+    if ((global.powerup == cs_bell) && ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))) {
     
         //If the player can climb
         if (catclimbing < (global.cattime * 60)) {
@@ -129,7 +129,7 @@ if (wallkick == 1) {
 		}
         
         //Perform spin jump if 'Up' is pressed and Mario does not have the Propeller or Cat powerups
-        if (input_check(input.up)) 
+        if ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
         && (global.powerup != cs_propeller) 
         && (global.powerup != cs_bell) {
         
@@ -175,18 +175,6 @@ if (wallkick == 1) {
         
             //Set the horizontal speed.
             xspeed = 2;
-            
-            //Perform spin jump if 'Up' is pressed and Mario does not have the Propeller or Cat powerups
-            if (input_check(input.up)) 
-            && (global.powerup != cs_propeller) 
-            && (global.powerup != cs_bell) {
-            
-                //Play 'Spin' sound
-                audio_play_sound(snd_spin, 0, false);
-            
-                //Set spin jump mode
-                jumpstyle = 1;
-            }
             
             //Move 2 pixels to the right
             x += 2;

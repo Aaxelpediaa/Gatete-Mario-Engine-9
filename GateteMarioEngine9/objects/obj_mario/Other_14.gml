@@ -42,7 +42,7 @@ yspeed = -1;
 if (enable_control == true) { //If the player controls are enabled.
 
     //If the 'Right' key is held and the 'Left' key is not held.
-    if (input_check(input.right)) && (!input_check(input.left)) {
+    if (((input_check(input.right)) || (gamepad_axis_value(0, gp_axislh) > 0.5)) && (!input_check(input.left))) {
     
         //Set the horizontal speed.
         xspeed += 0.15;
@@ -52,7 +52,7 @@ if (enable_control == true) { //If the player controls are enabled.
     }
     
     //Otherwise, if the 'Left' key is held and the 'Right' key not.
-    else if (input_check(input.left)) && (!input_check(input.right)) {
+    else if (((input_check(input.left)) || (gamepad_axis_value(0, gp_axislh) < -0.5)) && (!input_check(input.right))) {
     
         //Set the horizontal speed.
         xspeed += -0.15;
@@ -66,7 +66,7 @@ if (enable_control == true) { //If the player controls are enabled.
 		xspeed = 0;
     
     //If the 'Up' key is held and the 'Down' key is not held.
-    if ((input_check(input.up)) && (!input_check(input.down))) {
+    if (((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5)) && (!input_check(input.down))) {
     
         //Check if there's not a solid in the way.
         if (!collision_rectangle(bbox_left, bbox_top-1, bbox_right, bbox_top-1, obj_solid, 1, 0)) {
@@ -110,7 +110,7 @@ if (enable_control == true) { //If the player controls are enabled.
     }
     
     //If the 'Down' key is held and the 'Up' key not.
-    else if ((input_check(input.down)) && (!input_check(input.up))) {
+    else if (((input_check(input.down)) || (gamepad_axis_value(0, gp_axislv) > 0.5)) && (!input_check(input.up))) {
     
         //Set the vertical speed.
         yspeed += 0.15;

@@ -29,7 +29,5 @@ function powerup_get_name() {
 		case (cs_squirrel): return "squirrel";
 		case (cs_gold): return powerup_get_name(cs_big);
 		case (cs_mega): return "mega";
-
 	}
-
 }

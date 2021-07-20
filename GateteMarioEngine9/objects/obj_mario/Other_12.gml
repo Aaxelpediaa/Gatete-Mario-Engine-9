@@ -121,14 +121,14 @@ if (inwall == 0)
 	&& (((jumping == 0) && (state < 2))
 	
     //Allow the player to jump off of Yoshi or a shoe while in midair
-    || ((input_check(input.up))
+    || ((input_check(input.up) || (gamepad_axis_value(0, gp_axislv) < -0.5))
     && (crouch == 0)
     && (holding == 4)
     && (global.mount != 0))
     
     //Allow propeller the player to do his special jump
     || ((global.powerup == cs_propeller)
-    && (keyboard_check(input.up)) 
+    && ((input_check(input.up) || (gamepad_axis_value(0, gp_axislv) < -0.5)))
     && (jumpstyle == 0) 
     && (crouch == 0) 
     && (holding == 0))
@@ -143,7 +143,7 @@ if (inwall == 0)
     //&& (!collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_noteblock, 0, 1))) {
     
         //Make the player spin jump
-        if ((input_check(input.up))
+        if (((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
         && (crouch == 0)
 		&& (global.powerup != cs_tiny)
 		&& (global.powerup != cs_mega)
@@ -269,7 +269,7 @@ if (inwall == 0)
 	event_user(8);
 	
 	//Handle Horizontal Movement.
-    if ((input_check(input.right)) && (move) && (wallkick < 1) && (!input_check(input.left))) { //If the player holds the 'Right' key and the 'Left' key is not being held.
+    if (((input_check(input.right)) || (gamepad_axis_value(0, gp_axislh) > 0.5)) && (move) && (wallkick < 1) && (!input_check(input.left))) { //If the player holds the 'Right' key and the 'Left' key is not being held.
         
         //Set the facing direction        
         if ((holding == 2) && (xscale != 1)) {
@@ -337,7 +337,7 @@ if (inwall == 0)
     }
     
     //Otherwise, if the player holds the 'Left' key and the 'Right' key is not being held.
-    else if ((input_check(input.left)) && (move) && (wallkick == 0) && (!input_check(input.right))) {
+    else if (((input_check(input.left)) || (gamepad_axis_value(0, gp_axislh) < -0.5)) && (move) && (wallkick == 0) && (!input_check(input.right))) {
                 
         //Set the facing direction    
         if ((holding == 2) && (xscale != -1)) {
@@ -489,7 +489,7 @@ if (state != 2) {
     && (global.mount == 0)
     && (holding = 0)
     && (pmeter >= 112) 
-    && (input_check(input.down)) {
+    && ((input_check(input.down)) || (gamepad_axis_value(0, gp_axislv) > 0.5)) {
     
         //Force sliding
         sliding = true;
@@ -557,7 +557,7 @@ if ((state == 2) || (statedelay != 0)) {
             yadd = 0.162;
 
             //Allow the player to charge downwards
-            if ((input_check(input.down)) && (yspeed > 0)) {
+            if (((input_check(input.down)) || (gamepad_axis_value(0, gp_axislv) > 0.5)) && (yspeed > 0)) {
             
                 //Do jumpstyle
                 jumpstyle = 1;
@@ -615,7 +615,7 @@ if ((state == 2) || (statedelay != 0)) {
 
 //Climb if overlapping a climbing surface.
 if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_climb, 0, 0))
-&& (input_check(input.up))
+&& ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
 && (holding = 0)
 && (enable_control == true) 
 && (global.powerup != cs_mega) {
