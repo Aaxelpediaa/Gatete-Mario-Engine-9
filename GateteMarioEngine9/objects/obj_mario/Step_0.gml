@@ -174,6 +174,36 @@ if (enable_gravity == 1) {
 			//Reset values
 			event_user(15);
 		}
+		
+		//Check for a water surface
+		var ws = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+yspeed, obj_swim, 0, 0);
+		
+		//If there's water and Mario is tiny and not jumping
+		if (ws)
+		&& (xspeed != 0)
+		&& (jumping == 0)
+		&& (global.powerup == cs_tiny) 
+		&& (bbox_bottom < ws.yprevious+5) {
+
+			//Snap above the semisolid
+			y = ws.bbox_top-16;
+	
+			//Stop vertical movement
+			yadd = 0;
+			yspeed = 0;
+		
+			//Reset values
+			event_user(15);
+			
+			//Reset state delay
+			statedelay = 0;
+			
+			//Set up state if we didn't yet
+			if (xspeed == 0)
+				state = 0;
+			else
+				state = 1;
+		}
 	}
 	
 	//Conveyor collisions
@@ -579,7 +609,7 @@ if (enable_gravity == 1) {
     }
 	
     //Check for a nearby swimming surface
-    var water = collision_rectangle(bbox_left, y-1, bbox_right, y, obj_swim, 1, 0);
+    var water = collision_rectangle(bbox_left, bbox_top-1, bbox_right, bbox_top, obj_swim, 1, 0);
     
     //If the player is not swimming and makes contact with a water surface
     if ((!swimming) && (water)) {
@@ -625,8 +655,17 @@ if (enable_gravity == 1) {
                 //If 'Shift' is held
                 if (input_check(input.action_0)) {
                 
-                    //Play 'Jump' sound
-                    audio_play_sound(snd_jump, 0, false);
+                    //Switch between powerups
+					switch (global.powerup) {
+						
+						case (cs_tiny):
+							audio_play_sound(snd_jump_tiny, 0, false);
+							break;
+						
+						default: 
+							audio_play_sound(snd_jump, 0, false);
+							break;
+					}
                     
                     //Make the player not swim
                     swimming = false;
@@ -712,7 +751,7 @@ if (enable_gravity == 1) {
         wiggle = 0;
     
     //If the player is not in contact with water.
-    if (!collision_rectangle(bbox_left, y, bbox_right, bbox_bottom, obj_swim, 0, 0)) {
+    if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_swim, 0, 0)) {
     
         //If the player is swimming.
         if (swimming)  

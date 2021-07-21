@@ -22,7 +22,7 @@ if (yspeed > 0)
     if (((input_check(input.right)) || (gamepad_axis_value(0, gp_axislh) > 0.5)) && (xscale == 1)) {
     
         //Check for a wall at the right
-        wall_r = collision_line(bbox_right, bbox_top+4, bbox_right+2, bbox_bottom-1, obj_solid, 0, 0);
+        wall_r = collision_line(bbox_right, bbox_top+4, bbox_right+2, bbox_bottom-1, obj_solid, 1, 0);
         
         //If the player hugs a wall at the right
         if (wall_r) {
@@ -42,7 +42,7 @@ if (yspeed > 0)
     else if (((input_check(input.left)) || (gamepad_axis_value(0, gp_axislh) < -0.5)) && (xscale == -1)) {
     
         //Check for a wall to the left
-        wall_l = collision_line(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 0, 0);
+        wall_l = collision_line(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0);
     
         //If the player hugs a wall at the left
         if (wall_l) {
@@ -69,8 +69,8 @@ if (wallkick == 1) {
         wallkick = 0;
         
     //End manually wall kick when not in contact with a wall.
-    if ((xscale < 0) && (!collision_line(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 0, 0)))
-    || ((xscale > 0) && (!collision_line(bbox_right, bbox_top+4, bbox_right+2, bbox_bottom-1, obj_solid, 0, 0)))
+    if ((xscale < 0) && (!collision_line(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0)))
+    || ((xscale > 0) && (!collision_line(bbox_right, bbox_top+4, bbox_right+2, bbox_bottom-1, obj_solid, 1, 0)))
         wallkick = 0;
 
     //If the player does have the cat powerup.
