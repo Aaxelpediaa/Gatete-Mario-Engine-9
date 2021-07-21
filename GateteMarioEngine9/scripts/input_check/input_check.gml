@@ -10,7 +10,7 @@ function input_check(_enum) {
 	if (gamepad_is_connected(0)) {
 		
 		_gamepad = gamepad_button_check(0, global.button[argument[0]]);
-		return _gamepad;
+		return _gamepad + _keyboard;
 	}
 	else
 		return _keyboard;

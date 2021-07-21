@@ -1,1 +1,1 @@
-/// @description Mario's swim behaviour
+/// @description Mario's slide behaviour

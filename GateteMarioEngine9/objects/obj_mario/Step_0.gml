@@ -578,6 +578,90 @@ if (enable_gravity == 1) {
         jumpstyle = 0;
     }
 	
+    //Check for a nearby swimming surface
+    var water = collision_rectangle(bbox_left, y-1, bbox_right, y, obj_swim, 1, 0);
+    
+    //If the player is not swimming and makes contact with a water surface
+    if ((!swimming) && (water)) {
+        
+        //Make the player swim.
+        swimming = true;
+        swimtype = 0;
+        
+        //Make the player get up
+        crouch = false;
+        
+        //Stop most horizontal movement
+        xspeed = xspeed/2.5;
+                
+        //Stop vertical movement
+        yadd = 0;
+        if (yspeed > 0) {
+        
+            //Stop vertical movement
+            yspeed = 0;
+            
+            /*Create a splash effect if not in contact with a bubble
+            if (water.object_index != obj_waterbubble) {
+            
+                with (instance_create(x-8,water.y-15,obj_smoke)) {
+                
+                    depth = -4;
+                    sprite_index = spr_splash;
+                }            
+            } */
+        }
+    }
+    
+    //Otherwise, if the player had enough swimming and wants to get out
+    else if ((swimming) && (!water)) {
+    
+        //If there's not water above and there's not a solid on the way out
+        if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) {
+        
+            //If the player is moving up
+            if ((state == 2) && (yspeed < 0)) {
+            
+                //If 'Shift' is held
+                if (input_check(input.action_0)) {
+                
+                    //Play 'Jump' sound
+                    audio_play_sound(snd_jump, 0, false);
+                    
+                    //Make the player not swim
+                    swimming = false;
+                    
+                    //Allow variable jump
+                    jumping = 1;
+                    
+                    /*Create splash effect
+                    if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_waterbubble,1,0)) {
+                    
+                        with (instance_create(x-8,y-15,obj_smoke)) {
+                        
+                            depth = -4;
+                            sprite_index = spr_splash;
+                        }
+                    }*/
+					
+					//If Mario is not tiny
+					if (global.powerup != cs_tiny)
+						yspeed = -3.4675+abs(xspeed)/7.5*-1;
+					else
+						yspeed = -2.7375+abs(xspeed)/7.5*-1;
+                }
+                
+                //Otherwise, if 'Shift' is not held.
+                else {
+                
+                    //If the player is moving up.
+                    if (yspeed < 0)
+                        yspeed = 0;
+                }
+            }
+        }
+    }
+	
 	//If the player gets stuck in a wall
 	if (yspeed == 0)
 	&& (crouch == false)

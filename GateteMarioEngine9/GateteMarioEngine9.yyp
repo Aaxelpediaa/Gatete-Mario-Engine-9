@@ -239,6 +239,7 @@
     {"id":{"name":"input_check","path":"scripts/input_check/input_check.yy",},"order":0,},
     {"id":{"name":"snd_climb","path":"sounds/snd_climb/snd_climb.yy",},"order":4,},
     {"id":{"name":"spr_mario_carrot_carry","path":"sprites/spr_mario_carrot_carry/spr_mario_carrot_carry.yy",},"order":7,},
+    {"id":{"name":"snd_swim","path":"sounds/snd_swim/snd_swim.yy",},"order":12,},
     {"id":{"name":"spr_mario_squirrel_runjump","path":"sprites/spr_mario_squirrel_runjump/spr_mario_squirrel_runjump.yy",},"order":3,},
     {"id":{"name":"spr_mario_penguin_somersault","path":"sprites/spr_mario_penguin_somersault/spr_mario_penguin_somersault.yy",},"order":21,},
     {"id":{"name":"spr_mario_propeller_spin2","path":"sprites/spr_mario_propeller_spin2/spr_mario_propeller_spin2.yy",},"order":12,},
