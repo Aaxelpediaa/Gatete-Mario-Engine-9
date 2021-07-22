@@ -38,7 +38,7 @@ if (yadd == 0)
             state = 1;
     
         //Reset state delay
-        delay = 0;
+        statedelay = 0;
     }
     
     //Otherwise, set 'Jump' state
@@ -258,7 +258,7 @@ if (enable_control == true) && (inwall == 0) { //If the player controls are not 
             xscale = -1;
             
             //If there's NOT a wall on the way.
-            if (!collision_rectangle(bbox_left-1,bbox_top+4,bbox_left,bbox_bottom-1,obj_solid,1,0)) {
+            if (!collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0)) {
             
                 //Set the horizontal speed.
                 if (xspeed <= 0) //If the player horizontal speed is equal/lower than 0.        

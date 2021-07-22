@@ -1,5 +1,24 @@
 /// @description Mario's logic!
 
+//Handle top point for exiting water
+switch (global.powerup) {
+	
+	//Tiny
+	case (cs_tiny): swim_y = 9; break;
+	
+	//Small
+	case (cs_small): swim_y = 3; break;
+	
+	//Default
+	default: swim_y = 0; break;
+}
+
+//If Mario is under the effects of a mega mushroom
+if (global.powerup == cs_mega)
+	ismega = -12;
+else
+	ismega = 0;
+
 //Handle position when on a slope
 if (yspeed >= 0) {
 	
@@ -39,13 +58,13 @@ if (global.pwing == 1) {
 	pmeter = 112;
 	
 	//Keep flight time active
-	timer(pmeter_end, 60 * global.flighttime, false);
+	flying_time = timer(pmeter_end, 60 * global.flighttime, true);
 	
-	/*If the 'P-Meter' sound is not playing, play it
+	//If the 'P-Meter' sound is not playing, play it
 	if (!audio_is_playing(snd_pmeter)) {
 		
 		audio_play_sound(snd_pmeter, 0, true);
-	}*/
+	}
 	
 	//If the player is on the ground, do not apply fix
 	if (state != 2)
@@ -181,7 +200,6 @@ if (enable_gravity == 1) {
 		//If there's water and Mario is tiny and not jumping
 		if (ws)
 		&& (xspeed != 0)
-		&& (jumping == 0)
 		&& (global.powerup == cs_tiny) 
 		&& (bbox_bottom < ws.yprevious+5) {
 
@@ -224,21 +242,20 @@ if (enable_gravity == 1) {
                 
                 //If the player is running on walls or ceilings
 				if (global.mount != 2)
-                && (instance_number(obj_wallrunner) == 0) {
+                && (instance_number(obj_wallrunner) == 1) {
                 
                     //If the P-Meter is full.
-                    if (pmeter > 112) {
-                    
-                        /*Play 'P-Meter' sound
-						if (!audio_is_playing(snd_pmeter))
-							audio_play_sound(snd_pmeter, 0, true);
-						*/
+                    if (pmeter > 112) {      
                         
                         //Keep P-Meter full.
                         pmeter = 112;
                     
                         //Make the player able to run.
                         run = true;
+						
+						//Play 'P-Meter' sound
+						if (!audio_is_playing(snd_pmeter))
+							audio_play_sound(snd_pmeter, 0, true);
                     }
                     
                     //Otherwise, fill P-Meter
@@ -249,8 +266,8 @@ if (enable_gravity == 1) {
                 //Otherwise...
                 else {
                 
-                    //If the player's horizontal speed is equal/greater than 2.4 and it's not wearing a kuribo shoe.
-                    if (abs(xspeed) > 2.6) 
+                    //If the player's horizontal speed is equal/greater than 2.6 and it's not wearing a kuribo shoe.
+                    if (abs(xspeed) >= 2.6) 
                     && (global.mount != 2) 
                     || (global.pwing == 1) {
                     
@@ -260,14 +277,13 @@ if (enable_gravity == 1) {
                             //If the P-Wing is active
                             if (global.pwing == 1) {
                             
-                                /*Play 'P-Meter' sound
+                                //Play 'P-Meter' sound
                                 if (!audio_is_playing(snd_pmeter)) {
                                 
                                     audio_play_sound(snd_pmeter, 0, true);
                                     if (pmeter < 112)
                                         pmeter = 112;
                                 }
-								*/
                             }
                             
                             //Otherwise
@@ -275,19 +291,16 @@ if (enable_gravity == 1) {
                         
                                 //If the P-Meter is full.
                                 if (pmeter > 112) {
-                                
-                                    /*Play 'P-Meter' sound
-                                    if (!audio_is_playing(snd_pmeter)) {
-                                    
-                                        audio_play_sound(snd_pmeter, 0, true);
-                                    }
-									*/
                                     
                                     //Keep P-Meter full.
                                     pmeter = 112;
                                 
                                     //Make the player able to run.
                                     run = true;
+								
+									//Play 'P-Meter' sound
+									if (!audio_is_playing(snd_pmeter))
+										audio_play_sound(snd_pmeter, 0, true);
                                 }
                                 
                                 //Otherwise, fill P-Meter
@@ -308,7 +321,7 @@ if (enable_gravity == 1) {
                         if (flying) {
                         
                             //Stop 'P-Meter' sound
-                            //audio_stop_sound(snd_pmeter);
+                            audio_stop_sound(snd_pmeter);
                             
                             //Allow the player to fly again.
                             flying = false;
@@ -325,13 +338,13 @@ if (enable_gravity == 1) {
                         else if (!flying) {
                         
                             //Stop 'P-Meter' sound
-                            //audio_stop_sound(snd_pmeter);
+                            audio_stop_sound(snd_pmeter);
+							
+							//Destroy timer
+							timer_destroy(flying_time);
                                                 
                             //Make the player walk
                             run = false;
-                            
-                            //Restart flying.
-                            //
                             
                             //Empty P-Meter.
                             if (pmeter > 0)       
@@ -357,7 +370,7 @@ if (enable_gravity == 1) {
 				&& (climbsurface.image_xscale > 1) {
 				
 					//Play 'Bump' sound
-					//audio_play_sound(snd_bump, 0, false);
+					audio_play_sound(snd_bump, 0, false);
 					
 					//Increment netsmack
 					netsmack = 4;
@@ -370,7 +383,7 @@ if (enable_gravity == 1) {
                 if (global.pwing == 0) {
                 
                     //Stop 'P-Meter' sound
-                    //audio_stop_sound(snd_pmeter);
+                    audio_stop_sound(snd_pmeter);
                                                                     
                     //Stop flight, run and reduce pmeter
                     flying = false;
@@ -391,7 +404,7 @@ if (enable_gravity == 1) {
             if (global.pwing == 0) {
             
                 //Stop 'P-Meter' sound
-                //audio_stop_sound(snd_pmeter);
+                audio_stop_sound(snd_pmeter);
                                                                 
 	            //Stop flight, run and reduce pmeter
 	            flying = false;
@@ -412,7 +425,7 @@ if (enable_gravity == 1) {
         if (global.pwing == 0) {
         
             //Stop 'P-Meter' sound
-            //audio_stop_sound(snd_pmeter);
+            audio_stop_sound(snd_pmeter);
                                                             
             //Stop flight, run and reduce pmeter
             flying = false;
@@ -424,7 +437,7 @@ if (enable_gravity == 1) {
 	
 	//If moving right and there's a wall in position
 	if (xspeed > 0)
-	&& (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, obj_solid, 1, 0)) {
+	&& (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4+ismega, obj_solid, 1, 0)) {
 		
 		//Check for a block
 		var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom, obj_blockparent, 0, 0);
@@ -466,14 +479,14 @@ if (enable_gravity == 1) {
 		xspeed = 0;
 		
 		//Prevent Mario from getting embed on the wall
-		while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-4, obj_solid, 1, 0))
+		while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-4+ismega, obj_solid, 1, 0))
 		&& (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
 			x--;
 	}
 	
 	//Otherwise, if moving left
 	else if (xspeed < 0)
-	&& (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0)) {
+	&& (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4+ismega, obj_solid, 1, 0)) {
 		
 		//Check for a block
 		var block_l = collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom, obj_blockparent, 0, 0);
@@ -515,7 +528,7 @@ if (enable_gravity == 1) {
 		xspeed = 0;
 		
 		//Prevent Mario from getting embed on the wall
-		while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0))
+		while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-4+ismega, obj_solid, 1, 0))
 		&& (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
 			x++;
 	}
@@ -581,6 +594,7 @@ if (enable_gravity == 1) {
 			if (input_check(input.down))
 			&& (global.powerup != cs_tiny)
 			&& (global.powerup != cs_frog)
+			&& (global.powerup != cs_mega)
 			&& (crouch == false)
 			&& (noisy == false)
 				crouch = true;
@@ -609,7 +623,7 @@ if (enable_gravity == 1) {
     }
 	
     //Check for a nearby swimming surface
-    var water = collision_rectangle(bbox_left, bbox_top-1, bbox_right, bbox_top, obj_swim, 1, 0);
+    var water = collision_rectangle(bbox_left, y+swim_y-1, bbox_right, y+swim_y, obj_swim, 1, 0);
     
     //If the player is not swimming and makes contact with a water surface
     if ((!swimming) && (water)) {
@@ -647,7 +661,7 @@ if (enable_gravity == 1) {
     else if ((swimming) && (!water)) {
     
         //If there's not water above and there's not a solid on the way out
-        if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) {
+        if (!collision_rectangle(bbox_left, y+swim_y, bbox_right, y+swim_y, obj_solid, 1, 0)) {
         
             //If the player is moving up
             if ((state == 2) && (yspeed < 0)) {

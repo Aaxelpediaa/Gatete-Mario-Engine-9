@@ -29,8 +29,8 @@ pmeter_end = function() {
 	run = false;
 	
 	//Stop 'P-Meter' sound
-	/*if (audio_is_playing(snd_pmeter))
-		audio_stop_sound(snd_pmeter);*/
+	if (audio_is_playing(snd_pmeter))
+		audio_stop_sound(snd_pmeter);
 }
 
 //End turning

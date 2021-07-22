@@ -110,6 +110,30 @@ if (!flying) { //If the player is not flying
 	}
 }
 
+//Otherwise, if the player is flying.
+else {
+
+    //If the player is flying
+    if (flyfix == 1) {
+    
+        xspeedmax = 2;
+        if (xspeed > 2)
+            xspeed -= 0.06;
+        if (xspeed < -2)
+            xspeed += 0.06;
+    }
+    else {
+    
+        //Set running speed
+        if (input_check(input.action_1))
+            xspeedmax = 2.6;           
+        
+        //Otherwise, do not reduce speed until the player makes contact with the ground.  
+        else     
+            xspeedmax = 1.3;    
+    }
+}
+
 //If controls are enabled and the player is not stuck in a wall
 if (inwall == 0)
 && (enable_control == true) {
@@ -205,7 +229,10 @@ if (inwall == 0)
                 jumpstyle = 1;
 
                 //Play spin jump sound
-                audio_play_sound(snd_spin, 0, false);
+				if (global.powerup == cs_propeller)
+					audio_play_sound(snd_propeller, 0, false);
+				else
+					audio_play_sound(snd_spin, 0, false);
             }
         }
     
@@ -544,9 +571,9 @@ if ((state == 2) || (statedelay != 0)) {
 		        if (jumping = 1)
 		            jumping = 2;
 		    }
-		}
+		} break;
 	}
-    
+	
     //Propeller player jumping
     if (global.powerup == cs_propeller) {
 
@@ -554,12 +581,12 @@ if ((state == 2) || (statedelay != 0)) {
         if ((jumpstyle != 0) && (global.mount == 0)) {
            
             //Lower the gravity
-            yadd = 0.162;
+            yadd = yadd/2.25;
 
             //Allow the player to charge downwards
             if (((input_check(input.down)) || (gamepad_axis_value(0, gp_axislv) > 0.5)) && (yspeed > 0)) {
             
-                //Do jumpstyle
+                //Do stompstyle
                 jumpstyle = 1;
                 
                 //Stop horizontal movement
@@ -571,7 +598,7 @@ if ((state == 2) || (statedelay != 0)) {
             }
             else {
             
-                //Keep jumpstyle
+                //Keep stompstyle
                 jumpstyle = 2;
             
                 //Cap vertical speed
@@ -579,10 +606,9 @@ if ((state == 2) || (statedelay != 0)) {
                     yspeed = 1;
             }
 
-            /*Play the sound when he charges downwards
-            if (keyboard_check_pressed(global.downkey))
-                audio_play_sound(snd_spin, 0, false);
-			*/
+            //Play the sound when he charges downwards
+            if ((input_check_pressed(input.down)) || (gamepad_axis_value(0, gp_axislv) > 0.5))
+                audio_play_sound(snd_propeller_spin, 0, false)
         }
     }
 
@@ -697,24 +723,24 @@ if (state == 2)
         || (global.pwing == 1) {
         
             //Play 'tail' sound.
-            //audio_stop_sound(snd_spin);
-            //audio_play_sound(snd_spin, 0, false);
+            audio_stop_sound(snd_spin);
+            audio_play_sound(snd_spin, 0, false);
             
             //Make the player able to fly for 4 seconds
             if (!flying) {
             
                 flying = true;
-				timer(pmeter_end, 60 * flighttime, 0);
+				flying_time = timer(pmeter_end, 60 * global.flighttime, 0);
             }
             
             //Whip tail.
             wiggle = 16;
             
             //Disable grav.
-            disablegrav = 16;            
+            disablegrav = 16;
             
             //Set the vertical speed.
-            if (timer_get(pmeter_end) > 30)  
+            if (timer_get(flying_time) > 30)  
                 yspeed = -1.5;
             else {
             
@@ -729,8 +755,8 @@ if (state == 2)
         else if (!run) { 
         
             //Play 'tail' sound.
-            //audio_stop_sound(snd_spin);
-            //audio_play_sound(snd_spin, 0, false);      
+            audio_stop_sound(snd_spin);
+            audio_play_sound(snd_spin, 0, false);      
             
             //Whip tail.
             wiggle = 16;
@@ -770,7 +796,7 @@ if (state == 2)
 
             //Carrot Mario floats down slowly
             else
-                yspeed = 0.5;
+                yspeed = 0.325;
         }
 
         //If Mario is not moving downwards
@@ -795,9 +821,9 @@ if (state == 2)
             //Stop floating otherwise
             else
                 isfloating = false;
-        }
+		}
     }
-
+	
     //Stop floating
     else
         isfloating = false;
@@ -814,7 +840,7 @@ if ((isfloating) && (!floatnow)) {
     floatnow = true;
 
     //Loop the sound
-    //audio_play_sound(snd_spin, 0, 1);
+    audio_play_sound(snd_spin, 0, 1);
 }
 
 //If carrot or bee Mario is not floating, but the sound is playing
@@ -824,5 +850,37 @@ else if ((!isfloating) && (floatnow)) {
     floatnow = false;
 
     //Stop the sound
-    //audio_stop_sound(snd_spin)
+    audio_stop_sound(snd_spin)
+}
+
+//Squirrel flight
+if ((global.powerup == cs_squirrel) && (holding == 0) && (wallkick == 0) && (wallready == 0) && (jumpstyle == 0)) {
+
+    //If Mario hasn't propelled yet
+    if (squirrelpropel == 0) {
+
+        //If the jump key is pressed while moving downwards, propel upwards
+        if ((yspeed > 0) && (input_check_pressed(input.action_0))) {
+
+            //Propel
+            squirrelpropel = 1;
+
+            //Move up
+            yspeed = -3.85;
+
+            //Enable variable jumping
+            jumping = 1;
+
+            //Play 'Spin' sound
+            audio_play_sound(snd_spin, 0, 0);
+        }
+
+        //If the jump key is held down, float
+        else if ((yspeed > 0.5) && (input_check(input.action_0)))
+            yspeed = 0.5
+    }
+
+    //Otherwise, float down more
+    else if (yspeed > 2)
+        yspeed = 2;
 }

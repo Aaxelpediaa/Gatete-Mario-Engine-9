@@ -53,9 +53,8 @@ global.reservedrop = true;
 	#macro cs_football 19
 	#macro cs_ranger 20
 	#macro cs_squirrel 21
-	#macro cs_balloon 22
-	#macro cs_gold 23
-	#macro cs_mega 24
+	#macro cs_gold 22
+	#macro cs_mega 23
 
 #endregion
 

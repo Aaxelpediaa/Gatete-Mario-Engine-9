@@ -8,6 +8,23 @@ if (global.powerup == cs_mega) {
 	exit;
 }
 
+//End P-Meter
+if (pmeter > 0) {
+
+    //Stop 'P-Meter' sound
+    audio_stop_sound(snd_pmeter);
+                            
+    //Allow the player to fly again.
+    flying = false;
+                            
+    //Make the player walk
+    run = false;
+                            
+    //Empty P-Meter.
+    if (pmeter > 0)        
+        pmeter --;
+}
+
 //If moving down, and not crouched down or flying or not doing a spin jump
 if (yspeed > 0) 
 && (!crouch) 
@@ -26,6 +43,14 @@ if (yspeed > 0)
         
         //If the player hugs a wall at the right
         if (wall_r) {
+			
+			//Stop squirrel propel
+			if (squirrelpropel == 1)
+			&& (global.powerup == cs_squirrel) {
+			
+				squirreltime = 0;
+				squirrelpropel = 0;
+			}
             
             //Enable wallkick
             wallkick = 1;
@@ -46,6 +71,14 @@ if (yspeed > 0)
     
         //If the player hugs a wall at the left
         if (wall_l) {
+			
+			//Stop squirrel propel
+			if (squirrelpropel == 1)
+			&& (global.powerup == cs_squirrel) {
+			
+				squirreltime = 0;
+				squirrelpropel = 0;
+			}
             
             //Enable wallkick
             wallkick = 1;
@@ -105,13 +138,38 @@ if (wallkick == 1) {
     
     //Otherwise, if the player does not have the cat powerup
     else {
+		
+		//If the player has the squirrel suit
+		if (global.powerup == cs_squirrel) {
+			
+			//If Mario can hang on the wall
+			if (squirreltime < 120) {
+				
+				squirreltime++;
+				yadd = 0;
+				if (yspeed > 0)
+					yspeed = 0;
+			}
+			
+			//Otherwise
+			else {
+				
+				yadd = 0.3625;
+				if (yspeed > 1)
+					yspeed = 1;
+			}
+		}
+		
+		//Otherwise
+		else {
     
-        //Set the gravity
-        yadd = 0.3625;
+	        //Set the gravity
+	        yadd = 0.3625;
     
-        //Prevent the player from falling too fast
-        if (yspeed > 1.5)
-            yspeed = 1.5;
+	        //Prevent the player from falling too fast
+	        if (yspeed > 1.5)
+	            yspeed = 1.5;
+		}
     }
 
     //If the 'Jump' key is being pressed.
@@ -160,6 +218,9 @@ if (wallkick == 1) {
             
             //Facing direction
             xscale = -1;
+			
+			//Reset squirrel time
+			squirreltime = 0;
             
             //Play 'Stomp' sound
             audio_play_sound(snd_stomp, 0, false);

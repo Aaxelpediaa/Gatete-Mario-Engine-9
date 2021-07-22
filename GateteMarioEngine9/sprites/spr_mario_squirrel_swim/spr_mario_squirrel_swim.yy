@@ -38,7 +38,7 @@
     "spriteId": {"name":"spr_mario_squirrel_swim","path":"sprites/spr_mario_squirrel_swim/spr_mario_squirrel_swim.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 0.5,
+    "playbackSpeed": 1.0,
     "playbackSpeedType": 1,
     "autoRecord": true,
     "volume": 1.0,

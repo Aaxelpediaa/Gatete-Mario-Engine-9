@@ -4,7 +4,27 @@
 pal_swap_set_player(spr_palette_mario, spr_palette_mario_invincible);
 
 //Draw Mario
-draw_sprite_custom_origin(mask_index, image_index, round(x), round(y)+1, sprite_get_xoffset(sprite_index), sprite_height, xscale, yscale, 0, image_blend, image_alpha);
+if (sprite_index > -1) {
+	
+	switch (global.powerup) {
+	
+		//Tiny
+		case (cs_tiny): {
+		
+			draw_sprite_custom_origin(sprite_index, image_index, round(x), round(y)+1, sprite_get_xoffset(sprite_index), 16, 0.5*xscale, 0.5*yscale, 0, image_blend, image_alpha);
+		} break;
+		
+		//Mega
+		case (cs_mega): {
+			
+			draw_sprite_custom_origin(sprite_index, image_index, round(x), round(y)+1, sprite_get_xoffset(sprite_index), sprite_height, 4*xscale, 4*yscale, 0, image_blend, image_alpha);
+		} break;
+	
+		//Rest of sprites
+		default:
+			draw_sprite_custom_origin(sprite_index, image_index, round(x), round(y)+1, sprite_get_xoffset(sprite_index), sprite_height, xscale, yscale, 0, image_blend, image_alpha);
+	}
+}
 
 //Reset the palette
 pal_swap_reset();

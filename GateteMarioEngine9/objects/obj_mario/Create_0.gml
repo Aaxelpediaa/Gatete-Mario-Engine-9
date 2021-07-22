@@ -67,12 +67,15 @@ jumpstyle = 0;
 //Checks for slippery surfaces
 isslip = 0;
 
+//Checks if Mario is under the effects of a mega mushroom
+ismega = 0;
+
 //Plays a sound when Mario is climbing or swimming with the frog suit
 noisy = 0;
-noise = 0;
+noisy2 = 0;
 
 //Makes Mario run slightly faster (P-Meter)
-running = 0;
+run = 0;
 
 //Makes Mario perform a slide animation or turn when holding something
 turning = 0;
@@ -87,8 +90,9 @@ sliding = 0;
 run = false;
 
 //Makes Mario able to fly
-flying = 0;
 flyfix = 0;
+flying = 0;
+flying_time = 0;
 
 //Makes Mario able to crouch down
 crouch = 0;
@@ -97,11 +101,10 @@ crouch = 0;
 netsmack = 0;
 
 //Makes Mario able or not able to move
-allow_move = 1;
+move = 1;
 
 //Handle P-Meter
 pmeter = 0;
-pready = 0;
 
 //Makes Mario do a special animation when kicking / throwing items
 kicking = 0;
@@ -120,7 +123,7 @@ dir = 1;
 
 //Makes Mario able to jump in walls
 wallkick = 0;
-walljump = 0;
+wallready = 0;
 
 //Carrot / Bee powerup flight variables
 beefly = 0;
@@ -131,7 +134,11 @@ isfloating = 0;
 swimtype = 0;
 
 //Squirrel powerup
+squirreltime = 120;
 squirrelpropel = 0;
+
+//Somersault
+somersault = 0;
 
 //Prevents the player from moving if stunned
 stuntime = 0;
@@ -148,6 +155,9 @@ noisy = 0;
 //Player colour
 isflashing = 0;
 
+//Disables grav when floating with raccoon or tanooki powerup
+disablegrav = 0;
+
 //How many consecutive stomps has Mario made
 hitcombo = 0;
 
@@ -157,6 +167,9 @@ pitwarp = false;
 //Timers
 _timer = 0;
 event_user(9);
+
+//Swim top
+swim_y = 0;
 
 //Slope sensors
 slopesensor_x = 0;

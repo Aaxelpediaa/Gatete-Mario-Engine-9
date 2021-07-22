@@ -14,9 +14,14 @@ jumpstyle = 0;
 
 //Reset the wall kick
 wallkick = 0;
+wallready = 0;
 
 //Reset the cat climb time
 catclimbing = 0;
+
+//Reset the squirrel variables
+squirreltime = 0;
+squirrelpropel = 0;
 
 //Reset combo variable if not sliding
 if (!sliding)

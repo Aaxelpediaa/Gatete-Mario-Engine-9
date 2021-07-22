@@ -5,7 +5,7 @@ function powerup_get_name() {
 
 	switch (argument[0]) {
 
-		case (cs_tiny): return "tiny";
+		case (cs_tiny): return powerup_get_name(cs_small);
 		case (cs_small): return "small";
 		case (cs_big): return "big";
 		case (cs_fire): return powerup_get_name(cs_big);
@@ -23,11 +23,11 @@ function powerup_get_name() {
 		case (cs_volt): return powerup_get_name(cs_big);
 		case (cs_penguin): return "penguin";
 		case (cs_propeller): return "propeller";
-		case (cs_bell): return "bell";
+		case (cs_bell): return "cat";
 		case (cs_football): return "football";
 		case (cs_ranger): return "ranger";
 		case (cs_squirrel): return "squirrel";
 		case (cs_gold): return powerup_get_name(cs_big);
-		case (cs_mega): return "mega";
+		case (cs_mega): return powerup_get_name(cs_big);
 	}
 }
