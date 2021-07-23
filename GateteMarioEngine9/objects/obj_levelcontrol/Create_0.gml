@@ -1,0 +1,1 @@
+/// @description The level control object, this must be present on all rooms.

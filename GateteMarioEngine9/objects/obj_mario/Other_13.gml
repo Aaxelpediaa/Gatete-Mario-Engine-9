@@ -55,6 +55,9 @@ if (yspeed > 0)
             //Enable wallkick
             wallkick = 1;
             wallready = 0;
+			
+			//Stop spinning
+			jumpstyle = 0;
             
             //Enable gravity if disabled
             enable_gravity = true;
@@ -83,6 +86,9 @@ if (yspeed > 0)
             //Enable wallkick
             wallkick = 1;
             wallready = 1;
+			
+			//Stop spinning
+			jumpstyle = 0;
             
             //Enable gravity if disabled
             enable_gravity = true;

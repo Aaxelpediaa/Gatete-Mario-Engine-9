@@ -5,7 +5,7 @@
 function pal_swap_set_player() {
 	
 	//Local function variables
-	var pal,spr;
+	var pal, spr;
 	
 	//If the player isn't invincible, set up your palette
 	if (isflashing <= 0) {
@@ -32,8 +32,7 @@ function pal_swap_set_player() {
 	}
 	
 	//If no palette swap occurred, exit the script
-	if (pal == 0)
-	
+	if (pal == 0)	
 		exit;
 	
 	//Otherwise, set the palette swap

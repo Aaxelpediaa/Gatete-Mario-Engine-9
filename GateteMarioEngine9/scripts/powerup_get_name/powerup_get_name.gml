@@ -12,12 +12,13 @@ function powerup_get_name() {
 		case (cs_ice): return powerup_get_name(cs_big);
 		case (cs_carrot): return "carrot";
 		case (cs_raccoon): return "raccoon";
-		case (cs_cape): return "cape";
+		case (cs_cape): return powerup_get_name(cs_big);
 		case (cs_frog): return "frog";
 		case (cs_tanooki): return "tanooki";
 		case (cs_hammer): return "hammer";
 		case (cs_boomerang): return "boomerang";
 		case (cs_superball): return powerup_get_name(cs_big);
+		case (cs_bomb): return "bomb";
 		case (cs_shell): return "shell";
 		case (cs_bee): return "bee";
 		case (cs_volt): return powerup_get_name(cs_big);

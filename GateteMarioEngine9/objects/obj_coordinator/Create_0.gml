@@ -44,17 +44,18 @@ global.reservedrop = true;
 	#macro cs_hammer 10
 	#macro cs_boomerang	11
 	#macro cs_superball 12
-	#macro cs_shell	13
-	#macro cs_bee 14
-	#macro cs_volt 15
-	#macro cs_penguin 16
-	#macro cs_propeller 17
-	#macro cs_bell 18
-	#macro cs_football 19
-	#macro cs_ranger 20
-	#macro cs_squirrel 21
-	#macro cs_gold 22
-	#macro cs_mega 23
+	#macro cs_bomb 13
+	#macro cs_shell	14
+	#macro cs_bee 15
+	#macro cs_volt 16
+	#macro cs_penguin 17
+	#macro cs_propeller 18
+	#macro cs_bell 19
+	#macro cs_football 20
+	#macro cs_ranger 21
+	#macro cs_squirrel 22
+	#macro cs_gold 23
+	#macro cs_mega 24
 
 #endregion
 

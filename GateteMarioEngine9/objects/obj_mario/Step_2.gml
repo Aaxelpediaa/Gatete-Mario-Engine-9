@@ -224,22 +224,28 @@ else {
                                 //If Mario does have the propeller suit
                                 if (global.powerup == cs_propeller) {
                                 
-                                    //Check if the 'Down' key is pressed
-                                    if ((yspeed < 0) || ((input_check(input.down)) || (gamepad_axis_value(0, gp_axislv) > 0.5))) {
+                                    //If moving up
+                                    if (yspeed < 0) {
                                     
+										//Animate it
+                                        image_speed = 0.065+abs(yspeed)/7.5;
+										
                                         //Set the special spinning sprite
-                                        sprite_index = global.spin2_sprite[global.powerup];
-                                        
-                                        //Animate it
-                                        image_speed = 0.065+abs(yspeed)/7.5;;
+                                        sprite_index = global.spin3_sprite[global.powerup];
                                     }
                                     else {
                                     
-                                        //Set the walking sprite
-                                        sprite_index = global.spin_sprite[global.powerup];
-                                        
-                                        //Animate it
-                                        image_speed = 0.2;
+                                        //Set the spinning sprite
+										if ((input_check(input.down)) || (gamepad_axis_value(0, gp_axislv) > 0.5)) {
+											
+											image_speed = 0.5;
+											sprite_index = global.spin2_sprite[global.powerup];
+										}
+										else {
+											
+											image_speed = 0.2;
+											sprite_index = global.spin_sprite[global.powerup];
+										}
                                     }
                                 }
                                 
