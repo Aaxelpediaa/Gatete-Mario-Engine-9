@@ -8,23 +8,6 @@ if (global.powerup == cs_mega) {
 	exit;
 }
 
-//End P-Meter
-if (pmeter > 0) {
-
-    //Stop 'P-Meter' sound
-    audio_stop_sound(snd_pmeter);
-                            
-    //Allow the player to fly again.
-    flying = false;
-                            
-    //Make the player walk
-    run = false;
-                            
-    //Empty P-Meter.
-    if (pmeter > 0)        
-        pmeter --;
-}
-
 //If moving down, and not crouched down or flying or not doing a spin jump
 if (yspeed > 0) 
 && (!crouch) 

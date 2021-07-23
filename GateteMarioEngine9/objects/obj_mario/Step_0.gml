@@ -15,9 +15,9 @@ switch (global.powerup) {
 
 //If Mario is under the effects of a mega mushroom
 if (global.powerup == cs_mega)
-	ismega = -12;
+	ismega = -16;
 else
-	ismega = 0;
+	ismega = -4;
 
 //Handle position when on a slope
 if (yspeed >= 0) {
@@ -297,7 +297,7 @@ if (enable_gravity == 1) {
                                 
                                     //Make the player able to run.
                                     run = true;
-								
+									
 									//Play 'P-Meter' sound
 									if (!audio_is_playing(snd_pmeter))
 										audio_play_sound(snd_pmeter, 0, true);
@@ -314,7 +314,7 @@ if (enable_gravity == 1) {
                             pmeter--;
                     }
                     
-                    //Otherwise, if the player's horizontal speed is lower than 2.4
+                    //Otherwise, if the player's horizontal speed is lower than 2.6
                     else if ((!run) || ((state < 2) && (abs(xspeed) < 2.6)) && (global.pwing == 0)) { 
                     
                         //If the player is flying and lands on the floor.
