@@ -135,7 +135,10 @@ rescale_surface = false;
 global.moons = ds_map_create();
 
 //Font Variables
-/* UNDER CONSTRUCTION */
+global.gui_font_numbers = font_add_sprite(spr_gui_font_numbers, ord("0"), 0, 0);
+global.gui_font_numbers_gold = font_add_sprite(spr_gui_font_numbers_gold, ord("0"), 0, 0);
+global.gui_font_numbers_black = font_add_sprite(spr_gui_font_numbers_black, ord("0"), 0, 0);
+global.gui_font_numbers_large = font_add_sprite(spr_gui_font_numbers_large, ord("0"), 0, 0);
 
 //Disable application surface automatic drawing
 application_surface_draw_enable(false);

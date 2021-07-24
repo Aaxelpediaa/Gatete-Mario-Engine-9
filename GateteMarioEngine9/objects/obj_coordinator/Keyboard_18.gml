@@ -1,6 +1,6 @@
 /// @description Restart the game when both ALT+R are pressed
 
-/*if (keyboard_check_pressed(ord("R"))) {
+if (keyboard_check_pressed(ord("R"))) {
 
 	//Stop playing all sounds
 	audio_stop_all();
@@ -9,5 +9,5 @@
 	init_globals();
 	
 	//Go to the title screen
-	room_goto(rm_title);
-}*/
+	room_restart();
+}
