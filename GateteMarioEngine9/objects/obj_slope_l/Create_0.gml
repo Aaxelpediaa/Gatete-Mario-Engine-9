@@ -1,3 +1,7 @@
-/// @description Solid Left Slope
+/// @description Left Slope
 
-with (instance_create_layer(x, y, "Main", obj_slope_ss_l)) visible = false;
+add = 0.075;
+slope_x1 = x + 0;
+slope_x2 = x + 32;
+slope_y1 = y + 0;
+slope_y2 = y + 16;

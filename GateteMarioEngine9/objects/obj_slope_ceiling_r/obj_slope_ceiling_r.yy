@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "spr_square",
-    "path": "sprites/spr_square/spr_square.yy",
+    "name": "spr_slope_ceiling_l",
+    "path": "sprites/spr_slope_ceiling_l/spr_slope_ceiling_l.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_semisolid",
-    "path": "objects/obj_semisolid/obj_semisolid.yy",
+    "name": "obj_solid",
+    "path": "objects/obj_solid/obj_solid.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -27,11 +27,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Collision",
-    "path": "folders/Objetos/Collision.yy",
+    "name": "Ceiling",
+    "path": "folders/Objetos/Collision/Slopes/Ceiling.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_solid",
+  "name": "obj_slope_ceiling_r",
   "tags": [],
   "resourceType": "GMObject",
 }

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_slope_ss_l",
-    "path": "sprites/spr_slope_ss_l/spr_slope_ss_l.yy",
+    "name": "spr_slope_l",
+    "path": "sprites/spr_slope_l/spr_slope_l.yy",
   },
   "solid": false,
   "visible": true,

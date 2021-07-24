@@ -175,8 +175,13 @@ else {
                         }
                     
                         //If Mario is running
-                        if (run)                     
-                            sprite_index = global.run_sprite[global.powerup];
+                        if (run) {
+							
+							if (global.powerup != cs_bell)
+								sprite_index = global.run_sprite[global.powerup];
+							else
+								sprite_index = global.walk_sprite[global.powerup];
+						}
                         else {
                                              
                             if ((global.powerup == cs_frog)
@@ -313,7 +318,7 @@ else {
                                             if (!run)
                                                 sprite_index = global.jump_sprite[global.powerup];
                                             else
-                                                sprite_index = global.runjump_sprite[global.powerup];
+												sprite_index = global.runjump_sprite[global.powerup];
                                         }
                                     }
                                     
@@ -456,8 +461,13 @@ else {
                                                 if (!run)
                                                 && (global.pwing == 0)
                                                     sprite_index = global.jump_sprite[global.powerup];
-                                                else
-                                                    sprite_index = global.runjump_sprite[global.powerup]; 
+                                                else {
+													
+													if (global.powerup != cs_bell)
+														sprite_index = global.runjump_sprite[global.powerup];
+													else
+														sprite_index = global.jump_sprite[global.powerup];
+												}
                                             }
                                         }
                                     }

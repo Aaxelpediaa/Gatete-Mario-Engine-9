@@ -3,7 +3,7 @@
 //Check if there's a collision below and if Mario is on the ground
 if (yadd == 0)
 && (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0)) 
-|| (collision_rectangle(x-1, bbox_bottom, x+1, bbox_bottom+3.99, obj_slopeparent, 1, 0)) {
+|| (collision_rectangle(x-1, bbox_bottom-0.99, x+1, bbox_bottom+4.99, obj_slopeparent, 1, 0)) {
 
 	//If the player is flying and moving upwards...
 	if ((flying) && (yspeed < 0))
@@ -84,7 +84,7 @@ if (!flying) { //If the player is not flying
         }
 		
 		//If Mario does have the Tiny powerup
-		else if (global.powerup == cs_tiny)
+		else if ((global.powerup == cs_tiny) || (global.powerup == cs_mega))
 			xspeedmax = 2;
         
         //Otherwise, if Mario does not have the frog, tiny or mega powerup
@@ -104,6 +104,7 @@ if (!flying) { //If the player is not flying
     else {
 		
 		if (global.powerup == cs_tiny)
+		|| (global.powerup == cs_mega)
 			xspeedmax = 1;
 		else
 			xspeedmax = 1.3;
@@ -654,19 +655,17 @@ if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_climb, 0,
     ygrav = 0;    
 }
 
-/*
 //Makes the player butt-slide down slopes
-if (input_check(input.down)) 
-&& (!disablecontrol) {
+if ((enable_control == true) && (input_check(input.down))) {
 
-    //If the player does have the penguin suit
+    //If the player does have the shell or penguin suit
     if ((global.powerup == cs_shell)
     || ((global.powerup == cs_penguin) && (isslip == false)))
     && (global.mount == 0)
     && (state == 1)
     && (!sliding)
     && ((holding == 0) || (holding == 4)) 
-	&& (collision_rectangle(x, bbox_bottom+1, x, bbox_bottom+2, obj_slopeparent, 1, 0)) {
+	&& (collision_rectangle(x, bbox_bottom-0.99, x, bbox_bottom+3.99, obj_slopeparent, 1, 0)) {
     
         //Start sliding
         sliding = true;
@@ -679,10 +678,12 @@ if (input_check(input.down))
 
     //If the player is on a slope, and the above didn't happen, slide normally
     else if (collision_rectangle(x, bbox_bottom+1, x, bbox_bottom+2, obj_slopeparent, 1, 0))
-    && (global.powerup != cs_frog) {
+	&& (global.powerup != cs_tiny)
+    && (global.powerup != cs_frog) 
+	&& (global.powerup != cs_mega) {
             
         //If the player can slide and it's not holding anything.
-        if ((holding == 0) || (holding == 4)){
+        if ((holding == 0) || (holding == 4)) {
         
             //Start sliding
             sliding = true;
@@ -697,7 +698,6 @@ if (input_check(input.down))
             crouch = true;
     }
 }
-*/
 
 //If the player is jumping, not ducking, not spin jumping, can control himself, is not riding anything and it's not holding a propeller block
 if (state == 2)

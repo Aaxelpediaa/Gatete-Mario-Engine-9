@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_solid",
-    "path": "objects/obj_solid/obj_solid.yy",
+    "name": "obj_slopeparent",
+    "path": "objects/obj_slopeparent/obj_slopeparent.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Solid",
-    "path": "folders/Objetos/Collision/Slopes/Solid.yy",
+    "name": "Slopes",
+    "path": "folders/Objetos/Collision/Slopes.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_slope_l",

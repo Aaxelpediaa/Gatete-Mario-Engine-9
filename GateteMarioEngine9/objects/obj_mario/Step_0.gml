@@ -16,14 +16,19 @@ switch (global.powerup) {
 //If Mario is under the effects of a mega mushroom
 if (global.powerup == cs_mega)
 	ismega = -16;
-else
-	ismega = -4;
+else {
+	
+	if (global.powerup == cs_tiny)
+		ismega = -1;
+	else
+		ismega = -4;
+}
 
 //Handle position when on a slope
 if (yspeed >= 0) {
 	
 	//If there's a slope collision in-position
-	if (collision_rectangle(x-1, bbox_bottom-0.99, x+1, bbox_bottom+2.99, obj_slopeparent, 1, 0)) {
+	if (collision_rectangle(x-1, bbox_bottom-0.99, x+1, bbox_bottom+4.99, obj_slopeparent, 1, 0)) {
 		
 		//Calculate slope position
 		slope_collision();

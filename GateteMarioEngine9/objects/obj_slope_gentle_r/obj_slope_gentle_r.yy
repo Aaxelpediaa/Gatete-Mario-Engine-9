@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "spr_square",
-    "path": "sprites/spr_square/spr_square.yy",
+    "name": "spr_slope_gentle_r",
+    "path": "sprites/spr_slope_gentle_r/spr_slope_gentle_r.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_semisolid",
-    "path": "objects/obj_semisolid/obj_semisolid.yy",
+    "name": "obj_slopeparent",
+    "path": "objects/obj_slopeparent/obj_slopeparent.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -23,15 +23,17 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Collision",
-    "path": "folders/Objetos/Collision.yy",
+    "name": "Slopes",
+    "path": "folders/Objetos/Collision/Slopes.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_solid",
+  "name": "obj_slope_gentle_r",
   "tags": [],
   "resourceType": "GMObject",
 }

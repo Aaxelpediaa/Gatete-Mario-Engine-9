@@ -149,7 +149,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Ceiling",
-    "path": "folders/Sprites/Masks/Collision/Slopes/Solid/Ceiling.yy",
+    "path": "folders/Sprites/Masks/Collision/Slopes/Ceiling.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_slope_ceiling_r",

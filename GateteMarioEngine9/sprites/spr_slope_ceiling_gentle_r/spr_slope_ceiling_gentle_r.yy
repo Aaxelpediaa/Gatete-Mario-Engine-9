@@ -8,13 +8,13 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 31,
+  "bbox_right": 63,
   "bbox_top": 0,
   "bbox_bottom": 15,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 32,
+  "width": 64,
   "height": 16,
   "textureGroupId": {
     "name": "Default",
@@ -103,12 +103,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"2f165749-2690-426d-afa7-fbbdd16fdb3c","path":"sprites/spr_slope_ceiling_l/spr_slope_ceiling_l.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"2f165749-2690-426d-afa7-fbbdd16fdb3c","path":"sprites/spr_slope_ceiling_l/spr_slope_ceiling_l.yy",},"LayerId":{"name":"fe08ae46-b87e-425c-a348-c7c1fad8a86a","path":"sprites/spr_slope_ceiling_l/spr_slope_ceiling_l.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_slope_ceiling_l","path":"sprites/spr_slope_ceiling_l/spr_slope_ceiling_l.yy",},"resourceVersion":"1.0","name":"2f165749-2690-426d-afa7-fbbdd16fdb3c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"2f165749-2690-426d-afa7-fbbdd16fdb3c","path":"sprites/spr_slope_ceiling_gentle_r/spr_slope_ceiling_gentle_r.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"2f165749-2690-426d-afa7-fbbdd16fdb3c","path":"sprites/spr_slope_ceiling_gentle_r/spr_slope_ceiling_gentle_r.yy",},"LayerId":{"name":"fe08ae46-b87e-425c-a348-c7c1fad8a86a","path":"sprites/spr_slope_ceiling_gentle_r/spr_slope_ceiling_gentle_r.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_slope_ceiling_gentle_r","path":"sprites/spr_slope_ceiling_gentle_r/spr_slope_ceiling_gentle_r.yy",},"resourceVersion":"1.0","name":"2f165749-2690-426d-afa7-fbbdd16fdb3c","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_slope_ceiling_l","path":"sprites/spr_slope_ceiling_l/spr_slope_ceiling_l.yy",},
+    "spriteId": {"name":"spr_slope_ceiling_gentle_r","path":"sprites/spr_slope_ceiling_gentle_r/spr_slope_ceiling_gentle_r.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -120,7 +120,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"21b6a9aa-01ab-42c8-aa6a-4c5e7e611ebb","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2f165749-2690-426d-afa7-fbbdd16fdb3c","path":"sprites/spr_slope_ceiling_l/spr_slope_ceiling_l.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"1c8d7737-5b85-44fd-a1c6-1b971ea596a6","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2f165749-2690-426d-afa7-fbbdd16fdb3c","path":"sprites/spr_slope_ceiling_gentle_r/spr_slope_ceiling_gentle_r.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -137,9 +137,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_slope_ceiling_l","path":"sprites/spr_slope_ceiling_l/spr_slope_ceiling_l.yy",},
+    "parent": {"name":"spr_slope_ceiling_gentle_r","path":"sprites/spr_slope_ceiling_gentle_r/spr_slope_ceiling_gentle_r.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_slope_ceiling_l",
+    "name": "spr_slope_ceiling_gentle_r",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -152,7 +152,7 @@
     "path": "folders/Sprites/Masks/Collision/Slopes/Ceiling.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_slope_ceiling_l",
+  "name": "spr_slope_ceiling_gentle_r",
   "tags": [],
   "resourceType": "GMSprite",
 }
