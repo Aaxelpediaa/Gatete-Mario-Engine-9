@@ -243,7 +243,7 @@ else {
                                         //Set the spinning sprite
 										if ((input_check(input.down)) || (gamepad_axis_value(0, gp_axislv) > 0.5)) {
 											
-											image_speed = 0.5;
+											image_speed = 1;
 											sprite_index = global.spin2_sprite[global.powerup];
 										}
 										else {

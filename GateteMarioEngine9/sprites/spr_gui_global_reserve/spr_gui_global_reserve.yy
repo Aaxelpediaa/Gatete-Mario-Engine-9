@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"79883160-2d9f-46d8-b85b-9ec1f3da2270","path":"sprites/spr_gui_reservebox/spr_gui_reservebox.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"79883160-2d9f-46d8-b85b-9ec1f3da2270","path":"sprites/spr_gui_reservebox/spr_gui_reservebox.yy",},"LayerId":{"name":"929afbda-f20e-4c2c-a834-736ede763a5e","path":"sprites/spr_gui_reservebox/spr_gui_reservebox.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_gui_reservebox","path":"sprites/spr_gui_reservebox/spr_gui_reservebox.yy",},"resourceVersion":"1.0","name":"79883160-2d9f-46d8-b85b-9ec1f3da2270","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"79883160-2d9f-46d8-b85b-9ec1f3da2270","path":"sprites/spr_gui_global_reserve/spr_gui_global_reserve.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"79883160-2d9f-46d8-b85b-9ec1f3da2270","path":"sprites/spr_gui_global_reserve/spr_gui_global_reserve.yy",},"LayerId":{"name":"929afbda-f20e-4c2c-a834-736ede763a5e","path":"sprites/spr_gui_global_reserve/spr_gui_global_reserve.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_gui_global_reserve","path":"sprites/spr_gui_global_reserve/spr_gui_global_reserve.yy",},"resourceVersion":"1.0","name":"79883160-2d9f-46d8-b85b-9ec1f3da2270","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_gui_reservebox","path":"sprites/spr_gui_reservebox/spr_gui_reservebox.yy",},
+    "spriteId": {"name":"spr_gui_global_reserve","path":"sprites/spr_gui_global_reserve/spr_gui_global_reserve.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"533c5fc2-e980-410a-b404-576dc887ddc7","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"79883160-2d9f-46d8-b85b-9ec1f3da2270","path":"sprites/spr_gui_reservebox/spr_gui_reservebox.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"533c5fc2-e980-410a-b404-576dc887ddc7","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"79883160-2d9f-46d8-b85b-9ec1f3da2270","path":"sprites/spr_gui_global_reserve/spr_gui_global_reserve.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_gui_reservebox","path":"sprites/spr_gui_reservebox/spr_gui_reservebox.yy",},
+    "parent": {"name":"spr_gui_global_reserve","path":"sprites/spr_gui_global_reserve/spr_gui_global_reserve.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_gui_reservebox",
+    "name": "spr_gui_global_reserve",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -69,11 +69,11 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "In-Level",
-    "path": "folders/Sprites/Special/System/GUI/In-Level.yy",
+    "name": "GUI",
+    "path": "folders/Sprites/Special/System/GUI.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_gui_reservebox",
+  "name": "spr_gui_global_reserve",
   "tags": [],
   "resourceType": "GMSprite",
 }

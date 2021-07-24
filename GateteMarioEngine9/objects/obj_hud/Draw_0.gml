@@ -18,7 +18,7 @@ draw_text(camera_get_view_x(view_camera[0]) + 40, camera_get_view_y(view_camera[
 #endregion
 
 //Reserve Box
-draw_sprite_ext(spr_gui_reservebox, 0, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + 10, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_gui_global_reserve, 0, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + 10, 1, 1, 0, c_white, 1);
 
 //Set black font
 draw_set_font(global.gui_font_numbers_black);
@@ -62,3 +62,6 @@ if (collect_mode > -1) {
 		draw_sprite_ext(spr_gui_pmeter, 0+(fake_pm/16), camera_get_view_x(view_camera[0]) + 56, camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) - 16, 1, 1, 0, c_white, 1);
 	}
 #endregion
+
+//SMB3 Card System
+draw_sprite_ext(spr_gui_cardbox, 0, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 53, camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) - 21, 1, 1, 0, c_white, 1);

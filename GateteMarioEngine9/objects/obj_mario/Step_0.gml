@@ -1,27 +1,29 @@
 /// @description Mario's logic!
 
-//Handle top point for exiting water
-switch (global.powerup) {
-	
-	//Tiny
-	case (cs_tiny): swim_y = 9; break;
-	
-	//Small
-	case (cs_small): swim_y = 3; break;
-	
-	//Default
-	default: swim_y = 0; break;
-}
-
 //If Mario is under the effects of a mega mushroom
-if (global.powerup == cs_mega)
-	ismega = -16;
+if (global.powerup == cs_mega) {
+	
+	crouch = false;
+	ismega = 0;
+	swim_y = -32;
+}
 else {
 	
-	if (global.powerup == cs_tiny)
-		ismega = -1;
-	else
+	if (global.powerup == cs_tiny) {
+		
+		crouch = false;
+		ismega = 4;
+		swim_y = 9;
+	}
+	else {
+		
 		ismega = -4;
+		if (global.powerup == cs_small)
+		|| (mask_index == spr_mask_mario)
+			swim_y = 3;
+		else
+			swim_y = 0;
+	}
 }
 
 //Handle position when on a slope
@@ -584,7 +586,7 @@ if (enable_gravity == 1) {
 	
 	//Prevent the player from overlappin' the ceiling
 	if (state > 1)	
-		while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
+		while (collision_rectangle(bbox_left+1, bbox_top+1, bbox_right-1, bbox_top+1, obj_solid, 1, 0))
 			y++;
 	
 	//If the player is not climbing
