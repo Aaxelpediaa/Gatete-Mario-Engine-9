@@ -4,7 +4,7 @@
     "path": "sprites/spr_slope_ceiling_r/spr_slope_ceiling_r.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {

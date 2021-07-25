@@ -4,7 +4,7 @@
     "path": "sprites/spr_square_c/spr_square_c.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,

@@ -18,7 +18,7 @@ draw_text(camera_get_view_x(view_camera[0]) + 40, camera_get_view_y(view_camera[
 #endregion
 
 //Reserve Box
-draw_sprite_ext(spr_gui_global_reserve, 0, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + 10, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_gui_global_reserve, 0, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + 8, 1, 1, 0, c_white, 1);
 
 //Set black font
 draw_set_font(global.gui_font_numbers_black);

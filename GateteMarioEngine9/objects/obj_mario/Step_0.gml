@@ -274,7 +274,8 @@ if (enable_gravity == 1) {
                 else {
                 
                     //If the player's horizontal speed is equal/greater than 2.6 and it's not wearing a kuribo shoe.
-                    if (abs(xspeed) >= 2.6) 
+                    if (abs(xspeed) >= 2.6)
+					&& (wallkick == 0)
                     && (global.mount != 2) 
                     || (global.pwing == 1) {
                     
@@ -322,7 +323,7 @@ if (enable_gravity == 1) {
                     }
                     
                     //Otherwise, if the player's horizontal speed is lower than 2.6
-                    else if ((!run) || ((state < 2) && (abs(xspeed) < 2.6)) && (global.pwing == 0)) { 
+                    else if ((!run) || (wallkick > 0) || ((state < 2) && (abs(xspeed) < 2.6)) && (global.pwing == 0)) { 
                     
                         //If the player is flying and lands on the floor.
                         if (flying) {
