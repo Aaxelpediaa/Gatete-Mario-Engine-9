@@ -17,7 +17,7 @@ else {
 	}
 	else {
 		
-		ismega = -4;
+		ismega = 0;
 		if (global.powerup == cs_small)
 		|| (mask_index == spr_mask_mario)
 			swim_y = 3;

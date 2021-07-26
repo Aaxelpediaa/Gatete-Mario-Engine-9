@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_pmeter.wav",
-  "duration": 0.277914,
+  "duration": 0.1125,
   "parent": {
     "name": "Menu",
     "path": "folders/Sonidos/Menu.yy",
