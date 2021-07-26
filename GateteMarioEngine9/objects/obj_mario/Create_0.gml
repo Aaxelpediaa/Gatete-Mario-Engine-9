@@ -1,8 +1,5 @@
 /// @description It's a me, Mario!
 
-//Depth
-depth = -5;
-
 //Enable / disable gravity
 enable_gravity = true;
 

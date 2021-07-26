@@ -46,22 +46,28 @@ if (collect_mode > -1) {
 
 //P-Meter
 #region P-METER
-
+	
 	//If the player does exist
 	if (instance_exists(obj_mario)) {
 	
 		//If the P-Wing is active or the P-Meter is above 111
 		if (global.pwing == 1)
-		|| (obj_mario.pmeter > 111)
+		|| (obj_mario.pmeter > 143)
 			draw_sprite_ext(spr_gui_pmeter, 6+flash, camera_get_view_x(view_camera[0]) + 56, camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) - 16, 1, 1, 0, c_white, 1);
 		else
-			draw_sprite_ext(spr_gui_pmeter, 0+(obj_mario.pmeter/16), camera_get_view_x(view_camera[0]) + 56, camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) - 16, 1, 1, 0, c_white, 1);
+			draw_sprite_ext(spr_gui_pmeter, 0+(obj_mario.pmeter/24), camera_get_view_x(view_camera[0]) + 56, camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) - 16, 1, 1, 0, c_white, 1);
 	}
 	else {
 	
-		draw_sprite_ext(spr_gui_pmeter, 0+(fake_pm/16), camera_get_view_x(view_camera[0]) + 56, camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) - 16, 1, 1, 0, c_white, 1);
+		draw_sprite_ext(spr_gui_pmeter, 0+(fake_pm/24), camera_get_view_x(view_camera[0]) + 56, camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) - 16, 1, 1, 0, c_white, 1);
 	}
 #endregion
 
 //SMB3 Card System
-draw_sprite_ext(spr_gui_cardbox, 0, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 53, camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) - 21, 1, 1, 0, c_white, 1);
+#region SMB3 CARDS
+
+	if (show_cards > 0) {
+	
+		draw_sprite_ext(spr_gui_cardbox, 0, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 53, camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) - 21, 1, 1, 0, c_white, 1);
+	}
+#endregion

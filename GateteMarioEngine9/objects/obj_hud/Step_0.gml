@@ -1,5 +1,6 @@
-/// @description Fake up P-Meter depletion
+/// @description Display cards and fake up P-Meter depletion
 
+show_cards--;
 if (fake_pm == 0) {
 	
 	if (instance_exists(obj_mario))

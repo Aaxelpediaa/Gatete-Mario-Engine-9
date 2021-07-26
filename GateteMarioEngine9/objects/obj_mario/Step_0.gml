@@ -54,24 +54,22 @@ if (global.pwing == 1) {
 		//Disable P-Wing
 		global.pwing = false;
 		
-		//End flight
-		flying = 0;
-		
 		//Reset P-Meter
 		pmeter = 0;
+
+		//End flight
+		flying = 0;
 	}
 	
-	//Keep P-Meter full
-	pmeter = 112;
+	//Keep P-Meter active
+	pmeter = 144;
 	
-	//Keep flight time active
-	flying_time = timer(pmeter_end, 60 * global.flighttime, true);
-	
-	//If the 'P-Meter' sound is not playing, play it
-	if (!audio_is_playing(snd_pmeter)) {
-		
+	//Loop P-Meter sound
+	if (!audio_is_playing(snd_pmeter))
 		audio_play_sound(snd_pmeter, 0, true);
-	}
+	
+	//Keep flying time active
+	flying_time = timer(pmeter_end, 60 * global.flighttime, true);
 	
 	//If the player is on the ground, do not apply fix
 	if (state != 2)
@@ -243,19 +241,21 @@ if (enable_gravity == 1) {
             //If the player is not climbing
             if (state != 3) {
         
-                //Execute main and walljump behaviour scripts
+                //Execute main behaviour script
                 event_user(2);
+				
+				//Execute walljump behaviour script
 				event_user(3);
-                
-                //If the player is running on walls or ceilings
+				
+				//If the player is running on walls or ceilings
 				if (global.mount != 2)
                 && (instance_number(obj_wallrunner) == 1) {
                 
                     //If the P-Meter is full.
-                    if (pmeter > 112) {      
+                    if (pmeter > 144) {      
                         
                         //Keep P-Meter full.
-                        pmeter = 112;
+                        pmeter = 144;
                     
                         //Make the player able to run.
                         run = true;
@@ -289,8 +289,8 @@ if (enable_gravity == 1) {
                                 if (!audio_is_playing(snd_pmeter)) {
                                 
                                     audio_play_sound(snd_pmeter, 0, true);
-                                    if (pmeter < 112)
-                                        pmeter = 112;
+                                    if (pmeter < 144)
+                                        pmeter = 144;
                                 }
                             }
                             
@@ -298,10 +298,10 @@ if (enable_gravity == 1) {
                             else {
                         
                                 //If the P-Meter is full.
-                                if (pmeter > 112) {
+                                if (pmeter > 144) {
                                     
                                     //Keep P-Meter full.
-                                    pmeter = 112;
+                                    pmeter = 144;
                                 
                                     //Make the player able to run.
                                     run = true;
@@ -392,12 +392,16 @@ if (enable_gravity == 1) {
                 
                     //Stop 'P-Meter' sound
                     audio_stop_sound(snd_pmeter);
+					
+					//Stop flying
+					flying = false;
                                                                     
-                    //Stop flight, run and reduce pmeter
-                    flying = false;
-                    run = false;
-                    if (pmeter > 0)
-                        pmeter--;
+                    //Stop running
+					run = false;
+					
+					//Decrement P-Meter
+					if (pmeter > 0)
+						pmeter--;
                 }
             }
         }
@@ -410,15 +414,19 @@ if (enable_gravity == 1) {
             
             //Stop P-Meter if not permanent
             if (global.pwing == 0) {
-            
+                
                 //Stop 'P-Meter' sound
                 audio_stop_sound(snd_pmeter);
-                                                                
-	            //Stop flight, run and reduce pmeter
-	            flying = false;
-	            run = false;
-	            if (pmeter > 0)
-	                pmeter--;
+				
+				//Stop flying
+				flying = false;
+                                                                    
+                //Stop running
+				run = false;
+					
+				//Decrement P-Meter
+				if (pmeter > 0)
+					pmeter--;
             }
         }
     }
@@ -429,18 +437,18 @@ if (enable_gravity == 1) {
         //Execute swim behaviour script
         event_user(6);
             
-        //Stop P-Meter if not permanent
-        if (global.pwing == 0) {
-        
-            //Stop 'P-Meter' sound
-            audio_stop_sound(snd_pmeter);
-                                                            
-            //Stop flight, run and reduce pmeter
-            flying = false;
-            run = false;
-            if (pmeter > 0)
-                pmeter--;
-        }
+		//Stop P-Meter if not permanent
+		if (global.pwing == 0) {
+                
+		    //Stop 'P-Meter' sound
+		    audio_stop_sound(snd_pmeter);
+                                                                    
+		    //Stop running
+			run = false;
+					
+			//Stop flight
+			flying = false;
+		}
     }
 	
 	//If moving right and there's a wall in position

@@ -4,10 +4,10 @@
 depth = -10;
 
 //Collection mode
-collect_mode = 600;
+collect_mode = -1;
 
 //Show SMB3 Cards
-show_cards = true;
+show_cards = 240;
 
 //Fake P-Meter
 fake_pm = 0;

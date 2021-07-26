@@ -652,7 +652,7 @@ if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_climb, 0,
     
     //Stop movement
     yspeed = 0;
-    ygrav = 0;    
+    yadd = 0;    
 }
 
 //Makes the player butt-slide down slopes
@@ -727,11 +727,11 @@ if (state == 2)
             audio_play_sound(snd_spin, 0, false);
             
             //Make the player able to fly for 4 seconds
-            if (!flying) {
-            
-                flying = true;
+			if (!flying) {
+				
+				flying = true;
 				flying_time = timer(pmeter_end, 60 * global.flighttime, 0);
-            }
+			}
             
             //Whip tail.
             wiggle = 16;
