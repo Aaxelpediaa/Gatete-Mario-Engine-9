@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Main.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scr_walrustimer",
+  "name": "walrus_timer",
   "tags": [],
   "resourceType": "GMScript",
 }

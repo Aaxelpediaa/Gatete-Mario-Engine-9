@@ -134,6 +134,9 @@ rescale_surface = false;
 //Data structure for picked up 3up moons
 global.moons = ds_map_create();
 
+//GUI Button Sprites
+gui_buttons = gamepad_set_gui_sprite();
+
 //Font Variables
 global.gui_font_numbers = font_add_sprite(spr_gui_font_numbers, ord("0"), 0, 0);
 global.gui_font_numbers_gold = font_add_sprite(spr_gui_font_numbers_gold, ord("0"), 0, 0);

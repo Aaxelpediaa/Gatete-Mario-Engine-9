@@ -1,5 +1,11 @@
 /// @description Set view parameters
 
+//Create transition layer
+if (!layer_exists("Transitions")) {
+
+	layer_create(-1000, "Transitions");
+}
+
 //Enable the views if they were not enabled
 view_enabled = true;
 

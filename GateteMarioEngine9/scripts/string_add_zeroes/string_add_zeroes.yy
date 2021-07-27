@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "Text",
+    "path": "folders/Scripts/Text.yy",
   },
   "resourceVersion": "1.0",
   "name": "string_add_zeroes",

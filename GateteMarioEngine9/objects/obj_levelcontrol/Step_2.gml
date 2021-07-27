@@ -37,7 +37,7 @@ y = round(y);
 #region PARALLAX BACKGROUNDS
 
 	//Get both x and y position
-	var cam_x = camera_get_view_x(view_camera[0]);
+	var cam_x = camera_get_view_x(view_camera[0]) + layer_get_hspeed("Background 0");
 	var cam_y = camera_get_view_y(view_camera[0]);
 		
 	#region BACKGROUND 0
