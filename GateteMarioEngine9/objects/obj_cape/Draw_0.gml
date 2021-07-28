@@ -1,10 +1,10 @@
 /// @description Draw cape
 
 //If the player does exist
-if (instance_exists(my_owner)) {
+if (instance_exists(owner)) {
 	
 	// If actually flying, don't perform drawing logic of cape
-	if (my_owner.my_flight != noone)
+	if (owner.fly != noone)
 	
 		return;
 

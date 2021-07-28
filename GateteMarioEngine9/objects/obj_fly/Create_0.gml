@@ -44,7 +44,7 @@ running = 8;
 #endregion
 
 // Cape owner
-my_owner = noone;
+owner = noone;
 
 // Default image speed
 image_speed = 0;

@@ -1,6 +1,6 @@
 /// @description Draw Mario
 
-if (my_flight != noone)
+if (fly != noone)
 
 	return;
 

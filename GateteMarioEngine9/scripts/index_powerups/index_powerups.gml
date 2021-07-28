@@ -2,12 +2,12 @@
 
 function index_powerups() {
 
+	// How many power-ups to create (the "i" created will match the enum through powerup_get_name)
 	var powerup_count = 25;
 
+	// Loop through and get every asset
 	for (var i = 0; i < powerup_count; i++) {
-		
-		//show_debug_message(i);
-		
+
 		global.carry_sprite[i] =		asset_get_index("spr_mario_" + string(powerup_get_name(i)) + "_carry");
 		global.carry_jump_sprite[i] =	asset_get_index("spr_mario_" + string(powerup_get_name(i)) + "_carry_jump");
 		global.clear_sprite[i] =		asset_get_index("spr_mario_" + string(powerup_get_name(i)) + "_clear");
@@ -38,5 +38,7 @@ function index_powerups() {
 		global.walljump_sprite[i] =		asset_get_index("spr_mario_" + string(powerup_get_name(i)) + "_walljump");
 		global.float_sprite[i] =		asset_get_index("spr_mario_" + string(powerup_get_name(i)) + "_float");
 		global.attack_sprite[i] =		asset_get_index("spr_mario_" + string(powerup_get_name(i)) + "_attack");
+		
 	}
+	
 }

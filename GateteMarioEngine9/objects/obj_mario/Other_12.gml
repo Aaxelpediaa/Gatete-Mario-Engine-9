@@ -688,9 +688,13 @@ if ((state == 2) || (statedelay != 0)) {
 		// If the conditions are met, start flying
 		if ((global.powerup == cs_cape) && (flying) && (yspeed > 2) && (jumpstyle == 0) && (global.mount == 0)) {
 			
-			my_flight = instance_create_layer(x, y, layer, obj_fly);
+			// Create the flying Mario
+			fly = instance_create_layer(x, y, layer, obj_fly);
 			
-			with (my_flight) {
+			// Stop the P-meter sound pre-maturely so it's not playing when you're flying
+			audio_stop_sound(snd_pmeter);
+			
+			with (fly) {
 				
 				// Attach variables
 				yadd = other.yadd;
@@ -699,7 +703,7 @@ if ((state == 2) || (statedelay != 0)) {
 				yspeed = other.yspeed;
 				
 				// Set object reference
-				my_owner = other.id;
+				owner = other.id;
 				
 				// Attach xscale
 				xscale = other.xscale;
@@ -710,7 +714,7 @@ if ((state == 2) || (statedelay != 0)) {
 			enable_gravity = false;
 			
 		// If the criteria is met to STOP flying
-		} else if ((global.powerup == cs_cape) && (flying) && (yspeed > 0) && (jumpstyle != 0) && (global.mount != 0)) {
+		} else if ((global.powerup == cs_cape) && (flying) && (yspeed > 0) && (jumpstyle != 0 || global.mount != 0)) {
 		
 			// Then stop flying if spin jumping, mounted, etc.
 			flying = false;

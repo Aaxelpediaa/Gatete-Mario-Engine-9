@@ -62,7 +62,7 @@ if (global.pwing == 1) {
 	}
 	
 	//Keep P-Meter active
-	pmeter = 144;
+	pmeter = global.pmeter_limit;
 	
 	//Loop P-Meter sound
 	if (!audio_is_playing(snd_pmeter) && global.pmeter_sound)
@@ -261,10 +261,10 @@ if (enable_gravity == 1) {
                 && (instance_number(obj_wallrunner) == 1) {
                 
                     //If the P-Meter is full.
-                    if (pmeter > 144) {      
+                    if (pmeter > global.pmeter_limit) {      
                         
                         //Keep P-Meter full.
-                        pmeter = 144;
+                        pmeter = global.pmeter_limit;
                     
                         //Make the player able to run.
                         run = true;
@@ -298,8 +298,8 @@ if (enable_gravity == 1) {
                                 if (!audio_is_playing(snd_pmeter) && global.pmeter_sound) {
                                 
                                     audio_play_sound(snd_pmeter, 0, true);
-                                    if (pmeter < 144)
-                                        pmeter = 144;
+                                    if (pmeter < global.pmeter_limit)
+                                        pmeter = global.pmeter_limit;
                                 }
                             }
                             
@@ -307,10 +307,10 @@ if (enable_gravity == 1) {
                             else {
                         
                                 //If the P-Meter is full.
-                                if (pmeter > 144) {
+                                if (pmeter > global.pmeter_limit) {
                                     
                                     //Keep P-Meter full.
-                                    pmeter = 144;
+                                    pmeter = global.pmeter_limit;
                                 
                                     //Make the player able to run.
                                     run = true;
@@ -634,12 +634,12 @@ if (enable_gravity == 1) {
 				crouch = false;
 		}
 		
-		/*Handles powerup specific projectiles, tail spin, cat scratching, etc...
+		// Handles powerup specific projectiles, tail spin, cat scratching, etc...
 		if (input_check_pressed(input.action_1))
 		&& (obj_levelcontrol.barrier == false)
 		&& (enable_control == true)
 			timer(throw_projectile, 1, false);
-		*/
+			
 	}
 
 	//Otherwise, cancel crouch and spin jump

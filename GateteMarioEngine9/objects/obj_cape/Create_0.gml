@@ -1,10 +1,13 @@
 /// @description Mario's Cape
 
-//Do not animate
+// Inherit parent event
+event_inherited();
+
+// Do not animate
 image_speed = 0;
 image_index = 0;
 
-//Cape state
+// Cape state
 enum capestate {
 
     cape_idle,
@@ -17,8 +20,8 @@ enum capestate {
 }
 state = capestate.cape_idle;
 
-//Cape position
+// Cape position
 yy = 0;
 
-// Creator of the cape
-my_owner = noone;
+// Owner of the cape
+owner = noone;

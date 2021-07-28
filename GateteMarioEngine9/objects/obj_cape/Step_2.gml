@@ -1,13 +1,48 @@
 /// @description Manage cape
 
-function manage_cape_states() {
-	
+// Inherit the parent event
+event_inherited();
+
+#region PLAYER SYNC
+
+//If the player does exist
+if (instance_exists(owner)) {
+
+	//Move towards the player
+	x = owner.x;
+	y = owner.y;
+    
+	//Hereby facing direction
+	image_xscale = owner.xscale;
+		
+	// Set cape depth
+	switch (owner.state) {
+			
+		default:
+			depth = owner.depth + 1;
+			break;
+				
+		case (playerstate.climb):
+			depth = owner.depth - 1;
+			break;
+			
+	}
+		
+	#region CAPE STATES
+		
 	#region SPECIAL STATES
 	
 	// Climbing
-	if (my_owner.state == playerstate.climb) {
+	if (owner.state == playerstate.climb) {
 		
 		state = capestate.cape_climb;
+		
+	}
+	
+	// Spinning
+	else if (owner.spin != noone) {
+		
+		state = capestate.cape_spin_up;	
 		
 	}
 	
@@ -15,10 +50,10 @@ function manage_cape_states() {
 	
 	#region GROUNDED
 	
-	else if (my_owner.yadd == 0 && my_owner.yspeed == 0) {
+	else if (owner.yadd == 0 && owner.yspeed == 0) {
 		
 		// If walking/sliding/etc.
-		if (my_owner.xspeed != 0) {
+		if (owner.xspeed != 0) {
 			
 			state = capestate.cape_walk;
 			
@@ -38,19 +73,19 @@ function manage_cape_states() {
 	else {
 		
 		// Not spin jumping
-		if (my_owner.jumpstyle == 0) {
+		if (owner.jumpstyle == 0) {
 			
 			// If they're flying
-			if (my_owner.flying == true) {
+			if (owner.flying == true) {
 			
 				state = capestate.cape_walk;
 				
 			}
 		
 			// If going up
-			else if (my_owner.yspeed <= 0) {
+			else if (owner.yspeed <= 0) {
 				
-				if (my_owner.swimming) {
+				if (owner.swimming) {
 					
 					state = capestate.cape_walk;
 					
@@ -71,7 +106,7 @@ function manage_cape_states() {
 		} else {
 			
 			// If going up
-			if (my_owner.yspeed <= 0) {
+			if (owner.yspeed <= 0) {
 		
 				state = capestate.cape_spin_up;
 		
@@ -82,50 +117,18 @@ function manage_cape_states() {
 			
 			}
 			
-			show_debug_message("I'm spinning");
-			
 		}
 		
 	}
 	
 	#endregion
-	
+		
+	#endregion
+		
 }
-
-#region POSITION
-
-	//If the player does exist
-	if (instance_exists(my_owner)) {
-
-	    //Move towards the player
-	    x = my_owner.x;
-	    y = my_owner.y;
-    
-	    //Hereby facing direction
-	    image_xscale = my_owner.xscale;
-		
-		// Set cape depth
-		switch (my_owner.state) {
-			
-			default:
-				depth = my_owner.depth + 1;
-				break;
-				
-			case (playerstate.climb):
-				depth = my_owner.depth - 1;
-				break;
-			
-		}
-		
-		#region STATE MANAGEMENT
-		
-		manage_cape_states();
-		
-		#endregion
-		
-	}
-	else
-	    exit;
+else
+	exit;
+	
 #endregion
 
 #region ANIMATION
@@ -164,10 +167,10 @@ function manage_cape_states() {
 	    //If the following cape sprite is being used, update based on hspeed
 	    if (sprite_index == spr_cape_walk) {
     
-	        if ((my_owner.flying > 0) && (my_owner.jumpstyle == 0 || global.powerup != cs_cape))
+	        if ((owner.flying > 0) && (owner.jumpstyle == 0 || global.powerup != cs_cape))
 	            image_speed = 0.15;
 	        else
-	            image_speed = 0.065+abs(my_owner.xspeed)/7.5;
+	            image_speed = 0.065+abs(owner.xspeed)/7.5;
 	    }
 	}
 

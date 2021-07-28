@@ -1,6 +1,6 @@
 /// @description Change P-Meter frame
 
-if (obj_mario.pmeter < 144) {
+if (obj_mario.pmeter < global.pmeter_limit) {
 	
 	flash = 0;
 	alarm[0] = 1;

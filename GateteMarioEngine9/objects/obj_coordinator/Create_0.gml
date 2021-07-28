@@ -26,8 +26,11 @@ global.cattime = 3;
 //Allow reserve of items if enabled
 global.reservedrop = true;
 
-//Play p-meter sound
+//Play P-meter sound?
 global.pmeter_sound = true;
+
+//How long it takes for Mario's P-meter to fill up
+global.pmeter_limit = 144;
 
 #endregion
 

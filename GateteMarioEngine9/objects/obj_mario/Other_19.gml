@@ -49,5 +49,174 @@ wallkick_allow = function() {
 //Throws projectiles
 throw_projectile = function() {
 
+	// If the proper parameters exist to be able to do powerup-specific actions
+	if ((enable_control == true)
+	&& (sliding == 0)
+	&& (holding == 0)
+	&& (kicking == 0)
+	&& (wallkick == 0)) {
+        
+		/*// Create statue
+	    if (global.powerup == cs_tanooki)
+	    && (input_check(input.up))
+	    && (global.mount == 0)
+	    && (instance_number(obj_spinner) < 1) {
+            
+	        // Play the transform sound
+	        audio_play_sound(snd_transform, 0, false);
+    
+	        // Create a poof
+	        with (instance_create(x,y,depth,obj_player_transform))
+				sequence = 4;
+        
+	        // Create a statue
+	        instance_create_depth(x,y,depth,obj_statue);        
+	    }
+    
+	    // Cat
+	    else if (global.powerup == cs_bell)
+	    && (input_check(input.down))
+	    && (global.mount == 0)
+	    && (state == 2)
+	    && (yspeed > 0)
+	    && (instance_number(obj_spinner) == 0)
+	    && (instance_number(obj_dropdown) < 1) {
+    
+	        // Create drop down
+	        with (instance_create_depth(x,y,depth,obj_dropdown))
+	            image_xscale = 1*sign(other.xscale);
+	    }
+    
+	    // Actions to take only if not crouching
+	    else */if (!crouch) {
+    
+	        // Fireball
+	        if (global.powerup == cs_fire)
+	        && (instance_number(obj_fireball) < 2) {
+        
+				// Set firing animation time
+	            firing = 9;
+				
+				// Play sound
+				audio_stop_sound(snd_fireball);
+				audio_play_sound(snd_fireball,0,0);
+				
+				// Create fireball
+	            with (instance_create_depth(x,y,depth,obj_fireball)) {
+            
+					// Match the speed to the player's direction
+	                xspeed = 3*sign(other.xscale);
+					
+					// Make the fireball go upwards if the player is pressing up
+	                if (input_check(input.up))
+	                    yspeed = -3;
+	            }
+	        }            
+        
+	        // Iceball
+	        else if ((global.powerup == cs_ice) || ((global.powerup == cs_penguin) && (swimming == false)))
+	        && (instance_number(obj_iceball) < 2) {
+        
+				// Set firing animation time
+	            firing = 9;
+				
+				// Play sound
+				audio_stop_sound(snd_iceball);
+				audio_play_sound(snd_iceball,0,0);
+				
+				// Create iceball
+	            with (instance_create_depth(x,y,depth,obj_iceball)) {
+            
+	                xspeed = other.xspeed+(1.2*sign(other.xscale));
+	                if (input_check(input.down))
+	                    yspeed = -3;
+	            }
+	        }
+        
+	        // Racoon, Tanooki, Cat, and Cape
+	        else if ((global.powerup == cs_raccoon) || (global.powerup == cs_tanooki) || (global.powerup == cs_bell) || ((global.powerup == cs_cape) && (!flying)))
+	        && (instance_number(obj_dropdown) == 0)
+	        && (spin == noone) {
+        
+				// Create spinner
+				spin = instance_create_depth(x,y,depth,obj_spinner);
+		
+				// Set up spinner
+	            with (spin) {
+					
+					// Set scale
+	                image_xscale = 1*sign(other.xscale);
+					
+					// Let the spinner know who created it
+					owner = other.id;
+					
+					// Set up parameters for spinner
+					event_user(0);
+					
+				}
+	        }
+            
+	        // Hammer
+	        /*else if (global.powerup == cs_hammer)
+	        && (instance_number(obj_hammer) < 2) {
+        
+	            firing = 9;
+	            with (instance_create_depth(x,y,depth+1,obj_hammer)) {
+            
+	                hspeed = other.xspeed+(1.25*sign(other.xscale));
+	                if (input_check(input.up))
+	                    vspeed = -5;
+	            }
+	        }
+        
+	        // Boomerang
+	        else if (global.powerup == cs_boomerang)
+	        && (instance_number(obj_boomerang) < 2) {
+        
+	            firing = 9;
+	            with (instance_create_depth(x,y-10,depth+1,obj_boomerang))
+	                xspeed = 2*sign(other.xscale);
+	        }
+        
+	        // Superball
+	        else if (global.powerup == cs_super)
+	        && (instance_number(obj_superball) < 2) {
+        
+	            firing = 9;
+	            with (instance_create_depth(x,y,depth+1,obj_superball)) {
+            
+	                xspeed = 3*sign(other.xscale);
+	                if (input_check(input.up))
+	                    yspeed = -3;
+	            }
+	        }
+        
+	        // Bomb
+	        else if (global.powerup == cs_bomb)
+	        && (instance_number(obj_bomb) < 1) {
+        
+	            with (instance_create_depth(x-8,y,depth+1,obj_bomb))
+	                held = 1;
+	        }
+        
+	        // Lightning
+	        else if (global.powerup == cs_lightning)
+	        && (instance_number(obj_bolt) < 2) {
+        
+	            firing = 9;
+	            with (instance_create_depth(x,y+2,depth+1,obj_bolt))
+	                hspeed = 6*sign(other.xscale);
+	        }
+        
+	        // Football
+	        else if (global.powerup == cs_football)
+	        && (instance_number(obj_football) < 1) {
+        
+	            with (instance_create_depth(x-8,y,depth+1,obj_football))
+	                held = 1;
+	        }*/
+	    }
+		
+	}
 	
 }

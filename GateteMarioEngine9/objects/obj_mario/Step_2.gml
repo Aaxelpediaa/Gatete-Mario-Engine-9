@@ -9,21 +9,21 @@ if (firing > 0)
 if (global.powerup == cs_cape) {
 	
 	// Create cape
-	if (my_cape == noone) {
+	if (cape == noone) {
 		
-		my_cape = instance_create_depth(x,y,depth+1,obj_cape);
-		my_cape.my_owner = id;
+		cape = instance_create_depth(x,y,depth+1,obj_cape);
+		cape.owner = id;
 		
 	}
 	
 // If the cape power-up is not equipped
-} else if (my_cape != noone) {
+} else if (cape != noone) {
 	
 	// Dispose of the object
-	instance_destroy(my_cape);
+	instance_destroy(cape);
 	
 	// Set cape to noone
-	my_cape = noone;
+	cape = noone;
 	
 }
 
@@ -857,4 +857,18 @@ else {
     if (sprite_index != global.skid_sprite[global.powerup])
     && (audio_is_playing(snd_skid))
         audio_stop_sound(snd_skid);
+}
+
+// If you currently have a spinner
+if (spin != noone) {
+	
+	// Match sprites
+	sprite_index = spin.sprite_index;
+	
+	// Match image index
+	image_index = spin.image_index;
+	
+	// Inherit image speed (namely for cape speed)
+	image_speed = spin.image_speed;
+	
 }

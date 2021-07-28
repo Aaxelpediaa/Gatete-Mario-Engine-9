@@ -48,15 +48,15 @@ var sprite_count = sprite_get_number(sprite_index) - 1;
 if (flight_ruined) {
 	
 	// You're too slow
-	my_owner.run = false;
+	owner.run = false;
 	
 	// You're not flying anymore
-	my_owner.flying = false;
+	owner.flying = false;
 	
-	// Decrement p-meter
-	my_owner.pmeter --;
+	// Decrement P-meter
+	owner.pmeter --;
 	
-	// Stop the god forsaken p-meter sound (my ears)
+	// Stop the P-meter sound
 	audio_stop_sound(snd_pmeter);
 	
 	// If nose-diving, get out of it and go back to the 
@@ -167,7 +167,8 @@ if (flight_ruined) {
 		audio_play_sound(snd_rise, 0, 0);
 		
 		// Calculate time of flight
-		var cape_timer = 9+(image_index*3);
+		var cape_timer = 9+(image_index*4);
+		show_debug_message(cape_timer);
 		
 		// Set up cape timer finalization
 		var callback = function() {
@@ -273,17 +274,24 @@ if ((xspeed == 0 && flight_ruined) || water || crashed || running <= 0) {
 	// Destroy cape
 	instance_destroy();
 	
+	// Play the p-meter sound again
+	if ((owner.pmeter >= global.pmeter_limit) && (global.pmeter_sound) && (!water))
+		audio_play_sound(snd_pmeter, 0, true);
+	
 	// Give the player back some movement privileges
-	my_owner.my_flight = noone;
-	my_owner.enable_gravity = true;
-	my_owner.flying = false;
-	my_owner.jumping = 0;
+	owner.fly = noone;
+	owner.enable_gravity = true;
+	owner.flying = false;
+	owner.jumping = 0;
 	
 	// Crash sound / effect
 	if (crashed) {
 		
 		// Implement crash effects / enemy deaths
 		audio_play_sound(snd_thud, 0, 0);
+		
+		// Shake the camera
+		shake_camera(6, ceil(audio_sound_length(snd_thud) * room_speed), true);
 		
 	}
 	
@@ -292,17 +300,17 @@ if ((xspeed == 0 && flight_ruined) || water || crashed || running <= 0) {
 #endregion
 
 // Manage owner
-if (instance_exists(my_owner) && my_owner != noone) {
+if (instance_exists(owner) && owner != noone) {
 	
 	// Let cape owner keep same speed
-	my_owner.xspeed = xspeed;
-	my_owner.yspeed = yspeed;
-	my_owner.yadd = yadd;
+	owner.xspeed = xspeed;
+	owner.yspeed = yspeed;
+	owner.yadd = yadd;
 	
 	// Attach owner
-	my_owner.x = x;
-	my_owner.y = y;
+	owner.x = x;
+	owner.y = y;
 	
-	isflashing = my_owner.isflashing;
+	isflashing = owner.isflashing;
 	
 }

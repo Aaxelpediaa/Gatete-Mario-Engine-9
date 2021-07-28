@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snd_skid.wav",
-  "duration": 0.120499,
+  "soundFile": "snd_iceball.wav",
+  "duration": 0.28,
   "parent": {
     "name": "Action",
     "path": "folders/Sonidos/Action.yy",
   },
   "resourceVersion": "1.0",
-  "name": "snd_skid",
+  "name": "snd_iceball",
   "tags": [],
   "resourceType": "GMSound",
 }

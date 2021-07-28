@@ -100,9 +100,12 @@ flying = 0;
 flying_time = 0;
 
 // Cape variables
-my_cape = noone;
-my_flight = noone;
+cape = noone;
+fly = noone;
 memory_yspeed = 0;
+
+// Spinner
+spin = noone;
 
 //Makes Mario able to crouch down
 crouch = 0;
