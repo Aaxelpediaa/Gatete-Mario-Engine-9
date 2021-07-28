@@ -26,6 +26,9 @@ global.cattime = 3;
 //Allow reserve of items if enabled
 global.reservedrop = true;
 
+//Play p-meter sound
+global.pmeter_sound = true;
+
 #endregion
 
 //Powerup Macros

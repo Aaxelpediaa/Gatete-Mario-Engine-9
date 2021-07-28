@@ -4,6 +4,28 @@
 if (firing > 0)
 && (state == 1)
     firing = 0;
+	
+// Ensure Mario has a cape
+if (global.powerup == cs_cape) {
+	
+	// Create cape
+	if (my_cape == noone) {
+		
+		my_cape = instance_create_depth(x,y,depth+1,obj_cape);
+		my_cape.my_owner = id;
+		
+	}
+	
+// If the cape power-up is not equipped
+} else if (my_cape != noone) {
+	
+	// Dispose of the object
+	instance_destroy(my_cape);
+	
+	// Set cape to noone
+	my_cape = noone;
+	
+}
 
 //If Mario is crouched down
 if (crouch == true) {

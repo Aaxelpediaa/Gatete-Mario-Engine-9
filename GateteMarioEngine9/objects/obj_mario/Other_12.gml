@@ -49,20 +49,27 @@ else {
 		statedelay++;
 }
 
-//Prevent Mario from falling too fast
-if (global.powerup == cs_tiny) {
+// Determine what the speed should be for Mario to fall at
+var yspeed_max;
+
+switch (global.powerup) {
 	
-	if (yspeed > 2.5)
-		yspeed = 2.5;
-}
-else {
+	case (cs_tiny):
+		yspeed_max = 2.5;
+		break;
+
+	default:
+		yspeed_max = 4;
+		break;
 	
-	if (yspeed > 4)
-		yspeed = 4;	
 }
+
+// Cap at the determined speed
+if (yspeed > yspeed_max)
+	yspeed = yspeed_max;
 	
 //Set up the player's maximum horizontal speed.
-if (!flying) { //If the player is not flying
+if (!flying || global.powerup == cs_cape) { //If the player is not flying
 
     if (input_check(input.action_1)) { //If the 'Run' key is being held.
         
@@ -262,7 +269,7 @@ if (inwall == 0)
         }
     
         //Switch to the jump state
-        state = 2;     
+        state = 2;
         
         //Enable variable jumping
         jumping = 1;
@@ -277,9 +284,22 @@ if (inwall == 0)
 			//If Mario is not tiny
 			if (global.powerup != cs_tiny) {
 				
+				// Make Mario fly!
+				if (run && global.powerup == cs_cape && crouch == false) {
+					
+					// Start flying
+					flying = true;
+					
+					// Disable the gravity for an elegant lift-off
+					disablegrav = 50;
+					
+					// Set vertical speed
+					yspeed = -4;
+					
 				//If the player is not doing a spin-jump
-				if (jumpstyle == 0)
+				} else if (jumpstyle == 0)
 					yspeed = -3.4675+abs(xspeed)/7.5*-1;
+				//If the player is doing a spin-jump
 				else
 					yspeed = -3.23775+abs(xspeed)/7.5*-1;
 			}
@@ -569,7 +589,7 @@ if ((state == 2) || (statedelay != 0)) {
 		        yadd = 0.3625;
                 
 		        //End variable jumping if it never ends manually.
-		        if (jumping = 1)
+		        if (jumping == 1)
 		            jumping = 2;
 		    }
 		} break;
@@ -614,10 +634,40 @@ if ((state == 2) || (statedelay != 0)) {
     }
 
     //If the player is using the raccoon or the tanooki powerup.
-    if ((global.powerup == cs_raccoon) || (global.powerup == cs_tanooki)) {
-    
+    if ((global.powerup == cs_raccoon) || (global.powerup == cs_tanooki) || (global.powerup == cs_cape)) {
+	
         //If ygrav is disabled.
         if (disablegrav > 0) {
+			
+			// Fly back down if you let go
+			if (!input_check(input.action_0) && global.powerup == cs_cape) {
+			
+				disablegrav = 0;
+			
+			} else if (global.powerup == cs_cape) {
+			
+				// Flight boost
+				var boostflightspd = 6;
+			
+				// If a small period of time has passed since you started flying
+				if (disablegrav <= 30) {
+				
+					// And your yspeed is still below the boost speed
+					if (yspeed > -boostflightspd) {
+				
+						// Boost upwards
+						yspeed -= 0.05;
+					
+						// Cap the boost
+						if (yspeed <= -boostflightspd)
+					
+							yspeed = -boostflightspd;
+					
+					}
+				
+				}
+			
+			}
         
             if (state != 2) {
             
@@ -632,12 +682,48 @@ if ((state == 2) || (statedelay != 0)) {
                 //Enable ygrav
                 disablegrav--;
             }
+			
         }
+		
+		// If the conditions are met, start flying
+		if ((global.powerup == cs_cape) && (flying) && (yspeed > 2) && (jumpstyle == 0) && (global.mount == 0)) {
+			
+			my_flight = instance_create_layer(x, y, layer, obj_fly);
+			
+			with (my_flight) {
+				
+				// Attach variables
+				yadd = other.yadd;
+				xadd = other.xadd;
+				xspeed = other.xspeed;
+				yspeed = other.yspeed;
+				
+				// Set object reference
+				my_owner = other.id;
+				
+				// Attach xscale
+				xscale = other.xscale;
+				
+			}
+			
+			// The flight object will take control
+			enable_gravity = false;
+			
+		// If the criteria is met to STOP flying
+		} else if ((global.powerup == cs_cape) && (flying) && (yspeed > 0) && (jumpstyle != 0) && (global.mount != 0)) {
+		
+			// Then stop flying if spin jumping, mounted, etc.
+			flying = false;
+			state = 2;
+		
+		}
+		
     }
     
     //Otherwise, enable ygrav.
     else
         disablegrav = 0;
+		
 }
 
 //Climb if overlapping a climbing surface.
@@ -678,6 +764,7 @@ if ((enable_control == true) && (input_check(input.down))) {
 
     //If the player is on a slope, and the above didn't happen, slide normally
     else if (collision_rectangle(x, bbox_bottom+1, x, bbox_bottom+2, obj_slopeparent, 1, 0))
+	&& (state != 2)
 	&& (global.powerup != cs_tiny)
     && (global.powerup != cs_frog) 
 	&& (global.powerup != cs_mega) {
@@ -697,6 +784,21 @@ if ((enable_control == true) && (input_check(input.down))) {
         else
             crouch = true;
     }
+}
+
+// Cape falling when button held
+if ((global.powerup == cs_cape)
+&& (input_check(input.action_0))
+&& (wallkick < 1)
+&& (state == 2)
+&& (flying == false)
+&& (swimming == false)
+&& (enable_control == 1)) {
+		
+	// Vertical speed cap
+	if (yspeed > 1.5)
+		yspeed = 1.5;
+		
 }
 
 //If the player is jumping, not ducking, not spin jumping, can control himself, is not riding anything and it's not holding a propeller block

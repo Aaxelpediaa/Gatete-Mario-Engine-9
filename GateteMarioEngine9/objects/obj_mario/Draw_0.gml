@@ -1,5 +1,9 @@
 /// @description Draw Mario
 
+if (my_flight != noone)
+
+	return;
+
 //Set up the palette
 pal_swap_set_player(spr_palette_mario, spr_palette_mario_invincible);
 

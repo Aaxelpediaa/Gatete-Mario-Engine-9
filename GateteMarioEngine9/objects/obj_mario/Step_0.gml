@@ -65,7 +65,7 @@ if (global.pwing == 1) {
 	pmeter = 144;
 	
 	//Loop P-Meter sound
-	if (!audio_is_playing(snd_pmeter))
+	if (!audio_is_playing(snd_pmeter) && global.pmeter_sound)
 		audio_play_sound(snd_pmeter, 0, true);
 	
 	//Keep flying time active
@@ -96,6 +96,15 @@ if (enable_gravity == 1) {
 	y += yspeed;
 	xspeed += xadd;
 	yspeed += yadd;
+	
+	// Memory y-speed for cape, added after speed check
+	if (memory_yspeed != 0)
+	&& (global.powerup == cs_cape) {
+		
+		yspeed = memory_yspeed;
+		memory_yspeed = 0;
+		
+	}
 	
 	//Decrease net smack
 	netsmack--;
@@ -261,7 +270,7 @@ if (enable_gravity == 1) {
                         run = true;
 						
 						//Play 'P-Meter' sound
-						if (!audio_is_playing(snd_pmeter))
+						if (!audio_is_playing(snd_pmeter) && global.pmeter_sound)
 							audio_play_sound(snd_pmeter, 0, true);
                     }
                     
@@ -286,7 +295,7 @@ if (enable_gravity == 1) {
                             if (global.pwing == 1) {
                             
                                 //Play 'P-Meter' sound
-                                if (!audio_is_playing(snd_pmeter)) {
+                                if (!audio_is_playing(snd_pmeter) && global.pmeter_sound) {
                                 
                                     audio_play_sound(snd_pmeter, 0, true);
                                     if (pmeter < 144)
@@ -307,7 +316,7 @@ if (enable_gravity == 1) {
                                     run = true;
 									
 									//Play 'P-Meter' sound
-									if (!audio_is_playing(snd_pmeter))
+									if (!audio_is_playing(snd_pmeter) && global.pmeter_sound)
 										audio_play_sound(snd_pmeter, 0, true);
                                 }
                                 
@@ -564,7 +573,11 @@ if (enable_gravity == 1) {
 		}
 		
 		//Stop vertical movement
-		yspeed = 0;
+		if (flying && global.powerup == cs_cape)
+			if (yspeed < 0)
+				memory_yspeed = yspeed;
+				
+			yspeed = 0;
 		
 		//If there's a bumpable block above
 		if (block_u) {
@@ -575,8 +588,9 @@ if (enable_gravity == 1) {
 		}
 		
 		//If the player does not have the frog/penguin powerups and it's not climbing
-		if (state < 3)
-		&& (noisy == false) {
+		if ((state < 3)
+		&& !(flying && global.powerup == cs_cape)
+		&& (noisy == false)) {
 		
 			//Max out bee powerup flight timer
 			if (global.powerup == cs_bee) {

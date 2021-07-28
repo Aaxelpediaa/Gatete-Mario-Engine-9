@@ -19,3 +19,6 @@ state = capestate.cape_idle;
 
 //Cape position
 yy = 0;
+
+// Creator of the cape
+my_owner = noone;

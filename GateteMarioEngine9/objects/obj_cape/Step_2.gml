@@ -1,16 +1,128 @@
 /// @description Manage cape
 
+function manage_cape_states() {
+	
+	#region SPECIAL STATES
+	
+	// Climbing
+	if (my_owner.state == playerstate.climb) {
+		
+		state = capestate.cape_climb;
+		
+	}
+	
+	#endregion
+	
+	#region GROUNDED
+	
+	else if (my_owner.yadd == 0 && my_owner.yspeed == 0) {
+		
+		// If walking/sliding/etc.
+		if (my_owner.xspeed != 0) {
+			
+			state = capestate.cape_walk;
+			
+		// If idling
+		} else {
+				
+			state = capestate.cape_idle;
+				
+		}
+		
+	}
+	
+	#endregion
+	
+	#region OFF THE GROUND
+	
+	else {
+		
+		// Not spin jumping
+		if (my_owner.jumpstyle == 0) {
+			
+			// If they're flying
+			if (my_owner.flying == true) {
+			
+				state = capestate.cape_walk;
+				
+			}
+		
+			// If going up
+			else if (my_owner.yspeed <= 0) {
+				
+				if (my_owner.swimming) {
+					
+					state = capestate.cape_walk;
+					
+				} else {
+		
+					state = capestate.cape_jump_up;
+				
+				}
+		
+			// If going down
+			} else {
+			
+				state = capestate.cape_jump_down;	
+			
+			}
+		
+		// Spin jumping
+		} else {
+			
+			// If going up
+			if (my_owner.yspeed <= 0) {
+		
+				state = capestate.cape_spin_up;
+		
+			// If going down
+			} else {
+			
+				state = capestate.cape_spin_down;	
+			
+			}
+			
+			show_debug_message("I'm spinning");
+			
+		}
+		
+	}
+	
+	#endregion
+	
+}
+
 #region POSITION
 
 	//If the player does exist
-	if (instance_exists(obj_mario)) {
+	if (instance_exists(my_owner)) {
 
 	    //Move towards the player
-	    x = obj_mario.x;
-	    y = obj_mario.y;
+	    x = my_owner.x;
+	    y = my_owner.y;
     
 	    //Hereby facing direction
-	    image_xscale = obj_mario.xscale;
+	    image_xscale = my_owner.xscale;
+		
+		// Set cape depth
+		switch (my_owner.state) {
+			
+			default:
+				depth = my_owner.depth + 1;
+				break;
+				
+			case (playerstate.climb):
+				depth = my_owner.depth - 1;
+				break;
+			
+		}
+		
+		#region STATE MANAGEMENT
+		
+		manage_cape_states();
+		
+		#endregion
+		
 	}
 	else
 	    exit;
@@ -29,7 +141,7 @@
 	        sprite_index = spr_cape_down;
         
 	        //Animate
-	        image_speed = 0.2;
+	        image_speed = 0.1;
 	        image_index = 0;
 	    }
 	}
@@ -52,10 +164,10 @@
 	    //If the following cape sprite is being used, update based on hspeed
 	    if (sprite_index == spr_cape_walk) {
     
-	        if (obj_playerparent.flying > 0)
+	        if ((my_owner.flying > 0) && (my_owner.jumpstyle == 0 || global.powerup != cs_cape))
 	            image_speed = 0.15;
 	        else
-	            image_speed = 0.065+abs(obj_playerparent.hspeed)/7.5;
+	            image_speed = 0.065+abs(my_owner.xspeed)/7.5;
 	    }
 	}
 

@@ -23,6 +23,14 @@ yadd = 0.3625;
 //1: Walk
 //2: Jump
 //3: Climb
+enum playerstate {
+	
+	idle = 0,
+	walk = 1,
+	jump = 2,
+	climb = 3
+	
+}
 state = 0;
 statedelay = 0;
 
@@ -90,6 +98,11 @@ run = false;
 flyfix = 0;
 flying = 0;
 flying_time = 0;
+
+// Cape variables
+my_cape = noone;
+my_flight = noone;
+memory_yspeed = 0;
 
 //Makes Mario able to crouch down
 crouch = 0;
