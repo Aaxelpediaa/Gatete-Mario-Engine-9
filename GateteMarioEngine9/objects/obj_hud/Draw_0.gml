@@ -32,7 +32,7 @@ if (camera_get_view_width(view_camera[0]) < 320) {
 	
 	// If not, move the score HUD to underneath the counter
 	score_x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 72;
-	score_y += 8;
+	score_y += 11;
 	
 }
 
