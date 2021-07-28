@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "spr_square_d",
-    "path": "sprites/spr_square_d/spr_square_d.yy",
+    "name": "spr_water_b",
+    "path": "sprites/spr_water_b/spr_water_b.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_water_a",
+    "path": "objects/obj_water_a/obj_water_a.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -24,11 +27,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Collision",
-    "path": "folders/Objetos/Collision.yy",
+    "name": "Liquids",
+    "path": "folders/Objetos/Decoration/Liquids.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_swim",
+  "name": "obj_water_b",
   "tags": [],
   "resourceType": "GMObject",
 }
