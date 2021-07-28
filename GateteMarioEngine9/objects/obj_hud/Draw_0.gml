@@ -23,8 +23,21 @@ draw_sprite_ext(spr_gui_global_reserve, 0, camera_get_view_x(view_camera[0]) + c
 //Set black font
 draw_set_font(global.gui_font_numbers_black);
 
+// Score positions
+var score_x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 144;
+var score_y = camera_get_view_y(view_camera[0]) + 8;
+
+// Check if the camera's width isn't wide enough
+if (camera_get_view_width(view_camera[0]) < 320) {
+	
+	// If not, move the score HUD to underneath the counter
+	score_x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 72;
+	score_y += 8;
+	
+}
+
 //Score
-draw_text(camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 144, camera_get_view_y(view_camera[0]) + 8, string_add_zeroes(score, 8));
+draw_text(score_x, score_y, string_add_zeroes(score, 8));
 
 //Set gold font
 draw_set_font(global.gui_font_numbers_gold);

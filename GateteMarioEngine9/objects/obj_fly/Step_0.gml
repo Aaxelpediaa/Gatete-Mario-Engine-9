@@ -168,7 +168,6 @@ if (flight_ruined) {
 		
 		// Calculate time of flight
 		var cape_timer = 9+(image_index*4);
-		show_debug_message(cape_timer);
 		
 		// Set up cape timer finalization
 		var callback = function() {
