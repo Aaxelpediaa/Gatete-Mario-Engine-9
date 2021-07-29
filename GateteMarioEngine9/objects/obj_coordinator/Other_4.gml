@@ -18,13 +18,8 @@ window_set_size(global.gw*size, global.gh*size);
 //Set the view size
 camera_set_view_size(view_camera[0], global.gw, global.gh);
 
-//Set surface rescale size based on 
-var rescale = (rescale_surface) ? size : 1;
-
 //Rescale the surface
-if (rescale != -1)
-
-	surface_resize(application_surface, global.gw*size, global.gh*size);
+surface_resize(application_surface, global.gw*size, global.gh*size);
 
 //Set the game view border
 camera_set_view_border(view_camera[0], camera_get_view_width(view_camera[0])/2, camera_get_view_height(view_camera[0])/2);

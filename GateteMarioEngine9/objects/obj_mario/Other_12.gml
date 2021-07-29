@@ -15,7 +15,7 @@ if (yadd == 0)
 	/*|| ((instance_exists(obj_yoshi)) && (obj_yoshi.flutter == 1) && (yspeed < 0))*/
 	
 		//Set up the 'Jump' state
-		state = 2;
+		state = playerstate.jump;
 		
 	//Otherwise
 	else {
@@ -28,14 +28,14 @@ if (yadd == 0)
 		
 			//Figure out if the player is standing or walking
 			if (xspeed == 0)
-				state = 0;
+				state = playerstate.idle;
 			else
-				state = 1;
+				state = playerstate.walk;
 		}
 		
 		//Otherwise, set 'Jump' state
 		else if (yspeed < 0)
-			state = 2;
+			state = playerstate.jump;
 	}
 }
 
@@ -44,7 +44,7 @@ else {
 
 	//Delay change to 'Jump' state
 	if (statedelay > 4)
-		state = 2;
+		state = playerstate.jump;
 	else
 		statedelay++;
 }
@@ -167,7 +167,7 @@ if (inwall == 0)
     
     //Allow the player to jump in mid-air while riding a kuribo shoe
     || ((global.mount == 2) 
-    && (state == 2) 
+    && (state == playerstate.jump) 
     && (yspeed > 0)
     && (jumping == 0))) {
     
@@ -269,7 +269,7 @@ if (inwall == 0)
         }
     
         //Switch to the jump state
-        state = 2;
+        state = playerstate.jump;
         
         //Enable variable jumping
         jumping = 1;
@@ -530,7 +530,7 @@ else if (yspeed == 0) {
 }
 
 //Prevent the player from moving too fast
-if (state != 2) {
+if (state != playerstate.jump) {
 
     //Check if the player has the shell powerup, it is not riding anything nor holding anything and running
     if (global.powerup == cs_shell)
@@ -551,7 +551,7 @@ if (state != 2) {
 }
 
 //If the player is jumping
-if ((state == 2) || (statedelay != 0)) {
+if ((state == playerstate.jump) || (statedelay != 0)) {
 	
 	//Switch between powerups
 	switch (global.powerup) {
@@ -669,7 +669,7 @@ if ((state == 2) || (statedelay != 0)) {
 			
 			}
         
-            if (state != 2) {
+            if (state != playerstate.jump) {
             
                 //Enable ygrav
                 disablegrav = 0;
@@ -693,7 +693,7 @@ if ((state == 2) || (statedelay != 0)) {
 				
 				// Stop flying
 				flying = false;
-				state = 2;
+				state = playerstate.jump;
 				
 			// Otherwise, if you are running
 			} else {
@@ -730,7 +730,7 @@ if ((state == 2) || (statedelay != 0)) {
 		
 			// Then stop flying if spin jumping, mounted, etc.
 			flying = false;
-			state = 2;
+			state = playerstate.jump;
 		
 		}
 		
@@ -745,16 +745,17 @@ if ((state == 2) || (statedelay != 0)) {
 //Climb if overlapping a climbing surface.
 if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_climb, 0, 0))
 && ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
-&& (holding = 0)
-&& (enable_control == true) 
+&& (holding == 0)
+&& (enable_control) 
 && (global.powerup != cs_mega) {
 
     //Change to climbing state
-    state = 3;
+    state = playerstate.climb;
     
     //Stop movement
     yspeed = 0;
-    yadd = 0;    
+    yadd = 0;
+	
 }
 
 //Makes the player butt-slide down slopes
@@ -764,7 +765,7 @@ if ((enable_control == true) && (input_check(input.down))) {
     if ((global.powerup == cs_shell)
     || ((global.powerup == cs_penguin) && (isslip == false)))
     && (global.mount == 0)
-    && (state == 1)
+    && (state == playerstate.walk)
     && (!sliding)
     && ((holding == 0) || (holding == 4)) 
 	&& (collision_rectangle(x, bbox_bottom-0.99, x, bbox_bottom+3.99, obj_slopeparent, 1, 0)) {
@@ -780,7 +781,7 @@ if ((enable_control == true) && (input_check(input.down))) {
 
     //If the player is on a slope, and the above didn't happen, slide normally
     else if (collision_rectangle(x, bbox_bottom+1, x, bbox_bottom+2, obj_slopeparent, 1, 0))
-	&& (state != 2)
+	&& (state != playerstate.jump)
 	&& (global.powerup != cs_tiny)
     && (global.powerup != cs_frog) 
 	&& (global.powerup != cs_mega) {
@@ -806,7 +807,7 @@ if ((enable_control == true) && (input_check(input.down))) {
 if ((global.powerup == cs_cape)
 && (input_check(input.action_0))
 && (wallkick < 1)
-&& (state == 2)
+&& (state == playerstate.jump)
 && (flying == false)
 && (swimming == false)
 && (enable_control == 1)) {
@@ -818,7 +819,7 @@ if ((global.powerup == cs_cape)
 }
 
 //If the player is jumping, not ducking, not spin jumping, can control himself, is not riding anything and it's not holding a propeller block
-if (state == 2)
+if (state == playerstate.jump)
 && (jumpstyle == 0)
 && (enable_control == 1) {
 

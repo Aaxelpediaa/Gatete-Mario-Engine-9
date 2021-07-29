@@ -206,10 +206,10 @@ if (wallkick == 1) {
             //Play 'Stomp' sound
             audio_play_sound(snd_stomp, 0, false);
             
-            /*Create effect
-            with (instance_create(bbox_right,y+8,obj_smoke))
+            // Create thump effect
+            with (instance_create_depth(bbox_right,y+8,depth+1,obj_smoke))
                 sprite_index = spr_spinthump;
-			*/
+
         }
         
         //Otherwise, if the 'Left' key is pressed and the player is facing left.
@@ -230,10 +230,10 @@ if (wallkick == 1) {
             //Play 'Stomp' sound
             audio_play_sound(snd_stomp, 0, false);
             
-            /*Create effect
-            with (instance_create(bbox_left,y+8,obj_smoke))
-                sprite_index = spr_spinthump; 
-			*/  
+            // Create thump effect
+            with (instance_create_depth(bbox_left,y+8,depth+1,obj_smoke))
+                sprite_index = spr_spinthump;
+				
         }
     }
 	

@@ -14,7 +14,7 @@ if (instance_exists(owner)) {
         //If the player is not riding a yoshi
         if (global.mount == 0)
 		
-            draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1+yy, image_xscale, 1, 0, c_white, image_alpha);
+            draw_sprite_ext(sprite_index, image_index, x, y+1, image_xscale, 1, 0, c_white, image_alpha);
             
         //Otherwise, if the player is riding a yoshi
         else {

@@ -2,7 +2,7 @@
 
 //Reset up firing
 if (firing > 0)
-&& (state == 1)
+&& (state == playerstate.walk)
     firing = 0;
 	
 // Ensure Mario has a cape
@@ -12,6 +12,7 @@ if (global.powerup == cs_cape) {
 	if (cape == noone) {
 		
 		cape = instance_create_depth(x,y,depth+1,obj_cape);
+		cape.image_xscale = xscale;
 		cape.owner = id;
 		
 	}
@@ -83,7 +84,7 @@ else {
             if (!kicking) {
             
                 //If Mario is not doing anything
-                if (state == 0) {
+                if (state == playerstate.idle) {
                 
                     //If Mario is firing something
                     if (firing > 0) 
@@ -116,7 +117,7 @@ else {
                 }
                 
                 //Otherwise, if Mario is walking
-                else if (state == 1) {
+                else if (state == playerstate.walk) {
                 
                     //Check first the horizontal speed and facing direction of Mario.
                     if ((((xspeed > 0.1) && (xscale == -1))
@@ -217,7 +218,7 @@ else {
                 }
                 
                 //Otherwise, if Mario is jumping
-                else if (state == 2) {
+                else if (state == playerstate.jump) {
                 
                     //If Mario is shooting a projectile
                     if (firing > 0) 
@@ -567,7 +568,7 @@ else {
                 }
                 
                 //Otherwise, if Mario is climbing
-                else if (state == 3) {
+                else if (state == playerstate.climb) {
                 
                     //Set up the sprite
                     sprite_index = global.climb_sprite[global.powerup];
@@ -637,7 +638,7 @@ else {
         sprite_index = global.carry_sprite[global.powerup];
         
         //If Mario is not walking
-        if (state == 0) {
+        if (state == playerstate.idle) {
         
             //Do not animate
             image_speed = 0;
@@ -645,14 +646,14 @@ else {
         }
         
         //Otherwise, if Mario is walking
-        else if (state == 1) {
+        else if (state == playerstate.walk) {
         
             //Set the animation speed
             image_speed = isslip * 0.065+abs(xspeed)/7.5;
         }
         
         //Otherwise, if Mario is jumping
-        else if (state == 2) {
+        else if (state == playerstate.jump) {
         
             //If Mario does have either the carrot or bee powerup.
             if (global.powerup == cs_carrot) 
@@ -688,7 +689,7 @@ else {
     else if (holding == 2) {
         
         //If Mario is not walking
-        if (state == 0) {
+        if (state == playerstate.idle) {
         
             //Do not animate
             image_speed = 0;
@@ -696,7 +697,7 @@ else {
         }
         
         //Otherwise, if Mario is walking
-        else if (state == 1) {
+        else if (state == playerstate.walk) {
         
             //If Mario is not turning
             if (!turning)
@@ -711,7 +712,7 @@ else {
         }
         
         //Otherwise, if Mario is jumping
-        else if (state == 2) {
+        else if (state == playerstate.jump) {
         
             //If the player is not turning
             if (!turning) {
@@ -767,7 +768,7 @@ else {
         sprite_index = global.hold2_sprite[global.powerup];
         
         //If Mario is not walking
-        if (state == 0) {
+        if (state == playerstate.idle) {
         
             //Do not animate
             image_speed = 0;
@@ -775,14 +776,14 @@ else {
         }
         
         //Otherwise, if Mario is walking
-        else if (state == 1) {
+        else if (state == playerstate.walk) {
         
             //Set the animation speed
             image_speed = isslip * 0.065+abs(xspeed)/7.5;
         }
         
         //Otherwise, if Mario is jumping
-        else if (state == 2) {
+        else if (state == playerstate.jump) {
         
             //If Mario does have either the carrot or bee powerup.
             if (global.powerup == cs_carrot) 

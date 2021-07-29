@@ -33,9 +33,9 @@ if (yadd == 0)
 
         //Figure out if the player is standing or walking
         if (xspeed == 0)
-            state = 0;
+            state = playerstate.idle;
         else 
-            state = 1;
+            state = playerstate.walk;
     
         //Reset state delay
         statedelay = 0;
@@ -43,7 +43,7 @@ if (yadd == 0)
     
     //Otherwise, set 'Jump' state
     else if (yspeed < 0)
-        state = 2;
+        state = playerstate.jump;
 }
 
 //the player is jumping if there's no ground below him.
@@ -51,13 +51,13 @@ else {
 
     //Delay the change to the jump state
     if (statedelay > 4)
-        state = 2;
+        state = playerstate.jump;
     else
         statedelay++;
 }
 
 //Make the player uncrouch if jumping.
-if ((state == 2) && (crouch))
+if ((state == playerstate.jump) && (crouch))
     crouch = false;
 
 //Handle the player movement.
@@ -177,7 +177,7 @@ if (enable_control == true) && (inwall == 0) { //If the player controls are not 
             yspeed = 4;
         
         //Set up the maximum horizontal speed.
-        if (state == 2) {
+        if (state == playerstate.jump) {
         
             //If the player is wearing the blue shell
             if (global.powerup == cs_shell)
@@ -195,7 +195,7 @@ if (enable_control == true) && (inwall == 0) { //If the player controls are not 
             audio_play_sound(snd_swim, 0, false);
 			
             //Set the state
-            state = 2;
+            state = playerstate.jump;
 			
 			//Set the vertical speed
 			yspeed = -1.5;
@@ -301,5 +301,5 @@ if (xspeed < -xspeedmax)
     xspeed = -xspeedmax;
     
 //Apply ygrav
-if ((state == 2) || (statedelay > 0))
+if ((state == playerstate.jump) || (statedelay > 0))
     yadd = 0.025;      

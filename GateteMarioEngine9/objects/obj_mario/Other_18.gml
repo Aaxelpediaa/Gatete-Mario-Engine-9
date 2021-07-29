@@ -10,7 +10,7 @@ if (crouch) {
     //Otherwise...
     else {
 
-        if (state == 2) { //If the player is jumping.
+        if (state == playerstate.jump) { //If the player is jumping.
         
             //Allow the player's horizontal movement.
             move = true;

@@ -134,9 +134,6 @@ global.gw = room_width;
 //Game Height
 global.gh = room_height;
 
-//Rescale the surface (sub-pixels)
-rescale_surface = false;
-
 //Data structure for picked up 3up moons
 global.moons = ds_map_create();
 

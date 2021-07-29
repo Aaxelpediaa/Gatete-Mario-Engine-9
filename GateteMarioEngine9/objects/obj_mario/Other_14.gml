@@ -118,7 +118,7 @@ if (enable_control == true) { //If the player controls are enabled.
         //Check for a nearby floor and stop climbing if there's one.
         var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom, obj_semisolid, 0, 0);
         if (semisolid)
-            state = 2;
+            state = playerstate.jump;
     }
     
     //Otherwise, if neither of the 'Up' or 'Down' keys are being held.
@@ -129,7 +129,7 @@ if (enable_control == true) { //If the player controls are enabled.
     if (input_check_pressed(input.action_0)) { //If the 'Shift' key is pressed and the player is not jumping.
         
         //Set the jumping state.
-        state = 2;      
+        state = playerstate.jump;      
           
         //Make the player able to vary the jump.
         jumping = 1;
@@ -150,4 +150,4 @@ if (enable_control == true) { //If the player controls are enabled.
 
 //Check if there's a not climbable surface overlapping the player.
 if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_climb, 0, 0))        
-    state = 2;
+    state = playerstate.jump;

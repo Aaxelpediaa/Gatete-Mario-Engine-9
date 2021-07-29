@@ -31,7 +31,7 @@ enum playerstate {
 	climb = 3
 	
 }
-state = 0;
+state = playerstate.idle;
 statedelay = 0;
 
 //Handle Mario's horizontal scale

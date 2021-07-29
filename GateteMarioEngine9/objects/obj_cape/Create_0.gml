@@ -20,8 +20,5 @@ enum capestate {
 }
 state = capestate.cape_idle;
 
-// Cape position
-yy = 0;
-
 // Owner of the cape
 owner = noone;

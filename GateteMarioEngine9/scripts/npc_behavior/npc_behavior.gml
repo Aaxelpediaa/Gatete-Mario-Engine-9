@@ -31,10 +31,10 @@ function ai_npc_ceiling() {
 	
 	//If moving upwards
 	if (yspeed < 0) 
-	&& (collision_rectangle(bbox_left, bbox_top+yspeed-1, bbox_right, bbox_top, obj_solid, 1, 0)) {
+	&& (collision_rectangle(bbox_left-xspeed, bbox_top+yspeed-1, bbox_right-xspeed, bbox_top, obj_solid, 1, 0)) {
 		
 		//Prevent the NPC from getting stuck on a ceiling when jumping
-		while (collision_rectangle(bbox_left+1, bbox_top, bbox_right-1, bbox_top, obj_solid, 1, 0))
+		while (collision_rectangle(bbox_left-xspeed, bbox_top, bbox_right-xspeed, bbox_top, obj_solid, 1, 0))
 			y++;
 		
 		//Stops rising

@@ -77,7 +77,7 @@ throw_projectile = function() {
 	    else if (global.powerup == cs_bell)
 	    && (input_check(input.down))
 	    && (global.mount == 0)
-	    && (state == 2)
+	    && (state == playerstate.jump)
 	    && (yspeed > 0)
 	    && (instance_number(obj_spinner) == 0)
 	    && (instance_number(obj_dropdown) < 1) {

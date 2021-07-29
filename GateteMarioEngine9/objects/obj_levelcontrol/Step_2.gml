@@ -1,8 +1,5 @@
 /// @description Deals with various game logic stuff
 
-//Make the camera follow this object
-camera_set_view_target(view_camera[0], self);
-
 //If Mario does exist
 if (instance_exists(obj_mario)) {
 
@@ -60,15 +57,13 @@ if (shake_time > 0) {
 	
 }
 
-// Clamp the Y position to the room so that shakes on the bottom of the screen still occur fine
-y = clamp(y, camera_get_view_height(view_camera[0])/2, room_height - camera_get_view_height(view_camera[0])/2);
+// Clamp the X/Y position to the room so that shakes on the bottom of the screen still occur fine
+x = clamp(x, camera_get_view_width(view_camera[0])/2, room_width - camera_get_view_width(view_camera[0])/2);
+y = clamp(y+shake_val, camera_get_view_height(view_camera[0])/2, room_height - camera_get_view_height(view_camera[0])/2);
 
-// Add any camera shake that occurred
-y += shake_val;
-
-//Round position
-x = round(x);
-y = round(y);
+// Set camera position
+camera_set_view_target(view_camera[0], noone);
+camera_set_view_pos(view_camera[0], x-(camera_get_view_width(view_camera[0])/2), y-(camera_get_view_height(view_camera[0])/2));
 
 //Manage background position
 #region PARALLAX BACKGROUNDS

@@ -142,6 +142,7 @@
     {"id":{"name":"spr_mario_football_walljump","path":"sprites/spr_mario_football_walljump/spr_mario_football_walljump.yy",},"order":16,},
     {"id":{"name":"spr_mario_football_runjump","path":"sprites/spr_mario_football_runjump/spr_mario_football_runjump.yy",},"order":3,},
     {"id":{"name":"spr_mario_bee_somersault","path":"sprites/spr_mario_bee_somersault/spr_mario_bee_somersault.yy",},"order":20,},
+    {"id":{"name":"spr_spinthump","path":"sprites/spr_spinthump/spr_spinthump.yy",},"order":2,},
     {"id":{"name":"spr_mario_hammer_hold2","path":"sprites/spr_mario_hammer_hold2/spr_mario_hammer_hold2.yy",},"order":9,},
     {"id":{"name":"spr_mario_cat_climb","path":"sprites/spr_mario_cat_climb/spr_mario_cat_climb.yy",},"order":3,},
     {"id":{"name":"spr_mario_tanooki_goal","path":"sprites/spr_mario_tanooki_goal/spr_mario_tanooki_goal.yy",},"order":16,},

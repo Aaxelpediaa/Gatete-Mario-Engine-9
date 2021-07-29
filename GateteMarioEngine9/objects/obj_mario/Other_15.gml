@@ -34,9 +34,9 @@ if (yadd == 0)
 
         //Figure out if the player is standing or walking
         if (xspeed == 0)
-            state = 0;
+            state = playerstate.idle;
         else 
-            state = 1;
+            state = playerstate.walk;
     
         //Reset state delay
         statedelay = 0;
@@ -44,7 +44,7 @@ if (yadd == 0)
     
     //Otherwise, set 'Jump' state
     else if (yspeed < 0)
-        state = 2;
+        state = playerstate.jump;
 }
 
 //the player is jumping if there's no ground below him.
@@ -52,7 +52,7 @@ else {
 
     //Delay the change to the jump state
     if (statedelay > 4)
-        state = 2;
+        state = playerstate.jump;
     else
         statedelay++;
 }
@@ -75,7 +75,7 @@ if (enable_control == true) { //If the player's controls are not disabled.
     if (input_check_pressed(input.action_0))
     && (jumping == 0)
     && (yspeed == 0) 
-    && (state != 2) { //If the 'Shift' key is pressed and the player is not jumping.
+    && (state != playerstate.jump) { //If the 'Shift' key is pressed and the player is not jumping.
 		
 		//Play 'Jump' sound
         audio_play_sound(snd_jump, 0, false);
@@ -87,7 +87,7 @@ if (enable_control == true) { //If the player's controls are not disabled.
         jumping = 1;             
         
         //Switch to jump state
-        state = 2;        
+        state = playerstate.jump;        
 		
 		//If the player does have the shell or penguin suit.
         if (global.powerup == cs_shell) 
@@ -324,7 +324,7 @@ if (xspeed < -xspeedmax)
     xspeed = -xspeedmax;
     
 //If the player is jumping
-if ((state == 2) || (statedelay > 0)) {
+if ((state == playerstate.jump) || (statedelay > 0)) {
     
     //Variable jumping
     if (yspeed < -2) && (jumping == 1)

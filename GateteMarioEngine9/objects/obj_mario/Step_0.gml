@@ -72,7 +72,7 @@ if (global.pwing == 1) {
 	flying_time = timer(pmeter_end, 60 * global.flighttime, true);
 	
 	//If the player is on the ground, do not apply fix
-	if (state != 2)
+	if (state != playerstate.jump)
 		flyfix = 0;
 	else
 		flyfix = 1;
@@ -82,7 +82,7 @@ if (global.pwing == 1) {
 else {
 
 	//If the player is on the ground, do not apply fix
-	if (state != 2) && (flying == 0)
+	if (state != playerstate.jump) && (flying == 0)
 		flyfix = 0;
 	else
 		flyfix = 1;
@@ -180,8 +180,8 @@ if (enable_gravity == 1) {
 		jumpstyle = 0;
 		
 	//Mute sounds when climbing or while swimming when having either frog or penguin powerups
-	if (state == 3)
-	|| ((state == 2) && (swimming == true) && ((global.powerup == cs_frog) || (global.powerup == cs_penguin)))
+	if (state == playerstate.climb)
+	|| ((state == playerstate.jump) && (swimming == true) && ((global.powerup == cs_frog) || (global.powerup == cs_penguin)))
 		noisy = 1;
 	else
 		noisy = 0;
@@ -232,9 +232,9 @@ if (enable_gravity == 1) {
 			
 			//Set up state if we didn't yet
 			if (xspeed == 0)
-				state = 0;
+				state = playerstate.idle;
 			else
-				state = 1;
+				state = playerstate.walk;
 		}
 	}
 	
@@ -248,7 +248,7 @@ if (enable_gravity == 1) {
         if (!sliding) {
     
             //If the player is not climbing
-            if (state != 3) {
+            if (state != playerstate.climb) {
         
                 //Execute main behaviour script
                 event_user(2);
@@ -372,7 +372,7 @@ if (enable_gravity == 1) {
             }
             
             //Otherwise, if the player is climbing.
-            else if (state == 3) {
+            else if (state == playerstate.climb) {
             
                 //Execute climb behaviour script
                 event_user(4);
@@ -457,6 +457,11 @@ if (enable_gravity == 1) {
 					
 			//Stop flight
 			flying = false;
+			
+			//Decrement P-Meter
+			if (pmeter > 0)
+				pmeter--;
+			
 		}
     }
 	
@@ -613,10 +618,10 @@ if (enable_gravity == 1) {
 			y++;
 	
 	//If the player is not climbing
-	if (state != 3) {
+	if (state != playerstate.climb) {
 	
 		//If the player controls are enabled and it's not jumping
-		if (state != 2)
+		if (state != playerstate.jump)
 		&& (sliding == false)
 		&& (enable_control == true) {
 		
@@ -661,6 +666,9 @@ if (enable_gravity == 1) {
         //Make the player swim.
         swimming = true;
         swimtype = 0;
+		
+		// Make the player stop running so that the p-meter drains
+		run = false;
         
         //Make the player get up
         crouch = false;
@@ -694,7 +702,7 @@ if (enable_gravity == 1) {
         if (!collision_rectangle(bbox_left, y+swim_y, bbox_right, y+swim_y, obj_solid, 1, 0)) {
         
             //If the player is moving up
-            if ((state == 2) && (yspeed < 0)) {
+            if ((state == playerstate.jump) && (yspeed < 0)) {
             
                 //If 'Shift' is held
                 if (input_check(input.action_0)) {
@@ -789,7 +797,7 @@ if (enable_gravity == 1) {
 	}
         
     //Handle tail whip animation
-    if ((state == 2) && (wiggle > 0))
+    if ((state == playerstate.jump) && (wiggle > 0))
         wiggle--;
     else
         wiggle = 0;
