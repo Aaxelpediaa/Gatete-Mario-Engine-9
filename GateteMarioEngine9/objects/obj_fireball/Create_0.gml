@@ -7,4 +7,14 @@ event_inherited();
 audio_play_sound(snd_fireball, 0, false);
 
 //Set vertical speed
-yspeed = 0.5;
+yspeed = 4;
+
+//No bounces
+bouncy = 0;
+bounces = 0;
+
+//Do not swim
+noswim = true;
+
+//Do not turn toward walls
+turn_toward = false;

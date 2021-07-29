@@ -7,7 +7,7 @@ yspeed += yadd;
 
 //NPC Wall & Ceiling
 ai_npc_ceiling();
-ai_npc_wall(true);
+ai_npc_wall(turn_toward);
 
 //Check if there's a collision below and if NPC is on the ground
 if (collision_rectangle(bbox_left, bbox_bottom-2, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0)) 
@@ -35,8 +35,9 @@ if (yspeed >= 0) {
 		//Bounce
 		bounces = (max(0, bounces - 1));
 		if (bounces < 2)
-			 {yspeed = -0.6 * bounces;}
-		else yspeed = -yspeed / bouncy;		
+			yspeed = -0.6 * bounces;
+		else 
+			yspeed = -yspeed / bouncy;		
 	}
 	
 	//Check for any nearby ground collision
@@ -44,11 +45,11 @@ if (yspeed >= 0) {
 	
 	//If there's ground below and Mario is not moving upwards
 	if (semisolid)
-	&& (bbox_bottom < semisolid.yprevious+5)
+	&& (bbox_bottom < semisolid.yprevious+sprite_height-5)
 	&& (!collision_rectangle(x-1, bbox_bottom-2, x+1, bbox_bottom+1, obj_slopeparent, 1, 0)) {
 		
 		//Snap above the semisolid
-		y = semisolid.bbox_top-16;
+		y = semisolid.bbox_top-sprite_height;
 	
 		//Stop vertical movement
 		yadd = 0;
@@ -56,8 +57,9 @@ if (yspeed >= 0) {
 		//Bounce
 		bounces = (max(0, bounces - 1));
 		if (bounces < 2)
-			 {yspeed = -0.6 * bounces;}
-		else yspeed = -yspeed / bouncy;
+			yspeed = -0.6 * bounces;
+		else
+			yspeed = -yspeed / bouncy;
 	}
 }
 
@@ -68,7 +70,7 @@ yspeed = min(4 - (swimming * 2), yspeed);
 var water = collision_rectangle(bbox_left, y-1, bbox_right, y, obj_swim, 1, 0);
     
 //If the NPC is not swimming and makes contact with a water surface
-if ((!swimming) && (water)) {
+if ((noswim == false) && (!swimming) && (water)) {
         
     //Make the NPC swim.
     swimming = true;
@@ -78,7 +80,6 @@ if ((!swimming) && (water)) {
                 
     //Stop vertical movement
     yadd = 0;
-    if (yspeed > 0) 
-        //Stop vertical movement
+    if (yspeed > 0)
         yspeed = 0;
 }

@@ -25,3 +25,9 @@ slopesensor_y1 = 8;
 slopesensor_y2 = 16;
 slopesensor_extendedcheck = 0;
 slopesensor_slopeid = noone;
+
+//Change gravity when in contact with water
+noswim = false;
+
+//Turn towards walls?
+turn_toward = true;
