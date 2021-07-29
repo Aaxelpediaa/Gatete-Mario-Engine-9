@@ -54,7 +54,7 @@ if (flight_ruined) {
 	owner.flying = false;
 	
 	// Decrement P-meter
-	owner.pmeter --;
+	owner.pmeter--;
 	
 	// Stop the P-meter sound
 	audio_stop_sound(snd_pmeter);
@@ -92,7 +92,7 @@ if (flight_ruined) {
 	var take_flight = false;
 	
 	// Input press forward, start nose diving
-	if ((input_check(input.right) && xscale == 1) || (input_check(input.left) && xscale == -1)) {
+	if (((input_check(input.right) || (gamepad_axis_value(0, gp_axislh) > 0.5)) && (xscale == 1)) || (((input_check(input.left)) || (gamepad_axis_value(0, gp_axislh) < -0.5) && (xscale == -1)))) {
 		
 		// Change image index while nose diving
 		image_index += 0.1875;
@@ -117,7 +117,7 @@ if (flight_ruined) {
 		}
 		
 	// Input press going backwards
-	} else if ((input_check(input.right) && xscale == -1) || (input_check(input.left) && xscale == 1)) {
+	} else if (((input_check(input.right) || (gamepad_axis_value(0, gp_axislh) > 0.5)) && (xscale == -1)) || (((input_check(input.left)) || (gamepad_axis_value(0, gp_axislh) < -0.5) && (xscale == 1)))) {
 		
 		// If you're not nose diving, start bringing the face back up
 		if (!nose_diving) {

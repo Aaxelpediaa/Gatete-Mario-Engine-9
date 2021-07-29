@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Parents",
-    "path": "folders/Objetos/Special/Parents.yy",
+    "name": "Global",
+    "path": "folders/Objetos/Special/Parents/NPCs/Global.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_physicsparent",

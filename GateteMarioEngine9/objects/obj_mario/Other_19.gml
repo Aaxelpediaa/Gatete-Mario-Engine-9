@@ -102,7 +102,7 @@ throw_projectile = function() {
 				audio_play_sound(snd_fireball,0,0);
 				
 				// Create fireball
-	            with (instance_create_depth(x,y,depth,obj_fireball)) {
+	            with (instance_create_depth(x, y, 150, obj_fireball)) {
             
 					// Match the speed to the player's direction
 	                xspeed = 3*sign(other.xscale);
