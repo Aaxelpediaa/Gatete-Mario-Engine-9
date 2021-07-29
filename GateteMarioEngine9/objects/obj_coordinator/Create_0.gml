@@ -1,8 +1,5 @@
 /// @description Gatete Mario Engine 9 Game Coordinator (This is required for the game to run, do not remove it.)
 
-//Initialize palette system
-/* UNDER CONSTRUCTION */
-
 //Set game caption
 window_set_caption("Gatete Mario Engine 9");
 
@@ -134,6 +131,15 @@ global.gw = room_width;
 //Game Height
 global.gh = room_height;
 
+<<<<<<< Updated upstream
+=======
+//Lives to be added
+addlives = 0;
+
+//Rescale the surface (sub-pixels)
+rescale_surface = false;
+
+>>>>>>> Stashed changes
 //Data structure for picked up 3up moons
 global.moons = ds_map_create();
 
