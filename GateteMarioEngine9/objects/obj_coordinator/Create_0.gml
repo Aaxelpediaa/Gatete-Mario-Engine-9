@@ -131,15 +131,12 @@ global.gw = room_width;
 //Game Height
 global.gh = room_height;
 
-<<<<<<< Updated upstream
-=======
 //Lives to be added
 addlives = 0;
 
 //Rescale the surface (sub-pixels)
 rescale_surface = false;
 
->>>>>>> Stashed changes
 //Data structure for picked up 3up moons
 global.moons = ds_map_create();
 

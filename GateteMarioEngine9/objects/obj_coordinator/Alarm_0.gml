@@ -1,13 +1,13 @@
 /// @description Set up window size
 
 //Reset display
-display_reset(0,vsync);
+display_reset(0, 1);
 
 //Set up the window
-window_set_size(global.gw*size,global.gh*size);
+window_set_size(global.gw*size, global.gh*size);
 
 //Set up the display
-display_set_gui_size(global.gw*size,global.gh*size);
+display_set_gui_size(global.gw*size, global.gh*size);
 
 //Center the window
 alarm[1] = 1;

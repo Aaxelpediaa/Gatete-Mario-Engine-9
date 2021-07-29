@@ -5,7 +5,7 @@ function powerup_get_name() {
 
 	switch (argument[0]) {
 
-		case (cs_tiny): return powerup_get_name(cs_small);
+		case (cs_tiny): return "tiny";
 		case (cs_small): return "small";
 		case (cs_big): return "big";
 		case (cs_fire): return powerup_get_name(cs_big);

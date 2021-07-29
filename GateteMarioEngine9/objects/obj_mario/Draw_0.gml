@@ -11,12 +11,6 @@ pal_swap_set_player(spr_palette_mario, spr_palette_mario_invincible);
 if (sprite_index > -1) {
 	
 	switch (global.powerup) {
-	
-		//Tiny
-		case (cs_tiny): {
-		
-			draw_sprite_custom_origin(sprite_index, image_index, x, y+1, sprite_get_xoffset(sprite_index), 16, 0.5*xscale, 0.5*yscale, 0, image_blend, image_alpha);
-		} break;
 		
 		//Mega
 		case (cs_mega): {

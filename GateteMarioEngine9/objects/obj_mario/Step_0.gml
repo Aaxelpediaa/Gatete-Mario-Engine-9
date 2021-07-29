@@ -1,5 +1,14 @@
 /// @description Mario's logic!
 
+#region FLASHING
+
+	/*
+	isflashing += 0.1;
+	if (isflashing > 6)
+		isflashing = 1;
+	*/
+#endregion
+
 //If Mario is under the effects of a mega mushroom
 if (global.powerup == cs_mega) {
 	
