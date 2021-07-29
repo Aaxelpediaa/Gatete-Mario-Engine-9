@@ -38,9 +38,6 @@ can_fly = true;
 // At a wall?
 at_wall = false;
 
-// Run button grace period
-running = 8;
-
 #endregion
 
 // Cape owner

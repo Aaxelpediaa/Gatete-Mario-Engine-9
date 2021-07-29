@@ -688,30 +688,42 @@ if ((state == 2) || (statedelay != 0)) {
 		// If the conditions are met, start flying
 		if ((global.powerup == cs_cape) && (flying) && (yspeed > 2) && (jumpstyle == 0) && (global.mount == 0)) {
 			
-			// Create the flying Mario
-			fly = instance_create_layer(x, y, layer, obj_fly);
+			// If you're not running
+			if (!input_check(input.action_1)) {
+				
+				// Stop flying
+				flying = false;
+				state = 2;
+				
+			// Otherwise, if you are running
+			} else {
 			
-			// Stop the P-meter sound pre-maturely so it's not playing when you're flying
-			audio_stop_sound(snd_pmeter);
+				// Create the flying Mario
+				fly = instance_create_layer(x, y, layer, obj_fly);
 			
-			with (fly) {
+				// Stop the P-meter sound pre-maturely so it's not playing when you're flying
+				audio_stop_sound(snd_pmeter);
+			
+				with (fly) {
 				
-				// Attach variables
-				yadd = other.yadd;
-				xadd = other.xadd;
-				xspeed = other.xspeed;
-				yspeed = other.yspeed;
+					// Attach variables
+					yadd = other.yadd;
+					xadd = other.xadd;
+					xspeed = other.xspeed;
+					yspeed = other.yspeed;
 				
-				// Set object reference
-				owner = other.id;
+					// Set object reference
+					owner = other.id;
 				
-				// Attach xscale
-				xscale = other.xscale;
+					// Attach xscale
+					xscale = other.xscale;
 				
+				}
+			
+				// The flight object will take control
+				enable_gravity = false;
+			
 			}
-			
-			// The flight object will take control
-			enable_gravity = false;
 			
 		// If the criteria is met to STOP flying
 		} else if ((global.powerup == cs_cape) && (flying) && (yspeed > 0) && (jumpstyle != 0 || global.mount != 0)) {

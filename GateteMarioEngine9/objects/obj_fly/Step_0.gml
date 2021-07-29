@@ -255,20 +255,9 @@ if (yspeed >= yspeed_cap) {
 	
 }
 
-// Manage letting go of the run button
-if (!input_check(input.action_1)) {
-	
-	running --;
-	
-} else {
-	
-	running = 8;
-	
-}
-
 // Stop flying
 var water = collision_rectangle(bbox_left, y-1, bbox_right, y, obj_swim, 1, 0);
-if ((xspeed == 0 && flight_ruined) || water || crashed || running <= 0) {
+if ((xspeed == 0 && flight_ruined) || water || crashed || !input_check(input.action_1)) {
 	
 	// Destroy cape
 	instance_destroy();
