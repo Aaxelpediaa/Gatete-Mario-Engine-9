@@ -3,11 +3,8 @@
 //Inherit event from parent
 event_inherited();
 
-//Play 'Fireball' sound
-audio_play_sound(snd_fireball, 0, false);
-
 //Set vertical speed
-yspeed = 4;
+yspeed = 0.5;
 
 //No bounces
 bouncy = 0;
@@ -18,3 +15,6 @@ noswim = true;
 
 //Do not turn toward walls
 turn_toward = false;
+
+//Leave a trail
+alarm[0] = 1;

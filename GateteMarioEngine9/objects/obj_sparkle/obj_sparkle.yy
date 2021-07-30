@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "spr_iceball",
-    "path": "sprites/spr_iceball/spr_iceball.yy",
+    "name": "spr_sparkle",
+    "path": "sprites/spr_sparkle/spr_sparkle.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "obj_fireball",
-    "path": "objects/obj_fireball/obj_fireball.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -26,17 +23,16 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":1,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Projectiles",
-    "path": "folders/Objetos/Special/Do Not Use!/Mario/Projectiles.yy",
+    "name": "Eyecandy",
+    "path": "folders/Objetos/Special/Do Not Use!/Eyecandy.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_iceball",
+  "name": "obj_sparkle",
   "tags": [],
   "resourceType": "GMObject",
 }

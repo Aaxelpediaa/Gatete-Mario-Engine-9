@@ -73,7 +73,7 @@ throw_projectile = function() {
 	        instance_create_depth(x,y,depth,obj_statue);        
 	    }
     
-	    // Cat
+	    //Cat
 	    else if (global.powerup == cs_bell)
 	    && (input_check(input.down))
 	    && (global.mount == 0)
@@ -90,45 +90,43 @@ throw_projectile = function() {
 	    // Actions to take only if not crouching
 	    else */if (!crouch) {
     
-	        // Fireball
+	        //Fireball
 	        if (global.powerup == cs_fire)
 	        && (instance_number(obj_fireball) < 2) {
         
-				// Set firing animation time
+				//Set firing animation time
 	            firing = 9;
 				
-				// Play sound
-				audio_stop_sound(snd_fireball);
-				audio_play_sound(snd_fireball,0,0);
+				//Play 'Fireball' sound
+				audio_play_sound(snd_fireball, 0, false);
 				
-				// Create fireball
+				//Create Fireball
 	            with (instance_create_depth(x, y, 150, obj_fireball)) {
             
-					// Match the speed to the player's direction
+					//Match the speed to the player's direction
 	                xspeed = 3*sign(other.xscale);
 					
-					// Make the fireball go upwards if the player is pressing up
-	                if (input_check(input.up))
+					//Make the fireball go upwards if the player is pressing up
+	                if ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
 	                    yspeed = -3;
 	            }
 	        }            
         
-	        // Iceball
+	        //Iceball
 	        else if ((global.powerup == cs_ice) || ((global.powerup == cs_penguin) && (swimming == false)))
 	        && (instance_number(obj_iceball) < 2) {
         
-				// Set firing animation time
+				//Set firing animation time
 	            firing = 9;
 				
-				// Play sound
-				audio_stop_sound(snd_iceball);
-				audio_play_sound(snd_iceball,0,0);
+				//Play sound
+				audio_play_sound(snd_iceball, 0, false);
 				
-				// Create iceball
-	            with (instance_create_depth(x,y,depth,obj_iceball)) {
+				//Create iceball
+	            with (instance_create_depth(x, y, 150, obj_iceball)) {
             
 	                xspeed = other.xspeed+(1.2*sign(other.xscale));
-	                if (input_check(input.down))
+	                if ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
 	                    yspeed = -3;
 	            }
 	        }
@@ -139,7 +137,7 @@ throw_projectile = function() {
 	        && (spin == noone) {
         
 				// Create spinner
-				spin = instance_create_depth(x,y,depth,obj_spinner);
+				spin = instance_create_depth(x, y, depth, obj_spinner);
 		
 				// Set up spinner
 	            with (spin) {
@@ -151,8 +149,7 @@ throw_projectile = function() {
 					owner = other.id;
 					
 					// Set up parameters for spinner
-					event_user(0);
-					
+					event_user(0);					
 				}
 	        }
             

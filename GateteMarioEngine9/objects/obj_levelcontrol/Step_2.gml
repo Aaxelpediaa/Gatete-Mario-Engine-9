@@ -53,15 +53,14 @@ if (shake_time > 0) {
 
 	// Make sure the shake time & start time bottom out to 0
 	shake_time = 0;
-	shake_starttime = 0;
-	
+	shake_starttime = 0;	
 }
 
-// Clamp the X/Y position to the room so that shakes on the bottom of the screen still occur fine
+//Clamp the X/Y position to the room so that shakes on the bottom of the screen still occur fine
 x = clamp(x, camera_get_view_width(view_camera[0])/2, room_width - camera_get_view_width(view_camera[0])/2);
-y = clamp(y+shake_val, camera_get_view_height(view_camera[0])/2, room_height - camera_get_view_height(view_camera[0])/2);
+y = clamp(y + shake_val, camera_get_view_height(view_camera[0])/2, room_height - camera_get_view_height(view_camera[0])/2);
 
-// Set camera position
+//Set camera position
 camera_set_view_target(view_camera[0], noone);
 camera_set_view_pos(view_camera[0], x-(camera_get_view_width(view_camera[0])/2), y-(camera_get_view_height(view_camera[0])/2));
 
