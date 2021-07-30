@@ -10,6 +10,9 @@ if (instance_exists(owner)) {
 
     //Only draw if the player has a cape
     if (global.powerup == cs_cape) {
+		
+		//Set palette
+		pal_swap_set_player(spr_palette_mario, spr_palette_mario_invincible);
     
         //If the player is not riding a yoshi
         if (global.mount == 0)
@@ -32,10 +35,10 @@ if (instance_exists(owner)) {
                     draw_sprite_ext(sprite_index, image_index, round(x-3*sign(obj_playerparent.xscale)), round(y)-5+yy, image_xscale, 1, 0, c_white, image_alpha);
                 else
                     draw_sprite_ext(sprite_index, image_index, round(x-3*sign(obj_playerparent.xscale)), round(y)-7+yy, image_xscale, 1, 0, c_white, image_alpha);            
-            }*/
-			
+            }*/	
         }
 		
+		//Stop shader
+		pal_swap_reset();
     }
-	
 }

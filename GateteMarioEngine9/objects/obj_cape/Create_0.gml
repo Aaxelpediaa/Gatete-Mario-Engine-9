@@ -20,5 +20,8 @@ enum capestate {
 }
 state = capestate.cape_idle;
 
+//Flashing variable
+isflashing = 0;
+
 // Owner of the cape
 owner = noone;

@@ -11,6 +11,9 @@ if (instance_exists(owner)) {
 	//Move towards the player
 	x = owner.x;
 	y = owner.y;
+	
+	//Hereby palette
+	isflashing = owner.isflashing;
     
 	//Hereby facing direction
 	image_xscale = owner.xscale;
