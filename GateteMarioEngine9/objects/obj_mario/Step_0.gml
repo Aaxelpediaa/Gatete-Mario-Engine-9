@@ -489,10 +489,19 @@ if (enable_gravity == 1) {
 				//instance_create_layer(x+5, y+8, "Front", obj_shellbump);
 				
 				//Bump block if there's one in position
-				if (block_r) {
+				if ((block_r) && (block_r.ready == 0)) {
 				
 					with (block_r) {
 						
+						//Set state to bumped
+						ready = 1;
+						
+						//Set horizontal speed
+						hspeed = 2;
+						alarm[0] = 4;
+						
+						//Create block specific events
+						event_user(0);
 					}
 				}
 				
@@ -538,10 +547,19 @@ if (enable_gravity == 1) {
 				//instance_create_layer(x-5, y+8, "Front", obj_shellbump);
 				
 				//Bump block if there's one in position
-				if (block_l) {
+				if ((block_l) && (block_l.ready == 0)) {
 				
 					with (block_l) {
 						
+						//Set state to bumped
+						ready = 1;
+						
+						//Set horizontal speed
+						hspeed = -2;
+						alarm[0] = 4;
+						
+						//Create block specific events
+						event_user(0);
 					}
 				}
 				
@@ -578,17 +596,29 @@ if (enable_gravity == 1) {
 		}
 		
 		//Stop vertical movement
-		if (flying && global.powerup == cs_cape)
-			if (yspeed < 0)
+		if ((flying) && (global.powerup == cs_cape)) {
+			
+			if (yspeed < 0) {
+				
 				memory_yspeed = yspeed;
+			}
+		}
+		yspeed = 0;
+		
+		//Bump block if there's one in position
+		if ((block_u) && (block_u.ready == 0)) {
 				
-			yspeed = 0;
-		
-		//If there's a bumpable block above
-		if (block_u) {
-		
 			with (block_u) {
-				
+						
+				//Set state to bumped
+				ready = 1;
+						
+				//Set horizontal speed
+				vspeed = -2;
+				alarm[0] = 4;
+						
+				//Create block specific events
+				event_user(0);
 			}
 		}
 		

@@ -101,7 +101,7 @@ throw_projectile = function() {
 				audio_play_sound(snd_fireball, 0, false);
 				
 				//Create Fireball
-	            with (instance_create_depth(x, y, 150, obj_fireball)) {
+	            with (instance_create_depth(x, y, depth + 1, obj_fireball)) {
             
 					//Match the speed to the player's direction
 	                xspeed = 3*sign(other.xscale);
@@ -123,7 +123,7 @@ throw_projectile = function() {
 				audio_play_sound(snd_iceball, 0, false);
 				
 				//Create iceball
-	            with (instance_create_depth(x, y, 150, obj_iceball)) {
+	            with (instance_create_depth(x, y, depth + 1, obj_iceball)) {
             
 	                xspeed = other.xspeed+(1.2*sign(other.xscale));
 	                if ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
@@ -158,7 +158,7 @@ throw_projectile = function() {
 	        && (instance_number(obj_hammer) < 2) {
         
 	            firing = 9;
-	            with (instance_create_depth(x,y,depth+1,obj_hammer)) {
+	            with (instance_create_depth(x,y, depth + 1,obj_hammer)) {
             
 	                hspeed = other.xspeed+(1.25*sign(other.xscale));
 	                if (input_check(input.up))
@@ -171,7 +171,7 @@ throw_projectile = function() {
 	        && (instance_number(obj_boomerang) < 2) {
         
 	            firing = 9;
-	            with (instance_create_depth(x,y-10,depth+1,obj_boomerang))
+	            with (instance_create_depth(x,y-10,depth + 1,obj_boomerang))
 	                xspeed = 2*sign(other.xscale);
 	        }
         
