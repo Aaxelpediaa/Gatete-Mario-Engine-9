@@ -131,51 +131,65 @@ throw_projectile = function() {
 	            }
 	        }
         
-	        // Racoon, Tanooki, Cat, and Cape
+	        //Racoon, Tanooki, Cat, and Cape
 	        else if ((global.powerup == cs_raccoon) || (global.powerup == cs_tanooki) || (global.powerup == cs_bell) || ((global.powerup == cs_cape) && (!flying)))
 	        && (instance_number(obj_dropdown) == 0)
 	        && (spin == noone) {
         
-				// Create spinner
+				//Create spinner
 				spin = instance_create_depth(x, y, depth, obj_spinner);
 		
-				// Set up spinner
+				//Set up spinner
 	            with (spin) {
 					
-					// Set scale
+					//Set scale
 	                image_xscale = 1*sign(other.xscale);
 					
-					// Let the spinner know who created it
+					//Let the spinner know who created it
 					owner = other.id;
 					
-					// Set up parameters for spinner
+					//Set up parameters for spinner
 					event_user(0);					
 				}
 	        }
             
-	        // Hammer
-	        /*else if (global.powerup == cs_hammer)
+	        //Hammer
+	        else if (global.powerup == cs_hammer)
 	        && (instance_number(obj_hammer) < 2) {
         
+				//Play 'Fireball' sound
+				audio_play_sound(snd_fireball, 0, false);
+				
+				//Set firing animation frame
 	            firing = 9;
-	            with (instance_create_depth(x,y, depth + 1,obj_hammer)) {
+				
+				//Create a hammer
+	            with (instance_create_depth(x, y, depth + 1,obj_hammer)) {
             
 	                hspeed = other.xspeed+(1.25*sign(other.xscale));
-	                if (input_check(input.up))
+	                if ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
 	                    vspeed = -5;
+					else
+						vspeed = -2.5;
 	            }
 	        }
         
-	        // Boomerang
+	        //Boomerang
 	        else if (global.powerup == cs_boomerang)
-	        && (instance_number(obj_boomerang) < 2) {
-        
+	        && (instance_number(obj_boomerang) < 1) {
+				
+				//Play 'Fireball' sound
+				audio_play_sound(snd_fireball, 0, false);
+				
+				//Set firing animation frame
 	            firing = 9;
-	            with (instance_create_depth(x,y-10,depth + 1,obj_boomerang))
-	                xspeed = 2*sign(other.xscale);
+				
+				//Create a boomerang
+	            with (instance_create_depth(x, y-10, depth + 1, obj_boomerang))
+	                hspeed = 2*sign(other.xscale);
 	        }
         
-	        // Superball
+	        /* Superball
 	        else if (global.powerup == cs_super)
 	        && (instance_number(obj_superball) < 2) {
         
