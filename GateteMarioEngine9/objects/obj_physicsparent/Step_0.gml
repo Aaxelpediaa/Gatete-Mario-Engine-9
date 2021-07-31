@@ -6,8 +6,8 @@ y += yspeed;
 yspeed += yadd;
 
 //NPC Wall & Ceiling
-ai_npc_ceiling();
 ai_npc_wall(turn_toward);
+ai_npc_ceiling(turn_toward_ceiling);
 
 //Check if there's a collision below and if NPC is on the ground
 if (collision_rectangle(bbox_left, bbox_bottom-2, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0)) 

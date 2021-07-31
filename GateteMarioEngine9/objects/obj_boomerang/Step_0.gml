@@ -91,6 +91,3 @@ if (ready3) {
 		*/
     }
 }
-
-//Set angle based on speed
-angle -= 25*(sign(xscale));

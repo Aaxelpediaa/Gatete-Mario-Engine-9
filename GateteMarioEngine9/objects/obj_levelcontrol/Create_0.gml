@@ -3,9 +3,11 @@
 /*
 **  This item uses creation code!
 **
-**  bg_index = Background to replace.
-**  bg_frame[0 ... 99] = Background frames.
+**  bg_hsp = 0;
 */
+
+//Default variables
+bg_hsp = 0;
 
 //Set depth
 depth = 10000;

@@ -185,24 +185,30 @@ throw_projectile = function() {
 	            firing = 9;
 				
 				//Create a boomerang
-	            with (instance_create_depth(x, y, -2, obj_boomerang))
+	            with (instance_create_depth(x, y - 2, -2, obj_boomerang))
 	                hspeed = 2*sign(other.xscale);
 	        }
         
-	        /* Superball
-	        else if (global.powerup == cs_super)
+	        //Superball
+	        else if (global.powerup == cs_superball)
 	        && (instance_number(obj_superball) < 2) {
+				
+				//Play 'Fireball' sound
+				audio_play_sound(snd_fireball, 0, false);
         
+				//Set firing animation frame
 	            firing = 9;
-	            with (instance_create_depth(x,y,depth+1,obj_superball)) {
+				
+				//Create a superball
+	            with (instance_create_depth(x, y, -2, obj_superball)) {
             
 	                xspeed = 3*sign(other.xscale);
-	                if (input_check(input.up))
+	                if ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
 	                    yspeed = -3;
 	            }
 	        }
         
-	        // Bomb
+	        /* Bomb
 	        else if (global.powerup == cs_bomb)
 	        && (instance_number(obj_bomb) < 1) {
         

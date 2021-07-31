@@ -680,8 +680,7 @@ if (enable_gravity == 1) {
 		if (input_check_pressed(input.action_1))
 		&& (obj_levelcontrol.barrier == true)
 		&& (enable_control == true)
-			timer(throw_projectile, 1, false);
-			
+			timer(throw_projectile, 1, false);			
 	}
 
 	//Otherwise, cancel crouch and spin jump
@@ -719,16 +718,10 @@ if (enable_gravity == 1) {
         
             //Stop vertical movement
             yspeed = 0;
-            
-            /*Create a splash effect if not in contact with a bubble
-            if (water.object_index != obj_waterbubble) {
-            
-                with (instance_create(x-8,water.y-15,obj_smoke)) {
-                
-                    depth = -4;
-                    sprite_index = spr_splash;
-                }            
-            } */
+			
+			//Create a splash effect
+			with (instance_create_depth(x, water.y-15, -4, obj_smoke))
+				sprite_index = spr_splash;
         }
     }
     
@@ -762,15 +755,13 @@ if (enable_gravity == 1) {
                     //Allow variable jump
                     jumping = 1;
                     
-                    /*Create splash effect
-                    if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_waterbubble,1,0)) {
-                    
-                        with (instance_create(x-8,y-15,obj_smoke)) {
-                        
-                            depth = -4;
-                            sprite_index = spr_splash;
-                        }
-                    }*/
+                    //Create splash effect
+	                with (instance_create_depth(x, y+swim_y-15, -4, obj_smoke)) {
+						
+						sprite_index = spr_splash;
+						if (global.powerup == cs_tiny)
+							y += 8;
+					}
 					
 					//If Mario is not tiny
 					if (global.powerup != cs_tiny)

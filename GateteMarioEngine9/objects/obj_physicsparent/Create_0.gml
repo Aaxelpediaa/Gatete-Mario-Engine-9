@@ -33,3 +33,6 @@ noswim = false;
 
 //Turn towards walls?
 turn_toward = true;
+
+//Turn towards ceilings
+turn_toward_ceiling = false;
