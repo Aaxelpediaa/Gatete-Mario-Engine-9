@@ -3,6 +3,9 @@
 //Score font
 font = font_add_sprite_ext(spr_score, "0123456789", 1, -1);
 
+//Depth
+depth = -6;
+
 //Default value
 value = 10;
 

@@ -10,5 +10,5 @@
 //Default value
 sprout = cs_coin;
 
-//Whether this block can be hit
-ready = 0;
+//Inherit event from parent
+event_inherited();

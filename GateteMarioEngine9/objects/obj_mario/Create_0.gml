@@ -1,5 +1,8 @@
 /// @description It's a me, Mario!
 
+//Stay always in front
+depth = -5;
+
 //Enable / disable gravity
 enable_gravity = true;
 

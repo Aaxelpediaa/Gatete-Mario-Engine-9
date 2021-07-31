@@ -1,10 +1,10 @@
 {
   "spriteId": {
-    "name": "spr_smoke_b",
-    "path": "sprites/spr_smoke_b/spr_smoke_b.yy",
+    "name": "spr_slippery",
+    "path": "sprites/spr_slippery/spr_slippery.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
@@ -20,17 +20,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":7,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Eyecandy",
-    "path": "folders/Objetos/Special/Do Not Use!/Eyecandy.yy",
+    "name": "Collision",
+    "path": "folders/Objetos/Collision.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_smoke",
+  "name": "obj_slippery",
   "tags": [],
   "resourceType": "GMObject",
 }

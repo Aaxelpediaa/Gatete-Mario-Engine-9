@@ -4,4 +4,4 @@
 ready = 0;
 
 //Set up depth
-depth = layer_get_depth("Main") + 1;
+depth = layer_get_depth("Main");

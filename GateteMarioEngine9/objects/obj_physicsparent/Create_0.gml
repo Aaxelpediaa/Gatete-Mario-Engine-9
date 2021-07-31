@@ -26,6 +26,8 @@ slopesensor_y2 = 16;
 slopesensor_extendedcheck = 0;
 slopesensor_slopeid = noone;
 
+//Depth
+depth = -2;
 //Change gravity when in contact with water
 noswim = false;
 

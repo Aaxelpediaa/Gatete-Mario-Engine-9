@@ -12,12 +12,28 @@ if (instance_exists(obj_mario)) {
 	
 		//If Mario is at the left boundary
 		if (obj_mario.x < camera_get_view_x(view_camera[0]) + 5) {
+			
+			//If Mario is flying with the cape
+			if (instance_exists(obj_fly)) {
+			
+				obj_fly.x = camera_get_view_x(view_camera[0]) + 5;
+				if (obj_fly.xspeed < 0)
+					obj_fly.xspeed = 0;
+			}
 		
 			obj_mario.x = camera_get_view_x(view_camera[0]) + 5;
 			if (obj_mario.xspeed < 0)
 				obj_mario.xspeed = 0;
 		}
 		else if (obj_mario.x > camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 5) {
+			
+			//If Mario is flying with the cape
+			if (instance_exists(obj_fly)) {
+			
+				obj_fly.x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 5;
+				if (obj_fly.xspeed > 0)
+					obj_fly.xspeed = 0;
+			}
 			
 			obj_mario.x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 5;
 			if (obj_mario.xspeed > 0)
@@ -38,7 +54,8 @@ if (shake_time > 0) {
 		// Calculate the shake value relative to the time left in the timer
 		shake_val = shake_intensity * (shake_time / shake_starttime);
 		
-	} else
+	} 
+	else
 	
 		// Match shake value to shake intensity
 		shake_val = shake_intensity;
@@ -68,28 +85,28 @@ camera_set_view_pos(view_camera[0], x-(camera_get_view_width(view_camera[0])/2),
 #region PARALLAX BACKGROUNDS
 
 	//Get both x and y position
-	var cam_x = camera_get_view_x(view_camera[0]) + layer_get_hspeed("Background 0");
+	var cam_x = camera_get_view_x(view_camera[0]);
 	var cam_y = camera_get_view_y(view_camera[0]);
 		
 	#region BACKGROUND 0
-
-		//Get layer ID and sprite
-		var lay_id = layer_get_id("Background 0");
-		var lay_spr = layer_background_get_sprite(lay_id);
 		
 		#region POSITION SETUP
 		
-			//Get the height of the sprite obtained in lay_spr
-			var lay_height = sprite_get_height(lay_spr);
-	
-			//Set x position of "Background_0" layer
-			layer_x("Background_0", cam_x / 2);
-		
-			//Set y position of "Background 0" layer
-			if (lay_height < room_height)
-			&& (lay_height > camera_get_view_height(view_camera[0]))
-				layer_y("Background_0", cam_y * (room_height - lay_height) / (room_height -  camera_get_view_height(view_camera[0])));
-		
+			//Get ID from "Background 0"
+			var lay_id = layer_get_id("Background_0");
+			
+			//Get data from said layer
+			var back_id = layer_background_get_id(lay_id);
+			var back_spd = layer_get_hspeed(back_id);
+			var back_spr = layer_background_get_sprite(back_id);
+
+			//Horizontal parallax
+			layer_x("Background_0", cam_x / 2 + back_spd);
+			
+			//Vertical parallax
+			if (sprite_get_height(back_spr) < room_height)
+			&& (sprite_get_height(back_spr) > camera_get_view_height(view_camera[0]))
+				layer_y("Background_0", cam_y * (room_height - sprite_get_height(back_spr)) / (room_height -  camera_get_view_height(view_camera[0])));		
 		#endregion
 	
 	#endregion
@@ -101,4 +118,5 @@ camera_set_view_pos(view_camera[0], x-(camera_get_view_width(view_camera[0])/2),
 	layer_x("Background_2", cam_x / 6);
 	
 #endregion
+
 

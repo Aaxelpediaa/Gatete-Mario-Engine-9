@@ -101,7 +101,7 @@ throw_projectile = function() {
 				audio_play_sound(snd_fireball, 0, false);
 				
 				//Create Fireball
-	            with (instance_create_depth(x, y, depth + 1, obj_fireball)) {
+	            with (instance_create_depth(x, y, -2, obj_fireball)) {
             
 					//Match the speed to the player's direction
 	                xspeed = 3*sign(other.xscale);
@@ -123,7 +123,7 @@ throw_projectile = function() {
 				audio_play_sound(snd_iceball, 0, false);
 				
 				//Create iceball
-	            with (instance_create_depth(x, y, depth + 1, obj_iceball)) {
+	            with (instance_create_depth(x, y, -2, obj_iceball)) {
             
 	                xspeed = other.xspeed+(1.2*sign(other.xscale));
 	                if ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
@@ -164,7 +164,7 @@ throw_projectile = function() {
 	            firing = 9;
 				
 				//Create a hammer
-	            with (instance_create_depth(x, y, depth + 1,obj_hammer)) {
+	            with (instance_create_depth(x, y, -2, obj_hammer)) {
             
 	                hspeed = other.xspeed+(1.25*sign(other.xscale));
 	                if ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
@@ -176,7 +176,7 @@ throw_projectile = function() {
         
 	        //Boomerang
 	        else if (global.powerup == cs_boomerang)
-	        && (instance_number(obj_boomerang) < 1) {
+	        && (instance_number(obj_boomerang) < 2) {
 				
 				//Play 'Fireball' sound
 				audio_play_sound(snd_fireball, 0, false);
@@ -185,7 +185,7 @@ throw_projectile = function() {
 	            firing = 9;
 				
 				//Create a boomerang
-	            with (instance_create_depth(x, y-10, depth + 1, obj_boomerang))
+	            with (instance_create_depth(x, y, -2, obj_boomerang))
 	                hspeed = 2*sign(other.xscale);
 	        }
         

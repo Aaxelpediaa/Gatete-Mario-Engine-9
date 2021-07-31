@@ -1,5 +1,13 @@
 /// @description Mario's logic!
 
+#region SLIPPERY SURFACE CHECK
+
+	if (collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom+1, obj_slippery, 1, 0))
+		isslip = 1;
+	else
+		isslip = 0;
+#endregion
+
 //If Mario is under the effects of a mega mushroom
 if (global.powerup == cs_mega) {
 	
@@ -102,8 +110,7 @@ if (enable_gravity == 1) {
 	&& (global.powerup == cs_cape) {
 		
 		yspeed = memory_yspeed;
-		memory_yspeed = 0;
-		
+		memory_yspeed = 0;		
 	}
 	
 	//Decrease net smack
@@ -671,7 +678,7 @@ if (enable_gravity == 1) {
 		
 		// Handles powerup specific projectiles, tail spin, cat scratching, etc...
 		if (input_check_pressed(input.action_1))
-		&& (obj_levelcontrol.barrier == false)
+		&& (obj_levelcontrol.barrier == true)
 		&& (enable_control == true)
 			timer(throw_projectile, 1, false);
 			
@@ -852,7 +859,7 @@ if (enable_gravity == 1) {
                     
             if (pitwarp == false) {
             
-                instance_create_layer(x, y, "Front", obj_mario_dead);
+                instance_create_depth(x, y, depth, obj_mario_dead);
                 instance_destroy();
                 exit;  
             }

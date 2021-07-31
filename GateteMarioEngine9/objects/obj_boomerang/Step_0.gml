@@ -74,7 +74,7 @@ if (ready3) {
         //If the boomerang cannot be picked up
         if (canpick == false) {
         
-            instance_create_depth(x, y, depth - 1, obj_smoke);
+            instance_create_depth(x, y, depth - 2, obj_smoke);
             instance_destroy();
             exit;
         }

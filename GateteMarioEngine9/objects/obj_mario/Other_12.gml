@@ -699,7 +699,7 @@ if ((state == playerstate.jump) || (statedelay != 0)) {
 			} else {
 			
 				// Create the flying Mario
-				fly = instance_create_layer(x, y, layer, obj_fly);
+				fly = instance_create_depth(x, y, depth, obj_fly);
 			
 				// Stop the P-meter sound pre-maturely so it's not playing when you're flying
 				audio_stop_sound(snd_pmeter);
@@ -763,13 +763,12 @@ if ((enable_control == true) && (input_check(input.down))) {
 
     //If the player does have the shell or penguin suit
     if ((global.powerup == cs_shell)
-    || ((global.powerup == cs_penguin) && (isslip == false)))
+    || ((global.powerup == cs_penguin) && (isslip == true)))
     && (global.mount == 0)
     && (state == playerstate.walk)
     && (!sliding)
-    && ((holding == 0) || (holding == 4)) 
-	&& (collision_rectangle(x, bbox_bottom-0.99, x, bbox_bottom+3.99, obj_slopeparent, 1, 0)) {
-    
+    && ((holding == 0) || (holding == 4)) {
+		  
         //Start sliding
         sliding = true;
         
