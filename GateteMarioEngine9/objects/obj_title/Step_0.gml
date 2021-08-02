@@ -1,17 +1,12 @@
-/// @description Restart the game when both ALT+R are pressed
+/// @description Go to the next room
 
-if (keyboard_check_pressed(ord("R"))) {
+if (input_check_pressed(input.start)) {
 
-	//Stop playing all sounds
-	audio_stop_all();
-	
-	//Reset global variables
-	init_globals();
-	
-	//Go to the title screen
+	//If no curtain exists
 	if (instance_number(obj_curtain_out) == 0) {
 	
+		audio_play_sound(snd_enterstage, 0, false);
 		with (instance_create_depth(camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) / 2, -99, obj_curtain_out))
-			target = rm_title;
+			target = rm_template;
 	}
 }

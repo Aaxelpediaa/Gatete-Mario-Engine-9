@@ -1,32 +1,22 @@
 /// @description Set view parameters
 
-//If the window has focus
-if (window_has_focus()) {
+//Enable the views if they were not enabled
+view_enabled = true;
 
-	//Fade the screen to black, unless you just opened up the game
-	if (mode == 1) {
-	
-		event_user(0);
-	}
+//Make view 0 visible if not visible
+view_visible[0] = true;
 
-	//Enable the views if they were not enabled
-	view_enabled = true;
+//Set the window size according to the size size
+window_set_size(global.gw*size, global.gh*size);
 
-	//Make view 0 visible if not visible
-	view_visible[0] = true;
+//Set the view size
+camera_set_view_size(view_camera[0], global.gw, global.gh);
 
-	//Set the window size according to the size size
-	window_set_size(global.gw*size, global.gh*size);
+//Rescale the surface
+surface_resize(application_surface, global.gw*size, global.gh*size);
 
-	//Set the view size
-	camera_set_view_size(view_camera[0], global.gw, global.gh);
+//Set the game view border
+camera_set_view_border(view_camera[0], camera_get_view_width(view_camera[0])/2, camera_get_view_height(view_camera[0])/2);
 
-	//Rescale the surface
-	surface_resize(application_surface, global.gw*size, global.gh*size);
-
-	//Set the game view border
-	camera_set_view_border(view_camera[0], camera_get_view_width(view_camera[0])/2, camera_get_view_height(view_camera[0])/2);
-
-	//Set the viewing target to the coordinator (to be changed to Level Coordinator, etc. later)
-	camera_set_view_target(view_camera[0], self);
-}
+//Set the viewing target to the coordinator (to be changed to Level Coordinator, etc. later)
+camera_set_view_target(view_camera[0], self);

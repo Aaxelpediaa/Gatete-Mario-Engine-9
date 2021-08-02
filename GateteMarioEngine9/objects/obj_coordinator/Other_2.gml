@@ -186,6 +186,3 @@
 
 // Apply camera settings
 alarm[0] = 1;
-
-//Go to the next room
-alarm[6] = 3;

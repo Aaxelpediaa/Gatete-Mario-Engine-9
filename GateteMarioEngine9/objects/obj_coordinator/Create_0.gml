@@ -125,25 +125,6 @@ global.pmeter_limit = 144;
 	
 #endregion
 
-#region TRANSITION
-
-	//How the screen is fading
-	//0: From black
-	//1: To black
-	mode = 0;
-
-	//How much the screen is faded
-	fade = 0;
-
-	//Screenshot of the game, if it exists
-	back = -1;
-	
-	//Pixelate screen?
-	//0: No
-	//1: Yes
-	pixelate = 0;
-#endregion
-
 //Current File
 global.file = 0;
 

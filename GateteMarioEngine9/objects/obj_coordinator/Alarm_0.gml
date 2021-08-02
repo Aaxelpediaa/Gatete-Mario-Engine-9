@@ -1,7 +1,7 @@
 /// @description Set up window size
 
 //Reset display
-display_reset(0, 1);
+display_reset(0, vsync);
 
 //Set up the window
 window_set_size(global.gw*size, global.gh*size);
