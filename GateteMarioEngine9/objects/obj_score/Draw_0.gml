@@ -12,7 +12,7 @@ if (value < 0)
 	draw_sprite(sprite_index, -1, x, y);
 else {
 
-	draw_text(x, y, string(value)); 
+	draw_text(x-1, y, string(value)); 
 }
 
 //Reset alignment

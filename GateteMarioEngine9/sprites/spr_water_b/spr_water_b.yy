@@ -105,8 +105,8 @@
     "resourceType": "GMNineSliceData",
   },
   "parent": {
-    "name": "Liquids",
-    "path": "folders/Sprites/Decoration/Liquids.yy",
+    "name": "Water",
+    "path": "folders/Sprites/Decoration/Liquids/Water.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_water_b",

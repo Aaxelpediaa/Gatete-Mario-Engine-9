@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "spr_water_b",
-    "path": "sprites/spr_water_b/spr_water_b.yy",
+    "name": "spr_waterfall",
+    "path": "sprites/spr_waterfall/spr_waterfall.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "obj_water",
-    "path": "objects/obj_water/obj_water.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -23,15 +20,18 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Water",
-    "path": "folders/Objetos/Decoration/Liquids/Water.yy",
+    "name": "Waterfall",
+    "path": "folders/Objetos/Decoration/Liquids/Water/Waterfall.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_water_b",
+  "name": "obj_waterfall_noswim",
   "tags": [],
   "resourceType": "GMObject",
 }

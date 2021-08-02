@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_water",
-    "path": "objects/obj_water/obj_water.yy",
+    "name": "obj_water_a",
+    "path": "objects/obj_water_a/obj_water_a.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Water",
-    "path": "folders/Objetos/Decoration/Liquids/Water.yy",
+    "name": "Liquids",
+    "path": "folders/Objetos/Decoration/Liquids.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_water_b",

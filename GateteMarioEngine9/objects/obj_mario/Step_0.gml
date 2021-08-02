@@ -524,10 +524,19 @@ if (enable_gravity == 1) {
 		//Stop horizontal movement
 		xspeed = 0;
 		
-		//Prevent Mario from getting embed on the wall			
-		while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom+ismega, obj_solid, 1, 0))
-		&& (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
-			x--;
+		//If Mario is not tiny, prevent Mario from getting embed on the wall
+		if (global.powerup != cs_tiny) {
+			
+			while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom+ismega, obj_solid, 1, 0))
+			&& (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+				x--;
+		}
+		else {
+			
+			while (collision_rectangle(bbox_right, bbox_top, bbox_right, bbox_bottom-5, obj_solid, 1, 0))
+			&& (!collision_point(x, bbox_top, obj_solid, 0, 0))
+				x--;			
+		}
 	}
 	
 	//Otherwise, if moving left
@@ -583,18 +592,27 @@ if (enable_gravity == 1) {
 		//Stop horizontal movement
 		xspeed = 0;
 			
-		//Prevent Mario from getting embed on the wall
-		while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom+ismega, obj_solid, 1, 0))
-		&& (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
-			x++;
+		//If Mario is not tiny, prevent him from getting embed on the wall
+		if (global.powerup != cs_tiny) {
+			
+			while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom+ismega, obj_solid, 1, 0))
+			&& (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+				x++;
+		}
+		else {
+			
+			while (collision_rectangle(bbox_left, bbox_top, bbox_left, bbox_bottom-5, obj_solid, 1, 0))
+			&& (!collision_point(x, bbox_top, obj_solid, 0, 0))
+				x++;			
+		}
 	}
 	
 	//If moving upwards
 	if (yspeed < 0) 
-	&& (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) {
+	&& (collision_rectangle(bbox_left, bbox_top+yspeed/2, bbox_right, bbox_top, obj_solid, 1, 0)) { 
 		
 		//Check for a block above
-		var block_u = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top, obj_blockparent, 0, 0);
+		var block_u = collision_rectangle(bbox_left, bbox_top-2+yspeed/2, bbox_right, bbox_top, obj_blockparent, 0, 0);
 	
 		//Prevent the player from getting stuck on a ceiling when jumping/climbing
 		if (state > 1) {
@@ -721,8 +739,11 @@ if (enable_gravity == 1) {
             yspeed = 0;
 			
 			//Create a splash effect
-			with (instance_create_depth(x, water.y-15, -4, obj_smoke))
-				sprite_index = spr_splash;
+			if (water.object_index != obj_waterfall) {
+				
+				with (instance_create_depth(x, water.y-15, -4, obj_smoke))
+					sprite_index = spr_splash;
+			}
         }
     }
     
@@ -757,9 +778,10 @@ if (enable_gravity == 1) {
                     jumping = 1;
                     
                     //Create splash effect
-	                with (instance_create_depth(x, y+swim_y-15, -4, obj_smoke)) {
-			
-						sprite_index = spr_splash;
+					if (!collision_rectangle(bbox_left-2, bbox_top, bbox_right+2, bbox_bottom, obj_waterfall, 0, 0)) {
+						
+						with (instance_create_depth(x, y+swim_y-15, -4, obj_smoke))
+							sprite_index = spr_splash;
 					}
 					
 					//If Mario is not tiny

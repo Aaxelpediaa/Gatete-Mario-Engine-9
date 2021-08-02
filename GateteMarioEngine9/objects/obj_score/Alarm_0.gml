@@ -7,6 +7,9 @@ switch (value) {
 		
 		//If the game is still giving extra lives
 		if (obj_coordinator.addlives == 0) {
+			
+			//Play '1-UP' sound
+			audio_play_sound(snd_1up, 0, false);
 	
 			//Set up the sprite
 			sprite_index = spr_score_3up;
@@ -30,6 +33,9 @@ switch (value) {
 		
 		//If the game is still giving extra lives
 		if (obj_coordinator.addlives == 0) {
+			
+			//Play '1-UP' sound
+			audio_play_sound(snd_1up, 0, false);
 	
 			//Set up the sprite
 			sprite_index = spr_score_3up;
@@ -53,6 +59,9 @@ switch (value) {
 		
 		//If the game is still giving extra lives
 		if (obj_coordinator.addlives == 0) {
+			
+			//Play '1-UP' sound
+			audio_play_sound(snd_1up, 0, false);
 	
 			//Set up the sprite
 			sprite_index = spr_score_1up;
