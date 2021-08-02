@@ -207,7 +207,7 @@ if (wallkick == 1) {
             audio_play_sound(snd_stomp, 0, false);
             
             // Create thump effect
-            with (instance_create_depth(bbox_right,y+8,depth+1,obj_smoke))
+            with (instance_create_depth(bbox_right, y+8, depth+1, obj_smoke))
                 sprite_index = spr_spinthump;
 
         }
@@ -231,7 +231,7 @@ if (wallkick == 1) {
             audio_play_sound(snd_stomp, 0, false);
             
             // Create thump effect
-            with (instance_create_depth(bbox_left,y+8,depth+1,obj_smoke))
+            with (instance_create_depth(bbox_left, y+8, depth+1, obj_smoke))
                 sprite_index = spr_spinthump;
 				
         }

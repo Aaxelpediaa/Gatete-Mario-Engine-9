@@ -12,7 +12,7 @@
 if (global.powerup == cs_mega) {
 	
 	crouch = false;
-	ismega = 0;
+	ismega = -16;
 	swim_y = -32;
 }
 else {
@@ -20,12 +20,11 @@ else {
 	if (global.powerup == cs_tiny) {
 		
 		crouch = false;
-		ismega = 4;
 		swim_y = 9;
 	}
 	else {
 		
-		ismega = 0;
+		ismega = -8;
 		if (global.powerup == cs_small)
 		|| (mask_index == spr_mask_mario)
 			swim_y = 3;
@@ -474,7 +473,8 @@ if (enable_gravity == 1) {
 	
 	//If moving right and there's a wall in position
 	if (xspeed > 0)
-	&& (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4+ismega, obj_solid, 1, 0)) {
+	&& (((global.powerup != cs_tiny) && (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom+ismega, obj_solid, 1, 0)))
+	|| ((global.powerup == cs_tiny) && (collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom-5, obj_solid, 1, 0)))) {
 		
 		//Check for a block
 		var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom, obj_blockparent, 0, 0);
@@ -493,7 +493,7 @@ if (enable_gravity == 1) {
 				xspeed = -xspeed;
 				
 				//Create effect
-				//instance_create_layer(x+5, y+8, "Front", obj_shellbump);
+				instance_create_depth(x+5, y, depth - 1, obj_shellthump);
 				
 				//Bump block if there's one in position
 				if ((block_r) && (block_r.ready == 0)) {
@@ -524,15 +524,16 @@ if (enable_gravity == 1) {
 		//Stop horizontal movement
 		xspeed = 0;
 		
-		//Prevent Mario from getting embed on the wall
-		while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-4+ismega, obj_solid, 1, 0))
+		//Prevent Mario from getting embed on the wall			
+		while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom+ismega, obj_solid, 1, 0))
 		&& (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
 			x--;
 	}
 	
 	//Otherwise, if moving left
 	else if (xspeed < 0)
-	&& (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4+ismega, obj_solid, 1, 0)) {
+	&& (((global.powerup != cs_tiny) && (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom+ismega, obj_solid, 1, 0)))
+	|| ((global.powerup == cs_tiny) && (collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom-5, obj_solid, 1, 0)))) {
 		
 		//Check for a block
 		var block_l = collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom, obj_blockparent, 0, 0);
@@ -551,7 +552,7 @@ if (enable_gravity == 1) {
 				xspeed = -xspeed;
 				
 				//Create effect
-				//instance_create_layer(x-5, y+8, "Front", obj_shellbump);
+				instance_create_depth(x-5, y, depth - 1, obj_shellthump);
 				
 				//Bump block if there's one in position
 				if ((block_l) && (block_l.ready == 0)) {
@@ -581,9 +582,9 @@ if (enable_gravity == 1) {
 		
 		//Stop horizontal movement
 		xspeed = 0;
-		
+			
 		//Prevent Mario from getting embed on the wall
-		while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-4+ismega, obj_solid, 1, 0))
+		while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom+ismega, obj_solid, 1, 0))
 		&& (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
 			x++;
 	}
@@ -757,10 +758,8 @@ if (enable_gravity == 1) {
                     
                     //Create splash effect
 	                with (instance_create_depth(x, y+swim_y-15, -4, obj_smoke)) {
-						
+			
 						sprite_index = spr_splash;
-						if (global.powerup == cs_tiny)
-							y += 8;
 					}
 					
 					//If Mario is not tiny

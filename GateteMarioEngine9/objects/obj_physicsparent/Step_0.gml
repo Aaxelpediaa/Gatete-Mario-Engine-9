@@ -11,7 +11,7 @@ ai_npc_ceiling(turn_toward_ceiling);
 
 //Check if there's a collision below and if NPC is on the ground
 if (collision_rectangle(bbox_left, bbox_bottom-2, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0)) 
-|| (collision_rectangle(x-1, bbox_bottom-2, x+1, bbox_bottom+1, obj_slopeparent, 1, 0)) 
+|| (collision_rectangle(x-1, bbox_bottom-2, x+1, bbox_bottom+4, obj_slopeparent, 1, 0)) 
 	yadd = 0; //Reset gravity
 else {
 	
@@ -24,7 +24,7 @@ else {
 if (yspeed >= 0) {
 	
 	//If there's a slope collision in-position
-	if (collision_rectangle(x-1, bbox_bottom-2, x+1, bbox_bottom+1, obj_slopeparent, 1, 0)) {
+	if (collision_rectangle(x-1, bbox_bottom-2, x+1, bbox_bottom+4, obj_slopeparent, 1, 0)) {
 		
 		//Calculate slope position
 		slope_collision();

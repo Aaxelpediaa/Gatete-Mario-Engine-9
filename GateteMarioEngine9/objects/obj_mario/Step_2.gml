@@ -11,21 +11,20 @@ if (global.powerup == cs_cape) {
 	// Create cape
 	if (cape == noone) {
 		
-		cape = instance_create_depth(x,y,depth+1,obj_cape);
+		cape = instance_create_depth(x, y, depth+1, obj_cape);
 		cape.image_xscale = xscale;
-		cape.owner = id;
-		
+		cape.owner = id;		
 	}
 	
 // If the cape power-up is not equipped
-} else if (cape != noone) {
+} 
+else if (cape != noone) {
 	
 	// Dispose of the object
 	instance_destroy(cape);
 	
 	// Set cape to noone
-	cape = noone;
-	
+	cape = noone;	
 }
 
 //If Mario is crouched down
@@ -125,17 +124,35 @@ else {
                     && (!swimming)
 					&& (!isslip)
                     && (global.powerup != cs_frog)) {
-                    
-                        //Set the skidding sprite
-                        sprite_index = global.skid_sprite[global.powerup];
+						
+						//If Mario is tiny
+						if (global.powerup == cs_tiny)
+						&& (!collision_point(x, bbox_bottom+1, obj_swim, 0, 0)) {
+							
+	                        //Set the skidding sprite
+	                        sprite_index = global.skid_sprite[global.powerup];
                         
-                        //Do not animate
-                        image_speed = 0;
-                        image_index = 0;
+	                        //Do not animate
+	                        image_speed = 0;
+	                        image_index = 0;
                         
-                        //Play 'Skid' sound
-                        if (!audio_is_playing(snd_skid))
-                            audio_play_sound(snd_skid, 0, true);
+	                        //Play 'Skid' sound
+	                        if (!audio_is_playing(snd_skid))
+	                            audio_play_sound(snd_skid, 0, true);							
+						}
+						else {
+
+	                        //Set the skidding sprite
+	                        sprite_index = global.skid_sprite[global.powerup];
+                        
+	                        //Do not animate
+	                        image_speed = 0;
+	                        image_index = 0;
+                        
+	                        //Play 'Skid' sound
+	                        if (!audio_is_playing(snd_skid))
+	                            audio_play_sound(snd_skid, 0, true);
+						}
                     }
                     
                     //Set the animation speed

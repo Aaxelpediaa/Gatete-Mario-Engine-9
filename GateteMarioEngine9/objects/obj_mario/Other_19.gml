@@ -232,8 +232,6 @@ throw_projectile = function() {
 	            with (instance_create_depth(x-8,y,depth+1,obj_football))
 	                held = 1;
 	        }*/
-	    }
-		
-	}
-	
+	    }		
+	}	
 }

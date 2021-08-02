@@ -194,6 +194,9 @@ slopesensor_y2 = 16;
 slopesensor_extendedcheck = 0;
 slopesensor_slopeid = noone;
 
+//Effects
+alarm[0] = 1;
+
 /*Create player markers
 instance_create_layer(0, 0, "Main", obj_marker_head);
 instance_create_layer(0, 0, "Main", obj_marker_feet);
