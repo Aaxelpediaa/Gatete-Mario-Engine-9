@@ -6,6 +6,9 @@ window_set_caption("Gatete Mario Engine 9");
 //Initialize global variables
 init_globals();
 
+//Initialize pixel shader
+init_pixel();
+
 //Gameplay variables
 #region GAMEPLAY VARIABLES
 
@@ -120,6 +123,25 @@ global.pmeter_limit = 144;
 		select,
 	}
 	
+#endregion
+
+#region TRANSITION
+
+	//How the screen is fading
+	//0: From black
+	//1: To black
+	mode = 0;
+
+	//How much the screen is faded
+	fade = 0;
+
+	//Screenshot of the game, if it exists
+	back = -1;
+	
+	//Pixelate screen?
+	//0: No
+	//1: Yes
+	pixelate = 0;
 #endregion
 
 //Current File

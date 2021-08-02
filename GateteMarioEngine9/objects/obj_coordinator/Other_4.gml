@@ -1,9 +1,9 @@
 /// @description Set view parameters
 
-//Create transition layer
-if (!layer_exists("Transitions")) {
-
-	layer_create(-1000, "Transitions");
+//Fade the screen to black, unless you just opened up the game
+if (mode == 1) {
+	
+	event_user(0);
 }
 
 //Enable the views if they were not enabled
