@@ -238,6 +238,7 @@
     {"id":{"name":"spr_mario_tanooki_slide","path":"sprites/spr_mario_tanooki_slide/spr_mario_tanooki_slide.yy",},"order":15,},
     {"id":{"name":"spr_square","path":"sprites/spr_square/spr_square.yy",},"order":0,},
     {"id":{"name":"spr_mario_frog_ride","path":"sprites/spr_mario_frog_ride/spr_mario_frog_ride.yy",},"order":16,},
+    {"id":{"name":"screen_round","path":"scripts/screen_round/screen_round.yy",},"order":7,},
     {"id":{"name":"spr_mario_hammer_slide","path":"sprites/spr_mario_hammer_slide/spr_mario_hammer_slide.yy",},"order":12,},
     {"id":{"name":"spr_square_e2","path":"sprites/spr_square_e2/spr_square_e2.yy",},"order":5,},
     {"id":{"name":"spr_mario_cat_ride","path":"sprites/spr_mario_cat_ride/spr_mario_cat_ride.yy",},"order":18,},
@@ -664,6 +665,7 @@
   ],
   "TextureGroups": [
     {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Default","resourceType":"GMTextureGroup",},
+    {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Tilesets","resourceType":"GMTextureGroup",},
   ],
   "IncludedFiles": [],
   "MetaData": {

@@ -85,6 +85,9 @@ noisy2 = 0;
 //Makes Mario run slightly faster (P-Meter)
 run = 0;
 
+//Run cooldown
+run_cooldown = 0;
+
 //Makes Mario perform a slide animation or turn when holding something
 turning = 0;
 

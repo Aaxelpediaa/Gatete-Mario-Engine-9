@@ -17,7 +17,7 @@ if (instance_exists(owner)) {
         //If the player is not riding a yoshi
         if (global.mount == 0)
 		
-            draw_sprite_ext(sprite_index, image_index, x, y+1, image_xscale, 1, 0, c_white, image_alpha);
+            draw_sprite_ext(sprite_index, image_index, screen_round(x), screen_round(y)+1, image_xscale, 1, 0, c_white, image_alpha);
             
         //Otherwise, if the player is riding a yoshi
         else {
@@ -25,16 +25,16 @@ if (instance_exists(owner)) {
             /*if (instance_exists(obj_yoshi)) {
                 
                 if (obj_yoshi.f == 1)
-                    draw_sprite_ext(sprite_index, image_index, round(x-3*sign(obj_playerparent.xscale)), round(y)-5+yy, image_xscale, 1, 0, c_white, image_alpha);
+                    draw_sprite_ext(sprite_index, image_index, screen_round(x-3*sign(obj_playerparent.xscale)), screen_round(y)-5+yy, image_xscale, 1, 0, c_white, image_alpha);
                 else
-                    draw_sprite_ext(sprite_index, image_index, round(x-3*sign(obj_playerparent.xscale)), round(y)-7+yy, image_xscale, 1, 0, c_white, image_alpha);
+                    draw_sprite_ext(sprite_index, image_index, screen_round(x-3*sign(obj_playerparent.xscale)), screen_round(y)-7+yy, image_xscale, 1, 0, c_white, image_alpha);
             }
             else if instance_exists(obj_player_transform) {
             
                 if (obj_player_transform.riderframe == 1)
-                    draw_sprite_ext(sprite_index, image_index, round(x-3*sign(obj_playerparent.xscale)), round(y)-5+yy, image_xscale, 1, 0, c_white, image_alpha);
+                    draw_sprite_ext(sprite_index, image_index, screen_round(x-3*sign(obj_playerparent.xscale)), screen_round(y)-5+yy, image_xscale, 1, 0, c_white, image_alpha);
                 else
-                    draw_sprite_ext(sprite_index, image_index, round(x-3*sign(obj_playerparent.xscale)), round(y)-7+yy, image_xscale, 1, 0, c_white, image_alpha);            
+                    draw_sprite_ext(sprite_index, image_index, screen_round(x-3*sign(obj_playerparent.xscale)), screen_round(y)-7+yy, image_xscale, 1, 0, c_white, image_alpha);            
             }*/	
         }
 		

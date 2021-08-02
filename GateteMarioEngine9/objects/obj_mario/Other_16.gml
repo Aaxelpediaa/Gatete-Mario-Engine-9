@@ -69,7 +69,7 @@ if (enable_control == true) && (inwall == 0) { //If the player controls are not 
     && (holding == 0) {
     
         //Deny gravity at all times
-        yadd = 0
+        yadd = 0;
         
         //If the 'Control' key is pressed, move faster.
         if (input_check(input.action_1))  

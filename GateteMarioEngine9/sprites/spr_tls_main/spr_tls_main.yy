@@ -17,8 +17,8 @@
   "width": 1040,
   "height": 736,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "Tilesets",
+    "path": "texturegroups/Tilesets",
   },
   "swatchColours": null,
   "gridX": 0,
