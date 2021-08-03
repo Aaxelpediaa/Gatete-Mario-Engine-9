@@ -1,6 +1,6 @@
 /// @description Set view parameters
 
-//Set the room width and room height based on global.gw and global.gh
+//Set the room width and room height based on global.gw and global.gh values
 if (room_width < global.gw) then room_width = global.gw;
 if (room_height < global.gh) then room_height = global.gh;
 
