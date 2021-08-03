@@ -52,13 +52,13 @@ if (shake_time > 0) {
 	if (shake_falloff) {
 		
 		// Calculate the shake value relative to the time left in the timer
-		shake_val = shake_intensity * (shake_time / shake_starttime);
-		
+		shake_val = shake_intensity * (shake_time / shake_starttime);		
 	} 
-	else
+	else {
 	
 		// Match shake value to shake intensity
 		shake_val = shake_intensity;
+	}
 	
 	// Choose randomly between up and down shake
 	shake_val = choose(-shake_val, shake_val);
