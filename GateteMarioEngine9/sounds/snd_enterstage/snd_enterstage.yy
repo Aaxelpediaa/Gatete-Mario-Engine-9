@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_enterstage.wav",
-  "duration": 0.549687,
+  "duration": 0.97125,
   "parent": {
     "name": "Menu",
     "path": "folders/Sonidos/Menu.yy",

@@ -6,9 +6,6 @@ window_set_caption("Gatete Mario Engine 9");
 //Initialize global variables
 init_globals();
 
-//Initialize pixel shader
-init_pixel();
-
 //Gameplay variables
 #region GAMEPLAY VARIABLES
 
@@ -147,7 +144,9 @@ global.moons = ds_map_create();
 gui_buttons = gamepad_set_gui_sprite();
 
 //Font Variables
-global.gui_font_numbers = font_add_sprite(spr_gui_font_numbers, ord("0"), 0, 0);
+global.gui_font	= font_add_sprite(spr_gui_font, ord("!"), 0, 0);
+global.gui_font_menu = font_add_sprite(spr_gui_font_menu, ord("!"), 0, 0);
+global.gui_font_numbers	= font_add_sprite(spr_gui_font_numbers, ord("0"), 0, 0);
 global.gui_font_numbers_gold = font_add_sprite(spr_gui_font_numbers_gold, ord("0"), 0, 0);
 global.gui_font_numbers_black = font_add_sprite(spr_gui_font_numbers_black, ord("0"), 0, 0);
 global.gui_font_numbers_large = font_add_sprite(spr_gui_font_numbers_large, ord("0"), 0, 0);
