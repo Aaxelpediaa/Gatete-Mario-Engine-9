@@ -215,17 +215,24 @@ throw_projectile = function() {
 	            with (instance_create_depth(x-8,y,depth+1,obj_bomb))
 	                held = 1;
 	        }
+			*/
         
-	        // Lightning
-	        else if (global.powerup == cs_lightning)
-	        && (instance_number(obj_bolt) < 2) {
+	        //Lightning
+	        else if (global.powerup == cs_volt)
+	        && (instance_number(obj_volt) < 2) {
         
+				//Play 'Fireball' sound
+				audio_play_sound(snd_fireball, 0, false);
+				
+				//Set firing animation frame
 	            firing = 9;
-	            with (instance_create_depth(x,y+2,depth+1,obj_bolt))
-	                hspeed = 6*sign(other.xscale);
+				
+				//Create a lightning volt
+	            with (instance_create_depth(x, y+4, -2, obj_volt))
+	                xspeed = 6*sign(other.xscale);
 	        }
         
-	        // Football
+	        /*Football
 	        else if (global.powerup == cs_football)
 	        && (instance_number(obj_football) < 1) {
         

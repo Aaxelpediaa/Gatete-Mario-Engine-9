@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_slope_ceiling_r",
-    "path": "sprites/spr_slope_ceiling_r/spr_slope_ceiling_r.yy",
+    "name": "spr_slope_ceiling_steep_r",
+    "path": "sprites/spr_slope_ceiling_steep_r/spr_slope_ceiling_steep_r.yy",
   },
   "solid": false,
   "visible": false,
@@ -33,7 +33,7 @@
     "path": "folders/Objetos/Collision/Slopes/Ceiling.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_slope_ceiling_l",
+  "name": "obj_slope_ceiling_steep_l",
   "tags": [],
   "resourceType": "GMObject",
 }
