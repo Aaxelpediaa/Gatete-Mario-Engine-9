@@ -2,11 +2,25 @@
 
 // Check powerup
 switch (global.powerup) {
+	
+	//Ranger
+	case (cs_ranger):
+	
+		audio_stop_sound(snd_whip);
+		audio_play_sound(snd_whip, 0, false);
+		
+		//Set the speed
+		image_speed = 0.2;
+		
+		//Set the sprite
+		sprite_index = spr_mario_ranger_attack;
+		
+		break;
     
     //Cat
     case (cs_bell):
     
-        // Play 'Scratch' sound
+        //Play 'Scratch' sound
 		audio_stop_sound(snd_scratch);
         audio_play_sound(snd_scratch, 0, false);
         

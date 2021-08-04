@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_mario_cat_attack",
-    "path": "sprites/spr_mario_cat_attack/spr_mario_cat_attack.yy",
+    "name": "spr_blend_ring",
+    "path": "sprites/spr_blend_ring/spr_blend_ring.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,16 +21,18 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "States",
-    "path": "folders/Objetos/Special/Do Not Use!/Mario/States.yy",
+    "name": "Blend",
+    "path": "folders/Objetos/Special/Do Not Use!/Eyecandy/Blend.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_dropdown",
+  "name": "obj_blend_ring",
   "tags": [],
   "resourceType": "GMObject",
 }

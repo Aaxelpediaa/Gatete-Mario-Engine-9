@@ -93,12 +93,12 @@ throw_projectile = function() {
 	        //Fireball
 	        if (global.powerup == cs_fire)
 	        && (instance_number(obj_fireball) < 2) {
-        
-				//Set firing animation time
-	            firing = 9;
 				
 				//Play 'Fireball' sound
 				audio_play_sound(snd_fireball, 0, false);
+        
+				//Set firing animation time
+	            firing = 9;
 				
 				//Create Fireball
 	            with (instance_create_depth(x, y, -2, obj_fireball)) {
@@ -115,12 +115,12 @@ throw_projectile = function() {
 	        //Iceball
 	        else if ((global.powerup == cs_ice) || ((global.powerup == cs_penguin) && (swimming == false)))
 	        && (instance_number(obj_iceball) < 2) {
-        
-				//Set firing animation time
-	            firing = 9;
 				
 				//Play sound
 				audio_play_sound(snd_iceball, 0, false);
+        
+				//Set firing animation time
+	            firing = 9;
 				
 				//Create iceball
 	            with (instance_create_depth(x, y, -2, obj_iceball)) {
@@ -132,7 +132,7 @@ throw_projectile = function() {
 	        }
         
 	        //Racoon, Tanooki, Cat, and Cape
-	        else if ((global.powerup == cs_raccoon) || (global.powerup == cs_tanooki) || (global.powerup == cs_bell) || ((global.powerup == cs_cape) && (!flying)))
+	        else if ((global.powerup == cs_raccoon) || (global.powerup == cs_tanooki) || (global.powerup == cs_bell) || (global.powerup == cs_ranger) || ((global.powerup == cs_cape) && (!flying)))
 	        && (instance_number(obj_dropdown) == 0)
 	        && (spin == noone) {
         
@@ -239,6 +239,28 @@ throw_projectile = function() {
 	            with (instance_create_depth(x-8,y,depth+1,obj_football))
 	                held = 1;
 	        }*/
+			
+			//Gold Fireball
+	        else if (global.powerup == cs_gold)
+	        && (instance_number(obj_fireball_gold) < 2) {
+				
+				//Play 'Fireball' sound
+				audio_play_sound(snd_fireball_gold, 0, false);
+        
+				//Set firing animation time
+	            firing = 9;
+				
+				//Create Fireball
+	            with (instance_create_depth(x, y-8, -2, obj_fireball_gold)) {
+            
+					//Match the speed to the player's direction
+	                xspeed = 3*sign(other.xscale);
+					
+					//Make the fireball go upwards if the player is pressing up
+	                if ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
+	                    yspeed = -3;
+	            }
+	        }    			
 	    }		
 	}	
 }
