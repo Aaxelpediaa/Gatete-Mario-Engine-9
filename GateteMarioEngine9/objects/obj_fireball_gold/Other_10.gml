@@ -14,7 +14,7 @@ repeat (32) {
 }
 
 //Create ring effect
-instance_create_depth(x, y+8, -2, obj_blend_ring);
+effect_create_above(ef_ring, x, y+8, 0, make_colour_rgb(252, 224, 25));
 
 //Destroy
 instance_destroy();

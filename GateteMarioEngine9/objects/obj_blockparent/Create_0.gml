@@ -1,5 +1,8 @@
 /// @description Block parent object
 
+//Shard sprite
+shard_sprite = -1;
+
 //Whether this block can be hit
 ready = 0;
 
