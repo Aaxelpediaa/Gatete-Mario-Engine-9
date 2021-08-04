@@ -9,6 +9,11 @@ init_globals();
 //Gameplay variables
 #region GAMEPLAY VARIABLES
 
+//Don't round off the sub-pixels (applies to uses of screen_round/screen_floor/screen_ceil, NOT values using the built in GMS rounding)
+//false:	Integer rounding similar to GBA/SNES
+//true:		Smoother sub-pixel float movement
+global.subpixels = true;
+
 //Turn enemies into coins when hit with a fireball
 //0: Disabled
 //1: Enabled

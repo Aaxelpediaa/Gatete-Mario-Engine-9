@@ -16,8 +16,12 @@ timer_system_update();
 if (lives > 99) then lives = 99;
 if (score > 99999990) then score = 99999990;
 
-//Temporary powerup change keys
-#region TEMPORARY POWERUP CHANGE
+//Temporary keys
+#region TEMPORARY CHANGES
+
+	//Swap subpixel modes
+	if (keyboard_check_pressed(ord("0")))
+		global.subpixels = !global.subpixels;
 
 	//Swap powerups
 	if (keyboard_check_pressed(vk_add)) {

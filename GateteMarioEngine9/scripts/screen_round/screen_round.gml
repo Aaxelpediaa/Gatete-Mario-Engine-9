@@ -9,7 +9,10 @@
 /// @param {real} value What to round to screen
 function screen_round(value) {
 	
-	return round(value * (1*obj_coordinator.size)) / (1*obj_coordinator.size);
+	if (global.subpixels)
+		return round(value * (1*obj_coordinator.size)) / (1*obj_coordinator.size);
+	else
+		return round(value);
 
 }
 
@@ -18,7 +21,10 @@ function screen_round(value) {
 /// @param {real} value What to floor to screen
 function screen_floor(value) {
 	
-	return floor(value * (1*obj_coordinator.size)) / (1*obj_coordinator.size);
+	if (global.subpixels)
+		return floor(value * (1*obj_coordinator.size)) / (1*obj_coordinator.size);
+	else
+		return floor(value);
 
 }
 
@@ -27,6 +33,9 @@ function screen_floor(value) {
 /// @param {real} value What to ceil to screen
 function screen_ceil(value) {
 	
-	return ceil(value * (1*obj_coordinator.size)) / (1*obj_coordinator.size);
+	if (global.subpixels)
+		return ceil(value * (1*obj_coordinator.size)) / (1*obj_coordinator.size);
+	else
+		return ceil(value);
 
 }
