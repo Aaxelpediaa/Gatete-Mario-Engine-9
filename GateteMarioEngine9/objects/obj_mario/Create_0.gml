@@ -21,6 +21,9 @@ yspeed = 0;
 xadd = 0;
 yadd = 0.3625;
 
+//Check if inair
+inair = 0;
+
 //Handle Mario's current state
 //0: Idle
 //1: Walk

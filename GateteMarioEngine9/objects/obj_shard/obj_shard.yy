@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_blend_ring",
-    "path": "sprites/spr_blend_ring/spr_blend_ring.yy",
+    "name": "spr_shard",
+    "path": "sprites/spr_shard/spr_shard.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,18 +21,18 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":40,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Blend",
-    "path": "folders/Objetos/Special/Do Not Use!/Eyecandy/Blend.yy",
+    "name": "Blocks",
+    "path": "folders/Objetos/Blocks.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_blend_ring",
+  "name": "obj_shard",
   "tags": [],
   "resourceType": "GMObject",
 }

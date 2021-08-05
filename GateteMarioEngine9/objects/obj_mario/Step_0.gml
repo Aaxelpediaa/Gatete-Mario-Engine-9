@@ -8,19 +8,40 @@
 		isslip = 0;
 #endregion
 
+#region CHECK IF IN AIR
+	
+	if (state == 2)
+	|| (statedelay > 0)
+		inair = 1;
+#endregion
+
 //If Mario is under the effects of a mega mushroom
 if (global.powerup == cs_mega) {
 	
+	//Do not crouch
 	crouch = false;
-	ismega = -16;
+	
+	//Set swim top
 	swim_y = -32;
+	
+	//Set bottom collision
+	if (!collision_rectangle(bbox_left, bbox_bottom-0.99, bbox_right, bbox_bottom+4.99, obj_slopeparent, 1, 0))
+		ismega = 0;
+	else
+		ismega = -16;
 }
 else {
 	
 	if (global.powerup == cs_tiny) {
 		
+		//Do not crouch
 		crouch = false;
+		
+		//Set swim top
 		swim_y = 9;
+		
+		//Set bottom collision
+		ismega = 0;
 	}
 	else {
 		
@@ -220,7 +241,7 @@ if (enable_gravity == 1) {
 		//If there's water and Mario is tiny and not jumping
 		if (ws)
 		&& (xspeed != 0)
-		&& (global.powerup == cs_tiny) 
+		&& ((global.powerup == cs_tiny) || ((global.powerup == cs_penguin) && (sliding == true)))
 		&& (bbox_bottom < ws.yprevious+5) {
 
 			//Snap above the semisolid

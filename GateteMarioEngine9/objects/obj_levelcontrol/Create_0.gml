@@ -3,11 +3,11 @@
 /*
 **  This item uses creation code!
 **
-**  bg_hsp = 0;
+**  
 */
 
 //Default variables
-bg_hsp = 0;
+levelmusic = -1;
 
 //Set depth
 depth = 10000;

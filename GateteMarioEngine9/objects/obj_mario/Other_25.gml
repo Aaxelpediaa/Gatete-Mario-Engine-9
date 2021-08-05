@@ -1,5 +1,31 @@
 /// @description Reset variables after landing
 
+//If Mario's state was 2
+if (inair == 1) {
+	
+	//Change inair
+	inair = 0;
+
+	//Create puff of smoke if Mario has the mega mushroom
+	if (swimming == 0)
+	&& (global.powerup == cs_mega) {
+
+		//Play 'Thud' sound
+		audio_play_sound(snd_thud, 0, false);
+
+		//Shake the screen
+		shake_camera(6, ceil(audio_sound_length(snd_thud) * room_speed), true);
+	
+		//Create smoke effect
+		with (instance_create_depth(x, y, -6, obj_smoke)) sprite_index = spr_supersmash;
+		with (instance_create_depth(x, y, -6, obj_smoke)) {
+	
+			sprite_index = spr_supersmash;
+			image_xscale = -1;
+		}
+	}
+}
+
 //Enable gravity
 disablegrav = 0;
 
@@ -24,5 +50,5 @@ squirreltime = 0;
 squirrelpropel = 0;
 
 //Reset combo variable if not sliding
-if (!sliding)
-    hitcombo = 0;
+if (!sliding) 
+	hitcombo = 0;
