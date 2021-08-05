@@ -28,7 +28,7 @@ if (global.powerup == cs_mega) {
 	if (!collision_rectangle(bbox_left, bbox_bottom-0.99, bbox_right, bbox_bottom+4.99, obj_slopeparent, 1, 0))
 		ismega = 0;
 	else
-		ismega = -16;
+		ismega = -24;
 }
 else {
 	

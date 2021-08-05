@@ -13,7 +13,6 @@ function screen_round(value) {
 		return round(value * (1*obj_coordinator.size)) / (1*obj_coordinator.size);
 	else
 		return round(value);
-
 }
 
 /// @func screen_floor(value)
@@ -25,7 +24,6 @@ function screen_floor(value) {
 		return floor(value * (1*obj_coordinator.size)) / (1*obj_coordinator.size);
 	else
 		return floor(value);
-
 }
 
 /// @func screen_ceil(value)
@@ -37,5 +35,4 @@ function screen_ceil(value) {
 		return ceil(value * (1*obj_coordinator.size)) / (1*obj_coordinator.size);
 	else
 		return ceil(value);
-
 }
