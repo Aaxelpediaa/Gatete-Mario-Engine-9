@@ -18,7 +18,7 @@ function draw_sprite_custom_origin() {
 	
 		draw_sprite_ext(argument[0], argument[1], argument[2], argument[3], argument[6], argument[7], argument[8], argument[9], argument[10]);
 	
-	//Otherwise... draw from the given axis
+	//Otherwise, draw from the given axis
 	else {
 	
 		//Build & set the matrix

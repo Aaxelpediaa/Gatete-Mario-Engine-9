@@ -1,21 +1,24 @@
 /// @description Break blocks if Mario is giant
 
 //Check for Mario
-var mario = collision_rectangle(bbox_left-4, bbox_top, bbox_right+4, bbox_bottom, obj_mario, 0, 0);
+var mario = collision_rectangle(bbox_left-4, bbox_top-4, bbox_right+4, bbox_bottom, obj_mario, 0, 0);
 
 //If Mario does exist
 if (mario)
 && (global.powerup == cs_mega) {
 	
-	//If the pipe is not broken, break it.
-	if (broken == 0) {
-	
-		//Mark pipe as broken
-		broken = 1;
+	//If Mario is below the top of the pipe
+	if (mario.bbox_bottom > yprevious+5) {
+		
+		//Play 'Break' sound
+		audio_play_sound(snd_destroy, 0, false);
+		
+		//Shake the screen
+		shake_camera(6, ceil(audio_sound_length(snd_destroy) * room_speed), true);
 		
 		//Check horizontal speed
 		hsp = mario.xspeed;
-				
+		
 		//Create broken pipe
 		pipe = instance_create_depth(x + sprite_width / 2, y + sprite_height / 2, depth - 1, obj_pipe_broken);
 		with (pipe) {
@@ -24,11 +27,36 @@ if (mario)
 			hspeed = other.hsp;
 			
 			//Height
-			image_xscale = other.image_xscale;
 			image_yscale = other.image_yscale;
 		}
 
-		//Destroy solid mask
-		with (mysolid) instance_destroy();
+		//Destroy pipe
+		instance_destroy();
+	}
+	
+	//Otherwise, if Mario is at the top of the pipe
+	else if ((mario.state < 2) && (mario.bbox_bottom < yprevious+5)) {
+	
+		//If the pipe has not been stomped on.
+		if (stomped == 0) {
+			
+			//If the solid mask scale is greater than 1
+			if (mysolid.image_yscale > 1) {
+				
+				//With the solid mask
+				with (mysolid) {
+				
+					image_yscale--;
+					y += 16;
+				}
+				y += 16;
+
+				//Allow stomp
+				alarm[0] = 16;
+			
+				//Mark the pipe as stomped
+				stomped = true;
+			}
+		}
 	}
 }

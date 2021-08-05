@@ -8,10 +8,14 @@ if (inair == 1) {
 
 	//Create puff of smoke if Mario has the mega mushroom
 	if (swimming == 0)
+	&& (inairtime >= 15)
 	&& (global.powerup == cs_mega) {
 
 		//Play 'Thud' sound
 		audio_play_sound(snd_thud, 0, false);
+		
+		//Reset timer
+		inairtime = 0;
 
 		//Shake the screen
 		shake_camera(6, ceil(audio_sound_length(snd_thud) * room_speed), true);

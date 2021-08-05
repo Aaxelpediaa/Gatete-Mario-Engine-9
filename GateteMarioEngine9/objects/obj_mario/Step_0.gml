@@ -11,8 +11,12 @@
 #region CHECK IF IN AIR
 	
 	if (state == 2)
-	|| (statedelay > 0)
+	|| (statedelay > 0) {
+		
 		inair = 1;
+		if (inairtime < 32)
+			inairtime++;
+	}
 #endregion
 
 //If Mario is under the effects of a mega mushroom
