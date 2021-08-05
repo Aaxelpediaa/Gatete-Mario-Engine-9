@@ -68,7 +68,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_mario_big_carry","path":"sprites/spr_mario_big_carry/spr_mario_big_carry.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_mario_big_carry",
+    "name": "",
     "tags": [],
     "resourceType": "GMSequence",
   },
