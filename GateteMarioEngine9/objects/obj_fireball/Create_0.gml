@@ -4,7 +4,7 @@
 event_inherited();
 
 //Set vertical speed
-yspeed = 0.5;
+yspeed = 3;
 
 //No bounces
 bouncy = 0;

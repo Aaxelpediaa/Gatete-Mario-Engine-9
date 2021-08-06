@@ -72,23 +72,24 @@ throw_projectile = function() {
 	        // Create a statue
 	        instance_create_depth(x,y,depth,obj_statue);        
 	    }
+		*/
     
 	    //Cat
-	    else if (global.powerup == cs_bell)
-	    && (input_check(input.down))
+	    if (global.powerup == cs_bell)
 	    && (global.mount == 0)
-	    && (state == playerstate.jump)
-	    && (yspeed > 0)
+	    && (yspeed >= 0)
+		&& (state == playerstate.jump)
 	    && (instance_number(obj_spinner) == 0)
-	    && (instance_number(obj_dropdown) < 1) {
+	    && (instance_number(obj_dropdown) == 0) 
+		&& ((input_check(input.down)) || (gamepad_axis_value(0, gp_axislv > 0.5))){
     
 	        // Create drop down
-	        with (instance_create_depth(x,y,depth,obj_dropdown))
+	        with (instance_create_depth(x, y, depth, obj_dropdown))
 	            image_xscale = 1*sign(other.xscale);
 	    }
     
 	    // Actions to take only if not crouching
-	    else */if (!crouch) {
+	    else if (!crouch) {
     
 	        //Fireball
 	        if (global.powerup == cs_fire)

@@ -20,11 +20,14 @@ if (mario)
 		hsp = mario.xspeed;
 		
 		//Create broken pipe
-		pipe = instance_create_depth(x + sprite_width / 2, y + sprite_height / 2, depth - 1, obj_pipe_broken);
+		pipe = instance_create_depth(x + sprite_width / 2, bbox_top + sprite_height / 2, depth - 1, obj_pipe_broken);
 		with (pipe) {
 			
 			//Horizontal speed
 			hspeed = other.hsp;
+			
+			//Palette
+			palette = other.palette;
 			
 			//Height
 			image_yscale = other.image_yscale;

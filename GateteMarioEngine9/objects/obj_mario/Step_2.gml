@@ -211,7 +211,7 @@ else {
                             
                             //Otherwise, if Mario is not swimming
                             else
-                                image_speed = isslip * 0.065+abs(xspeed)/7.5;                         
+                                image_speed = 0.065+abs(xspeed)/7.5;                         
                         }
                     
                         //If Mario is running

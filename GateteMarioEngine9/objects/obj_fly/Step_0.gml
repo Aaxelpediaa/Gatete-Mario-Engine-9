@@ -7,8 +7,7 @@ if (enable_gravity == 1) {
 	x += xspeed;
 	y += yspeed;
 	xspeed += xadd;
-	yspeed += yadd;
-	
+	yspeed += yadd;	
 }
 
 // Cap vertical speed differently depending on what's going on
@@ -21,7 +20,6 @@ if (!nose_diving) {
 	
 	yspeed_cap = 6;
 	yadd = 0.25;
-	
 }
 
 // Collision
@@ -299,6 +297,5 @@ if (instance_exists(owner) && owner != noone) {
 	owner.x = x;
 	owner.y = y;
 	
-	isflashing = owner.isflashing;
-	
+	isflashing = owner.isflashing;	
 }

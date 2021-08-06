@@ -12,7 +12,7 @@ with (mysolid) {
 }
 
 //Whether this pipe has been broken
-broken = 0;
+palette = 0;
 
 //Whether this pipe has been stomped on
 stomped = 0;
