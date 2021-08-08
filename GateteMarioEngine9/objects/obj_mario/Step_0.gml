@@ -49,7 +49,7 @@ else {
 	}
 	else {
 		
-		ismega = -8;
+		ismega = -4;
 		if (global.powerup == cs_small)
 		|| (mask_index == spr_mask_mario)
 			swim_y = 3;
@@ -270,7 +270,21 @@ if (enable_gravity == 1) {
 	}
 	
 	//Conveyor collisions
-	//conveyor_collision();
+	#region CONVEYOR COLLISION
+	
+		//Check for a conveyor
+		var conveyor = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_conveyorparent, 0, 0);
+		
+		//If there's a conveyor
+		if (conveyor)
+		&& (conveyor.image_speed != 0) {
+		
+			//If the conveyor is moving and there's not solid on the way
+			if ((conveyor.image_speed < 0) && (!collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 0, 0)))
+			|| ((conveyor.image_speed > 0) && (!collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 0, 0)))
+				x += conveyor.image_speed;
+		}
+	#endregion
 	
     //If the player is not swimming
     if (swimming == false) {

@@ -1,7 +1,7 @@
 /// @desc Stay always in front and update timers
 
 //Update Window Caption
-window_set_caption("Gatete Mario Engine 9 | FPS: " + string(fps) + " / 60)")
+window_set_caption("Gatete Mario Engine 9 | FPS: " + string(fps) + " / 60")
 
 //Update controller button graphics
 gui_buttons = gamepad_set_gui_sprite();

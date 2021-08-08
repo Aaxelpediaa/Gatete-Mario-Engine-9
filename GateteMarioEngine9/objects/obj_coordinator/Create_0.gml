@@ -3,6 +3,12 @@
 //Set game caption
 window_set_caption("Gatete Mario Engine 9");
 
+//Initialize Colour Swap Shader
+pal_swap_init_system();
+
+//Initialize Player Sprites
+index_powerups();
+
 //Initialize global variables
 init_globals();
 
@@ -70,31 +76,31 @@ global.pmeter_limit = 144;
 //Item Macros
 #region ITEM MACROS
 
-	#macro cs_billy -27
-	#macro cs_beanstalk -26
+	#macro cs_beanstalk -27
+	#macro cs_billy -26
 	#macro cs_propellerblock -25
 	#macro cs_trampoline -24
-	#macro cs_sswitch -23
-	#macro cs_pswitch -22
-	#macro cs_starman -21
-	#macro cs_3up -20
-	#macro cs_1up -19
-	#macro cs_lifeshroom -18
-	#macro cs_shoe_pentaro -17
-	#macro cs_shoe_jugemu -16
-	#macro cs_shoe_dossun -15
-	#macro cs_shoe_baburu -14
-	#macro cs_shoe_kuribo -13
-	#macro cs_yoshi_p -12
-	#macro cs_yoshi_t -11
-	#macro cs_yoshi_b -10
-	#macro cs_yoshi_y -9
-	#macro cs_yoshi_r -8
-	#macro cs_yoshi_g -7
-	#macro cs_area_b -6
-	#macro cs_area_r -5
-	#macro cs_area_g -4
-	#macro cs_area_y -3
+	#macro cs_key -23
+	#macro cs_sswitch -22
+	#macro cs_pswitch -21
+	#macro cs_starman -20
+	#macro cs_poison -19
+	#macro cs_3up -18
+	#macro cs_1up -17
+	#macro cs_pwing -16
+	#macro cs_pballoon -15
+	#macro cs_lifeshroom -14
+	#macro cs_shoe_pentaro -13
+	#macro cs_shoe_jugemu -12
+	#macro cs_shoe_dossun -11
+	#macro cs_shoe_baburu -10
+	#macro cs_shoe_kuribo -9
+	#macro cs_yoshi_p -8
+	#macro cs_yoshi_t -7
+	#macro cs_yoshi_b -6
+	#macro cs_yoshi_y -5
+	#macro cs_yoshi_r -4
+	#macro cs_yoshi_g -3
 	#macro cs_coin_s -2
 	#macro cs_coin -1
 	
@@ -161,9 +167,3 @@ application_surface_draw_enable(false);
 
 //Set up epsilon for floating point numbers
 math_set_epsilon(0.00001);
-
-//Initialize Colour Swap Shader
-pal_swap_init_system();
-
-//Initialize Player Sprites
-index_powerups();

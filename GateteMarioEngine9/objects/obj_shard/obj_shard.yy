@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Blocks",
-    "path": "folders/Objetos/Blocks.yy",
+    "path": "folders/Objetos/Special/Do Not Use!/Blocks.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_shard",
