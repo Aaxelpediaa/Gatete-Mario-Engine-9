@@ -4,7 +4,7 @@
     "path": "sprites/spr_mario_big_walk/spr_mario_big_walk.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,

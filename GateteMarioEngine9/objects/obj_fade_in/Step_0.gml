@@ -10,10 +10,7 @@ if (alpha > 1) {
     alpha = 1;
     
     //Delete temp sprite
-    if (sprite_exists(back)) {
-		
-		sprite_delete(back);
-	}
+    sprite_delete(snapshot);
     
     //Activate all instances
     instance_activate_all();

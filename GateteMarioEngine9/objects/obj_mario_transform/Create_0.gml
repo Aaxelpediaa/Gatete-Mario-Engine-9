@@ -14,8 +14,8 @@ ready = 0;
 //How many times does the animation loop?
 loop = 0;
 
-//Background
-back = -1;
+//Screenshot
+snapshot = -1;
 
 //Make Mario invisible
 if (instance_exists(obj_mario)) {

@@ -1,19 +1,13 @@
 /// @description Draw the effect
 
 //Draw the screenshot.
-if (sprite_exists(back)) {
-
-    //Disable alpha blending.
-    gpu_set_blendenable(false);
+if (sprite_exists(snapshot)) {
     
     //Draw the screenshot
-    draw_sprite_ext(back, 0, camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]), 0.5, 0.5, 0, c_white, alpha);
-    
-    //Enable alpha blending.
-    gpu_set_blendenable(true);
+    draw_sprite_ext(snapshot, 0, camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]), 0.5, 0.5, 0, c_white, 1);
 }
 
-//Set alpha
+//Set the alpha
 draw_set_alpha(alpha);
 
 //Draw screen mask
