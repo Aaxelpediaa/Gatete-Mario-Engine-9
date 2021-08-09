@@ -1,10 +1,11 @@
-// @function constant_get_sprite
-// @param constant
+// @function macro_get_sprite
+// @param macro
 
-function constant_get_sprite() {
+function macro_get_sprite() {
 
 	switch (argument[0]) {
 	
+		case (cs_tiny): return spr_tinyshroom;
 	    case (cs_big): return spr_mushroom;
 	    case (cs_fire): return spr_fireflower;
 	    case (cs_ice): return spr_iceflower;
@@ -23,7 +24,7 @@ function constant_get_sprite() {
 	    case (cs_propeller): return spr_propellershroom;
 	    case (cs_bell): return spr_superbell;
 	    case (cs_football): return spr_helmet;
-		case (cs_ranger): return spr_rangersuit;
+		case (cs_ranger): return spr_rangerhat;
 		case (cs_squirrel): return spr_superacorn;
 		case (cs_mega): return spr_megashroom;
 	    case (cs_yoshi_g): return spr_egg;
@@ -32,11 +33,11 @@ function constant_get_sprite() {
 	    case (cs_yoshi_b): return spr_egg_b;
 	    case (cs_yoshi_t): return spr_egg_t;
 	    case (cs_yoshi_p): return spr_egg_p;
-	    case (cs_shoe_kuribo): return spr_kuriboshoe;
-	    case (cs_shoe_baburu): return spr_baburushoe;
-	    case (cs_shoe_dossun): return spr_dossunshoe;
-	    case (cs_shoe_jugemu): return spr_jugemushoe;
-	    case (cs_shoe_pentaro): return spr_pentaroshoe;
+	    case (cs_shoe_kuribo): return spr_shoe_kuribo;
+	    case (cs_shoe_baburu): return spr_shoe_baburu;
+	    case (cs_shoe_dossun): return spr_shoe_dossun;
+	    case (cs_shoe_jugemu): return spr_shoe_jugemu;
+	    case (cs_shoe_pentaro): return spr_shoe_pentaro;
 		case (cs_lifeshroom): return spr_lifeshroom;
 		case (cs_pballoon): return spr_pballoon;
 		case (cs_pwing): return spr_pwing;

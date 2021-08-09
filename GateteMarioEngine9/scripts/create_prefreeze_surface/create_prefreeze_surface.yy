@@ -6,7 +6,7 @@
     "path": "folders/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "constant_get_sprite",
+  "name": "create_prefreeze_surface",
   "tags": [],
   "resourceType": "GMScript",
 }
