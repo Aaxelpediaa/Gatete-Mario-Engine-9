@@ -7,7 +7,7 @@ if (sprite_exists(back)) {
     gpu_set_blendenable(false);
     
     //Draw the screenshot
-    draw_sprite(back, 0, camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]));
+    draw_sprite_ext(back, 0, camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]), 0.5, 0.5, 0, c_white, alpha);
     
     //Enable alpha blending.
     gpu_set_blendenable(true);

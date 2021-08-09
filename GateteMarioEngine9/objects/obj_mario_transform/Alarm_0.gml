@@ -1,17 +1,5 @@
 /// @description Freeze all objects and begin animation
 
-//Background
-sprite = sprite_create_from_surface(application_surface, 0, 0, global.gw, global.gh, 1, 1, 0, 0);
-
-//Deactivate instances
-instance_deactivate_all(1);
-
-//Activate HUD
-instance_activate_object(obj_hud);
-
-//Activate persistent object
-instance_activate_object(obj_coordinator);
-
 //Activate player object and disable it's gravity
 instance_activate_object(obj_mario);
 obj_mario.enable_gravity = 0;

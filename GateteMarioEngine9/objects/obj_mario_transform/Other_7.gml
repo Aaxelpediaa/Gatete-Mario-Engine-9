@@ -7,12 +7,6 @@ if (ready) {
         loop--;
 
     else {
-    
-        //Delete the screenshot if it exists        
-        sprite_delete(sprite);
-                     
-        //Activate all instances.
-        instance_activate_all();
         
         //With the player
         with (obj_mario) {

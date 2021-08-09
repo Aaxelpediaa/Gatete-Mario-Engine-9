@@ -4,7 +4,7 @@
 target = noone;
 
 //Take a screenshot
-back = sprite_create_from_surface(application_surface, 0, 0, room_width, room_height, 0, 0, 0, 0);
+back = sprite_create_from_surface(application_surface, 0, 0, global.gw, global.gh, 1, 1, 0, 0);
 
 //Deactivate all instances
 instance_deactivate_all(1);

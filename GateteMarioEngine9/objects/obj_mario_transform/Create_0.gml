@@ -1,4 +1,4 @@
-/// @description The player is evolving, ok no :)
+/// @description Mario is evolving, ok no :)
 
 //Sets the animation to reproduce.
 //0: Small to big
@@ -14,8 +14,8 @@ ready = 0;
 //How many times does the animation loop?
 loop = 0;
 
-//Surface
-sprite = -1;
+//Background
+back = -1;
 
 //Make Mario invisible
 if (instance_exists(obj_mario)) {
