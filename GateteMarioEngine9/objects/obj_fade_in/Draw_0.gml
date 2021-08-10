@@ -4,7 +4,7 @@
 if (sprite_exists(snapshot)) {
     
     //Draw the screenshot
-    draw_sprite_ext(snapshot, 0, camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]), 0.5, 0.5, 0, c_white, 1);
+    draw_sprite_ext(snapshot, 0, camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]), 1 / obj_coordinator.size, 1 / obj_coordinator.size, 0, c_white, 1);
 }
 
 //Set the alpha
