@@ -37,7 +37,7 @@ if (instance_exists(obj_mario)) {
     isflashing = obj_mario.isflashing;
     
     //Hereby Mario's facing direction.
-    image_xscale = obj_mario.xscale;    
+    direct = obj_mario.xscale;    
 }
 	
 //Make cape invisible

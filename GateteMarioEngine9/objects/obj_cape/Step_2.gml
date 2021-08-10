@@ -167,7 +167,7 @@ else
 	        image_index = 0;
 	    }
     
-	    //If the following cape sprite is being used, update based on hspeed
+	    //If the following cape sprite is being used, update based on xspeed
 	    if (sprite_index == spr_cape_walk) {
     
 	        if ((owner.flying > 0) && (owner.jumpstyle == 0 || global.powerup != cs_cape))

@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "Main",
+    "path": "folders/Scripts/Main.yy",
   },
   "resourceVersion": "1.0",
   "name": "shard_create",

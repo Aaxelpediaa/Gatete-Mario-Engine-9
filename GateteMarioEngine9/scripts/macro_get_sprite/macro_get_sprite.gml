@@ -1,6 +1,5 @@
 // @function macro_get_sprite
 // @param macro
-
 function macro_get_sprite() {
 
 	switch (argument[0]) {

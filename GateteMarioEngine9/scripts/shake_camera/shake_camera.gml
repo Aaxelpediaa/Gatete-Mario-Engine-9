@@ -13,7 +13,7 @@ function shake_camera(intensity, time, falloff) {
 		
 	} else {
 		
-		show_debug_message("No camera to shake!");
+		show_debug_message("ERROR: No camera to shake!");
 		
 	}
 

@@ -85,6 +85,7 @@ if (collect_mode > -1) {
 
 	if (show_cards > 0) {
 	
-		draw_sprite_ext(spr_gui_cardbox, 0, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 53, camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) - 21, 1, 1, 0, c_white, 1);
+		draw_sprite_ext(spr_gui_cardbox, 0, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 53, camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) - 21, 1, 1, 0, c_white, min(show_cards/30, 1));
 	}
+	
 #endregion

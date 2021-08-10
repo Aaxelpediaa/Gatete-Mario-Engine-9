@@ -7,8 +7,6 @@
 
 #macro __WALRUSTIMER_VERSION "2.0.0"
 
-show_debug_message("WalrusTimer v" + __WALRUSTIMER_VERSION + " by Mors");
-
 global.__timer_list = ds_list_create();
 global.__timer_index = 0;
 global.__tick_rate = 1;

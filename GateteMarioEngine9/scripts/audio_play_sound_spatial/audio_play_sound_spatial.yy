@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "Automation",
+    "path": "folders/Scripts/Main/Automation.yy",
   },
   "resourceVersion": "1.0",
-  "name": "create_prefreeze_surface",
+  "name": "audio_play_sound_spatial",
   "tags": [],
   "resourceType": "GMScript",
 }

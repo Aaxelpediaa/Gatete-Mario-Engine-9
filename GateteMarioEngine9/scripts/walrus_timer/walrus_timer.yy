@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Main",
-    "path": "folders/Scripts/Main.yy",
+    "name": "Automation",
+    "path": "folders/Scripts/Main/Automation.yy",
   },
   "resourceVersion": "1.0",
   "name": "walrus_timer",

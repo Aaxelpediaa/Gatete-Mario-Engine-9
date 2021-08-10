@@ -2,6 +2,18 @@
 /// @param	normal_palette		Normal palette
 /// @param invincible_palette	Invincible palette
 
+// Palette enumerators
+enum palette {
+	
+	normal = 0,
+	fire = 1,
+	ice = 2,
+	superball = 3,
+	volt = 4,
+	gold = 5
+	
+}
+
 function pal_swap_set_player() {
 	
 	//Local function variables
@@ -15,12 +27,12 @@ function pal_swap_set_player() {
 	
 		switch (global.powerup) {
 		
-			default: pal = 0; break;				// Normal color
-			case (cs_fire): pal = 1; break;			// Fire palette
-			case (cs_ice): pal = 2;	break;			// Ice palette
-			case (cs_superball): pal = 3; break;	// Superball palette
-			case (cs_volt): pal = 4; break;			// Volt palette
-			case (cs_gold): pal = 5; break;			// Gold palette		
+			default: pal = palette.normal; break;					// Normal color
+			case (cs_fire): pal = palette.fire; break;				// Fire palette
+			case (cs_ice): pal = palette.ice;	break;				// Ice palette
+			case (cs_superball): pal = palette.superball; break;	// Superball palette
+			case (cs_volt): pal = palette.volt; break;				// Volt palette
+			case (cs_gold): pal = palette.gold; break;				// Gold palette		
 		}
 		
 	} else {

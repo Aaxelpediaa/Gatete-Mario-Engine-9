@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Items",
-    "path": "folders/Scripts/Main/Items.yy",
+    "name": "System",
+    "path": "folders/Scripts/System.yy",
   },
   "resourceVersion": "1.0",
-  "name": "macro_get_sprite",
+  "name": "prefreeze_create",
   "tags": [],
   "resourceType": "GMScript",
 }

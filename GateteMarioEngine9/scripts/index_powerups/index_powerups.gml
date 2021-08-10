@@ -1,5 +1,4 @@
 /// @function index_powerups();
-
 function index_powerups() {
 
 	// How many power-ups to create (the "i" created will match the enum through powerup_get_name)

@@ -1,5 +1,4 @@
 /// @function gamepad_set_gui_sprite();
-
 function gamepad_set_gui_sprite() {
 
 	//Check in what device are you playing

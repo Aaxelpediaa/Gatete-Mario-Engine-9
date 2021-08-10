@@ -10,7 +10,6 @@
 /// @param rot
 /// @param col
 /// @param alpha
-
 function draw_sprite_custom_origin() {
 	
 	//If not necessary to build the matrix, draw normally
@@ -28,6 +27,6 @@ function draw_sprite_custom_origin() {
 		draw_sprite_ext(argument[0], argument[1], sprite_get_xoffset(sprite_index)-argument[4], sprite_get_yoffset(sprite_index)-argument[5], 1, 1, 0, argument[9], argument[10]);
 
 		//Set back to normal
-		matrix_set(matrix_world, matrix_build_identity());	
+		matrix_set(matrix_world, matrix_build_identity());
 	}
 }

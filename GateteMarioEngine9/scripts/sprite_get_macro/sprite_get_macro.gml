@@ -1,6 +1,5 @@
 // @function sprite_get_macro
 // @param sprite
-
 function sprite_get_macro() {
 	
 	switch (argument[0]) {
