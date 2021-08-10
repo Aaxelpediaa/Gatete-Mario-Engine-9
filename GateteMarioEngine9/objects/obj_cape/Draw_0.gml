@@ -1,11 +1,14 @@
 /// @description Draw cape
 
+//If the player is not transforming
+if (instance_exists(obj_mario_transform))
+exit;
+
 //If the player does exist
 if (instance_exists(owner)) {
 	
-	// If actually flying, don't perform drawing logic of cape
+	//If actually flying, don't perform drawing logic of cape
 	if (owner.fly != noone)
-	
 		return;
 
     //Only draw if the player has a cape
@@ -15,8 +18,7 @@ if (instance_exists(owner)) {
 		pal_swap_set_player(spr_palette_mario, spr_palette_mario_invincible);
     
         //If the player is not riding a yoshi
-        if (global.mount == 0)
-		
+        if (global.mount == 0)		
             draw_sprite_ext(sprite_index, image_index, screen_round(x), screen_round(y)+1, image_xscale, 1, 0, c_white, image_alpha);
             
         //Otherwise, if the player is riding a yoshi

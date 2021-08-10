@@ -1,10 +1,10 @@
-/// @description Curtain-out effect
+/// @description Curtain-in effect
 
-//Set the destination room
-target = noone;
+//Depth
+depth = -9;
 
-//The image is going to zoom out, so its initial size should be VERY big and shrink until it gets very small
-scale = 250;
+//The image is going to zoom out, so its initial size should be VERY big and shrink until it gets very small.
+scale = 0;
 
 //Set the surface
 surf = surface_create(room_width, room_height);

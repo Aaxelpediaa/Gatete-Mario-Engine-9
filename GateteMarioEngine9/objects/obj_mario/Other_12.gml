@@ -273,9 +273,14 @@ if (inwall == 0)
 				default: audio_play_sound(snd_jump, 0, false); break;
 			}
             
-            //If the player is doing a somersault
-            //if (instance_exists(obj_invincibility))
-                //somersault = 1;
+            //If the player is invulnerable
+            if (instance_exists(obj_invincibility))
+			&& (global.powerup != cs_tiny)
+			&& (global.powerup != cs_mega)
+			&& (crouch == false)
+			&& (jumpstyle == false)
+			&& (squirrelpropel == false)
+                somersault = 1;
         }
     
         //Switch to the jump state
@@ -295,23 +300,30 @@ if (inwall == 0)
 			if (global.powerup != cs_tiny) {
 				
 				// Make Mario fly!
-				if (run && global.powerup == cs_cape && crouch == false) {
+				if ((run) && (global.powerup == cs_cape) && (crouch == false)) {
 					
-					// Start flying
+					//Start flying
 					flying = true;
 					
-					// Disable the gravity for an elegant lift-off
+					//Disable the gravity for an elegant lift-off
 					disablegrav = 50;
 					
-					// Set vertical speed
+					//Set vertical speed
 					yspeed = -4;
-					
+				}
+				
 				//If the player is not doing a spin-jump
-				} else if (jumpstyle == 0)
+				else if (jumpstyle == 0)
 					yspeed = -3.4675+abs(xspeed)/7.5*-1;
+					
 				//If the player is doing a spin-jump
-				else
-					yspeed = -3.23775+abs(xspeed)/7.5*-1;
+				else {
+					
+					if (global.powerup != cs_squirrel)
+						yspeed = -3.23775+abs(xspeed)/7.5*-1;
+					else
+						yspeed = -3.7675+abs(xspeed)/7.5*-1;
+				}
 			}
 			else
 				yspeed = -2.7375+abs(xspeed)/7.5*-1;

@@ -42,6 +42,10 @@ if (yspeed > 0)
 			
 			//Stop spinning
 			jumpstyle = 0;
+			
+			//Stop somersault
+			angle = 0;
+			somersault = 0;
             
             //Enable gravity if disabled
             enable_gravity = true;
@@ -73,6 +77,10 @@ if (yspeed > 0)
 			
 			//Stop spinning
 			jumpstyle = 0;
+			
+			//Stop somersault
+			angle = 0;
+			somersault = 0;
             
             //Enable gravity if disabled
             enable_gravity = true;

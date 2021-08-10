@@ -9,9 +9,9 @@ if (keyboard_check_pressed(ord("R"))) {
 	init_globals();
 	
 	//Go to the title screen
-	if (instance_number(obj_curtain_out) == 0) {
+	if (instance_number(obj_fade_in) == 0) {
 	
-		with (instance_create_depth(camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) / 2, -99, obj_curtain_out))
+		with (instance_create_depth(camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]), -99, obj_fade_in))
 			target = rm_init;
 	}
 }

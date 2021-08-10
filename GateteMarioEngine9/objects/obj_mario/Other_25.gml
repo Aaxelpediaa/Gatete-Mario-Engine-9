@@ -33,6 +33,10 @@ if (inair == 1) {
 //Enable gravity
 disablegrav = 0;
 
+//Reset angle
+angle = 0;
+somersault = 0;
+
 //Reset bee flight
 beefly = 0;
 

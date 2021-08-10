@@ -1,7 +1,6 @@
 /// @description Draw Mario
 
 if (fly != noone)
-
 	return;
 
 //Set up the palette
@@ -19,8 +18,21 @@ if (sprite_index > -1) {
 		} break;
 	
 		//Rest of sprites
-		default:
-			draw_sprite_custom_origin(sprite_index, image_index, screen_round(x), screen_round(y)+1, sprite_get_xoffset(sprite_index), sprite_height, xscale, yscale, 0, image_blend, image_alpha);
+		default: {
+			
+			//If Mario is doing a somersault
+			if (somersault == 1) {
+				
+				//If Mario is small
+				if (global.powerup == cs_small)
+					draw_sprite_custom_origin(sprite_index, image_index, screen_round(x), screen_round(y)+9, sprite_get_xoffset(sprite_index), 8, xscale, yscale, angle, image_blend, image_alpha);
+				else
+					draw_sprite_custom_origin(sprite_index, image_index, screen_round(x), screen_round(y)+1, sprite_get_xoffset(sprite_index), 16, xscale, yscale, angle, image_blend, image_alpha);				
+			}
+			else
+				draw_sprite_custom_origin(sprite_index, image_index, screen_round(x), screen_round(y)+1, sprite_get_xoffset(sprite_index), sprite_height, xscale, yscale, 0, image_blend, image_alpha);
+			
+		}
 	}
 }
 

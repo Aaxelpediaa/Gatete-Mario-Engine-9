@@ -1,3 +1,3 @@
-/// @description Create curtain-in effect
+/// @description Create curtain-out effect
 
-instance_create_depth(0, 0, -99, obj_curtain_in);
+instance_create_depth(0, 0, -9, obj_curtain_out);

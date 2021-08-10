@@ -1,5 +1,28 @@
 /// @description Mario's logic!
 
+#region MANAGE PALETTES
+
+	//If the player is invulnerable
+	if (instance_exists(obj_invincibility)) {
+	
+		//Set up angle
+		angle += -30*sign(other.xscale);
+	
+		//Set up palette
+		isflashing += 0.1;
+		if (isflashing > 6)
+			isflashing = 1;
+	}
+	else {
+		
+		//If Mario is frozen, apply freeze palette
+		if (freezetime > 0)
+			isflashing = 7;
+		else
+			isflashing = 0;
+	}
+#endregion
+
 #region SLIPPERY SURFACE CHECK
 
 	if (collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom+1, obj_slippery, 1, 0))
@@ -16,6 +39,11 @@
 		inair = 1;
 		if (inairtime < 32)
 			inairtime++;
+	}
+	else {
+		
+		inair = 0;
+		inairtime = 0;
 	}
 #endregion
 

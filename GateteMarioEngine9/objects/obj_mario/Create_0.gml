@@ -84,7 +84,6 @@ ismega = 0;
 
 //Plays a sound when Mario is climbing or swimming with the frog suit
 noisy = 0;
-noisy2 = 0;
 
 //Makes Mario run slightly faster (P-Meter)
 run = 0;
@@ -172,9 +171,6 @@ freezetime = 0;
 //Makes the player shake when stunned
 shake = 0;
 
-//Mutes the 'Bump' sound when either the player is climbing or swimming with the frog or penguin powerups
-noisy = 0;
-
 //Player colour
 isflashing = 0;
 
@@ -186,6 +182,9 @@ hitcombo = 0;
 
 //If the player is warping from a pit.
 pitwarp = false;
+
+//Angle
+angle = 0;
 
 //Timers
 _timer = 0;

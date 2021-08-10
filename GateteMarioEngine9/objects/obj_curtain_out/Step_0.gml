@@ -4,20 +4,13 @@
 #region SIZE
 
 	//Snap to the center of the view.
-	x = round(x);
-	y = round(y);
+	x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2;
+	y = camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) / 2;
 
 	//This grows the image, you can change the values to control how fast the circle should grow.
-	scale += -6.25;
-	if (scale < 0) {
-
-		//Create fade out effect
-		if (instance_number(obj_fade_in) == 0) {
-     
-			with (instance_create_depth(0, 0, -99, obj_fade_in))
-			    target = other.target;   
-		}
-	}
+	scale += 6.25;
+	if (scale > 250)
+	    instance_destroy();
 #endregion
 
 //Check if the surface still exists

@@ -19,6 +19,15 @@ with (obj_mario) {
 
 //Set the animation sequence.
 switch (sequence) {
+	
+	//Big to Tiny
+	case (-3): sprite_index = spr_mario_shrink_big_to_tiny; break;
+	
+	//Small to Tiny
+	case (-2): sprite_index = spr_mario_shrink_small_to_tiny; break;
+	
+	//Tiny to Big
+	case (-1): sprite_index = spr_mario_grow_tiny_to_big; break;
 
     //Small to Big
     case (0): sprite_index = spr_mario_grow; break;
@@ -42,6 +51,27 @@ switch (sequence) {
     
     //Transform
     case (4): sprite_index = spr_mario_transform; break;
+	
+	//Mega Grow
+	case (5): {
+		
+		//Set sprite
+		sprite_index = spr_mario_grow_to_mega;
+		
+		//Set special state
+		ready = 2;
+		
+		//Do not animate
+		image_speed = 0;
+		image_index = 0;
+		
+		//Make the object visible
+		visible = true;
+		
+		//Exit
+		exit;
+	}
+	break;
 }
 
 //Animation has been set.

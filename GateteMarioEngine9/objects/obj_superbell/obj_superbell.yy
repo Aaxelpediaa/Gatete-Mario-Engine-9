@@ -1,10 +1,16 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_superbell",
+    "path": "sprites/spr_superbell/spr_superbell.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_powerupparent",
+    "path": "objects/obj_powerupparent/obj_powerupparent.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -24,11 +30,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Transitions",
-    "path": "folders/Objetos/Special/Do Not Use!/System/Transitions.yy",
+    "name": "Powerups",
+    "path": "folders/Objetos/Items/Collectibles/Powerups.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_curtain_in",
+  "name": "obj_superbell",
   "tags": [],
   "resourceType": "GMObject",
 }

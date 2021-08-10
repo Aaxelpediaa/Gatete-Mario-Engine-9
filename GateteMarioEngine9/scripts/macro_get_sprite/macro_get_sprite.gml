@@ -11,6 +11,7 @@ function macro_get_sprite() {
 	    case (cs_ice): return spr_iceflower;
 	    case (cs_carrot): return spr_carrot;
 	    case (cs_raccoon): return spr_leaf;
+		case (cs_cape): return spr_feather;
 	    case (cs_frog): return spr_frogsuit;
 	    case (cs_tanooki): return spr_tanookisuit;
 	    case (cs_hammer): return spr_hammerflower;

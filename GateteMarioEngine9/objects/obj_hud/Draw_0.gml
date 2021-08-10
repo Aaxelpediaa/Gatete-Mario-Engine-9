@@ -18,8 +18,13 @@ draw_text(camera_get_view_x(view_camera[0]) + 40, camera_get_view_y(view_camera[
 #endregion
 
 //Reserve Box
-draw_sprite_ext(spr_gui_global_reserve, 0, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + 8, 1, 1, 0, c_white, 1);
+#region RESERVE BOX
 
+	//Draw reserve box
+	draw_sprite_ext(spr_gui_global_reserve, 0, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + 8, 1, 1, 0, c_white, 1);
+	if (global.reserve != cs_small)
+		draw_sprite_ext(macro_get_sprite(global.reserve), -1, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + 8, 1, 1, 0, c_white, 1);
+#endregion
 //Set black font
 draw_set_font(global.gui_font_numbers_black);
 
@@ -32,8 +37,7 @@ if (camera_get_view_width(view_camera[0]) < 320) {
 	
 	// If not, move the score HUD to underneath the counter
 	score_x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 72;
-	score_y += 11;
-	
+	score_y += 11;	
 }
 
 //Score

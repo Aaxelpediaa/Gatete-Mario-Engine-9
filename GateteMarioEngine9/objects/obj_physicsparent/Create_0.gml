@@ -14,10 +14,7 @@ swimming = false;
 
 //Bounce coefficient (zero or any # to determine bounce strength)
 bouncy = 2;
-bounces = 2; 
-
-//Testing horizontal movement
-xspeed = -0.5;
+bounces = 2;
 
 //Slope sensors
 slopesensor_x = 0;

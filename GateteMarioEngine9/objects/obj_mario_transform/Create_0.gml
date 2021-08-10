@@ -8,6 +8,9 @@
 //4: Poof
 sequence = 0;
 
+//Scale
+scale = 1;
+
 //Sets and starts the animation sequences.
 ready = 0;
 

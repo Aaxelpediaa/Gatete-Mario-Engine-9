@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Transitions",
-    "path": "folders/Objetos/Special/Do Not Use!/System/Transitions.yy",
+    "path": "folders/Objetos/Special/Do Not Use!/System/GUI/Transitions.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_fade_in",

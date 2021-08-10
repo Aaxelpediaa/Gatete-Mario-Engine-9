@@ -16,7 +16,7 @@ function sprite_get_macro() {
 	    case (spr_tanookisuit): return cs_tanooki;
 	    case (spr_hammerflower): return cs_hammer;
 	    case (spr_boomerangflower): return cs_boomerang;
-	    case (spr_superball): return cs_superball;
+	    case (spr_superflower): return cs_superball;
 	    case (spr_bombshroom): return cs_bomb;
 	    case (spr_blueshell): return cs_shell;
 	    case (spr_beeshroom): return cs_bee;

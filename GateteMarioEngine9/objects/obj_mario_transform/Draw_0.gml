@@ -8,4 +8,7 @@ if (sprite_exists(snapshot)) {
 }
 
 //Draw Mario
-draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, image_alpha);
+if (sequence < 5)
+	draw_sprite_ext(sprite_index, -1, screen_round(x), screen_round(y)+1, image_xscale, image_yscale, 0, c_white, image_alpha);
+else
+	draw_sprite_custom_origin(sprite_index, -1, screen_round(x), screen_round(y)+1, 16, 32, scale, scale, 0, c_white, image_alpha);

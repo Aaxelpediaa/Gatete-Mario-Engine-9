@@ -3,9 +3,6 @@
 //Inherit the parent event
 event_inherited();
 
-//Animate
-image_speed = 0.15;
-
 //Sequence to display
 //0: Small to big
 //1: Big to small
@@ -13,3 +10,13 @@ image_speed = 0.15;
 //3: Powerdown
 //4: Transform
 sequence = 0;
+
+//Do not bounce
+bouncy = 0;
+bounces = 0;
+
+//Can bounce?
+can_bounce = 0;
+
+//Move after landing
+move_after_landing = 0;
