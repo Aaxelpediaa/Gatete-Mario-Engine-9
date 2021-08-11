@@ -544,7 +544,7 @@ if (enable_gravity == 1) {
 	|| ((global.powerup == cs_tiny) && (collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom-5, obj_solid, 1, 0)))) {
 		
 		//Check for a block
-		var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom, obj_blockparent, 0, 0);
+		var block_r = collision_rectangle(bbox_right, y + 8, bbox_right+1, y + 8, obj_blockparent, 0, 0);
 	
 		//If Mario is sliding
 		if (sliding == true) {
@@ -576,6 +576,7 @@ if (enable_gravity == 1) {
 						
 						//Create block specific events
 						event_user(0);
+						event_user(1);
 					}
 				}
 				
@@ -612,7 +613,7 @@ if (enable_gravity == 1) {
 	|| ((global.powerup == cs_tiny) && (collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom-5, obj_solid, 1, 0)))) {
 		
 		//Check for a block
-		var block_l = collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom, obj_blockparent, 0, 0);
+		var block_l = collision_rectangle(bbox_left-1, y + 8, bbox_left, y + 8, obj_blockparent, 0, 0);
 	
 		//If Mario is sliding
 		if (sliding == true) {
@@ -644,6 +645,7 @@ if (enable_gravity == 1) {
 						
 						//Create block specific events
 						event_user(0);
+						event_user(1);
 					}
 				}
 				

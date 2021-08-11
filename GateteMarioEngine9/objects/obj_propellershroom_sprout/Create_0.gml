@@ -1,10 +1,5 @@
 /// @description A propeller mushroom that came out from a block
 
-///A propeller mushroom that came out from a block
-
-//Animate
-image_speed = 0.3;
-
 //Set the vertical speed
 vspeed = -2;
 
