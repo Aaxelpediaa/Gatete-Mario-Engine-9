@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_beeshroom",
-    "path": "sprites/spr_beeshroom/spr_beeshroom.yy",
+    "name": "spr_voltshroom",
+    "path": "sprites/spr_voltshroom/spr_voltshroom.yy",
   },
   "solid": false,
   "visible": true,

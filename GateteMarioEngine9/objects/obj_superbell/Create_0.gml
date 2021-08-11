@@ -10,3 +10,6 @@ event_inherited();
 //3: Powerdown
 //4: Transform
 sequence = 4;
+
+//Bounces
+can_bounce = 0;

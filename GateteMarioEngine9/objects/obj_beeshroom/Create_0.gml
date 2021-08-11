@@ -1,4 +1,4 @@
-/// @description Super Flower
+/// @description Bee Mushroom
 
 //Inherit the parent event
 event_inherited();
@@ -9,4 +9,4 @@ event_inherited();
 //2: Powerup
 //3: Powerdown
 //4: Transform
-sequence = 2;
+sequence = 4;

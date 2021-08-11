@@ -12,7 +12,7 @@ if (yadd == 0) {
 		//Deny this event
 		move_after_landing = 0;
 	
-		//Set the vertical
+		//Set the vertical speed
 		yspeed = -(1.5 - (swimming * 0.75));
 		y--;
 	
@@ -27,7 +27,15 @@ if (yadd == 0) {
 	//Otherwise
 	else if (can_bounce == true) {
 	
+		//Set the vertical speed
 		yspeed = -(1.5 - (swimming * 0.75));
 		y--;
+		
+		//Set the horizontal speed
+		if (!instance_exists(obj_mario))
+		|| (obj_mario.x < x)
+			xspeed = 1;
+		else
+			xspeed = -1;
 	}
 }

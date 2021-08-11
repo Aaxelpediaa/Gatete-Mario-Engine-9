@@ -3,7 +3,7 @@
 if (sequence == 5) {
 
 	//Increment scale
-	scale += 0.05;
+	scale += 0.0375;
 	
 	//Manage scale
 	if (scale > 0) {

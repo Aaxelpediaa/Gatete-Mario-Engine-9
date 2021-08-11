@@ -13,7 +13,7 @@ if (yadd == 0) {
 		move_after_landing = 0;
 	
 		//Set the vertical speed
-		yspeed = -(0.75 - (swimming * 0.375));
+		yspeed = -(1 - (swimming * 0.5));
 		y--;
 	
 		//Set the horizontal speed
@@ -28,7 +28,7 @@ if (yadd == 0) {
 	else if (can_bounce == true) {
 	
 		//Set the vertical speed
-		yspeed = -(0.75 - (swimming * 0.375));
+		yspeed = -(1 - (swimming * 0.5));
 		y--;
 	}
 	

@@ -7,7 +7,7 @@ if (sprite_index == spr_leaf) {
     audio_play_sound(snd_sprout, 0, false);
 
     //Turn into a real leaf
-    instance_create_depth(x, ystart, 10, obj_leaf_sprout);
+    instance_create_depth(x, ystart, 11, obj_leaf_sprout);
 }
 
 //Feather
@@ -17,7 +17,31 @@ else if (sprite_index == spr_feather) {
     audio_play_sound(snd_sprout, 0, false);
 
     //Turn into a real feather
-    instance_create_depth(x, ystart, 10, obj_feather_sprout);
+    instance_create_depth(x, ystart, 11, obj_feather_sprout);
+}
+
+//Propeller Mushroom
+else if (sprite_index == spr_propellershroom) {
+
+	//Play 'Sprout' sound
+	audio_play_sound(snd_sprout, 0, false);
+	
+	//Turn into a real propeller shroom
+	instance_create_depth(x, ystart, 11, obj_propellershroom_sprout);
+}
+
+//Superbell
+else if ((vspeed < 0) && (sprite_index == spr_superbell)) {
+
+	//Play 'Sprout' sound
+	audio_play_sound(snd_sprout, 0, false);
+	
+	//Turn into a superbell
+	with (instance_create_depth(x, ystart, 11, obj_superbell)) {
+		
+		depth = 10;
+		yspeed = -3;
+	}
 }
 
 /*Beanstalk

@@ -1,5 +1,8 @@
 /// @description Begin timer
 
+//Increment hits
+hits++;
+
 //Begin timer
 if (coiny == 0) {
 

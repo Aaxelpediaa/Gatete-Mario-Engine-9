@@ -1,5 +1,6 @@
 /// @function powerup_get_name(powerup);
 /// @param powerup
+
 function powerup_get_name() {
 
 	switch (argument[0]) {

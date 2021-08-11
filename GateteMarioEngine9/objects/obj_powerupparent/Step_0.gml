@@ -12,10 +12,6 @@ if (yadd == 0) {
 		//Deny this event
 		move_after_landing = 0;
 	
-		//Set the vertical
-		yspeed = -3;
-		y--;
-	
 		//Set the horizontal speed
 		if (!instance_exists(obj_mario))
 		|| (obj_mario.x < x)

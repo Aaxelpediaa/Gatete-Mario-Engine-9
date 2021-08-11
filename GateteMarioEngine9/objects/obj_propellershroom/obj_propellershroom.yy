@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_fireflower",
-    "path": "sprites/spr_fireflower/spr_fireflower.yy",
+    "name": "spr_propellershroom",
+    "path": "sprites/spr_propellershroom/spr_propellershroom.yy",
   },
   "solid": false,
   "visible": true,

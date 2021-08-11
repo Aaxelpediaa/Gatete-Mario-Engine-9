@@ -1,4 +1,4 @@
-/// @function sprite_get_macro
+/// @function sprite_get_macro(sprite, x, y, depth);
 /// @param sprite
 /// @param x
 /// @param y
