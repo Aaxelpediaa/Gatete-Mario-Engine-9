@@ -20,9 +20,9 @@ else {
 	
 	//Set up gravity
 	if (swimming)
-		yadd = 0.0375;
+		yadd = 0.03125;
 	else
-		yadd = 0.15; 
+		yadd = 0.25; 
 } 
 
 //Handle position when on a slope

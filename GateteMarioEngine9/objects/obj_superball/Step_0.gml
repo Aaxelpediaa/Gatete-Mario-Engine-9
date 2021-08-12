@@ -1,25 +1,23 @@
 /// @description Superball logic
 
-//No swimming
-swimming = false;
+//Manage movement
+x += xspeed;
+y += yspeed;
 
-//Inherit event
-event_inherited();
-
-//No gravity
-if (yadd == 0) {
-
-	yspeed = -3;
-	yadd = 0;
-}
-else
-	yadd = 0;
-	
-//Check for ceiling
-var ceiling = collision_rectangle(bbox_left+xspeed, bbox_top+yspeed, bbox_right+xspeed, bbox_top+yspeed, obj_solid, 1, 0);
-if (ceiling)
-|| (collision_rectangle(bbox_left+xspeed, bbox_top+yspeed, bbox_right+xspeed, bbox_top+yspeed, obj_slopeparent, 1, 0)) {
+//If moving down
+if (yspeed > 0) 
+&& (place_meeting(x+xspeed, y+yspeed, obj_slopeparent)) {
 
 	xspeed = -xspeed;
 	yspeed = -yspeed;
 }
+
+//Horizontal collision
+if ((xspeed < 0) && (collision_rectangle(bbox_left+xspeed, bbox_top, bbox_left+xspeed, bbox_bottom, obj_solid, 0, 0)))
+|| ((xspeed > 0) && (collision_rectangle(bbox_right+xspeed, bbox_top, bbox_right+xspeed, bbox_bottom, obj_solid, 0, 0)))
+	xspeed = -xspeed;
+	
+//Vertical collision
+if ((yspeed < 0) && (collision_rectangle(bbox_left, bbox_top+yspeed, bbox_right, bbox_top+vspeed, obj_solid, 0, 0)))
+|| ((yspeed > 0) && (collision_rectangle(bbox_left, bbox_bottom+yspeed, bbox_right, bbox_bottom+yspeed, obj_semisolid, 0, 0)))
+	yspeed = -yspeed;

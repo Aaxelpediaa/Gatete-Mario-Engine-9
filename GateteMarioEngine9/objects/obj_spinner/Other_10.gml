@@ -85,8 +85,7 @@ spinning_end = function() {
 	instance_destroy();
 	
 	// Remove reference
-	owner.spin = noone;
-	
+	owner.spin = noone;	
 }
 
 // Spin timer

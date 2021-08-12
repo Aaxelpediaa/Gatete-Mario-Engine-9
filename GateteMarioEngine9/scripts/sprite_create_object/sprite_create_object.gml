@@ -66,6 +66,15 @@ function sprite_create_object() {
 		case (spr_superacorn): return instance_create_depth(argument[1], argument[2], argument[3], obj_superacorn);
 		
 		//Golden Flower
-		case (spr_goldenflower): return instance_create_depth(argument[1], argument[2], argument[3], obj_goldenflower);     
+		case (spr_goldenflower): return instance_create_depth(argument[1], argument[2], argument[3], obj_goldenflower);
+		
+		//1-UP
+		case (spr_1up): return instance_create_depth(argument[1], argument[2], argument[3], obj_1up);
+		
+		//Poison
+		case (spr_poison): return instance_create_depth(argument[1], argument[2], argument[3], obj_poison);
+		
+		//Starman
+		case (spr_starman): return instance_create_depth(argument[1], argument[2], argument[3], obj_starman);
 	}
 }

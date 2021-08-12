@@ -13,29 +13,29 @@ if (yadd == 0) {
 		move_after_landing = 0;
 	
 		//Set the vertical speed
-		yspeed = -(1.5 - (swimming * 0.75));
+		yspeed = -(2 - (swimming * 1));
 		y--;
 	
 		//Set the horizontal speed
 		if (!instance_exists(obj_mario))
 		|| (obj_mario.x < x)
-			xspeed = -1;
+			xspeed = -1 - (swimming * 0.5);
 		else
-			xspeed = 1;
+			xspeed = 1 - (swimming * 0.5);
 	}
 	
 	//Otherwise
 	else if (can_bounce == true) {
 	
 		//Set the vertical speed
-		yspeed = -(1.5 - (swimming * 0.75));
+		yspeed = -(2 - (swimming * 1));
 		y--;
 		
 		//Set the horizontal speed
 		if (!instance_exists(obj_mario))
 		|| (obj_mario.x < x)
-			xspeed = 1;
+			xspeed = 1 - (swimming * 0.5);
 		else
-			xspeed = -1;
+			xspeed = -1 - (swimming * 0.5);
 	}
 }
