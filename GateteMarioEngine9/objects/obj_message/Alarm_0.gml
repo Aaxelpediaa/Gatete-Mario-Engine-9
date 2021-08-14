@@ -1,8 +1,8 @@
-/// @description Prepare the message to be displayed
+/// @description Prepare the text to be displayed
 
 //Set up the font
 draw_set_font(global.gui_font);
-	
+
 //Set up the text
 text = string_make_width(varmsg, 200);
 

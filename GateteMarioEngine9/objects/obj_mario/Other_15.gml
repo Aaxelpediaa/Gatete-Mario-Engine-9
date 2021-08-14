@@ -333,15 +333,20 @@ if ((state == playerstate.jump) || (statedelay > 0)) {
     //Otherwise, use default gravity.     
     else {
 		
-		//Boost fall
-		if (yadd == 0)
-		&& (global.powerup == cs_shell) {
-			
-			y += 4.99;
-		}
-		
         //Use default gravity
-        yadd = 0.3625;
+		if (global.powerup == cs_shell) {
+			
+			//Boost fall a bit
+			if (yadd == 0) {
+				
+				y += 2;
+			}
+			
+			//Set higher gravity
+			yadd = 0.4;
+		}
+		else
+			yadd = 0.3625;
         
         //End variable jumping if it never ends manually.
         if (jumping = 1)

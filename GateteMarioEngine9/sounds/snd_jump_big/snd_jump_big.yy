@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_jump_big.wav",
-  "duration": 0.442948,
+  "duration": 0.431429,
   "parent": {
     "name": "Action",
     "path": "folders/Sonidos/Action.yy",

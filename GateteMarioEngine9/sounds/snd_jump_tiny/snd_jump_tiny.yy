@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_jump_tiny.wav",
-  "duration": 0.255556,
+  "duration": 0.189796,
   "parent": {
     "name": "Action",
     "path": "folders/Sonidos/Action.yy",

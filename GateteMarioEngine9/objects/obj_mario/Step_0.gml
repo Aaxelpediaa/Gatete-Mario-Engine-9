@@ -1,17 +1,44 @@
 /// @description Mario's logic!
 
-#region MANAGE PALETTES
+#region MANAGE PALETTES AND ANGLE
 
 	//If the player is invulnerable
 	if (instance_exists(obj_invincibility)) {
+		
+		//If there's a mega mushroom timer active
+		if (instance_number(obj_megashroom_timer) > 0) {
+			
+			//If the mega mushroom is about to end
+			if (obj_megashroom_timer.alarm[0] < 120) {
 	
-		//Set up angle
-		angle += -30*sign(other.xscale);
+				//Set up palette
+				isflashing += 0.2;
+				if (isflashing > 5)
+					isflashing = 0;
+			}
+			else
+				isflashing = 0;
+		}
+		
+		//Otherwise
+		else {
+		
+			//If the invincibility is about to end
+			if (obj_invincibility.alarm[0] > 120) {
 	
-		//Set up palette
-		isflashing += 0.1;
-		if (isflashing > 6)
-			isflashing = 1;
+				//Set up palette
+				isflashing += 0.1;
+				if (isflashing > 6)
+					isflashing = 1;
+			}
+			else {
+		
+				//Set up palette but at a lower pace
+				isflashing += 0.05;
+				if (isflashing > 6)
+					isflashing = 1;
+			}
+		}
 	}
 	else {
 		
@@ -21,6 +48,10 @@
 		else
 			isflashing = 0;
 	}
+	
+	//Set up angle if somersaulting
+	if (somersault)
+		angle += -30*sign(other.xscale);
 #endregion
 
 #region SLIPPERY SURFACE CHECK

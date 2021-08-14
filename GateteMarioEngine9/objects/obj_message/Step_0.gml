@@ -11,8 +11,8 @@ if (showing == 0) {
 	
 		//Set full scale
 		scale = 1;
-		
-		//Prepare the message to be displayed
+	
+		//Prepare the text to be displayed
 		alarm[0] = 1;
 	}
 }

@@ -1,6 +1,7 @@
 /// @function					pal_swap_set_player();
 /// @param	normal_palette		Normal palette
 /// @param invincible_palette	Invincible palette
+/// @param mega_palette			Mega palette
 
 // Palette enumerators
 enum palette {
@@ -10,8 +11,7 @@ enum palette {
 	ice = 2,
 	superball = 3,
 	volt = 4,
-	gold = 5
-	
+	gold = 5	
 }
 
 function pal_swap_set_player() {
@@ -35,12 +35,15 @@ function pal_swap_set_player() {
 			case (cs_gold): pal = palette.gold; break;				// Gold palette		
 		}
 		
-	} else {
+	} 
+	else {
 		
 		//Set invincibility palette sprite(?)
-		spr = argument[1];
 		pal = isflashing;
-		
+		if (instance_number(obj_megashroom_timer) == 0)
+			spr = argument[1];
+		else
+			spr = argument[2];
 	}
 	
 	//If no palette swap occurred, exit the script

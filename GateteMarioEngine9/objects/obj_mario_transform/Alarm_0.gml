@@ -65,6 +65,26 @@ switch (sequence) {
 		image_speed = 0;
 		image_index = 0;
 		
+		//Make visible
+		visible = true;
+		
+		//Exit
+		exit;
+	}
+	
+	//Mega Shrink
+	case (6): {
+	
+		//Set sprite
+		sprite_index = obj_mario.sprite_index;
+		
+		//Set special state
+		ready = 2;
+		
+		//Do not animate
+		image_speed = 0;
+		image_index = obj_mario.image_index;
+		
 		//Make the object visible
 		visible = true;
 		

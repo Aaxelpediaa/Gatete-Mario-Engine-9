@@ -1,1 +1,0 @@
-varmsg = "Hello, I am a noisy message block!";
