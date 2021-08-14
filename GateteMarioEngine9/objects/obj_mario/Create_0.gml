@@ -35,8 +35,7 @@ enum playerstate {
 	idle = 0,
 	walk = 1,
 	jump = 2,
-	climb = 3
-	
+	climb = 3	
 }
 state = playerstate.idle;
 statedelay = 0;
@@ -84,6 +83,7 @@ ismega = 0;
 
 //Plays a sound when Mario is climbing or swimming with the frog suit
 noisy = 0;
+noise = 0;
 
 //Makes Mario run slightly faster (P-Meter)
 run = 0;

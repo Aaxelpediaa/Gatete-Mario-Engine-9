@@ -1,7 +1,7 @@
 /// @description The power of the mega shroom!
 
 //Prepare to end invincibility
-alarm[0] = 840;
+alarm[0] = 900;
 
 //Play the invincibility theme if it is not playing
 alarm[1] = 1;

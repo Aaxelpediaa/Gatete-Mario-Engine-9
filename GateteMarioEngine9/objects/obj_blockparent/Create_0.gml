@@ -8,3 +8,6 @@ ready = 0;
 
 //Set up depth
 depth = layer_get_depth("Main");
+
+//Make it solid
+mysolid = instance_create_layer(x, y, "Main", obj_solid);

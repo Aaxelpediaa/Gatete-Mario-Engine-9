@@ -104,7 +104,7 @@ if (enable_control == true) { //If the player controls are enabled.
                         noise = 0;
                 }
                 else
-                    noise = 0;
+                    noisy = 0;
             }
         }
     }

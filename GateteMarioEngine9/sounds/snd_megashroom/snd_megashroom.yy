@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_megashroom.ogg",
-  "duration": 9.615719,
+  "duration": 9.599342,
   "parent": {
     "name": "Fanfares",
     "path": "folders/Sonidos/Fanfares.yy",
