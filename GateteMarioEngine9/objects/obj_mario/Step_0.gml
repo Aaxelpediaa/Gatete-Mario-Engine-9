@@ -297,7 +297,7 @@ if (enable_gravity == 1) {
 			//Reset values
 			event_user(15);
 		}
-		
+
 		//Check for a water surface
 		var ws = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+yspeed, obj_swim, 0, 0);
 		
