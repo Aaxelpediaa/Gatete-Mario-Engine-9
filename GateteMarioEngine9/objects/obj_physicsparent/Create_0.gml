@@ -1,9 +1,9 @@
 /// @description Enemies, Holdable items, or Misc
 
-//Psuedo variables
+//Pseudo variables
 xspeed = 0;
 yspeed = 0;
-yadd = 0; //Gravity
+yadd = 0;
 
 //Facing directions
 xscale = 1;

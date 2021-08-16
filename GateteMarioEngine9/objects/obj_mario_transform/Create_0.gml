@@ -49,5 +49,8 @@ with (obj_cape) visible = 0;
 with (obj_wallrunner) visible = 0;
 with (obj_effectsparent) visible = 0;
 
+//Freeze all NPCs
+with (obj_physicsparent) event_user(14);
+
 //Start animation
 alarm[0] = 1;

@@ -34,8 +34,6 @@ if (sequence == 5) {
             
 	            //Set alpha back to 1, but check first if the player is not doing a special action.
 	            if (instance_exists(obj_puller))
-	            || (instance_exists(obj_spinner))
-	            || (instance_exists(obj_dropdown))
 	            || (instance_exists(obj_wallrunner))
 	                image_alpha = 0;
 	            else
@@ -67,7 +65,7 @@ else if (sequence == 6) {
 	
 		//Set scale to 4
 		scale = 1;
-
+		
 		//Destroy the sprite
 		sprite_delete(snapshot);
 		
@@ -85,8 +83,6 @@ else if (sequence == 6) {
             
 	        //Set alpha back to 1, but check first if the player is not doing a special action.
 	        if (instance_exists(obj_puller))
-	        || (instance_exists(obj_spinner))
-	        || (instance_exists(obj_dropdown))
 	        || (instance_exists(obj_wallrunner))
 	            image_alpha = 0;
 	        else
