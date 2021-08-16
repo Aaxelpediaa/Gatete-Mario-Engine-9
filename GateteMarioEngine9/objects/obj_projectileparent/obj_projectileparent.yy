@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Parents",
-    "path": "folders/Objetos/Special/Parents.yy",
+    "name": "NPCs",
+    "path": "folders/Objetos/Special/Parents/NPCs.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_projectileparent",

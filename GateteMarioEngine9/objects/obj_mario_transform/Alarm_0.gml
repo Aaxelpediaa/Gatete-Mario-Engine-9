@@ -9,6 +9,10 @@ instance_deactivate_all(1);
 //Activate coordinator object
 instance_activate_object(obj_coordinator);
 
+//Activate effects parent
+instance_activate_object(obj_effectsparent);
+with (obj_effectsparent) visible = 1;
+
 //Activate player object and disable it's gravity
 instance_activate_object(obj_mario);
 with (obj_mario) {

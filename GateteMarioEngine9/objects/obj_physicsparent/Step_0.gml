@@ -45,6 +45,23 @@ if (yspeed >= 0) {
 			yspeed = -yspeed / bouncy;		
 	}
 	
+	//Conveyor collisions
+	#region CONVEYOR COLLISION
+	
+		//Check for a conveyor
+		var conveyor = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_conveyorparent, 0, 0);
+		
+		//If there's a conveyor
+		if (conveyor)
+		&& (conveyor.image_speed != 0) {
+		
+			//If the conveyor is moving and there's not solid on the way
+			if ((conveyor.image_speed < 0) && (!collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 0, 0)))
+			|| ((conveyor.image_speed > 0) && (!collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 0, 0)))
+				x += conveyor.image_speed;
+		}
+	#endregion
+	
 	//Check for any nearby ground collision
 	var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+yspeed, obj_semisolid, 0, 0);
 	

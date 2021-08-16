@@ -1,5 +1,8 @@
 /// @description Get 'Tiny' player status
 
+//Get 1000 points
+with (instance_create_depth(x, y, -6, obj_score)) value = 1000;
+
 //If the player is not Tiny and does not have the Mega powerup
 if (global.powerup != cs_tiny) {
 
@@ -41,9 +44,6 @@ else {
 	if (global.reserve != cs_tiny)
 		global.reserve = cs_tiny;
 }
-
-//Get 1000 points
-with (instance_create_depth(x, y, -5, obj_score)) value = 1000;
 
 //Destroy
 instance_destroy();

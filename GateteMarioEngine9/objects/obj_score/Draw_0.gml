@@ -20,9 +20,9 @@ else {
 
 	//Stay in view
 	if (y < camera_get_view_y(view_camera[0]) + 32)
-		draw_text(x-1, camera_get_view_y(view_camera[0]) + 32, string(value));
+		draw_text(x, camera_get_view_y(view_camera[0]) + 32, string(value));
 	else
-		draw_text(x-1, y, string(value)); 
+		draw_text(x, y, string(value)); 
 }
 
 //Reset alignment

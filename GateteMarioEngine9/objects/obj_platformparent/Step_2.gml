@@ -1,4 +1,4 @@
-/// @description Player and NPC logic
+/// @description Player and NPC logic (While in-platform)
 
 //Check for the player
 var player = collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_mario, 0, 0);

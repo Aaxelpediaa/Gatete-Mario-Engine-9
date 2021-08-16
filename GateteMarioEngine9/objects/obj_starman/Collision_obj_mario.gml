@@ -23,7 +23,7 @@ else {
 }
 
 //Get 1000 points
-with (instance_create_depth(x, y, -5, obj_score)) value = 1000;
+with (instance_create_depth(x, y, -6, obj_score)) value = 1000;
 
 //Destroy
 instance_destroy();

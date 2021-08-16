@@ -1,5 +1,8 @@
 /// @description Transform into Mega Mario
 
+//Get 1000 points
+with (instance_create_depth(x, y, -6, obj_score)) value = 1000;
+
 //If Mario is not in the mega form
 if (global.powerup != cs_mega) {
 
@@ -34,9 +37,6 @@ else {
 	        obj_megashroom_timer.alarm[1] = -1; 
 	}
 }
-
-//Get 1000 points
-with (instance_create_depth(x, y, -5, obj_score)) value = 1000;
 
 //Destroy
 instance_destroy();

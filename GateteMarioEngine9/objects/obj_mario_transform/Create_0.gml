@@ -20,6 +20,10 @@ loop = 0;
 //Screenshot
 snapshot = -1;
 
+//Destroy these objects first
+with (obj_spinner) instance_destroy();
+with (obj_dropdown) instance_destroy();
+
 //Make Mario invisible
 if (instance_exists(obj_mario)) {
 
@@ -39,22 +43,11 @@ if (instance_exists(obj_mario)) {
     //Hereby Mario's facing direction.
     direct = obj_mario.xscale;    
 }
-	
-//Make cape invisible
-if (instance_exists(obj_cape))
-	with (obj_cape) visible = false;
 
-//Make spinner invisible
-if (instance_exists(obj_spinner))
-    with (obj_spinner) visible = false;
-
-//Make dropdown invisible
-if (instance_exists(obj_dropdown))
-    with (obj_dropdown) visible = false;
-
-//Make wallrunner invisible
-if (instance_exists(obj_wallrunner))
-    with (obj_wallrunner) visible = false;
+//Make objects invisible
+with (obj_cape) visible = 0;
+with (obj_wallrunner) visible = 0;
+with (obj_effectsparent) visible = 0;
 
 //Start animation
 alarm[0] = 1;

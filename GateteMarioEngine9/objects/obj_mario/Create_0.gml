@@ -20,6 +20,8 @@ xspeed = 0;
 yspeed = 0;
 xadd = 0;
 yadd = 0.3625;
+prevxspeed = 0;
+prevyspeed = 0;
 
 //Check if inair
 inair = 0;

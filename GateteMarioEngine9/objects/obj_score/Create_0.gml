@@ -1,7 +1,7 @@
 /// @description You got points!
 
 //Score font
-font = font_add_sprite_ext(spr_score, "0123456789", 1, -1);
+font = font_add_sprite_ext(spr_score, "0123456789", 0, 0);
 
 //Depth
 depth = -6;

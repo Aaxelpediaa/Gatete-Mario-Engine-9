@@ -1,5 +1,8 @@
 /// @description Get 'Big' player status
 
+//Get 1000 points
+with (instance_create_depth(x, y, -6, obj_score)) value = 1000;
+
 //If Mario does not have the mega form
 if (global.powerup != cs_mega) {
 
@@ -52,9 +55,6 @@ else {
 	//Play 'Reserve' sound
 	audio_play_sound(snd_reserve, 0, false);
 }
-
-//Get 1000 points
-with (instance_create_depth(x, y, -5, obj_score)) value = 1000;
 
 //Destroy
 instance_destroy();

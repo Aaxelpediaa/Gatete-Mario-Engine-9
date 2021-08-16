@@ -7,14 +7,6 @@ if (global.mount == 0) {
     if (instance_exists(obj_puller))    
         obj_puller.visible = true;
         
-    //Otherwise, if the spinner exists, make said object visible
-    else if (instance_exists(obj_spinner))    
-        obj_spinner.visible = true;
-        
-    //Otherwise, if the dropdown exists, make said object visible
-    else if (instance_exists(obj_dropdown))    
-        obj_dropdown.visible = true;
-        
     //Otherwise, if the wallrunner exists make said object visible
     else if (instance_exists(obj_wallrunner))    
         obj_wallrunner.visible = true;

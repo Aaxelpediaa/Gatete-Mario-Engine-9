@@ -860,8 +860,13 @@ else {
         || (global.powerup == cs_penguin) {
         
             //If Mario is sliding down a slope
-            if (sliding)
-				mask_index = spr_mask_mario;
+            if (sliding) {
+				
+				if (global.powerup == cs_shell)
+					mask_index = spr_mask_mario_shell;
+				else
+					mask_index = spr_mask_mario;
+			}
             else
                 mask_index = spr_mask_mario_big;
         }
@@ -887,6 +892,5 @@ if (spin != noone) {
 	image_index = spin.image_index;
 	
 	// Inherit image speed (namely for cape speed)
-	image_speed = spin.image_speed;
-	
+	image_speed = spin.image_speed;	
 }
