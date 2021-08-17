@@ -19,9 +19,9 @@ if (yadd == 0) {
 		//Set the horizontal speed
 		if (!instance_exists(obj_mario))
 		|| (obj_mario.x < x)
-			xspeed = -1;
+			xspeed = -0.25 + (swimming * 0.125);
 		else
-			xspeed = 1;
+			xspeed = 0.25 - (swimming * 0.125);
 	}
 	
 	//Otherwise, if the item can bounce

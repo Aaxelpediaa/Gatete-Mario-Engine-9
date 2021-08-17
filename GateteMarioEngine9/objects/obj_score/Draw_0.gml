@@ -3,6 +3,9 @@
 //Align text
 draw_set_halign(fa_center);
 
+//Set the colour
+draw_set_colour(c_white);
+
 //Set up font
 draw_set_font(font);
 

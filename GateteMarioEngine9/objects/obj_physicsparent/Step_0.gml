@@ -104,3 +104,13 @@ if ((noswim == false) && (!swimming) && (water)) {
     if (yspeed > 0)
         yspeed = 0;
 }
+
+//Otherwise, if there's no contact with water
+else if ((swimming) && (!water)) {
+
+	//Make the NPC not swim
+	swimming = false;
+	
+	//Double horizontal speed
+	xspeed = xspeed*2;
+}

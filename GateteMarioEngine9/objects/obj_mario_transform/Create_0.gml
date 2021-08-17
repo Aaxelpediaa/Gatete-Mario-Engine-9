@@ -48,6 +48,7 @@ if (instance_exists(obj_mario)) {
 with (obj_cape) visible = 0;
 with (obj_wallrunner) visible = 0;
 with (obj_effectsparent) visible = 0;
+with (obj_water_front) visible = 0;
 
 //Freeze all NPCs
 with (obj_physicsparent) event_user(14);

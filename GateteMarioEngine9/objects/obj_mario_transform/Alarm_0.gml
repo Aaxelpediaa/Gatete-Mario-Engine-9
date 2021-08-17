@@ -9,6 +9,10 @@ instance_deactivate_all(1);
 //Activate coordinator object
 instance_activate_object(obj_coordinator);
 
+//Activate water front object
+instance_activate_object(obj_water_front);
+with (obj_water_front) visible = 1;
+
 //Activate effects parent
 instance_activate_object(obj_effectsparent);
 with (obj_effectsparent) visible = 1;

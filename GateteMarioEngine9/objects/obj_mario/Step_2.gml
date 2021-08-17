@@ -226,8 +226,13 @@ else {
                                              
                             if ((global.powerup == cs_frog)
                             || (global.powerup == cs_penguin))
-                            && (swimming)
-                                sprite_index = global.swim_sprite[global.powerup];
+                            && (swimming) {
+								
+								if (state = playerstate.idle)
+									sprite_index = global.swim_sprite[global.powerup];
+								else
+									sprite_index = global.swim2_sprite[global.powerup];
+							}
                             else
                                 sprite_index = global.walk_sprite[global.powerup];
                         }
