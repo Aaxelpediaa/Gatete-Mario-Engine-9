@@ -39,11 +39,11 @@ function macro_get_sprite() {
 	    case (cs_shoe_dossun): return spr_shoe_dossun;
 	    case (cs_shoe_jugemu): return spr_shoe_jugemu;
 	    case (cs_shoe_pentaro): return spr_shoe_pentaro;
-		case (cs_lifeshroom): return spr_lifeshroom;
 		case (cs_pballoon): return spr_pballoon;
 		case (cs_pwing): return spr_pwing;
 	    case (cs_1up): return spr_1up;
-	    case (cs_3up): return spr_3upmoon;
+	    case (cs_3up): return spr_3up;
+		case (cs_heart): return spr_heart;
 		case (cs_poison): return spr_poison;
 		case (cs_starman): return spr_starman;
 		case (cs_pswitch): return spr_pswitch;

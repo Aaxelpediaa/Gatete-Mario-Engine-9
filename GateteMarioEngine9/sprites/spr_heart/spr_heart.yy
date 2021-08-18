@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"deee3ce3-80b3-404d-99a0-d776830073b9","path":"sprites/spr_lifeshroom/spr_lifeshroom.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"deee3ce3-80b3-404d-99a0-d776830073b9","path":"sprites/spr_lifeshroom/spr_lifeshroom.yy",},"LayerId":{"name":"1afcd75b-bbe5-4918-816c-766ea9c75315","path":"sprites/spr_lifeshroom/spr_lifeshroom.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_lifeshroom","path":"sprites/spr_lifeshroom/spr_lifeshroom.yy",},"resourceVersion":"1.0","name":"deee3ce3-80b3-404d-99a0-d776830073b9","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"deee3ce3-80b3-404d-99a0-d776830073b9","path":"sprites/spr_heart/spr_heart.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"deee3ce3-80b3-404d-99a0-d776830073b9","path":"sprites/spr_heart/spr_heart.yy",},"LayerId":{"name":"1afcd75b-bbe5-4918-816c-766ea9c75315","path":"sprites/spr_heart/spr_heart.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_heart","path":"sprites/spr_heart/spr_heart.yy",},"resourceVersion":"1.0","name":"deee3ce3-80b3-404d-99a0-d776830073b9","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_lifeshroom","path":"sprites/spr_lifeshroom/spr_lifeshroom.yy",},
+    "spriteId": {"name":"spr_heart","path":"sprites/spr_heart/spr_heart.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"e0d2748d-42a8-4c3b-80cc-53f29a8b31c7","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"deee3ce3-80b3-404d-99a0-d776830073b9","path":"sprites/spr_lifeshroom/spr_lifeshroom.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e0d2748d-42a8-4c3b-80cc-53f29a8b31c7","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"deee3ce3-80b3-404d-99a0-d776830073b9","path":"sprites/spr_heart/spr_heart.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_lifeshroom","path":"sprites/spr_lifeshroom/spr_lifeshroom.yy",},
+    "parent": {"name":"spr_heart","path":"sprites/spr_heart/spr_heart.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_lifeshroom",
+    "name": "spr_heart",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Sprites/Items/Collectibles/Powerups.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_lifeshroom",
+  "name": "spr_heart",
   "tags": [],
   "resourceType": "GMSprite",
 }

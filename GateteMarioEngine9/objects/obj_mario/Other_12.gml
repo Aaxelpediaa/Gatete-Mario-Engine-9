@@ -824,7 +824,7 @@ if ((enable_control == true) && (input_check(input.down))) {
     }
 }
 
-// Cape falling when button held
+//Cape falling when button held
 if ((global.powerup == cs_cape)
 && (input_check(input.action_0))
 && (wallkick < 1)
@@ -835,8 +835,7 @@ if ((global.powerup == cs_cape)
 		
 	// Vertical speed cap
 	if (yspeed > 1.5)
-		yspeed = 1.5;
-		
+		yspeed = 1.5;		
 }
 
 //If the player is jumping, not ducking, not spin jumping, can control himself, is not riding anything and it's not holding a propeller block

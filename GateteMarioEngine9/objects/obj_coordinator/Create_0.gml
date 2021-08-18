@@ -85,11 +85,11 @@ global.pmeter_limit = 144;
 	#macro cs_pswitch -21
 	#macro cs_starman -20
 	#macro cs_poison -19
-	#macro cs_3up -18
-	#macro cs_1up -17
-	#macro cs_pwing -16
-	#macro cs_pballoon -15
-	#macro cs_lifeshroom -14
+	#macro cs_heart -18
+	#macro cs_3up -17
+	#macro cs_1up -16
+	#macro cs_pwing -15
+	#macro cs_pballoon -14
 	#macro cs_shoe_pentaro -13
 	#macro cs_shoe_jugemu -12
 	#macro cs_shoe_dossun -11

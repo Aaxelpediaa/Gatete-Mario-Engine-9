@@ -7,7 +7,7 @@ if (instance_exists(obj_mario)) {
     
         with (instance_create_depth(x - 20 + random(round(40)), y + random_range(-80, 16), -6, obj_sparkle)) {
         
-			sprite_index = spr_sparkle_c;
+			sprite_index = spr_sparkle_d;
 			shrink_rate = 0.0324;
             image_speed = 0;
 			image_index = choose(0, 1, 2, 3);

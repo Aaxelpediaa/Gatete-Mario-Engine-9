@@ -40,11 +40,11 @@ function sprite_get_macro() {
 	    case (spr_shoe_dossun): return cs_shoe_dossun;
 	    case (spr_shoe_jugemu): return cs_shoe_jugemu;
 	    case (spr_shoe_pentaro): return cs_shoe_pentaro;
-		case (spr_lifeshroom): return cs_lifeshroom;
 		case (spr_pballoon): return cs_pballoon;
 		case (spr_pwing): return cs_pwing;
 	    case (spr_1up): return cs_1up;
-	    case (spr_3upmoon): return cs_3up;
+	    case (spr_3up): return cs_3up;
+		case (spr_heart): return cs_heart;
 		case (spr_poison): return cs_poison;
 		case (spr_starman): return cs_starman;
 		case (spr_pswitch): return cs_pswitch;

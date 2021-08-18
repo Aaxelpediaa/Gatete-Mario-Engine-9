@@ -12,6 +12,18 @@ draw_text(camera_get_view_x(view_camera[0]) + 40, camera_get_view_y(view_camera[
 draw_sprite_ext(spr_gui_coins, 0, camera_get_view_x(view_camera[0]) + 16, camera_get_view_y(view_camera[0]) + 19, 1, 1, 0, c_white, 1);
 draw_text(camera_get_view_x(view_camera[0]) + 40, camera_get_view_y(view_camera[0]) + 19, string_add_zeroes(global.coins, 2));
 
+//Safeguard
+#region SAFEGUARD
+
+	var a;
+	a = 0;
+	repeat (global.safeguard) {
+	
+		draw_sprite_ext(spr_gui_heart, 0, camera_get_view_x(view_camera[0]) + (64 + a), camera_get_view_y(view_camera[0]) + 8, 1, 1, 0, c_white, 1);
+		a += 8;
+	}
+#endregion
+
 //Star Coins
 #region STAR COINS
 
@@ -25,6 +37,7 @@ draw_text(camera_get_view_x(view_camera[0]) + 40, camera_get_view_y(view_camera[
 	if (global.reserve != cs_small)
 		draw_sprite_ext(macro_get_sprite(global.reserve), -1, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + 8, 1, 1, 0, c_white, 1);
 #endregion
+
 //Set black font
 draw_set_font(global.gui_font_numbers_black);
 

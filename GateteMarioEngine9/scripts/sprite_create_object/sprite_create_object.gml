@@ -68,6 +68,9 @@ function sprite_create_object() {
 		//Golden Flower
 		case (spr_goldenflower): return instance_create_depth(argument[1], argument[2], argument[3], obj_goldenflower);
 		
+		//Heart
+		case (spr_heart): return instance_create_depth(argument[1], argument[2], argument[3], obj_heart);
+		
 		//1-UP
 		case (spr_1up): return instance_create_depth(argument[1], argument[2], argument[3], obj_1up);
 		
