@@ -1,43 +1,149 @@
 /// @description Deals with various game logic stuff
 
-//If Mario does exist
-if (instance_exists(obj_mario)) {
+//Set up object to follow
+event_user(15);
 
-	//Follow up Mario
-	x = obj_mario.x;
-	y = obj_mario.y;
+//If the autoscroll object does exist
+if (instance_exists(obj_autoscroll)) {
+
+    //Set vertical view speed
+    camera_set_view_speed(view_camera[0], -1, -1);    
+    
+    //Snap into position
+    x = obj_autoscroll.x;
+    y = obj_autoscroll.y;
+}
+
+//Otherwise
+else {
 	
-	//If the barrier is active
-	if (barrier == true) {
-	
-		//If Mario is at the left boundary
-		if (obj_mario.x < camera_get_view_x(view_camera[0]) + 5) {
-			
-			//If Mario is flying with the cape
-			if (instance_exists(obj_fly)) {
-			
-				obj_fly.x = camera_get_view_x(view_camera[0]) + 5;
-				if (obj_fly.xspeed < 0)
-					obj_fly.xspeed = 0;
-			}
+	//If the camera is not following an object
+	if (follow != noone) {
+        
+		//Pan instantly if the barrier is deactivated
+		if (barrier == false) {
 		
-			obj_mario.x = camera_get_view_x(view_camera[0]) + 5;
-			if (obj_mario.xspeed < 0)
-				obj_mario.xspeed = 0;
+			x = follow.x;
+		    y = follow.y;
 		}
-		else if (obj_mario.x > camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 5) {
+        
+		//Otherwise, perform movement depending of the given conditions
+		else {
+        
+		    //Stay relative to Mario's y position
+		    if (instance_exists(obj_mario)) {
+				
+				#region HORIZONTAL BARRIER
+				
+					//If the barrier is enabled
+					if (barrier == true) {
+	
+						//If Mario is at the left boundary
+						if (obj_mario.x < camera_get_view_x(view_camera[0]) + 5) {
 			
-			//If Mario is flying with the cape
-			if (instance_exists(obj_fly)) {
+							//If Mario is flying with the cape
+							if (instance_exists(obj_fly)) {
 			
-				obj_fly.x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 5;
-				if (obj_fly.xspeed > 0)
-					obj_fly.xspeed = 0;
-			}
+								obj_fly.x = camera_get_view_x(view_camera[0]) + 5;
+								if (obj_fly.xspeed < 0)
+									obj_fly.xspeed = 0;
+							}
+		
+							obj_mario.x = camera_get_view_x(view_camera[0]) + 5;
+							if (obj_mario.xspeed < 0)
+								obj_mario.xspeed = 0;
+						}
+						else if (obj_mario.x > camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 5) {
 			
-			obj_mario.x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 5;
-			if (obj_mario.xspeed > 0)
-				obj_mario.xspeed = 0;			
+							//If Mario is flying with the cape
+							if (instance_exists(obj_fly)) {
+			
+								obj_fly.x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 5;
+								if (obj_fly.xspeed > 0)
+									obj_fly.xspeed = 0;
+							}
+			
+							obj_mario.x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 5;
+							if (obj_mario.xspeed > 0)
+								obj_mario.xspeed = 0;			
+						}
+					}				
+				#endregion
+            
+		        //If the player is running
+		        if (obj_mario.run == true) {
+                
+		            y = obj_mario.y;
+		            camera_set_view_speed(view_camera[0], -1, 6);
+		        }
+                    
+		        //Otherwise, if Mario is climbing or wall running
+		        else if ((obj_mario.state == playerstate.climb) || (instance_exists(obj_wallrunner))) {
+                
+		            y = obj_mario.y;
+		            camera_set_view_speed(view_camera[0], -1, 6);
+		        }
+                    
+		        //Otherwise
+		        else {
+                
+		            //If Mario is swimming
+		            if (obj_mario.swimming == true) {
+                    
+		                y = obj_mario.y;
+		                camera_set_view_speed(view_camera[0], -1, 6);
+		            }
+                        
+		            //Otherwise
+		            else if (obj_mario.swimming == false) {
+                    
+		                //If Mario's is idle or walking
+		                if (obj_mario.state == playerstate.idle) 
+		                || (obj_mario.state == playerstate.walk) {
+                        
+		                    //Position Mario just reached
+		                    if (camlock == false) 
+								floorY = obj_mario.y;
+                        
+		                    //If Mario is above the camera
+		                    if (obj_mario.y < y) {
+                            
+		                        //If the camera is 4 pixels below Mario's y position, move 4 pixels upwards until the camera catches the player.
+		                        if (y > obj_mario.y+4)
+		                            y -= 4;
+                                    
+		                        //Otherwise
+		                        else {
+                                
+		                            y = obj_mario.y;
+		                            camera_set_view_speed(view_camera[0], -1, 6);
+		                        }
+		                    }
+		                } 
+		                else {
+                        
+		                    //If Mario didn't reach Y position on the ground, catch Mario (only applies going up)
+		                    if (round(y) > floorY)
+		                        y -= 4;
+		                }
+                        
+		                //If Mario is below the camera, catch him instantly
+		                if (obj_mario.y > y) {
+                        
+		                    y = obj_mario.y;
+		                    camera_set_view_speed(view_camera[0], -1, -1);
+		                }
+		            }
+		        }
+				
+				//Follow Mario horizontally
+				x = obj_mario.x;
+		    }
+		    else {
+            
+		        y = follow.y;
+		        camera_set_view_speed(view_camera[0], -1, 4);
+		    }
 		}
 	}
 }
@@ -66,7 +172,8 @@ if (shake_time > 0) {
 	// Subtract shake time
 	shake_time --;
 	
-} else {
+} 
+else {
 
 	// Make sure the shake time & start time bottom out to 0
 	shake_time = 0;
@@ -80,8 +187,10 @@ x = screen_round(clamp(x, camera_get_view_width(view_camera[0])/2, room_width - 
 y = screen_round(clamp(y, camera_get_view_height(view_camera[0])/2, room_height - camera_get_view_height(view_camera[0])/2)-(camera_get_view_height(view_camera[0])/2));
 
 // Clamp the screen shake
-if (shake_val != 0)
+if (shake_val != 0) {
+	
 	y = screen_round(clamp(y+shake_val, 0, room_height-camera_get_view_height(view_camera[0])));
+}
 
 //Ensure there is no view target so that the camera can be manually moved
 camera_set_view_target(view_camera[0], noone);

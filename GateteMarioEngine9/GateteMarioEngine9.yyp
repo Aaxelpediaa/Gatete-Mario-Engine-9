@@ -67,6 +67,7 @@
     {"id":{"name":"spr_mario_bee_swim","path":"sprites/spr_mario_bee_swim/spr_mario_bee_swim.yy",},"order":6,},
     {"id":{"name":"obj_messageblock","path":"objects/obj_messageblock/obj_messageblock.yy",},"order":3,},
     {"id":{"name":"spr_mario_tanooki_jump","path":"sprites/spr_mario_tanooki_jump/spr_mario_tanooki_jump.yy",},"order":1,},
+    {"id":{"name":"obj_autoscroll","path":"objects/obj_autoscroll/obj_autoscroll.yy",},"order":1,},
     {"id":{"name":"spr_slippery","path":"sprites/spr_slippery/spr_slippery.yy",},"order":6,},
     {"id":{"name":"spr_slope_gentle_r","path":"sprites/spr_slope_gentle_r/spr_slope_gentle_r.yy",},"order":5,},
     {"id":{"name":"obj_slope_gentle_l","path":"objects/obj_slope_gentle_l/obj_slope_gentle_l.yy",},"order":6,},
