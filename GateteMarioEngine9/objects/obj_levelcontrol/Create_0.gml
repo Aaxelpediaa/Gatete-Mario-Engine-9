@@ -39,6 +39,7 @@ swarning = 0;
 
 //Reach last ground Y
 floorY = 0;
+camera_y = y;
 
 //Create HUD
 instance_create_layer(0, 0, "GUI", obj_hud);
