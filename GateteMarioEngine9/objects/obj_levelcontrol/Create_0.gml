@@ -3,20 +3,23 @@
 /*
 **  This item uses creation code!
 **
-**  levelmusic      = The music to play in the current area
+**  inisection      = The music section to read from the INI file
 **  leveltime       = The time limit in seconds (Optional)
 **  camlock         = To lock the camera in position
 **  makeswim        = To make the entire level swimable
 */
 
 //Default values
-levelmusic = noone;
+inisection = "Overworld";
 leveltime = 0;
 camlock = 0;
 makeswim = 0;
 
 //Play music
 alarm[0] = 2;
+
+//Level music
+levelmusic = noone;
 
 //Is music disabled?
 musicdisable = 0;
@@ -31,11 +34,13 @@ alarm[6] = 3;
 //Object to follow
 follow = noone;
 
-//P-SWitch warning
-warning = 0;
+//P-Switch variables
+pswitchon = false;
+pswitch_warn = false;
 
-//Gray P-Switch warning
-swarning = 0;
+//Gray P-Switch variables
+sswitchon = false;
+sswitch_warn = false;
 
 //Reach last ground Y
 floorY = 0;

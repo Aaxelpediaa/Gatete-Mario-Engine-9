@@ -102,7 +102,7 @@ else {
 		                || (obj_mario.state == playerstate.walk) {
 
 		                    //Position Mario just reached
-		                    if (camlock == false) 
+		                    if (camlock == false)
 								floorY = obj_mario.y;
 
 		                    //If Mario is above the camera
@@ -131,7 +131,7 @@ else {
 		                if (obj_mario.y > y) {
 
 		                    y = obj_mario.y;
-		                    camera_set_view_speed(view_camera[0], -1, -1);
+		                    camera_set_view_speed(view_camera[0], -1, 6);
 		                }
 		            }
 		        }
@@ -140,8 +140,9 @@ else {
 				x = obj_mario.x;
 		    }
 		    else {
+				
 		        y = follow.y;
-		        camera_set_view_speed(view_camera[0], -1, 4);
+		        camera_set_view_speed(view_camera[0], -1, 6);
 		    }
 		}
 	}
