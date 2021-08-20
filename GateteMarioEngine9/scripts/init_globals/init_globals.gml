@@ -1,6 +1,9 @@
 /// @function init_globals();
 
 function init_globals() {
+	
+	//Music Stream Variable
+	global.stream = noone;
 
 	//World Number
 	global.world = "1";

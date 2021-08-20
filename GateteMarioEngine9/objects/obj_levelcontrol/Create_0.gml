@@ -3,23 +3,26 @@
 /*
 **  This item uses creation code!
 **
-**  levelmusic      = The music to play in the current area
-**  leveltime       = The time limit in seconds (Optional)
+**  inisection      = The section of the ini to load data
+**  leveltime       = The time limit in seconds (Opt.)
 **  camlock         = To lock the camera in position
 **  makeswim        = To make the entire level swimable
 */
 
 //Default values
-levelmusic = noone;
+inisection = "Overworld";
 leveltime = 0;
-camlock = 0;
-makeswim = 0;
+camlock = false;
+makeswim = false;
 
 //Play music
 alarm[0] = 2;
+    
+//The music of the level
+levelmusic = noone;
 
 //Is music disabled?
-musicdisable = 0;
+musicdisable = false;
 
 //Set depth
 depth = 10000;
@@ -32,10 +35,12 @@ alarm[6] = 3;
 follow = noone;
 
 //P-SWitch warning
-warning = 0;
+pswitch_on = 0;
+pswitch_warn = 0;
 
 //Gray P-Switch warning
-swarning = 0;
+sswitch_on = 0;
+sswitch_warn = 0;
 
 //Reach last ground Y
 floorY = 0;

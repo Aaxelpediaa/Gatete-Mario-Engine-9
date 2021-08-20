@@ -4,7 +4,7 @@
 audio_stop_sound(snd_megashroom);
 
 //Play the music from the level
-obj_levelcontrol.alarm[0] = 2;
+obj_levelcontrol.alarm[0] = 1;
 
 //If Mario does exist
 if (instance_exists(obj_mario)) {
