@@ -86,49 +86,60 @@ else {
                     
 		        //Otherwise
 		        else {
-                
+
 		            //If Mario is swimming
 		            if (obj_mario.swimming == true) {
-                    
+
 		                y = obj_mario.y;
 		                camera_set_view_speed(view_camera[0], -1, 6);
 		            }
-                        
+
 		            //Otherwise
 		            else {
-						
-						// If Mario's on the ground, check against the player's position
-						if (obj_mario.state == playerstate.idle) 
+
+		                //If Mario's is idle or walking
+		                if (obj_mario.state == playerstate.idle) 
 		                || (obj_mario.state == playerstate.walk) {
-							
-							// The goal Y position needs to be Mario's grounded Y position
-							floorY = obj_mario.y;
 
-						}
-							
-						// If the camera is above Mario, and he's going down...
-						if ((obj_mario.yspeed >= 0) && (obj_mario.y > y)) {
-								
-							// Fall at the same speed as Mario
-							y += obj_mario.y - obj_mario.yprevious;
-								
-						}
-						// Regardless of whether Mario is on the ground or not, the destination Y position needs to be reached
-						if (y > floorY && obj_mario.yspeed <= 0) {
-								
-							// Go up to destination
-							y = clamp(y - 4, floorY, y);
+		                    //Position Mario just reached
+		                    if (camlock == false) 
+								floorY = obj_mario.y;
 
-						}
-						
-					}
+		                    //If Mario is above the camera
+		                    if (obj_mario.y < y) {
+
+		                        //If the camera is 4 pixels below Mario's y position, move 4 pixels upwards until the camera catches the player.
+		                        if (y > obj_mario.y+4)
+		                            y -= 4;
+
+		                        //Otherwise
+		                        else {
+
+		                            y = obj_mario.y;
+		                            camera_set_view_speed(view_camera[0], -1, 6);
+		                        }
+		                    }
+		                } 
+		                else {
+
+		                    //If Mario didn't reach Y position on the ground, catch Mario (only applies going up)
+		                    if (round(y) < floorY)
+		                        y -= 4;
+		                }
+
+		                //If Mario is below the camera, catch him instantly
+		                if (obj_mario.y > y) {
+
+		                    y = obj_mario.y;
+		                    camera_set_view_speed(view_camera[0], -1, -1);
+		                }
+		            }
 		        }
-				
+
 				//Follow Mario horizontally
 				x = obj_mario.x;
 		    }
 		    else {
-            
 		        y = follow.y;
 		        camera_set_view_speed(view_camera[0], -1, 4);
 		    }
@@ -169,22 +180,22 @@ else {
 }
 
 //Clamp the X/Y position to the room so that shakes on the bottom of the screen still occur fine
-x = screen_round(clamp(x, camera_get_view_width(view_camera[0])/2, room_width - camera_get_view_width(view_camera[0])/2)-(camera_get_view_width(view_camera[0])/2));
+var camera_x = screen_round(clamp(x, camera_get_view_width(view_camera[0])/2, room_width - camera_get_view_width(view_camera[0])/2) - (camera_get_view_width(view_camera[0])/2));
 
 // Initial clamp in view
-camera_y = screen_round(clamp(y, camera_get_view_height(view_camera[0])/2, room_height - camera_get_view_height(view_camera[0])/2)-(camera_get_view_height(view_camera[0])/2));
+var camera_y = screen_round(clamp(y, camera_get_view_height(view_camera[0])/2, room_height - camera_get_view_height(view_camera[0])/2) - (camera_get_view_height(view_camera[0])/2));
 
 // Clamp the screen shake
 if (shake_val != 0) {
 	
-	camera_y = screen_round(clamp(y+shake_val, 0, room_height-camera_get_view_height(view_camera[0])));
+	camera_y = screen_round(clamp(camera_y+shake_val, 0, room_height-camera_get_view_height(view_camera[0])));
 }
 
 //Ensure there is no view target so that the camera can be manually moved
 camera_set_view_target(view_camera[0], noone);
 
 //Set the camera position
-camera_set_view_pos(view_camera[0], x, camera_y);
+camera_set_view_pos(view_camera[0], camera_x, camera_y);
 
 //Manage background position
 #region PARALLAX BACKGROUNDS
