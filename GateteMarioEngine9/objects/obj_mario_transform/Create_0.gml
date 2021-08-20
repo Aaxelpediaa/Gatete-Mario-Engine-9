@@ -17,41 +17,37 @@ ready = 0;
 //How many times does the animation loop?
 loop = 0;
 
-//Screenshot
-snapshot = -1;
-
 //Destroy these objects first
 with (obj_spinner) instance_destroy();
 with (obj_dropdown) instance_destroy();
+	
+//Hereby Mario's colour
+isflashing = obj_mario.isflashing;
+    
+//Hereby Mario's facing direction.
+direct = obj_mario.xscale;
+	
+//Hide player elements
+with (obj_cape) visible = false;
+with (obj_wallrunner) visible = false;
 
 //Make Mario invisible
 if (instance_exists(obj_mario)) {
 
-    //Make Mario invisible.
-    obj_mario.visible = false;
+	//Make Mario invisible.
+	obj_mario.visible = false;
     
-    //Snap to position.
-    x = round(obj_mario.x);
-    y = round(obj_mario.y);
+	//Snap to position.
+	x = round(obj_mario.x);
+	y = round(obj_mario.y);
     
-    //Set the depth
-    depth = obj_mario.depth;
+	//Set the depth
+	depth = obj_mario.depth;
     
-    //Hereby Mario's colour
-    isflashing = obj_mario.isflashing;
-    
-    //Hereby Mario's facing direction.
-    direct = obj_mario.xscale;    
 }
 
-//Make objects invisible
-with (obj_cape) visible = 0;
-with (obj_wallrunner) visible = 0;
-with (obj_effectsparent) visible = 0;
-with (obj_water_front) visible = 0;
-
-//Freeze all NPCs
-with (obj_physicsparent) event_user(14);
+//Screenshot
+freeze_create();
 
 //Start animation
 alarm[0] = 1;

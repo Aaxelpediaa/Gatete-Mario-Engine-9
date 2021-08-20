@@ -47,6 +47,9 @@ function init_globals() {
 	global.card[0] = -1;
 	global.card[1] = -1;
 	global.card[2] = -1;
+	
+	//Prefreeze
+	global.prefreeze = noone;
 
 	//P-Wing
 	global.pwing = 0;

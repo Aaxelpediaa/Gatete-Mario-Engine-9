@@ -7,7 +7,8 @@ gpu_set_blendenable(false);
 draw_rectangle_colour(0, 0, global.gw*size, global.gh*size, c_black, c_black, c_black, c_black, 0);
 
 //Draw the application surface
-draw_surface_stretched(application_surface, 0, 0, global.gw*size, global.gh*size);
+var focus_surface = (global.prefreeze == noone) ? application_surface : global.prefreeze;
+draw_surface_stretched(focus_surface, 0, 0, global.gw*size, global.gh*size);
 
 //Enable alpha blending
 gpu_set_blendenable(true);

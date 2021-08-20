@@ -463,7 +463,7 @@
     {"id":{"name":"snd_frog","path":"sounds/snd_frog/snd_frog.yy",},"order":7,},
     {"id":{"name":"obj_boomerangflower","path":"objects/obj_boomerangflower/obj_boomerangflower.yy",},"order":10,},
     {"id":{"name":"spr_slope_ceiling_r","path":"sprites/spr_slope_ceiling_r/spr_slope_ceiling_r.yy",},"order":0,},
-    {"id":{"name":"prefreeze_create","path":"scripts/prefreeze_create/prefreeze_create.yy",},"order":5,},
+    {"id":{"name":"freeze_create","path":"scripts/freeze_create/freeze_create.yy",},"order":5,},
     {"id":{"name":"snd_sprout","path":"sounds/snd_sprout/snd_sprout.yy",},"order":9,},
     {"id":{"name":"string_add_zeroes","path":"scripts/string_add_zeroes/string_add_zeroes.yy",},"order":1,},
     {"id":{"name":"spr_waterfall","path":"sprites/spr_waterfall/spr_waterfall.yy",},"order":0,},

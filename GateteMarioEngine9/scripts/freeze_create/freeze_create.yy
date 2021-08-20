@@ -6,7 +6,7 @@
     "path": "folders/Scripts/System.yy",
   },
   "resourceVersion": "1.0",
-  "name": "prefreeze_create",
+  "name": "freeze_create",
   "tags": [],
   "resourceType": "GMScript",
 }

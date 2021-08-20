@@ -1,24 +1,8 @@
 /// @description Freeze all objects and begin animation
 
-//Create a snapshot
-snapshot = sprite_create_from_surface(application_surface, 0, 0, surface_get_width(application_surface), surface_get_height(application_surface), 0, 1, 0, 0);
-
-//Deactivate all instances
-instance_deactivate_all(1);
-
-//Activate coordinator object
-instance_activate_object(obj_coordinator);
-
-//Activate water front object
-instance_activate_object(obj_water_front);
-with (obj_water_front) visible = 1;
-
-//Activate effects parent
-instance_activate_object(obj_effectsparent);
-with (obj_effectsparent) visible = 1;
-
 //Activate player object and disable it's gravity
 instance_activate_object(obj_mario);
+
 with (obj_mario) {
 	
 	enable_gravity = 0;
