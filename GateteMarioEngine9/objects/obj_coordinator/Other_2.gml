@@ -137,7 +137,7 @@
 			global.key[input.action_0] = vk_shift;
     
 			//Action 2 (Control)
-			global.key[input.action_1] = vk_control;
+			global.key[input.action_1] = (os_type != os_macosx) ? vk_control : vk_lcommand;
     
 			//Action 3 (Space)
 			global.key[input.action_2] = vk_space;

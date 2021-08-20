@@ -42,6 +42,13 @@ global.pmeter_limit = 144;
 
 #endregion
 
+#region MAC KEY MACROS
+
+	#macro vk_lcommand 92
+	#macro vk_rcommand 91
+	
+#endregion
+
 //Powerup Macros
 #region POWERUP MACROS
 
