@@ -16,7 +16,7 @@ if (sequence == 5) {
 
 			//Destroy the sprite
 			sprite_delete(snapshot);
-		
+			
 			//Activate all instances
 			instance_activate_all();
 			

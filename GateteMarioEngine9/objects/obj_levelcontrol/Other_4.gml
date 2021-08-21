@@ -1,6 +1,6 @@
 /// @description Handles the Mario Start! text, room warping, music and timer
 
-/*If the music is not the same as the music used in the last room
+//If the music is not the same as the music used in the last room
 if (global.levelmusic != levelmusic) {
 
     //Stop the old music
@@ -14,16 +14,16 @@ if (global.levelmusic != levelmusic) {
 if (leveltime > 0) { //If the timer has been set.
 
     //If the global time for the level is equal to 0.
-    if (global.time = 0) {
+    if (global.timer = 0) {
     
-        global.time = leveltime;
-        alarm[2] = 50;
+        global.timer = leveltime;
+        alarm[2] = 40;
     }
     
     //Otherwise, if the time has been set before.
-    else if (global.time > 0)    
-        alarm[2] = 50;
-}*/
+    else if (global.timer > 0)    
+        alarm[2] = 40;
+}
 
 //If the player just started the level
 if (global.mariostart == 0) {

@@ -19,8 +19,8 @@ camera_set_view_size(view_camera[0], global.gw, global.gh);
 //Rescale the surface
 surface_resize(application_surface, global.gw*size, global.gh*size);
 
-//Set the game view border
-camera_set_view_border(view_camera[0], camera_get_view_width(view_camera[0])/2, camera_get_view_height(view_camera[0])/2);
+//Set the viewing border
+camera_set_view_border(view_camera[0], camera_get_view_width(view_camera[0]) / 2, camera_get_view_height(view_camera[0]) / 2);
 
 //Set the viewing target to the coordinator (to be changed to Level Coordinator, etc. later)
 camera_set_view_target(view_camera[0], self);

@@ -141,7 +141,7 @@ global.pmeter_limit = 144;
 #endregion
 
 //Current pitch
-global.pitch = 1;
+pitch = 1;
 
 //Current File
 global.file = 0;

@@ -80,8 +80,8 @@ else {
 		        //Otherwise, if Mario is climbing or wall running
 		        else if ((obj_mario.state == playerstate.climb) || (instance_exists(obj_wallrunner))) {
                 
-		            y = obj_mario.y;
-		            camera_set_view_speed(view_camera[0], -1, 6);
+					y = obj_mario.y;
+					camera_set_view_speed(view_camera[0], -1, 6);
 		        }
                     
 		        //Otherwise
@@ -131,7 +131,7 @@ else {
 		                if (obj_mario.y > y) {
 
 		                    y = obj_mario.y;
-		                    camera_set_view_speed(view_camera[0], -1, -1);
+		                    camera_set_view_speed(view_camera[0], -1, 6);
 		                }
 		            }
 		        }
@@ -140,8 +140,9 @@ else {
 				x = obj_mario.x;
 		    }
 		    else {
+				
 		        y = follow.y;
-		        camera_set_view_speed(view_camera[0], -1, 4);
+		        camera_set_view_speed(view_camera[0], -1, 6);
 		    }
 		}
 	}

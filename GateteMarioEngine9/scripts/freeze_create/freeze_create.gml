@@ -2,8 +2,7 @@
 global.keep_activated = [
 	
 	obj_water_front,
-	obj_effectsparent,
-	
+	obj_effectsparent,	
 ]
 
 /// @function									freeze_create(surface[OPTIONAL]);
@@ -26,11 +25,11 @@ function freeze_create() {
 
 	//Make objects invisible
 	if (!_indexedFreezePersistentVariable) {
+		
 		for (var i = 0; i < array_length(global.keep_activated); i ++) {
 			
 			with (global.keep_activated[i])
-				visible = false;
-			
+				visible = false;			
 		}
 	}
 
@@ -55,15 +54,13 @@ function freeze_create() {
 		
 		// Make objects visible
 		if (!_indexedFreezePersistentVariable) {
+			
 			for (var i = 0; i < array_length(global.keep_activated); i ++) {
 			
 				instance_activate_object(global.keep_activated[i]);
 				with (global.keep_activated[i])
-					visible = true;
-			
+					visible = true;			
 			}
 		}
-	
 	}, 1);
-	
 }

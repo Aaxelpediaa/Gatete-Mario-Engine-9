@@ -2,7 +2,8 @@
 
 function init_globals() {
 	
-	//Music Stream Variable
+	//Music Variables
+	global.levelmusic = noone;
 	global.stream = noone;
 
 	//World Number
