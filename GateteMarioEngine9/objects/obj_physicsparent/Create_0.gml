@@ -29,8 +29,12 @@ depth = -2;
 //Change gravity when in contact with water
 noswim = false;
 
+
 //Turn towards walls?
-turn_toward = true;
+//-1: Jump them
+//0: Stop
+//1: Turn around
+turn_toward = 1;
 
 //Turn towards ceilings
 turn_toward_ceiling = false;

@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_semisolid",
-    "path": "objects/obj_semisolid/obj_semisolid.yy",
+    "name": "obj_platformparent",
+    "path": "objects/obj_platformparent/obj_platformparent.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -25,16 +25,15 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":2,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Parents",
-    "path": "folders/Objetos/Special/Parents.yy",
+    "name": "Common",
+    "path": "folders/Objetos/Items/Platforms/Common.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_platformparent",
+  "name": "obj_platform",
   "tags": [],
   "resourceType": "GMObject",
 }

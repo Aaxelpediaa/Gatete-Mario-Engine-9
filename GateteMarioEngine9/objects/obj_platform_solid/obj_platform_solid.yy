@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "spr_platform",
-    "path": "sprites/spr_platform/spr_platform.yy",
+    "name": "spr_platform_solid",
+    "path": "sprites/spr_platform_solid/spr_platform_solid.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_semisolid",
-    "path": "objects/obj_semisolid/obj_semisolid.yy",
+    "name": "obj_platformparent",
+    "path": "objects/obj_platformparent/obj_platformparent.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -30,11 +30,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Parents",
-    "path": "folders/Objetos/Special/Parents.yy",
+    "name": "Common",
+    "path": "folders/Objetos/Items/Platforms/Common.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_platformparent",
+  "name": "obj_platform_solid",
   "tags": [],
   "resourceType": "GMObject",
 }
