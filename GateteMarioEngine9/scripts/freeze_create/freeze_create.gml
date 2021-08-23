@@ -2,7 +2,7 @@
 global.keep_activated = [
 	
 	obj_water_front,
-	obj_effectsparent,	
+	obj_effectsparent	
 ]
 
 /// @function									freeze_create(surface[OPTIONAL]);
@@ -48,6 +48,9 @@ function freeze_create() {
 
 		//Deactivate all instances
 		instance_deactivate_all(true);
+		
+		//Activate HUD
+		instance_activate_object(obj_hud);
 
 		//Activate coordinator object
 		instance_activate_object(obj_coordinator);

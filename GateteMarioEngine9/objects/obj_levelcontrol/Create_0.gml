@@ -6,14 +6,14 @@
 **  inisection      = The section of the ini to load data
 **  leveltime       = The time limit in seconds (Opt.)
 **  camlock         = To lock the camera in position
-**  makeswim        = To make the entire level swimable
+**	classicscroll   = To implement the classic scroll on the level
 */
 
 //Default values
 inisection = "Overworld";
 leveltime = 0;
-camlock = false;
-makeswim = false;
+camlock = 0;
+classicscroll = false;
 
 //Play music
 alarm[0] = 2;
@@ -45,6 +45,9 @@ sswitch_warn = 0;
 //Reach last ground Y
 floorY = 0;
 
+//Camera orientation
+orientation = 1;
+
 //Create HUD
 instance_create_layer(0, 0, "GUI", obj_hud);
 
@@ -55,6 +58,3 @@ shake_falloff = 0;
 
 //Used for calculating falloff
 shake_starttime = 0;
-
-//Underwater init
-alarm[8] = 2;

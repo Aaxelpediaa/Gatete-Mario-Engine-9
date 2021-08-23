@@ -5,9 +5,6 @@ event_user(15);
 
 //If the autoscroll object does exist
 if (instance_exists(obj_autoscroll)) {
-
-    //Set vertical view speed
-    camera_set_view_speed(view_camera[0], -1, -1);    
     
     //Snap into position
     x = obj_autoscroll.x;
@@ -71,89 +68,147 @@ else {
 				#endregion
 				
 				//If the camera is not locked
-				if (camlock == false) {
-					
+				if (camlock == false)					
 					y = obj_mario.y;
-					camera_set_view_speed(view_camera[0], -1, 6);
-				}
 					
-				//Otherwise
+				//Otherwise, if the camera is locked
 				else {
             
-			        //If the player is running
-			        if (obj_mario.run == true) {
-                
-			            y = obj_mario.y;
-			            camera_set_view_speed(view_camera[0], -1, 6);
-			        }
-                    
-			        //Otherwise, if Mario is climbing or wall running
-			        else if ((obj_mario.state == playerstate.climb) || (instance_exists(obj_wallrunner))) {
-                
-						y = obj_mario.y;
-						camera_set_view_speed(view_camera[0], -1, 6);
-			        }
-                    
+			        //If the player is running, swimming, climbing or wall running
+			        if (obj_mario.run == true)
+					|| (obj_mario.swimming == 1)
+					|| (obj_mario.wallkick == 1)
+					|| (obj_mario.squirrelpropel == 1)
+					|| ((obj_mario.jumpstyle > 0) && (global.powerup == cs_propeller))
+					|| ((obj_mario.state == playerstate.climb) || (instance_exists(obj_wallrunner))) {
+						
+						//If the camera is 6 pixels below Mario's y position, move 6 pixels upwards until the camera catches the player.
+			            if (y > obj_mario.y+6)
+			                y -= 6;
+
+			            //Otherwise
+			            else
+			                y = obj_mario.y;
+					}
+
 			        //Otherwise
 			        else {
 
-			            //If Mario is swimming
-			            if (obj_mario.swimming == true) {
+			            //If Mario's is idle or walking
+			            if (obj_mario.state == playerstate.idle) 
+			            || (obj_mario.state == playerstate.walk) {
 
-			                y = obj_mario.y;
-			                camera_set_view_speed(view_camera[0], -1, 6);
-			            }
+			                //Position Mario just reached
+							floorY = obj_mario.y;
 
-			            //Otherwise
+			                //If Mario is above the camera
+			                if (obj_mario.y < y) {
+
+			                    //If the camera is 6 pixels below Mario's y position, move 6 pixels upwards until the camera catches the player.
+			                    if (y > obj_mario.y+6)
+			                        y -= 6;
+
+			                    //Otherwise
+			                    else
+			                        y = obj_mario.y;
+			                }
+			            } 
 			            else {
 
-			                //If Mario's is idle or walking
-			                if (obj_mario.state == playerstate.idle) 
-			                || (obj_mario.state == playerstate.walk) {
-
-			                    //Position Mario just reached
-								floorY = obj_mario.y;
-
-			                    //If Mario is above the camera
-			                    if (obj_mario.y < y) {
-
-			                        //If the camera is 4 pixels below Mario's y position, move 4 pixels upwards until the camera catches the player.
-			                        if (y > obj_mario.y+4)
-			                            y -= 4;
-
-			                        //Otherwise
-			                        else {
-
-			                            y = obj_mario.y;
-			                            camera_set_view_speed(view_camera[0], -1, 6);
-			                        }
-			                    }
-			                } 
-			                else {
-
-			                    //If Mario didn't reach Y position on the ground, catch Mario (only applies going up)
-			                    if (round(y) < floorY)
-			                        y -= 4;
-			                }
-
-			                //If Mario is below the camera, catch him instantly
-			                if (obj_mario.y > y) {
-
-			                    y = obj_mario.y;
-			                    camera_set_view_speed(view_camera[0], -1, 6);
-			                }
+			                //If Mario didn't reach Y position on the ground, catch Mario (only applies going up)
+			                if (round(y) < floorY)
+			                    y -= 6;
 			            }
+
+			            //If Mario is below the camera, catch him instantly
+			            if (obj_mario.y > y)
+			                y = obj_mario.y;
 			        }
 				}
-
-				//Follow Mario horizontally
-				x = obj_mario.x;
+				
+				//Horizontal speed
+				#region CAMERA HOR. SPEED
+				
+					var check_xspd = obj_mario.xspeed;
+					if (instance_exists(obj_fly))
+						check_xspd = obj_fly.xspeed;
+					else if (instance_exists(obj_dropdown))
+						check_xspd = obj_dropdown.xspeed;
+				#endregion
+				
+	            //If the camera is to the right and the player is from a certain distance from the camera
+	            if ((orientation == 1) && (obj_mario.x > x-16)) {
+                        
+	                //Scroll the camera at a certain speed until the camera catches up.
+	                if (obj_mario.x > x-12)
+	                    x += 2+check_xspd;
+	                else
+	                    x = obj_mario.x+16;
+	            }
+            
+	            //Otherwise, if the camera is to the left and the player is from a certain distance from the camera
+	            else if ((orientation == -1) && (obj_mario.x < x+16) && (classicscroll == 0)) {
+            
+	                //Scroll the camera at a certain speed until the camera catches up.
+	                if (obj_mario.x < x+12)
+	                    x -= 2-check_xspd;
+	                else
+	                    x = obj_mario.x-16;    
+	            }
+            
+	            //If the player is moving to the left and the camera is panning to the right, make the camera pan to the left
+	            if ((obj_mario.x-xprevious < 0) && (obj_mario.x < x-40) && (classicscroll == 0))
+	                orientation = -1;
+            
+	            //Otherwise, if the player is moving to the right and the camera is panning to the left, make the camera pan to the right.
+	            else if ((obj_mario.x-xprevious > 0) && (obj_mario.x > x+40))
+	                orientation = 1;
 		    }
 		    else {
 				
-		        y = follow.y;
-		        camera_set_view_speed(view_camera[0], -1, 6);
-		    }
+				//Handle camera position when Mario is not the main focus
+				#region CAMERA Y POSITION
+				
+					//If the camera is 6 pixels below Mario's y position, move 6 pixels upwards until the camera catches the player.
+				    if (y > follow.y+6)
+				        y -= 6;
+
+				    //Otherwise
+				    else
+				        y = follow.y;
+				#endregion
+				
+				//Horizontal speed
+				var check_xspd = follow.xspeed;
+				
+	            //If the camera is to the right and the player is from a certain distance from the camera
+	            if ((orientation == 1) && (follow.x > x-16)) {
+                        
+	                //Scroll the camera at a certain speed until the camera catches up.
+	                if (follow.x > x-12)
+	                    x += 2+check_xspd;
+	                else
+	                    x = follow.x+16;
+	            }
+            
+	            //Otherwise, if the camera is to the left and the player is from a certain distance from the camera
+	            else if ((orientation == -1) && (follow.x < x+16) && (classicscroll == 0)) {
+            
+	                //Scroll the camera at a certain speed until the camera catches up.
+	                if (follow.x < x+12)
+	                    x -= 2-check_xspd;
+	                else
+	                    x = follow.x-16;    
+	            }
+            
+	            //If the player is moving to the left and the camera is panning to the right, make the camera pan to the left
+	            if ((follow.x-xprevious < 0) && (follow.x < x-40) && (classicscroll == 0))
+	                orientation = -1;
+            
+	            //Otherwise, if the player is moving to the right and the camera is panning to the left, make the camera pan to the right.
+	            else if ((follow.x-xprevious > 0) && (follow.x > x+40))
+	                orientation = 1;
+			}
 		}
 	}
 }
@@ -161,27 +216,25 @@ else {
 //Clamp Y
 var shake_val = 0;
 
-// If there is a camera shake to occur
+//If there is a camera shake to occur
 if (shake_time > 0) {
 	
-	// If the shake falls off from it's original value
-	if (shake_falloff) {
-		
-		// Calculate the shake value relative to the time left in the timer
+	//If the shake falls off from it's original value, calculate the shake value relative to the time left in the timer
+	if (shake_falloff)
 		shake_val = shake_intensity * (shake_time / shake_starttime);		
-	} 
+	
+	//Otherwise
 	else {
 	
-		// Match shake value to shake intensity
+		//Match shake value to shake intensity
 		shake_val = shake_intensity;
 	}
 	
-	// Choose randomly between up and down shake
+	//Choose randomly between up and down shake
 	shake_val = choose(-shake_val, shake_val);
 	
-	// Subtract shake time
-	shake_time --;
-	
+	//Subtract shake time
+	shake_time --;	
 } 
 else {
 
@@ -193,10 +246,10 @@ else {
 //Clamp the X/Y position to the room so that shakes on the bottom of the screen still occur fine
 var camera_x = screen_round(clamp(x, camera_get_view_width(view_camera[0])/2, room_width - camera_get_view_width(view_camera[0])/2) - (camera_get_view_width(view_camera[0])/2));
 
-// Initial clamp in view
+//Initial clamp in view
 var camera_y = screen_round(clamp(y, camera_get_view_height(view_camera[0])/2, room_height - camera_get_view_height(view_camera[0])/2) - (camera_get_view_height(view_camera[0])/2));
 
-// Clamp the screen shake
+//Clamp the screen shake
 if (shake_val != 0) {
 	
 	camera_y = screen_round(clamp(camera_y+shake_val, 0, room_height-camera_get_view_height(view_camera[0])));

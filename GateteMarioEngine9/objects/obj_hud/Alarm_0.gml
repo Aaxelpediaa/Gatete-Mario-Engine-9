@@ -1,6 +1,7 @@
 /// @description Change P-Meter frame
 
-if (obj_mario.pmeter < global.pmeter_limit) {
+if (instance_exists(obj_mario))
+&& (obj_mario.pmeter < global.pmeter_limit) {
 	
 	flash = 0;
 	alarm[0] = 1;

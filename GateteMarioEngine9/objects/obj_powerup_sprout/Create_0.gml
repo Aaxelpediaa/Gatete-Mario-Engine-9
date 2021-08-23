@@ -13,7 +13,7 @@ big = 0;
 alarm[0] = 2;
 
 //Allow block exit
-alarm[1] = 62;
+alarm[1] = 31;
 
 //If there is a solid on top of the block
 if (position_meeting(x, y-8, obj_solid)) {
@@ -21,15 +21,15 @@ if (position_meeting(x, y-8, obj_solid)) {
     //Go down if both sides are blocked
     if (position_meeting(x-16, y+8, obj_solid))
     && (position_meeting(x+16, y+8, obj_solid))
-        vspeed = 0.25;
+        vspeed = 0.5;
 
     //Go right if the left side is blocked
     else if (position_meeting(x-16, y+8, obj_solid))
-        hspeed = 0.25;
+        hspeed = 0.5;
 
     //Go left if the right side is blocked
     else if (position_meeting(x+16, y+8, obj_solid))
-        hspeed = -0.25;
+        hspeed = -0.5;
 
     //Otherwise, go towards the player
     else {
@@ -38,17 +38,17 @@ if (position_meeting(x, y-8, obj_solid)) {
         if (instance_exists(obj_mario)) {
         
             if (obj_mario.x > x)
-                hspeed = 0.25;
+                hspeed = 0.5;
             else
-                hspeed = -0.25;
+                hspeed = -0.5;
         }
         
         //Otherwise, if it does not exist.
         else
-            hspeed = -0.25;
+            hspeed = -0.5;
     }
 }
 
 //Otherwise, move up
 else
-    vspeed = -0.25;
+    vspeed = -0.5;

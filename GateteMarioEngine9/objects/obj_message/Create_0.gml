@@ -11,4 +11,4 @@ showing = 0;
 scale = 0;
 
 //Freeze the screen
-freeze_create(true);
+freeze_create();
