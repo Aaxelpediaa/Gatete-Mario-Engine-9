@@ -10,16 +10,23 @@
 	if (player)
 	&& (player.state != playerstate.jump)
 	&& (player.bbox_bottom < yprevious+5) {
+		
+		//Check there's no semisolid on the way
+		var check = collision_rectangle(obj_mario.bbox_left, bbox_top-5, obj_mario.bbox_right, bbox_top+1, obj_semisolid, 0, 1);
+		
+		//If there's a platform on the way, exit
+		if (!check) {
     
-	    //Snap the player vertically
-	    player.y = ceil(bbox_top-16);
+		    //Snap the player vertically
+		    player.y = ceil(bbox_top-16);
 
-	    //Snap the player horizontally
-	    player.x += x-xprevious;
-	    if (collision_rectangle(player.bbox_right, player.bbox_top+4, player.bbox_right+1, player.bbox_bottom-1, obj_solid, 1, 1))
-	        player.x--;
-	    else if (collision_rectangle(player.bbox_left-1, player.bbox_top+4, player.bbox_left, player.bbox_bottom-1, obj_solid, 1, 1))
-	        player.x++;  
+		    //Snap the player horizontally
+		    player.x += x-xprevious;
+		    if (collision_rectangle(player.bbox_right, player.bbox_top+4, player.bbox_right+1, player.bbox_bottom-1, obj_solid, 1, 1))
+		        player.x--;
+		    else if (collision_rectangle(player.bbox_left-1, player.bbox_top+4, player.bbox_left, player.bbox_bottom-1, obj_solid, 1, 1))
+		        player.x++;
+		}
 	}
 
 	//Create a list
@@ -35,16 +42,20 @@
 			//If the item is above this platform
 			if (list[| i].yspeed >= 0)
 			&& (list[| i].bbox_bottom < yprevious+5) {
+				
+				//If there's a platform on the way, ignore this event
+				if (!collision_rectangle(list[| i].bbox_left, bbox_top-5, list[| i].bbox_right, bbox_top+1, obj_semisolid, 0, 1)) {
 	
-			    //Snap the player vertically
-			    list[| i].y = ceil(bbox_top-list[| i].sprite_height);
+				    //Snap the player vertically
+				    list[| i].y = ceil(bbox_top-list[| i].sprite_height);
 
-			    //Snap the player horizontally
-			    list[| i].x += x-xprevious;
-			    if (collision_rectangle(list[| i].bbox_right, list[| i].bbox_top+4, list[| i].bbox_right+1, list[| i].bbox_bottom-1, obj_solid, 1, 1))
-			        list[| i].x--;
-			    else if (collision_rectangle(list[| i].bbox_left-1, list[| i].bbox_top+4, list[| i].bbox_left, list[| i].bbox_bottom-1, obj_solid, 1, 1))
-			        list[| i].x++;
+				    //Snap the player horizontally
+				    list[| i].x += x-xprevious;
+				    if (collision_rectangle(list[| i].bbox_right, list[| i].bbox_top+4, list[| i].bbox_right+1, list[| i].bbox_bottom-1, obj_solid, 1, 1))
+				        list[| i].x--;
+				    else if (collision_rectangle(list[| i].bbox_left-1, list[| i].bbox_top+4, list[| i].bbox_left, list[| i].bbox_bottom-1, obj_solid, 1, 1))
+				        list[| i].x++;
+				}
 			}
 		}
 	}

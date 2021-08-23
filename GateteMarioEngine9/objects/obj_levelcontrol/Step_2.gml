@@ -69,72 +69,82 @@ else {
 						}
 					}				
 				#endregion
-            
-		        //If the player is running
-		        if (obj_mario.run == true) {
-                
-		            y = obj_mario.y;
-		            camera_set_view_speed(view_camera[0], -1, 6);
-		        }
-                    
-		        //Otherwise, if Mario is climbing or wall running
-		        else if ((obj_mario.state == playerstate.climb) || (instance_exists(obj_wallrunner))) {
-                
+				
+				//If the camera is not locked
+				if (camlock == false) {
+					
 					y = obj_mario.y;
 					camera_set_view_speed(view_camera[0], -1, 6);
-		        }
+				}
+					
+				//Otherwise
+				else {
+            
+			        //If the player is running
+			        if (obj_mario.run == true) {
+                
+			            y = obj_mario.y;
+			            camera_set_view_speed(view_camera[0], -1, 6);
+			        }
                     
-		        //Otherwise
-		        else {
+			        //Otherwise, if Mario is climbing or wall running
+			        else if ((obj_mario.state == playerstate.climb) || (instance_exists(obj_wallrunner))) {
+                
+						y = obj_mario.y;
+						camera_set_view_speed(view_camera[0], -1, 6);
+			        }
+                    
+			        //Otherwise
+			        else {
 
-		            //If Mario is swimming
-		            if (obj_mario.swimming == true) {
+			            //If Mario is swimming
+			            if (obj_mario.swimming == true) {
 
-		                y = obj_mario.y;
-		                camera_set_view_speed(view_camera[0], -1, 6);
-		            }
+			                y = obj_mario.y;
+			                camera_set_view_speed(view_camera[0], -1, 6);
+			            }
 
-		            //Otherwise
-		            else {
+			            //Otherwise
+			            else {
 
-		                //If Mario's is idle or walking
-		                if (obj_mario.state == playerstate.idle) 
-		                || (obj_mario.state == playerstate.walk) {
+			                //If Mario's is idle or walking
+			                if (obj_mario.state == playerstate.idle) 
+			                || (obj_mario.state == playerstate.walk) {
 
-		                    //Position Mario just reached
-		                    if (camlock == false) 
+			                    //Position Mario just reached
 								floorY = obj_mario.y;
 
-		                    //If Mario is above the camera
-		                    if (obj_mario.y < y) {
+			                    //If Mario is above the camera
+			                    if (obj_mario.y < y) {
 
-		                        //If the camera is 4 pixels below Mario's y position, move 4 pixels upwards until the camera catches the player.
-		                        if (y > obj_mario.y+4)
-		                            y -= 4;
+			                        //If the camera is 4 pixels below Mario's y position, move 4 pixels upwards until the camera catches the player.
+			                        if (y > obj_mario.y+4)
+			                            y -= 4;
 
-		                        //Otherwise
-		                        else {
+			                        //Otherwise
+			                        else {
 
-		                            y = obj_mario.y;
-		                            camera_set_view_speed(view_camera[0], -1, 6);
-		                        }
-		                    }
-		                } 
-		                else {
+			                            y = obj_mario.y;
+			                            camera_set_view_speed(view_camera[0], -1, 6);
+			                        }
+			                    }
+			                } 
+			                else {
 
-		                    //If Mario didn't reach Y position on the ground, catch Mario (only applies going up)
-		                    if (round(y) < floorY)
-		                        y -= 4;
-		                }
+			                    //If Mario didn't reach Y position on the ground, catch Mario (only applies going up)
+			                    if (round(y) < floorY)
+			                        y -= 4;
+			                }
 
-		                //If Mario is below the camera, catch him instantly
-		                if (obj_mario.y > y) {
+			                //If Mario is below the camera, catch him instantly
+			                if (obj_mario.y > y) {
 
-		                    y = obj_mario.y;
-		                    camera_set_view_speed(view_camera[0], -1, 6);
-		                }
-		            }
-		        }
+			                    y = obj_mario.y;
+			                    camera_set_view_speed(view_camera[0], -1, 6);
+			                }
+			            }
+			        }
+				}
 
 				//Follow Mario horizontally
 				x = obj_mario.x;

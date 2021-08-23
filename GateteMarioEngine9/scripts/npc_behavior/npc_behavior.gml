@@ -76,7 +76,7 @@ function ai_npc_wall(freezeuponwall) {
 function ai_npc_ceiling(bounceuponceiling) {
 	
 	//Check for a platform above
-	platform_u = collision_rectangle(bbox_left, bbox_top+yspeed, bbox_right, bbox_top+yspeed, obj_solid, 1, 0);
+	platform_u = collision_rectangle(bbox_left, bbox_top+yspeed, bbox_right, bbox_top+yspeed, obj_platformparent, 1, 0);
 	
 	//If moving upwards
 	if (yspeed < 0) 
