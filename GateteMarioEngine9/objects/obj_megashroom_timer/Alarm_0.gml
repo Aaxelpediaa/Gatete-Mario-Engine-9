@@ -16,6 +16,7 @@ if (instance_exists(obj_mario)) {
 	obj_mario.invulnerable = false;
 	with (instance_create_depth(0, 0, -5, obj_mario_transform)) {
 	
+		loop_me = 1;
 		scale = 4;
 		sequence = 6;
 	}

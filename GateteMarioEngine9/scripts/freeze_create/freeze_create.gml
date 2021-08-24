@@ -65,5 +65,5 @@ function freeze_create() {
 					visible = true;			
 			}
 		}
-	}, 1);
+	}, 0);
 }

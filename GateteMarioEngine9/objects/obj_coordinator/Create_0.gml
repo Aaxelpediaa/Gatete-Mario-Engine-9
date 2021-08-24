@@ -143,6 +143,9 @@ global.pmeter_limit = 144;
 //Current pitch
 pitch = 1;
 
+//Lives
+addlives = 0;
+
 //Current File
 global.file = 0;
 
@@ -152,8 +155,8 @@ global.gw = room_width;
 //Game Height
 global.gh = room_height;
 
-//Lives to be added
-addlives = 0;
+//Game Restart
+global.restart = false;
 
 //Rescale the surface (sub-pixels)
 rescale_surface = false;

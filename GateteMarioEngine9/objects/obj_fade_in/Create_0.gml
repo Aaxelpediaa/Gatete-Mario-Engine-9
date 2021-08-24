@@ -4,7 +4,7 @@
 target = noone;
 
 //Create freeze screen
-freeze_create();
+freeze_create(true);
 
 //Set the alpha
 alpha = 0;

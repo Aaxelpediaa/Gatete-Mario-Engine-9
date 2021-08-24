@@ -1,8 +1,7 @@
 /// @description Freeze all objects and begin animation
 
-//Activate player object and disable it's gravity
+//Activate Mario, make him visible and disable it's gravity
 instance_activate_object(obj_mario);
-
 with (obj_mario) {
 	
 	enable_gravity = 0;
@@ -57,12 +56,12 @@ switch (sequence) {
 		image_speed = 0;
 		image_index = 0;
 		
-		//Make visible
+		//Turn visible
 		visible = true;
 		
 		//Exit
 		exit;
-	}
+	} break;
 	
 	//Mega Shrink
 	case (6): {
@@ -77,7 +76,7 @@ switch (sequence) {
 		image_speed = 0;
 		image_index = obj_mario.image_index;
 		
-		//Make the object visible
+		//Turn visible
 		visible = true;
 		
 		//Exit

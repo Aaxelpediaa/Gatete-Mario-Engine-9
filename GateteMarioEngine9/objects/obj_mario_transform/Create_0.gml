@@ -6,6 +6,8 @@
 //2: Powerup
 //3: Powerdown
 //4: Poof
+//5: Mega Grow
+//6: Mega Shrink
 sequence = 0;
 
 //Scale
@@ -16,6 +18,9 @@ ready = 0;
 
 //How many times does the animation loop?
 loop = 0;
+
+//Loops between screenshot
+loop_me = 0;
 
 //Destroy these objects first
 with (obj_spinner) instance_destroy();
@@ -42,12 +47,11 @@ if (instance_exists(obj_mario)) {
 	y = round(obj_mario.y);
     
 	//Set the depth
-	depth = obj_mario.depth;
-    
+	depth = obj_mario.depth;    
 }
 
-//Screenshot
+//Create screenshot
 freeze_create();
 
-//Start animation
+//Begin animation
 alarm[0] = 1;
