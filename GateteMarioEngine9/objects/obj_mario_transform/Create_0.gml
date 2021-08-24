@@ -19,9 +19,6 @@ ready = 0;
 //How many times does the animation loop?
 loop = 0;
 
-//Loops between screenshot
-loop_me = 0;
-
 //Destroy these objects first
 with (obj_spinner) instance_destroy();
 with (obj_dropdown) instance_destroy();

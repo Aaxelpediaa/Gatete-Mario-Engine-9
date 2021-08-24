@@ -46,6 +46,9 @@ switch (sequence) {
 	//Mega Grow
 	case (5): {
 		
+		//Turn Mario invisible
+		obj_mario.visible = false;
+		
 		//Set sprite
 		sprite_index = spr_mario_grow_to_mega;
 		
@@ -65,6 +68,9 @@ switch (sequence) {
 	
 	//Mega Shrink
 	case (6): {
+		
+		//Turn Mario invisible
+		obj_mario.visible = false;
 	
 		//Set sprite
 		sprite_index = obj_mario.sprite_index;

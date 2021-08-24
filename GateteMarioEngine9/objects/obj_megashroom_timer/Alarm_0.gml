@@ -11,12 +11,16 @@ if (instance_exists(obj_mario)) {
 	
 	//Play 'Warp' sound
 	audio_play_sound(snd_warp, 0, false);
+	
+	//Make Mario invisible
+	obj_mario.visible = false;
 
-	//Make Mario vulnerable and shrink
+	//Make Mario vulnerable
 	obj_mario.invulnerable = false;
+	
+	//Create transformation object
 	with (instance_create_depth(0, 0, -5, obj_mario_transform)) {
 	
-		loop_me = 1;
 		scale = 4;
 		sequence = 6;
 	}
