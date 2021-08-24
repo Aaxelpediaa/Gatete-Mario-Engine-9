@@ -35,6 +35,9 @@ with (obj_wallrunner) visible = false;
 
 //Make Mario invisible
 if (instance_exists(obj_mario)) {
+	
+	//Set the sprite
+	sprite_index = obj_mario.sprite_index;
 
 	//Make Mario invisible.
 	obj_mario.visible = false;
@@ -48,7 +51,10 @@ if (instance_exists(obj_mario)) {
 }
 
 //Create screenshot
-freeze_create();
+if (sequence < 5) {
+	
+	freeze_create();
+}
 
 //Begin animation
 alarm[0] = 1;

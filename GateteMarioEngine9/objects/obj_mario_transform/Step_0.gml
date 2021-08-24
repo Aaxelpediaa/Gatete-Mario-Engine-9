@@ -55,7 +55,7 @@ if (sequence == 5) {
 }
 
 //Otherwise, if shrinking
-else if (sequence == 6) {
+if (sequence == 6) {
 
 	//Decrement scale
 	scale -= 0.0375;
