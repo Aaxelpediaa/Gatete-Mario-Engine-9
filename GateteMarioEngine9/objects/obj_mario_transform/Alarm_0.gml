@@ -62,9 +62,6 @@ switch (sequence) {
 		//Turn visible
 		visible = true;
 		
-		//Create screenshot
-		freeze_create();
-		
 		//Exit
 		exit;
 	}
@@ -72,24 +69,22 @@ switch (sequence) {
 	//Mega Shrink
 	case (6): {
 		
-		//Turn Mario invisible
-		obj_mario.visible = false;
-	
-		//Set sprite
-		sprite_index = obj_mario.sprite_index;
+		//Freeze screen
+		if (sprite_exists(snapshot)) {
+			
+			sprite_delete(snapshot);
+			freeze_create();
+		}
 		
 		//Set special state
 		ready = 2;
 		
-		//Do not animate
+		//Set frame
 		image_speed = 0;
 		image_index = obj_mario.image_index;
 		
 		//Turn visible
 		visible = true;
-		
-		//Create screenshot
-		freeze_create();
 		
 		//Exit
 		exit;

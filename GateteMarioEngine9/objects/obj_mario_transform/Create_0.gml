@@ -40,7 +40,7 @@ if (instance_exists(obj_mario)) {
 	sprite_index = obj_mario.sprite_index;
 
 	//Make Mario invisible.
-	obj_mario.visible = false;
+	obj_mario.visible = 0;
     
 	//Snap to position.
 	x = round(obj_mario.x);
@@ -51,10 +51,7 @@ if (instance_exists(obj_mario)) {
 }
 
 //Create screenshot
-if (sequence < 5) {
-	
-	freeze_create();
-}
+freeze_create();
 
 //Begin animation
 alarm[0] = 1;
