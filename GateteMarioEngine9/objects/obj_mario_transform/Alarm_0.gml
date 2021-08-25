@@ -1,11 +1,14 @@
 /// @description Freeze all objects and begin animation
 
+//Create screenshot
+freeze_create();
+
 //Activate Mario, make him invisible and disable it's gravity
 instance_activate_object(obj_mario);
 with (obj_mario) {
 	
-	enable_gravity = 0;
 	visible = 0;
+	enable_gravity = 0;
 }
 
 //Set the animation sequence.
@@ -68,13 +71,6 @@ switch (sequence) {
 	
 	//Mega Shrink
 	case (6): {
-		
-		//Freeze screen
-		if (sprite_exists(snapshot)) {
-			
-			sprite_delete(snapshot);
-			freeze_create();
-		}
 		
 		//Set special state
 		ready = 2;

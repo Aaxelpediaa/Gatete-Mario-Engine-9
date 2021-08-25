@@ -847,6 +847,7 @@ else {
 		
 	//Otherwise, set up the mega mask
 	else if (global.powerup == cs_mega)
+	&& (!instance_exists(obj_mario_transform))
 		mask_index = spr_mask_mario_mega;
 		
     else {

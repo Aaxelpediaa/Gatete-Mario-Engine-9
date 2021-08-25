@@ -6,8 +6,8 @@
 //2: Powerup
 //3: Powerdown
 //4: Poof
-//5: Mega Grow
-//6: Mega Shrink
+//5: Mega Mushroom Grow (DO NOT USE)
+//6: Mega Mushroom Shrink (DO NOT USE)
 sequence = 0;
 
 //Scale
@@ -47,11 +47,9 @@ if (instance_exists(obj_mario)) {
 	y = round(obj_mario.y);
     
 	//Set the depth
-	depth = obj_mario.depth;    
+	depth = obj_mario.depth;
+	obj_mario.depth = 10001;
 }
-
-//Create screenshot
-freeze_create();
 
 //Begin animation
 alarm[0] = 1;

@@ -37,7 +37,7 @@ function freeze_create() {
 	with (obj_physicsparent) event_user(14);
 	
 	//Set up actual final surface
-	timer(function() {
+	var _temp = function() {
 	
 		//Destroy pre-freeze
 		surface_free(global.prefreeze);
@@ -55,7 +55,7 @@ function freeze_create() {
 		//Activate coordinator object
 		instance_activate_object(obj_coordinator);
 		
-		// Make objects visible
+		//Make objects visible
 		if (!_indexedFreezePersistentVariable) {
 			
 			for (var i = 0; i < array_length(global.keep_activated); i ++) {
@@ -65,5 +65,8 @@ function freeze_create() {
 					visible = true;			
 			}
 		}
-	}, 0);
+	}
+	
+	//Run _temp function
+	timer(_temp, 1, false);
 }
