@@ -81,8 +81,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Blocks",
-    "path": "folders/Sprites/Blocks.yy",
+    "name": "Brick Blocks",
+    "path": "folders/Sprites/Blocks/Brick Blocks.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_brick",

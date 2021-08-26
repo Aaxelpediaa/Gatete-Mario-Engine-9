@@ -57,9 +57,8 @@ else if (showing == 2) {
 	//If the scale is lower than 0.1, destroy
 	if (scale < 0.1) {
 	
-		//Free surface
-		surface_free(snapshot);
-		snapshot = -1;
+		//Delete sprite
+		sprite_delete(snapshot);
 		
 		//Activate all instances
 		instance_activate_all();

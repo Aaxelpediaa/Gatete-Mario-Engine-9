@@ -40,7 +40,7 @@ function freeze_create() {
 		//Destroy pre-freeze
 		surface_free(global.prefreeze);
 		global.prefreeze = noone;
-
+		
 		//Deactivate all instances
 		instance_deactivate_all(true);
 		
@@ -50,14 +50,8 @@ function freeze_create() {
 		//Activate coordinator object
 		instance_activate_object(obj_coordinator);
 		
-		//Create the snapshot
-		snapshot = surface_create(room_width, room_height);
-		
-		//Set the target surface
-		surface_set_target(snapshot);
-		
-		//Draw surface
-		draw_surface(application_surface, 0, 0);
+		//Create a snapshot
+		snapshot = sprite_create_from_surface(_indexedSurfaceVariable, 0, 0, surface_get_width(_indexedSurfaceVariable), surface_get_height(_indexedSurfaceVariable), 0, 1, 0, 0);
 		
 		//Make objects visible
 		if (!_indexedFreezePersistentVariable) {
@@ -69,9 +63,6 @@ function freeze_create() {
 					visible = true;			
 			}
 		}
-		
-		//Reset surface
-		surface_reset_target();
 	}
 	
 	//Run _temp function
