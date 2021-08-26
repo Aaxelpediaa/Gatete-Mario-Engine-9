@@ -1,10 +1,10 @@
 /// @description Draw the text and the message box
 
 //If the sprite exists
-if (sprite_exists(snapshot)) {
+if (surface_exists(snapshot)) {
 	
-	//Draw the sprite
-	draw_sprite_ext(snapshot, 0, camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]), 1 / obj_coordinator.size, 1 / obj_coordinator.size, 0, c_white, 1);
+	//Draw the surface
+	draw_surface_ext(snapshot, camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]), 1 / obj_coordinator.size, 1 / obj_coordinator.size, 0, c_white, 1);
 }
 
 //Draw the message box

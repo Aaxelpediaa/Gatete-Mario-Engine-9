@@ -13,9 +13,10 @@ if (sequence == 5) {
 		
 			//Set scale to 4
 			scale = 4;
-
-			//Destroy the sprite
-			sprite_delete(snapshot);
+			
+			//Free surface
+			surface_free(snapshot);
+			snapshot = -1;
 			
 			//Activate all instances
 			instance_activate_all();
@@ -66,8 +67,9 @@ else if (sequence == 6) {
 		//Set scale to 4
 		scale = 1;
 		
-		//Destroy the sprite
-		sprite_delete(snapshot);
+		//Free surface
+		surface_free(snapshot);
+		snapshot = -1;
 		
 		//Activate all instances
 		instance_activate_all();

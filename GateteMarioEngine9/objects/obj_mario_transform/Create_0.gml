@@ -51,5 +51,8 @@ if (instance_exists(obj_mario)) {
 	obj_mario.depth = 10001;
 }
 
+//Freeze player
+freeze_create();
+
 //Begin animation
 alarm[0] = 1;
