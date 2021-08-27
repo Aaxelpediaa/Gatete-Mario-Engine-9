@@ -1,4 +1,4 @@
-/// @description Multi-Coin Question Mark Block
+/// @description Multi-Coin Triple Wide Question Mark Block
 
 /*
 //	This object uses creation code
@@ -19,6 +19,9 @@ coiny = 0;
 
 //Hits
 hits = 0;
+
+//Question Mark position
+xx = xstart;
 
 //Shard sprite
 shard_sprite = spr_shard;
