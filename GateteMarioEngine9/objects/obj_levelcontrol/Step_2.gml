@@ -263,10 +263,6 @@ camera_set_view_pos(view_camera[0], camera_x, camera_y);
 
 //Manage background position
 #region PARALLAX BACKGROUNDS
-
-	//Get both x and y position
-	var cam_x = camera_get_view_x(view_camera[0]);
-	var cam_y = camera_get_view_y(view_camera[0]);
 		
 	#region BACKGROUND 0
 		
@@ -280,21 +276,21 @@ camera_set_view_pos(view_camera[0], camera_x, camera_y);
 			var back_spr = layer_background_get_sprite(back_id);
 
 			//Horizontal parallax
-			layer_x("Background_0", cam_x / 2);
+			layer_x("Background_0", camera_x / 2);
 			
 			//Vertical parallax
 			if (sprite_get_height(back_spr) < room_height)
 			&& (sprite_get_height(back_spr) > camera_get_view_height(view_camera[0]))
-				layer_y("Background_0", cam_y * (room_height - sprite_get_height(back_spr)) / (room_height -  camera_get_view_height(view_camera[0])));		
+				layer_y("Background_0", camera_y * (room_height - sprite_get_height(back_spr)) / (room_height -  camera_get_view_height(view_camera[0])));		
 		
 		#endregion
 	
 	#endregion
 	
 	//Background 1
-	layer_x("Background_1", cam_x / 4);
+	layer_x("Background_1", camera_x / 4);
 	
 	//Background 2
-	layer_x("Background_2", cam_x / 6);
+	layer_x("Background_2", camera_x / 6);
 	
 #endregion

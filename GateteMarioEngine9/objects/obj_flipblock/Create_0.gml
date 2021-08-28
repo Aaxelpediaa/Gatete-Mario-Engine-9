@@ -11,4 +11,4 @@ image_index = 0;
 spins = 8;
 
 //Shard sprite
-shard_sprite = spr_shard_brick;
+shard_sprite = spr_shard;

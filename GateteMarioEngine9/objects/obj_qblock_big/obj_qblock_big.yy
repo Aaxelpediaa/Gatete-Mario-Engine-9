@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "spr_qblock_triple",
-    "path": "sprites/spr_qblock_triple/spr_qblock_triple.yy",
+    "name": "spr_qblock_big",
+    "path": "sprites/spr_qblock_big/spr_qblock_big.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_blockparent",
-    "path": "objects/obj_blockparent/obj_blockparent.yy",
+    "name": "obj_qblock",
+    "path": "objects/obj_qblock/obj_qblock.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -27,9 +27,6 @@
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":1,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":10,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":2,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":25,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -38,7 +35,7 @@
     "path": "folders/Objetos/Blocks/Item Blocks.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_qblock_triple_multicoin",
+  "name": "obj_qblock_big",
   "tags": [],
   "resourceType": "GMObject",
 }

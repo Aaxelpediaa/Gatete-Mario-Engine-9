@@ -14,12 +14,12 @@ if (readytogo == 1)
             alarm[10] = 1;
             
             //If the item came from a big block
-            if (other.big == 1)
-                vspeed = -3;
+            if (other.big > 0)
+                yspeed = -3;
             
             //If the item is a holdable item or the item came out from a big block
             else if (other.bouncy == 1)
-                vspeed = -2.5;
+                yspeed = -2.5;
         }
             
         //Otherwise, stop it

@@ -177,6 +177,7 @@ if (wallkick == 1) {
         
         //Perform spin jump if 'Up' is pressed and Mario does not have the Propeller or Cat powerups
         if ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
+		&& (global.powerup != cs_tiny)
         && (global.powerup != cs_propeller) 
         && (global.powerup != cs_bell) {
         
