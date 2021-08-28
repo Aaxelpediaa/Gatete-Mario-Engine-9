@@ -49,9 +49,16 @@
 			isflashing = 0;
 	}
 	
-	//Set up angle if somersaulting
-	if (somersault)
+	//Set up angle if somersaulting, end if Mario is tiny
+	if (somersault) {
+		
 		angle += -30*sign(other.xscale);
+		if (global.powerup == cs_tiny) {
+		
+			somersault = 0;
+			angle = 0;
+		}
+	}
 #endregion
 
 #region SLIPPERY SURFACE CHECK

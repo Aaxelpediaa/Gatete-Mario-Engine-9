@@ -888,15 +888,15 @@ else {
         audio_stop_sound(snd_skid);
 }
 
-// If you currently have a spinner
+//If you currently have a spinner
 if (spin != noone) {
 	
-	// Match sprites
+	//Match sprites
 	sprite_index = spin.sprite_index;
 	
-	// Match image index
+	//Match image index
 	image_index = spin.image_index;
 	
-	// Inherit image speed (namely for cape speed)
+	//Inherit image speed (namely for cape speed)
 	image_speed = spin.image_speed;	
 }

@@ -56,23 +56,25 @@ throw_projectile = function() {
 	&& (kicking == 0)
 	&& (wallkick == 0)) {
         
-		/*// Create statue
+		//Create statue
 	    if (global.powerup == cs_tanooki)
-	    && (input_check(input.up))
+	    && ((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
 	    && (global.mount == 0)
 	    && (instance_number(obj_spinner) < 1) {
             
-	        // Play the transform sound
+	        //Play the transform sound
 	        audio_play_sound(snd_transform, 0, false);
     
-	        // Create a poof
-	        with (instance_create(x,y,depth,obj_player_transform))
-				sequence = 4;
+	        //Create a poof
+	        with (instance_create_depth(x, y, depth, obj_mario_transform)) sequence = 4;
         
-	        // Create a statue
-	        instance_create_depth(x,y,depth,obj_statue);        
+	        //Create a statue and get the ID from Mario
+	        spin = instance_create_depth(x, y, depth, obj_statue);
+			with (spin) {
+				
+				owner = other.id;
+			}
 	    }
-		*/
     
 	    //Cat
 	    if (global.powerup == cs_bell)
