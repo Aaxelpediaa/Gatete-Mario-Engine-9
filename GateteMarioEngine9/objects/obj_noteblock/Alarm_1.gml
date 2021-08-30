@@ -7,11 +7,11 @@ speed = 0;
 x = xstart;
 y = ystart;
 
-//Make an item come out, if there is one
+//Sprout out an item if there's any
 if (sprout != cs_coin) {
 	
-	//If there's an item greater than a mushroom inside, sprout either a mushroom or the given powerup
-	if ((sprout > cs_big) && (sprout < cs_mega))
+	//Otherwise, if there's a powerup inside
+	if (sprout >= cs_big)
 	&& ((global.powerup == cs_tiny) || (global.powerup == cs_small))
 		sprout = cs_big;
         
@@ -20,6 +20,9 @@ if (sprout != cs_coin) {
         with (instance_create_depth(x+8, y, 10, obj_powerup_sprout))       
             sprite_index = macro_get_sprite(other.sprout);
 }
+
+//Do not sprout more items
+sprout = cs_coin;
 
 //Allow block to be bumped again
 ready = 0;

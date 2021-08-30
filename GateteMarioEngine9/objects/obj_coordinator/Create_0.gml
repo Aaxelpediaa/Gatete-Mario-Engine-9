@@ -25,6 +25,9 @@ global.subpixels = true;
 //1: Enabled
 global.enemy_to_coin = 0;
 
+//Makes Mario bounce on note blocks from any side
+global.noteblock_all_sides = true;
+
 //Flight time (In seconds, how much time allow Mario to fly as Raccoon/Tanooki Mario)
 global.flighttime = 4;
 
