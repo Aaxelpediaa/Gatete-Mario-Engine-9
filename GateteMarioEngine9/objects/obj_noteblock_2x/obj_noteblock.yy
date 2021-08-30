@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_brick",
-    "path": "sprites/spr_brick/spr_brick.yy",
+    "name": "spr_noteblock",
+    "path": "sprites/spr_noteblock/spr_noteblock.yy",
   },
   "solid": false,
   "visible": true,
@@ -25,19 +25,19 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":11,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":1,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":11,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Brick Blocks",
-    "path": "folders/Objetos/Blocks/Brick Blocks.yy",
+    "name": "Blocks",
+    "path": "folders/Objetos/Blocks.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_brick",
+  "name": "obj_noteblock",
   "tags": [],
   "resourceType": "GMObject",
 }
