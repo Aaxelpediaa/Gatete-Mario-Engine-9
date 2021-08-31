@@ -17,4 +17,4 @@ if (ready < 2) {
 }
 
 //Draw the block
-draw_sprite(sprite_index, -1, round(x), round(y));
+draw_sprite(sprite_index, 0, round(x), round(y));
