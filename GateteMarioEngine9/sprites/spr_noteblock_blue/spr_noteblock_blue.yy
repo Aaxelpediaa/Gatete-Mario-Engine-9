@@ -81,8 +81,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Blocks",
-    "path": "folders/Sprites/Blocks.yy",
+    "name": "Note Blocks",
+    "path": "folders/Sprites/Blocks/Note Blocks.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_noteblock_blue",

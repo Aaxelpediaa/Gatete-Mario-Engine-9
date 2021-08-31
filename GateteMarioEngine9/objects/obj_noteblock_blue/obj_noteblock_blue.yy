@@ -31,8 +31,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Blocks",
-    "path": "folders/Objetos/Blocks.yy",
+    "name": "Note Blocks",
+    "path": "folders/Objetos/Blocks/Note Blocks.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_noteblock_blue",

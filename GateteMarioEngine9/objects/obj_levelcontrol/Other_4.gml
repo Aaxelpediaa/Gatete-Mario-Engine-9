@@ -17,12 +17,12 @@ if (leveltime > 0) { //If the timer has been set.
     if (global.timer = 0) {
     
         global.timer = leveltime;
-        alarm[2] = 40;
+        alarm[2] = 30;
     }
     
     //Otherwise, if the time has been set before.
     else if (global.timer > 0)    
-        alarm[2] = 40;
+        alarm[2] = 30;
 }
 
 //If the player just started the level

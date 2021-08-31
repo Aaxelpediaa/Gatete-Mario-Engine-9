@@ -7,13 +7,13 @@ if (global.timer > 0) {
     global.timer--;
     
     //Decrement again after a second
-    alarm[2] = 40;
+    alarm[2] = 30;
     
     //If there's 101 seconds left, play 'Hurry' sound
     if (global.timer == 101)
-        alarm[3] = 40;
+        alarm[3] = 30;
         
     //Otherwise, if there's 1 second left
     else if (global.timer == 1)
-        alarm[4] = 41;
+        alarm[4] = 31;
 }
