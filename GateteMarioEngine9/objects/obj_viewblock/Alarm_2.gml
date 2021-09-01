@@ -8,11 +8,6 @@ if (ready == 0) {
     
     //Increment cycle
     numb++;
-	
-	//If the block is not outside the view
-	if (!outside_view())
-	&& (array_length(sprout) > 1)
-		audio_play_sound(snd_move, 0, false);
 }
 
 //Reset sequence

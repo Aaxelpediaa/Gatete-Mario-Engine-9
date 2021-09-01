@@ -24,9 +24,9 @@ if (readytogo == 1)
             
         //Otherwise, stop it
         else {
-        
-            move_after_landing = 1;
+
             y--;
+			move_after_landing = 1;
         }
         
         //If the item is underwater, make it swim

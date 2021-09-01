@@ -7,7 +7,7 @@ audio_play_sound(snd_sprout, 0, false);
 shake_camera(6, ceil(audio_sound_length(snd_sprout) * room_speed), true);
 
 //Scale
-scale = 0;
+scale = 0.1;
 
 //Set the vertical speed
 vspeed = -0.25;
