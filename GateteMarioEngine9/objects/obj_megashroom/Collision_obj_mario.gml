@@ -8,6 +8,9 @@ if (global.powerup != cs_mega) {
 
 	//Play 'Powerup / Mega' sound.
 	audio_play_sound(snd_powerup_mega, 0, false);
+	
+	//Destroy invincibility object
+	with (obj_invincibility) instance_destroy();
         
 	//Perform animation sequence
 	with (instance_create_depth(0, 0, -5, obj_mario_transform)) {
