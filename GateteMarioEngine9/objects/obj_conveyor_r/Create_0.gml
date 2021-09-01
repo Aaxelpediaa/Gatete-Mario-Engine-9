@@ -1,4 +1,7 @@
 /// @description Right Conveyor Belt
 
+//Inherit the parent event
+event_inherited();
+
 //Animate
-image_speed = 0.5;
+image_speed = belt_power;

@@ -81,8 +81,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Big",
-    "path": "folders/Sprites/Blocks/Item Blocks/Big.yy",
+    "name": "Item Blocks",
+    "path": "folders/Sprites/Blocks/Item Blocks.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_qblock_big",
