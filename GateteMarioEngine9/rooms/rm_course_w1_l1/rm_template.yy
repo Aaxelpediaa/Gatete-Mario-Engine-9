@@ -120,8 +120,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Templates",
-    "path": "folders/Salas/Templates.yy",
+    "name": "Salas",
+    "path": "folders/Salas.yy",
   },
   "resourceVersion": "1.0",
   "name": "rm_template",

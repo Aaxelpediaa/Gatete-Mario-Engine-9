@@ -1,1 +1,0 @@
-varmsg = "  --- TOURIST TIPS ---  ##Grab a mega mushroom to turn temporarily into Mega Mario. Everything on your way won't stand a chance!";

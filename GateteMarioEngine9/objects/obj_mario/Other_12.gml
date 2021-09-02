@@ -72,13 +72,11 @@ if (yspeed > yspeed_max)
 if (!flying || global.powerup == cs_cape) { //If the player is not flying
 	
     // Run grace period of 2 frames (fireballs, etc)
-	if (input_check_released(input.action_1))
-			
+	if (input_check_released(input.action_1))			
 		run_cooldown = 2;
 			
 	// Subtract cooldown
-	if (run_cooldown > 0)
-		
+	if (run_cooldown > 0)		
 		run_cooldown --;
 
     if (input_check(input.action_1) || (run_cooldown > 0)) { //If the 'Run' key is being held.
@@ -102,7 +100,7 @@ if (!flying || global.powerup == cs_cape) { //If the player is not flying
 		
 		//If Mario does have the Tiny powerup
 		else if ((global.powerup == cs_tiny) || (global.powerup == cs_mega))
-			xspeedmax = 2;
+			xspeedmax = 2.6;
         
         //Otherwise, if Mario does not have the frog, tiny or mega powerup
         else {

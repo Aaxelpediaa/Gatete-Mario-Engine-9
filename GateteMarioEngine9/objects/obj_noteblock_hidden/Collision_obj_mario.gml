@@ -1,7 +1,8 @@
 /// @description If Mario jumps from below, reveal block
 
-//If Mario's vertical speed is lower than 0
-if (other.yspeed < 0)
+//If Mario's vertical speed is lower than 0 and Mario is not on his Mega form
+if (global.powerup != cs_mega)
+&& (other.yspeed < 0)
 && (other.bbox_top > bbox_bottom+other.yspeed) {
 
 	//Create a new block, give it the same item and bump it.

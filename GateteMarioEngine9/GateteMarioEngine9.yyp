@@ -479,7 +479,7 @@
     {"id":{"name":"spr_palette_mario_invincible","path":"sprites/spr_palette_mario_invincible/spr_palette_mario_invincible.yy",},"order":2,},
     {"id":{"name":"spr_mario_dead","path":"sprites/spr_mario_dead/spr_mario_dead.yy",},"order":3,},
     {"id":{"name":"spr_mario_frog_hold2","path":"sprites/spr_mario_frog_hold2/spr_mario_frog_hold2.yy",},"order":8,},
-    {"id":{"name":"rm_template","path":"rooms/rm_template/rm_template.yy",},"order":2,},
+    {"id":{"name":"rm_template","path":"rooms/rm_template/rm_template.yy",},"order":0,},
     {"id":{"name":"spr_mario_penguin_runjump","path":"sprites/spr_mario_penguin_runjump/spr_mario_penguin_runjump.yy",},"order":3,},
     {"id":{"name":"spr_mario_cat_clear","path":"sprites/spr_mario_cat_clear/spr_mario_cat_clear.yy",},"order":13,},
     {"id":{"name":"spr_mario_boomerang_somersault","path":"sprites/spr_mario_boomerang_somersault/spr_mario_boomerang_somersault.yy",},"order":18,},
@@ -627,6 +627,7 @@
     {"id":{"name":"spr_slope_ceiling_steep_r","path":"sprites/spr_slope_ceiling_steep_r/spr_slope_ceiling_steep_r.yy",},"order":2,},
     {"id":{"name":"spr_cape_walk","path":"sprites/spr_cape_walk/spr_cape_walk.yy",},"order":1,},
     {"id":{"name":"obj_leaf","path":"objects/obj_leaf/obj_leaf.yy",},"order":5,},
+    {"id":{"name":"rm_course_w1_l1","path":"rooms/rm_course_w1_l1/rm_course_w1_l1.yy",},"order":0,},
     {"id":{"name":"spr_mario_football_ride","path":"sprites/spr_mario_football_ride/spr_mario_football_ride.yy",},"order":18,},
     {"id":{"name":"spr_mbomb_th","path":"sprites/spr_mbomb_th/spr_mbomb_th.yy",},"order":6,},
     {"id":{"name":"snd_jump_big","path":"sounds/snd_jump_big/snd_jump_big.yy",},"order":10,},
@@ -819,6 +820,7 @@
   "RoomOrderNodes": [
     {"roomId":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
     {"roomId":{"name":"rm_template","path":"rooms/rm_template/rm_template.yy",},},
+    {"roomId":{"name":"rm_course_w1_l1","path":"rooms/rm_course_w1_l1/rm_course_w1_l1.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
@@ -958,6 +960,8 @@
     {"folderPath":"folders/Objetos/Blocks/Brick Blocks.yy","order":1,"resourceVersion":"1.0","name":"Brick Blocks","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Blocks/Note Blocks.yy","order":2,"resourceVersion":"1.0","name":"Note Blocks","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Objetos/Blocks/Note Blocks.yy","order":2,"resourceVersion":"1.0","name":"Note Blocks","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Salas/Templates.yy","order":3,"resourceVersion":"1.0","name":"Templates","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Salas/Courses.yy","order":2,"resourceVersion":"1.0","name":"Courses","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

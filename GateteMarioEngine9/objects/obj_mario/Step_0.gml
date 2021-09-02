@@ -367,119 +367,144 @@ if (enable_gravity == 1) {
 				//Execute walljump behaviour script
 				event_user(3);
 				
-				//If the player is running on walls or ceilings
-				if (global.mount != 2)
-                && (instance_number(obj_wallrunner) == 1) {
+				//Do not build P-Meter if you are using the tiny or mega powerup
+				if (global.powerup != cs_tiny)
+				&& (global.powerup != cs_mega) {
+				
+					//If the player is running on walls or ceilings
+					if (global.mount != 2)
+	                && (instance_number(obj_wallrunner) == 1) {
                 
-                    //If the P-Meter is full.
-                    if (pmeter > global.pmeter_limit) {      
+	                    //If the P-Meter is full.
+	                    if (pmeter > global.pmeter_limit) {      
                         
-                        //Keep P-Meter full.
-                        pmeter = global.pmeter_limit;
+	                        //Keep P-Meter full.
+	                        pmeter = global.pmeter_limit;
                     
-                        //Make the player able to run.
-                        run = true;
+	                        //Make the player able to run.
+	                        run = true;
 						
-						//Play 'P-Meter' sound
-						if (!audio_is_playing(snd_pmeter) && global.pmeter_sound)
-							audio_play_sound(snd_pmeter, 0, true);
-                    }
+							//Play 'P-Meter' sound
+							if (!audio_is_playing(snd_pmeter) && global.pmeter_sound)
+								audio_play_sound(snd_pmeter, 0, true);
+	                    }
                     
-                    //Otherwise, fill P-Meter
-                    else
-                        pmeter += 2;
-                }
+	                    //Otherwise, fill P-Meter
+	                    else
+	                        pmeter += 2;
+	                }
                 
-                //Otherwise...
-                else {
+	                //Otherwise...
+	                else {
                 
-                    //If the player's horizontal speed is equal/greater than 2.6 and it's not wearing a kuribo shoe.
-                    if (abs(xspeed) >= 2.6)
-					&& (wallkick == 0)
-                    && (global.mount != 2) 
-                    || (global.pwing == 1) {
+	                    //If the player's horizontal speed is equal/greater than 2.6 and it's not wearing a kuribo shoe.
+	                    if (abs(xspeed) >= 2.6)
+						&& (wallkick == 0)
+	                    && (global.mount != 2) 
+	                    || (global.pwing == 1) {
                     
-                        //If the player is not jumping.
-                        if (state < 2) {
+	                        //If the player is not jumping.
+	                        if (state < 2) {
                         
-                            //If the P-Wing is active
-                            if (global.pwing == 1) {
+	                            //If the P-Wing is active
+	                            if (global.pwing == 1) {
                             
-                                //Play 'P-Meter' sound
-                                if (!audio_is_playing(snd_pmeter) && global.pmeter_sound) {
+	                                //Play 'P-Meter' sound
+	                                if (!audio_is_playing(snd_pmeter) && global.pmeter_sound) {
                                 
-                                    audio_play_sound(snd_pmeter, 0, true);
-                                    if (pmeter < global.pmeter_limit)
-                                        pmeter = global.pmeter_limit;
-                                }
-                            }
+	                                    audio_play_sound(snd_pmeter, 0, true);
+	                                    if (pmeter < global.pmeter_limit)
+	                                        pmeter = global.pmeter_limit;
+	                                }
+	                            }
                             
-                            //Otherwise
-                            else {
+	                            //Otherwise
+	                            else {
                         
-                                //If the P-Meter is full.
-                                if (pmeter > global.pmeter_limit) {
+	                                //If the P-Meter is full.
+	                                if (pmeter > global.pmeter_limit) {
                                     
-                                    //Keep P-Meter full.
-                                    pmeter = global.pmeter_limit;
+	                                    //Keep P-Meter full.
+	                                    pmeter = global.pmeter_limit;
                                 
-                                    //Make the player able to run.
-                                    run = true;
+	                                    //Make the player able to run.
+	                                    run = true;
 									
-									//Play 'P-Meter' sound
-									if (!audio_is_playing(snd_pmeter) && global.pmeter_sound)
-										audio_play_sound(snd_pmeter, 0, true);
-                                }
+										//Play 'P-Meter' sound
+										if (!audio_is_playing(snd_pmeter) && global.pmeter_sound)
+											audio_play_sound(snd_pmeter, 0, true);
+	                                }
                                 
-                                //Otherwise, fill P-Meter
-                                else
-                                    pmeter += 2;
-                            }
-                        }
+	                                //Otherwise, fill P-Meter
+	                                else
+	                                    pmeter += 2;
+	                            }
+	                        }
                         
-                        //If the player is on the ground and not running.
-                        else if ((!run) && (pmeter > 0))
-                            pmeter--;
-                    }
+	                        //If the player is on the ground and not running.
+	                        else if ((!run) && (pmeter > 0))
+	                            pmeter--;
+	                    }
                     
-                    //Otherwise, if the player's horizontal speed is lower than 2.6
-                    else if ((!run) || (wallkick > 0) || ((state < 2) && (abs(xspeed) < 2.6)) && (global.pwing == 0)) { 
+	                    //Otherwise, if the player's horizontal speed is lower than 2.6
+	                    else if ((!run) || (wallkick > 0) || ((state < 2) && (abs(xspeed) < 2.6)) && (global.pwing == 0)) { 
                     
-                        //If the player is flying and lands on the floor.
-                        if (flying) {
+	                        //If the player is flying and lands on the floor.
+	                        if (flying) {
                         
-                            //Stop 'P-Meter' sound
-                            audio_stop_sound(snd_pmeter);
+	                            //Stop 'P-Meter' sound
+	                            audio_stop_sound(snd_pmeter);
                             
-                            //Allow the player to fly again.
-                            flying = false;
+	                            //Allow the player to fly again.
+	                            flying = false;
                             
-                            //Make the player walk
-                            run = false;
+	                            //Make the player walk
+	                            run = false;
                             
-                            //Empty P-Meter.
-                            if (pmeter > 0)        
-                                pmeter --;
-                        }
+	                            //Empty P-Meter.
+	                            if (pmeter > 0)        
+	                                pmeter --;
+	                        }
                         
-                        //If the player is not flying.
-                        else if (!flying) {
+	                        //If the player is not flying.
+	                        else if (!flying) {
                         
-                            //Stop 'P-Meter' sound
-                            audio_stop_sound(snd_pmeter);
+	                            //Stop 'P-Meter' sound
+	                            audio_stop_sound(snd_pmeter);
 							
-							//Destroy timer
-							timer_destroy(flying_time);
+								//Destroy timer
+								timer_destroy(flying_time);
                                                 
-                            //Make the player walk
-                            run = false;
+	                            //Make the player walk
+	                            run = false;
                             
-                            //Empty P-Meter.
-                            if (pmeter > 0)       
-                                pmeter --;
-                        }   
-                    }
-                }
+	                            //Empty P-Meter.
+	                            if (pmeter > 0)       
+	                                pmeter --;
+	                        }   
+	                    }
+	                }
+				}
+				
+				//Otherwise
+				else {
+					
+                    //Stop 'P-Meter' sound
+                    audio_stop_sound(snd_pmeter);
+					
+					//Destroy timer
+					timer_destroy(flying_time);
+					
+					//Stop flying
+					flying = false;
+                                                                    
+                    //Stop running
+					run = false;
+					
+					//Decrement P-Meter
+					if (pmeter > 0)
+						pmeter--;					
+				}
             }
             
             //Otherwise, if the player is climbing.
