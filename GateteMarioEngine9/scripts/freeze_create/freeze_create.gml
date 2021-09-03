@@ -2,6 +2,7 @@
 global.keep_activated = [
 	
 	obj_water_front,
+	obj_rainmaker,
 	obj_effectsparent	
 ]
 
