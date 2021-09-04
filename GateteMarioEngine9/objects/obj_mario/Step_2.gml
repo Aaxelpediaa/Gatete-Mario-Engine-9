@@ -160,8 +160,8 @@ else {
                         
                         //If Mario does not have the frog powerup
                         if (global.powerup != cs_frog)
-                        && (global.powerup != cs_penguin)
-                            image_speed = 0.065+abs(xspeed)/7.5;
+                        && (global.powerup != cs_penguin) 
+							image_speed = 0.065+abs(xspeed) / ((global.powerup == cs_mega) ? 15 : 7.5);
                             
                         //Otherwise, if Mario does have the frog suit.
                         else if (global.powerup == cs_frog) {
