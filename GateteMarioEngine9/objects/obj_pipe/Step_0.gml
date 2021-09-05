@@ -19,6 +19,9 @@ if (mario)
 		//Check horizontal speed
 		hsp = mario.xspeed;
 		
+		//Halve Mario's speed
+		obj_mario.xspeed /= 4;
+		
 		//Create broken pipe
 		pipe = instance_create_depth(x + sprite_width / 2, bbox_top + sprite_height / 2, depth - 1, obj_pipe_broken);
 		with (pipe) {

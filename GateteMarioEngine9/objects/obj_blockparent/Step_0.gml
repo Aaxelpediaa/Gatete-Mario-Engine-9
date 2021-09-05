@@ -6,5 +6,9 @@ var mario = collision_rectangle(bbox_left-6, bbox_top-6, bbox_right+6, bbox_bott
 //If Mario does exist
 if (mario) 
 && (global.powerup == cs_mega)
-&& (instance_exists(obj_megashroom_timer))
+&& (instance_exists(obj_megashroom_timer)) {
+	
 	event_user(15);
+	if ((sprite_index == spr_qblock_big) || (sprite_index == spr_brick_big))
+		mario.xspeed /= 4
+}

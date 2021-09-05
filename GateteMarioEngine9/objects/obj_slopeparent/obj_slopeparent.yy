@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Parents",
-    "path": "folders/Objetos/Special/Parents.yy",
+    "name": "Collision",
+    "path": "folders/Objetos/Special/Parents/Collision.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_slopeparent",

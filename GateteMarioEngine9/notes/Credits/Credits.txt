@@ -4,12 +4,13 @@ Mack
 Sammu
 
 - Sprites -
+72DpiArmy
 AnneLeaf
 Camtendo
 Del
 Gate
 SuperSledgeBro
-Antonio "Toni" Barra
+Toni
 
 - Scripts -
 DJ Coco

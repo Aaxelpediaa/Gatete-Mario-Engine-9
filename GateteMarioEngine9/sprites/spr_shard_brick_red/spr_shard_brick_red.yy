@@ -47,7 +47,7 @@
     "spriteId": {"name":"spr_shard_brick_red","path":"sprites/spr_shard_brick_red/spr_shard_brick_red.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 15.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
