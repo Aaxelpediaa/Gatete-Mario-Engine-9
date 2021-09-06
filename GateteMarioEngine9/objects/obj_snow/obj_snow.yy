@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_rain",
-    "path": "sprites/spr_rain/spr_rain.yy",
+    "name": "spr_snow",
+    "path": "sprites/spr_snow/spr_snow.yy",
   },
   "solid": false,
   "visible": true,
@@ -31,7 +31,7 @@
     "path": "folders/Objetos/Special/Do Not Use!/Eyecandy/Weather.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_rain",
+  "name": "obj_snow",
   "tags": [],
   "resourceType": "GMObject",
 }

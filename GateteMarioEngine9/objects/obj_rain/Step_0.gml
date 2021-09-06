@@ -38,3 +38,7 @@ if (vspeed > 0) {
         instance_destroy();
     }
 }
+
+//Destroy when outside
+if (y > camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]))
+	instance_destroy();

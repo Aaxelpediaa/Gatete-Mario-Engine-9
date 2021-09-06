@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_rain",
-    "path": "sprites/spr_rain/spr_rain.yy",
+    "name": "spr_eventmarker",
+    "path": "sprites/spr_eventmarker/spr_eventmarker.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,17 +21,16 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
     "name": "Weather",
-    "path": "folders/Objetos/Special/Do Not Use!/Eyecandy/Weather.yy",
+    "path": "folders/Objetos/Main/Controllers/Weather.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_rain",
+  "name": "obj_snowmaker",
   "tags": [],
   "resourceType": "GMObject",
 }

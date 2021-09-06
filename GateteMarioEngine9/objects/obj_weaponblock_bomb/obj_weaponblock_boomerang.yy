@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "spr_rain",
-    "path": "sprites/spr_rain/spr_rain.yy",
+    "name": "spr_weaponblock_boomerang",
+    "path": "sprites/spr_weaponblock_boomerang/spr_weaponblock_boomerang.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_weaponblockparent",
+    "path": "objects/obj_weaponblockparent/obj_weaponblockparent.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -21,17 +24,16 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_boomerang","path":"objects/obj_boomerang/obj_boomerang.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Weather",
-    "path": "folders/Objetos/Special/Do Not Use!/Eyecandy/Weather.yy",
+    "name": "Weapon Blocks",
+    "path": "folders/Objetos/Blocks/Weapon Blocks.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_rain",
+  "name": "obj_weaponblock_boomerang",
   "tags": [],
   "resourceType": "GMObject",
 }
