@@ -1,5 +1,31 @@
 /// @description Deals with various game logic stuff
 
+//Warns the player that the P-Switch or S-Switch event is about to end
+#region P/S-SWITCH WARNING
+
+	//Play a warning sound when the P-Switch effect is running out
+	if (pswitch_warn == 0) {
+
+	    //Check ticks
+	    if ((alarm[5] > 0) && (alarm[5] < 120)) {
+    
+	        audio_play_sound(snd_switch_timer, 0, false);
+	        pswitch_warn = 1;
+	    }
+	}
+
+	//Play a warning sound when the G-Switch effect is running out
+	if (sswitch_warn == 0) {
+
+	    //Check ticks
+	    if ((alarm[6] > 0) && (alarm[6] < 120)) {
+    
+	        audio_play_sound(snd_switch_timer, 0, false);
+	        sswitch_warn = 1;
+	    }
+	}
+#endregion
+
 //Set up object to follow
 event_user(15);
 

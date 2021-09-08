@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "spr_woodblock",
-    "path": "sprites/spr_woodblock/spr_woodblock.yy",
+    "name": "spr_pswitchplatform_on",
+    "path": "sprites/spr_pswitchplatform_on/spr_pswitchplatform_on.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "obj_emptyblock",
-    "path": "objects/obj_emptyblock/obj_emptyblock.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -24,8 +21,8 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_explosion","path":"objects/obj_explosion/obj_explosion.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -34,7 +31,7 @@
     "path": "folders/Objetos/Blocks.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_woodblock_decor",
+  "name": "obj_pswitchplatform_on",
   "tags": [],
   "resourceType": "GMObject",
 }

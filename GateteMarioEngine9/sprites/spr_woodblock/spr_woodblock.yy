@@ -73,8 +73,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Blocks",
-    "path": "folders/Sprites/Blocks.yy",
+    "name": "Decoration",
+    "path": "folders/Sprites/Decoration.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_woodblock",

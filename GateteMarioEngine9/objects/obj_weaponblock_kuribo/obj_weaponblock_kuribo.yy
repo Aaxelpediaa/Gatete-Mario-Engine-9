@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "spr_woodblock",
-    "path": "sprites/spr_woodblock/spr_woodblock.yy",
+    "name": "spr_weaponblock_kuribo",
+    "path": "sprites/spr_weaponblock_kuribo/spr_weaponblock_kuribo.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_emptyblock",
-    "path": "objects/obj_emptyblock/obj_emptyblock.yy",
+    "name": "obj_weaponblockparent",
+    "path": "objects/obj_weaponblockparent/obj_weaponblockparent.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -25,16 +25,15 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_explosion","path":"objects/obj_explosion/obj_explosion.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Decoration",
-    "path": "folders/Objetos/Decoration.yy",
+    "name": "Weapon Blocks",
+    "path": "folders/Objetos/Blocks/Weapon Blocks.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_woodblock",
+  "name": "obj_weaponblock_kuribo",
   "tags": [],
   "resourceType": "GMObject",
 }

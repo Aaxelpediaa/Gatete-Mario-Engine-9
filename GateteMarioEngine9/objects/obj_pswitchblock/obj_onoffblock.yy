@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "spr_woodblock",
-    "path": "sprites/spr_woodblock/spr_woodblock.yy",
+    "name": "spr_onoffblock",
+    "path": "sprites/spr_onoffblock/spr_onoffblock.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_emptyblock",
-    "path": "objects/obj_emptyblock/obj_emptyblock.yy",
+    "name": "obj_blockparent",
+    "path": "objects/obj_blockparent/obj_blockparent.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -24,17 +24,19 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":1,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_explosion","path":"objects/obj_explosion/obj_explosion.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Decoration",
-    "path": "folders/Objetos/Decoration.yy",
+    "name": "Blocks",
+    "path": "folders/Objetos/Blocks.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_woodblock",
+  "name": "obj_onoffblock",
   "tags": [],
   "resourceType": "GMObject",
 }

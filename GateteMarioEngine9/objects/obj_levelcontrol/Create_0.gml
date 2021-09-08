@@ -29,7 +29,7 @@ depth = 10000;
 
 //Barrier
 barrier = false;
-alarm[6] = 3;
+alarm[7] = 3;
 
 //Object to follow
 follow = noone;

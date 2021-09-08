@@ -1,45 +1,21 @@
-/// @description Make Mario bounce depending of it's position
+/// @description Destroy on contact with Mario if this one is big
+
+//Check for Mario
+var mario = collision_rectangle(bbox_left-4, bbox_top-4, bbox_right+4, bbox_bottom+4, obj_mario, 0, 0);
 
 //If Mario does exist
-if (instance_exists(obj_mario)) {
-		
-	//Make sure that Mario is overlapping the block
-	if (obj_mario.bbox_top < bbox_bottom) {
+if (mario) 
+&& (global.powerup == cs_mega) {
 
-		//If Mario is at the left side of the block
-		if (collision_rectangle(bbox_left-2, bbox_top, bbox_left, bbox_bottom, obj_mario, 0, 0)) {
-		
-			//Play 'Bump' sound
-			audio_play_sound(snd_bump, 0, false);
+	//Play 'Break' sound
+	audio_play_sound(snd_break, 0, false);
+
+	//Create shards
+	shard_create(spr_shard_wood, x + sprite_width / 2, y + sprite_height / 2, -2, 6, 45);
+	shard_create(spr_shard_wood, x + sprite_width / 2, y + sprite_height / 2, -2, 6, 60);
+	shard_create(spr_shard_wood, x + sprite_width / 2, y + sprite_height / 2, -2, 6, 120);
+	shard_create(spr_shard_wood, x + sprite_width / 2, y + sprite_height / 2, -2, 6, 135);
 	
-			//Bounce Mario to the left
-			obj_mario.xspeed = -2;
-		
-			//Block movement
-			hspeed = 2;
-			ready = 1;
-			alarm[0] = 4;
-		}
-	
-		//Otherwise, if Mario is at the right side of the block
-		else if (collision_rectangle(bbox_right, bbox_top, bbox_right+2, bbox_bottom, obj_mario, 0, 0)) {
-			
-			//Play 'Bump' sound
-			audio_play_sound(snd_bump, 0, false);
-	
-			//Bounce Mario to the left
-			obj_mario.xspeed = 2;
-		
-			//Block movement
-			hspeed = -2;
-			ready = 1;
-			alarm[0] = 4;
-		}
-	}
+	//Destroy
+	instance_destroy();	
 }
-
-//Set different frame depending if it has been bumped
-if (speed > 0)
-	image_index = 0;
-else
-	image_index = 0;
