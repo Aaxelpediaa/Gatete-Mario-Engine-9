@@ -57,31 +57,31 @@ global.pmeter_limit = 144;
 //Powerup Macros
 #region POWERUP MACROS
 
-	#macro cs_tiny 0
-	#macro cs_small	1
-	#macro cs_big 2
-	#macro cs_fire 3
-	#macro cs_ice 4
-	#macro cs_carrot 5
-	#macro cs_raccoon 6
-	#macro cs_cape 7
-	#macro cs_frog 8
-	#macro cs_tanooki 9
-	#macro cs_hammer 10
-	#macro cs_boomerang	11
-	#macro cs_superball 12
-	#macro cs_bomb 13
-	#macro cs_shell	14
-	#macro cs_bee 15
-	#macro cs_volt 16
-	#macro cs_penguin 17
-	#macro cs_propeller 18
-	#macro cs_bell 19
-	#macro cs_football 20
-	#macro cs_ranger 21
-	#macro cs_squirrel 22
-	#macro cs_gold 23
-	#macro cs_mega 24
+#macro cs_tiny 0
+#macro cs_small	1
+#macro cs_big 2
+#macro cs_fire 3
+#macro cs_ice 4
+#macro cs_carrot 5
+#macro cs_raccoon 6
+#macro cs_cape 7
+#macro cs_frog 8
+#macro cs_tanooki 9
+#macro cs_hammer 10
+#macro cs_boomerang	11
+#macro cs_superball 12
+#macro cs_bomb 13
+#macro cs_shell	14
+#macro cs_bee 15
+#macro cs_volt 16
+#macro cs_penguin 17
+#macro cs_propeller 18
+#macro cs_bell 19
+#macro cs_football 20
+#macro cs_ranger 21
+#macro cs_squirrel 22
+#macro cs_gold 23
+#macro cs_mega 24
 
 #endregion
 

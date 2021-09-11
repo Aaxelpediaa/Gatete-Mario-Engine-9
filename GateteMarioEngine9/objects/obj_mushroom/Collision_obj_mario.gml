@@ -28,13 +28,9 @@ if (global.powerup != cs_mega) {
     
 	//Otherwise, get a reserve mushroom
 	else {
-    
-	    //If there's a tiny shroom in reserve or there's not a item in reserve
-		if (global.reserve == cs_tiny)
-			exit;
 		
-		//Otherwise, if there's not a item in reserve
-		else if (global.reserve == cs_small) {
+		//If there's not a item in reserve
+		if (global.reserve == cs_small) {
 					
 			//Play 'Reserve' box
 			audio_play_sound(snd_reserve, 0, false);
@@ -54,6 +50,10 @@ else {
 
 	//Play 'Reserve' sound
 	audio_play_sound(snd_reserve, 0, false);
+	
+	//Get a mushroom in reserve
+	if (global.reserve == cs_small)
+		global.reserve = cs_big;
 }
 
 //Destroy
