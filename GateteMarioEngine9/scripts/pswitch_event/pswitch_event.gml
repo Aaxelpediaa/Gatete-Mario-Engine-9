@@ -71,7 +71,7 @@ function pswitch_event() {
 		with (obj_coin_p) visible = false;
 		
 		//Turn off conveyors
-		with (obj_conveyor_r) image_speed = belt_speed;
-		with (obj_conveyor_l) image_speed = -belt_speed;		
+		with (obj_conveyor_r) image_speed = belt_power;
+		with (obj_conveyor_l) image_speed = -belt_power;		
 	}
 }

@@ -51,7 +51,7 @@ if ((vspeed > 0) && (y > ystart)) {
 	}
 	
 	//Get score
-	with (instance_create_depth(x, y, -6, obj_score)) value = 200;
+	with (instance_create_depth(x, y, -6, obj_score)) value = 10;
 	
 	//Destroy
 	instance_destroy();	

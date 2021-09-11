@@ -35,7 +35,9 @@ global.flighttime = 4;
 global.cattime = 3;
 
 //Allow reserve of items if enabled
-global.reservedrop = true;
+//0: Disabled
+//1: Enabled
+global.reserve_activated = true;
 
 //Play P-meter sound?
 global.pmeter_sound = true;

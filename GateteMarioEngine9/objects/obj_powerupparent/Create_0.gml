@@ -20,3 +20,6 @@ can_bounce = 0;
 
 //Move after landing
 move_after_landing = 0;
+
+//No score
+noscore = false;

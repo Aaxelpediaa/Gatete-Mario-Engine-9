@@ -32,21 +32,26 @@ draw_text(camera_get_view_x(view_camera[0]) + 40, camera_get_view_y(view_camera[
 //Reserve Box
 #region RESERVE BOX
 
-	//Draw reserve box
-	draw_sprite_ext(spr_gui_global_reserve, 0, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + 8, 1, 1, 0, c_white, 1);
-	if (global.reserve != cs_small)
-		draw_sprite_ext(macro_get_sprite(global.reserve), -1, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + 8, 1, 1, 0, c_white, 1);
+	//If the reserve item system is activated
+	if (global.reserve_activated == true) {
+
+		//Draw reserve box
+		draw_sprite_ext(spr_gui_global_reserve, 0, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + 8, 1, 1, 0, c_white, 1);
+		if (global.reserve != cs_small)
+			draw_sprite_ext(macro_get_sprite(global.reserve), -1, camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2, camera_get_view_y(view_camera[0]) + 8, 1, 1, 0, c_white, 1);
+	}
 #endregion
 
 //Set black font
 draw_set_font(global.gui_font_numbers_black);
 
 // Score positions
-var score_x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 144;
+var score_x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 128;
 var score_y = camera_get_view_y(view_camera[0]) + 8;
 
 // Check if the camera's width isn't wide enough
-if (camera_get_view_width(view_camera[0]) < 320) {
+if (global.reserve_activated == true)
+&& (camera_get_view_width(view_camera[0]) < 320) {
 	
 	// If not, move the score HUD to underneath the counter
 	score_x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) - 72;
