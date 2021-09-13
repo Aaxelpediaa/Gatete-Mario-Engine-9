@@ -70,7 +70,7 @@ function freeze_create() {
 	timer(_temp, 1, false);
 }
 
-/// @function									freeze_render();
+/// @function									freeze_render();                                 freeze_render()
 function freeze_render() {
 	
 	//Draw the screenshot.

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_coincounterblock",
-    "path": "sprites/spr_coincounterblock/spr_coincounterblock.yy",
+    "name": "spr_coinblock",
+    "path": "sprites/spr_coinblock/spr_coinblock.yy",
   },
   "solid": false,
   "visible": true,
@@ -25,9 +25,7 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":1,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":10,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -36,7 +34,7 @@
     "path": "folders/Objetos/Blocks.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_coincounterblock",
+  "name": "obj_coinblock",
   "tags": [],
   "resourceType": "GMObject",
 }

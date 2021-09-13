@@ -3,8 +3,12 @@
 //If not animating faster
 if (image_speed != 0.8) {
 	
-	//Get 10 coins
+	//Get 50 coins
 	global.coins += 50;
+	if (obj_hud.coins_left > -1) {
+	
+		obj_hud.coins_left -= 50
+	}
 	
 	//Perform coin collection and get points
 	event_user(0);

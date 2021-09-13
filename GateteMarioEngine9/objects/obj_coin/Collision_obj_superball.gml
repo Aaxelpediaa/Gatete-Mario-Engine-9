@@ -5,6 +5,10 @@ audio_play_sound(snd_coin, 0, false);
 
 //Increment coins
 global.coins++;
+if (obj_hud.coins_left > -1) {
+	
+	obj_hud.coins_left--;
+}
 
 //Increment score
 score += 50;

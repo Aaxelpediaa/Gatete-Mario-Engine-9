@@ -5,6 +5,7 @@ depth = -10;
 
 //Collection mode
 collect_mode = -1;
+coins_left = 0;
 
 //Show SMB3 Cards
 show_cards = 240;
