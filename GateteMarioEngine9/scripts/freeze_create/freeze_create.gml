@@ -1,6 +1,6 @@
 //Every object that will stay persistent during the freeze needs to be placed in this array
 global.keep_activated = [
-	
+
 	obj_water_front,
 	obj_rainmaker,
 	obj_effectsparent	

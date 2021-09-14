@@ -1,19 +1,16 @@
-/// @description Coin Counter Block
+/// @description Coin Challenge Block
 
 /*
 //	This object uses creation code
 //
-//	coins = Coins to collect for the challenge
-//	prize = Check macro list
+//	coins = Coins required to complete the challenge
 */
 
 //Default variables
-coins = 100;
-prize = cs_big;
+coins = 50;
 
-//Inherit the parent event
+//Inherit event from parent
 event_inherited();
 
-//Do not animate
-image_speed = 0;
-image_index = 0;
+//Check if moving to the HUD position
+ready2 = 0;

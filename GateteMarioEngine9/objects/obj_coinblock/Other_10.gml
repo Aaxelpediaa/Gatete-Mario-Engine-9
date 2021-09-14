@@ -1,14 +1,8 @@
-/// @description Start the challenge
+/// @description Stop moving
 
-//Play 'P-Balloon' sound
-audio_play_sound(snd_pballoon, 0, false);
+//Do not move
+speed = 0;
 
-//Create moving coin
-with (instance_create_depth(x, y, -5, obj_coinblock_active)) {
-
-	coins = other.coins;
-	prize = other.prize;
-}
-
-//Destroy
-instance_destroy();
+//Snap in start position
+x = xstart;
+y = ystart;
