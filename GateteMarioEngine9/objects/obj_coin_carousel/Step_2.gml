@@ -13,7 +13,7 @@ if (active == true) {
 	        oldy = 0;
         
 	        //Set the position of the coin.
-	        coin[i].x = x+8+distance*cos((angle+(i*360/amount))*pi/180);
+	        coin[i].x = x+distance*cos((angle+(i*360/amount))*pi/180);
 	        coin[i].y = y-distance*sin((angle+(i*360/amount))*pi/180);
 		}
     }
