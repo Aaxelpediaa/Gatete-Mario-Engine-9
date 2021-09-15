@@ -447,6 +447,7 @@
     {"id":{"name":"spr_mario_squirrel_runjump","path":"sprites/spr_mario_squirrel_runjump/spr_mario_squirrel_runjump.yy",},"order":3,},
     {"id":{"name":"spr_mario_penguin_somersault","path":"sprites/spr_mario_penguin_somersault/spr_mario_penguin_somersault.yy",},"order":21,},
     {"id":{"name":"spr_cape_fall","path":"sprites/spr_cape_fall/spr_cape_fall.yy",},"order":4,},
+    {"id":{"name":"obj_coin_carousel","path":"objects/obj_coin_carousel/obj_coin_carousel.yy",},"order":3,},
     {"id":{"name":"spr_mario_propeller_spin2","path":"sprites/spr_mario_propeller_spin2/spr_mario_propeller_spin2.yy",},"order":12,},
     {"id":{"name":"spr_mario_boomerang_run","path":"sprites/spr_mario_boomerang_run/spr_mario_boomerang_run.yy",},"order":2,},
     {"id":{"name":"obj_water","path":"objects/obj_water/obj_water.yy",},"order":1,},
