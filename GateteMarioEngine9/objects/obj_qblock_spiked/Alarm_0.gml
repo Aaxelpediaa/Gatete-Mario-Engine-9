@@ -18,7 +18,7 @@ if (instance_exists(obj_mario)) {
 }
 
 //Repeat the process.
-alarm[0] = 150;
+alarm[0] = spin_delay;
 
 //Change the turning phase
 if (turn == 0)

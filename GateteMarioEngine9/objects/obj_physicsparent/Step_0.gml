@@ -26,7 +26,7 @@ else {
 } 
 
 //Handle position when on a slope
-if (yspeed >= 0) {
+if (yspeed >= -0.85) {
 	
 	//If there's a slope collision in-position
 	if (collision_rectangle(x-1, bbox_bottom-2, x+1, bbox_bottom+4, obj_slopeparent, 1, 0)) {

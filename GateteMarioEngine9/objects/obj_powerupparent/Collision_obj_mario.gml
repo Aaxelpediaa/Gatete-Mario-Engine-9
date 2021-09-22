@@ -7,6 +7,9 @@ if (noscore == false) {
 		value = 1000;
 }
 
+//Create effect
+with (instance_create_depth(x, y+8, -6, obj_blend_ring)) beam = true;
+
 //If Mario does not have the mega powerup
 if (global.powerup != cs_mega) {
 

@@ -44,18 +44,11 @@ else if ((vspeed < 0) && (sprite_index == spr_superbell)) {
 	}
 }
 
-/*Beanstalk
+//Beanstalk
 else if (sprite_index == spr_beanstalk) {
 
-    //Play 'Vine Sprout' sound
-    audio_stop_play_sound(snd_vinesprout, 0, false);
-    
-    //Turn into a real beanstalk
-    if (!place_meeting(x, ystart-16, obj_solid))
-        instance_create(x, ystart, obj_beanstalk);
-    else
-        with (instance_create(x+1, ystart, obj_beanstalk)) vspeed = 1;
-}*/
+	instance_create_layer(x, y, "Main", obj_beanstalk);
+}
     
 //Otherwise
 else {

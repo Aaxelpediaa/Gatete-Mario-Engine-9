@@ -3,6 +3,9 @@
 //Get 1000 points
 with (instance_create_depth(x, y, -6, obj_score)) value = 1000;
 
+//Create effect
+with (instance_create_depth(x, y+8, -6, obj_blend_ring)) beam = true;
+
 //If the player is not Tiny and does not have the Mega powerup
 if (global.powerup != cs_tiny) {
 

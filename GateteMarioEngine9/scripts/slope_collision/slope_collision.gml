@@ -2,7 +2,7 @@ function slope_collision() {
 
 	slopesensor_slopeid = noone;
 
-	if (yadd > -0.85)
+	if (yadd == 0)
 	    slopesensor_extendedcheck = 6; //The checking line will be longer when the player is not on air, to prevent him from not checking while moving.
 	else
 	    slopesensor_extendedcheck = 0;
@@ -29,7 +29,7 @@ function slope_collision() {
 	        other.slopesensor_slopeid = id; //The ID of the slope found by other's checking line will be stored in "slopesensor_slopeid".
 	}
 
-	if (yadd > -0.85)
+	if (yspeed >= 0)
 	&& (slopesensor_slopeid != noone)
 	    y = (slopesensor_slopeid).mariopointinslope_y - slopesensor_y2; //Set other on top of the slope found by the "sensor line".
 }
