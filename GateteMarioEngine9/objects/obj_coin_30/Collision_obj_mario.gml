@@ -4,11 +4,7 @@
 if (image_speed != 0.8) {
 	
 	//Get 30 coins
-	global.coins += 30;
-	if (obj_hud.coins_left > 0) {
-	
-		obj_hud.coins_left -= 30;
-	}
+	coins_add(30);
 	
 	//Perform coin collection and get points
 	event_user(0);

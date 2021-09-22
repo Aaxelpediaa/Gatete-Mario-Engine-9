@@ -4,11 +4,7 @@
 audio_play_sound(snd_coin_big, 0, false);
 
 //Increment coins
-global.coins++;
-if (obj_hud.coins_left > -1) {
-	
-	obj_hud.coins_left--;
-}
+coins_add();
 
 //Remember that the coin has been collected
 ds_map_add(global.acecoins, id, 1);

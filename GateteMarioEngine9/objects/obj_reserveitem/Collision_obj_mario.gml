@@ -1,5 +1,8 @@
 /// @description Obtain powerup
 
+//Create effect
+with (instance_create_depth(x, y+8, -6, obj_blend_ring)) beam = true;
+
 //If Mario does not have the 'Mega' powerup
 if (global.powerup != cs_mega) {
 
