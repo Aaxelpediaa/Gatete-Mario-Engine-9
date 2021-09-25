@@ -1,7 +1,7 @@
 /// @description Destroy on contact with Mario if this one is big
 
 //Check for Mario
-var mario = collision_rectangle(bbox_left-4, bbox_top-4, bbox_right+4, bbox_bottom+4, obj_mario, 0, 0);
+var mario = collision_rectangle(bbox_left-6, bbox_top-6, bbox_right+6, bbox_bottom+8, obj_mario, 0, 0);
 
 //If Mario does exist
 if (mario) 

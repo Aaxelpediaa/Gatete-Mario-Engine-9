@@ -3,7 +3,7 @@ function slope_collision() {
 	slopesensor_slopeid = noone;
 
 	if (yadd == 0)
-	    slopesensor_extendedcheck = 6; //The checking line will be longer when the player is not on air, to prevent him from not checking while moving.
+	    slopesensor_extendedcheck = 8; //The checking line will be longer when the player is not on air, to prevent him from not checking while moving.
 	else
 	    slopesensor_extendedcheck = 0;
 

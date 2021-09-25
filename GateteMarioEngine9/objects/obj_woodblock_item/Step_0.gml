@@ -1,5 +1,8 @@
 /// @description Make Mario bounce depending of it's position
 
+//Inherit event from parent
+event_perform_object(obj_woodblock, ev_step, ev_step_normal);
+
 //If Mario does exist
 if (instance_exists(obj_mario)) {
 		
