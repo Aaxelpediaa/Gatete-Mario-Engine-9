@@ -13,27 +13,28 @@ tilemap_x(map_id, _xx + hspeed);
 tilemap_y(map_id, _yy + vspeed);
 
 //Manage collision position
-#region MOVE COLLISIONS
+#region
 
 	with (obj_solid_moving) {
-	
+			
 		hspeed = other.hspeed;
 		vspeed = other.vspeed;
 	}
-	with (obj_semisolid_moving) {
 	
+	with (obj_semisolid_moving) {
+			
 		hspeed = other.hspeed;
 		vspeed = other.vspeed;
 	}
 
 #endregion
 
-//Movement
-if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_up, 0, 0))
+//Arrow collision
+if (collision_rectangle(x, y, x + 15, y + 15, obj_up, 0, 0))
     vspeed -= target_speed;
-else if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_down, 0, 0))
+else if (collision_rectangle(x, y, x + 15, y + 15, obj_down, 0, 0))
     vspeed += target_speed;
-else if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_left, 0, 0))
+else if (collision_rectangle(x, y, x + 15, y + 15, obj_left, 0, 0))
     hspeed -= target_speed;
-else if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_right, 0, 0))
+else if (collision_rectangle(x, y, x + 15, y + 15, obj_right, 0, 0))
     hspeed += target_speed;

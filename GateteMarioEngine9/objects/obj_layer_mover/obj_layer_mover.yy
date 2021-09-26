@@ -4,7 +4,7 @@
     "path": "sprites/spr_eventmarker/spr_eventmarker.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "spriteMaskId": {
     "name": "spr_square",
     "path": "sprites/spr_square/spr_square.yy",
