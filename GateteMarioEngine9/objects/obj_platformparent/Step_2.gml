@@ -153,8 +153,11 @@ if (issolid == true) {
 		        with (obj_mario) {
             
 		            //If Mario is below the platform
-		            while (collision_rectangle(bbox_left, bbox_top-1+other.id.vspeed, bbox_right, bbox_top, other.id, 0, 0))
-		                y += other.id.vspeed;
+					if (other.vspeed > 0) {
+						
+						while (collision_rectangle(bbox_left, bbox_top-1+other.id.vspeed, bbox_right, bbox_top, other.id, 0, 0))
+							y += other.id.vspeed;
+					}
 		        }
 		    }
 

@@ -65,7 +65,7 @@ if (state = "IN_LINE") {
             //If moving up, jump
             if (direction == 90) {
             
-                vspeed = -spd*3;
+                vspeed = -spd*4;
                 if (node.hsp == true) {
                 
                     if (x > xprevious)
@@ -108,7 +108,7 @@ if (state = "IN_LINE") {
         if (limit) then direct = -180;
         
         //Update alarm 0
-        alarm[0] = 8;
+        alarm[0] = 4;
         
         //Update step
         step--;

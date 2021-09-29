@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "spr_platform_solid_falling",
-    "path": "sprites/spr_platform_solid_falling/spr_platform_solid_falling.yy",
+    "name": "spr_platform_solid_track",
+    "path": "sprites/spr_platform_solid_track/spr_platform_solid_track.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_platform_falling",
-    "path": "objects/obj_platform_falling/obj_platform_falling.yy",
+    "name": "obj_platform_track",
+    "path": "objects/obj_platform_track/obj_platform_track.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -34,7 +34,7 @@
     "path": "folders/Objetos/Items/Platforms/Common/Solid.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_platform_solid_falling",
+  "name": "obj_platform_solid_track",
   "tags": [],
   "resourceType": "GMObject",
 }
