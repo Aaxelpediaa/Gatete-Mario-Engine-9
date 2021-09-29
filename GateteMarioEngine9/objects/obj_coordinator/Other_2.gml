@@ -116,7 +116,7 @@
 		size = 2;
 		
 		//Default v-sync value
-		vsync = 0;
+		vsync = 1;
 		
 		//Keyboard Keys
 		#region KEYBOARD KEYS

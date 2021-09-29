@@ -93,8 +93,8 @@
     "resourceType": "GMNineSliceData",
   },
   "parent": {
-    "name": "Common",
-    "path": "folders/Sprites/Items/Platforms/Common.yy",
+    "name": "Solid",
+    "path": "folders/Sprites/Items/Platforms/Common/Solid.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_platform_solid",

@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Common",
-    "path": "folders/Objetos/Items/Platforms/Common.yy",
+    "name": "Solid",
+    "path": "folders/Objetos/Items/Platforms/Common/Solid.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_platform_solid",
