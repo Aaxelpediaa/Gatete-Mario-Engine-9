@@ -34,7 +34,7 @@
 			else {
 		
 				//Set up palette but at a lower pace
-				isflashing += 0.05;
+				isflashing += 0.025;
 				if (isflashing > 6)
 					isflashing = 1;
 			}

@@ -29,7 +29,6 @@ depth = -2;
 //Change gravity when in contact with water
 noswim = false;
 
-
 //Turn towards walls?
 //-1: Jump them
 //0: Stop

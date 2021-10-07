@@ -71,7 +71,7 @@ if (yspeed >= -0.85) {
 	&& (!collision_rectangle(x-1, bbox_bottom-2, x+1, bbox_bottom+1, obj_slopeparent, 1, 0)) {
 		
 		//Snap above the semisolid
-		y = semisolid.y + floor(y-bbox_bottom-0.4);
+		y = semisolid.bbox_top + floor(bbox_top-bbox_bottom-0.4);
 	
 		//Stop vertical movement
 		yadd = 0;

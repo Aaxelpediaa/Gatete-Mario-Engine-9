@@ -21,6 +21,6 @@ if (mario)
 }
 else {
 
-	if (sink == 2)
+	if (sink > 0)
 		sink = 0;
 }

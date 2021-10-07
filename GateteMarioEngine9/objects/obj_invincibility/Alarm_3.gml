@@ -21,7 +21,7 @@ if (instance_exists(obj_mario)) {
         with (instance_create_depth(x - 8 + random(round(16)), y + random_range(0, 16), -6, obj_sparkle)) {
         
 			sprite_index = spr_sparkle_d;
-			shrink_rate = 0.0324;
+			shrink_rate = 0.075;
             image_speed = 0;
 			image_index = choose(0, 1, 2, 3);
         }
@@ -33,7 +33,7 @@ if (instance_exists(obj_mario)) {
         with (instance_create_depth(x - 8 + random(round(16)), y + random_range(-6, 16), -6, obj_sparkle)) {
         
 			sprite_index = spr_sparkle_d;
-			shrink_rate = 0.0324;
+			shrink_rate = 0.075;
             image_speed = 0;
 			image_index = choose(0, 1, 2, 3);
         }
@@ -42,6 +42,6 @@ if (instance_exists(obj_mario)) {
 
 //Repeat
 if (obj_invincibility.alarm[0] > 120)
-    alarm[3] = 2;
+    alarm[3] = 1;
 else
     alarm[3] = 4;
