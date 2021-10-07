@@ -10,7 +10,7 @@ if (ready == 0) {
     other.xspeed = lengthdir_x(3, point_direction(x, y, other.x, other.y));
 	
 	//Bounce it
-    ready = 1; 
+    ready = 1;
     
     //Set the vertical speed
     if (other.y < y-12) {
