@@ -26,3 +26,6 @@ depth = -7;
 
 //Create lightning
 alarm[0] = 100;
+
+//Delay raining sound
+alarm[1] = 1;

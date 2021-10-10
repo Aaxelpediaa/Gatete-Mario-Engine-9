@@ -83,10 +83,10 @@ function init_globals() {
 	global.fireworks = 0;
 
 	//Switch Palaces
-	global.palace_y = 0;
-	global.palace_g = 0;
-	global.palace_r = 0;
-	global.palace_b = 0;
+	global.palace_y = 1;
+	global.palace_g = 1;
+	global.palace_r = 1;
+	global.palace_b = 1;
 
 	//ON / OFF Block
 	global.on_off_block = 0;
