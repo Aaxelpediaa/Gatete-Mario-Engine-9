@@ -12,7 +12,7 @@ if (yadd == 0) {
 		//Deny this event
 		move_after_landing = 0;
 	
-		//Set the vertical
+		//Set the vertical speed
 		yspeed = -(4 - (swimming * 2));
 		y--;
 	
@@ -26,7 +26,7 @@ if (yadd == 0) {
 	
 	//Otherwise
 	else if (can_bounce == true) {
-	
+		
 		yspeed = -(4 - (swimming * 2));
 		y--;
 	}

@@ -33,19 +33,31 @@ if (sprite_index == spr_coin_red_ring_active) {
 				
 				//Otherwise
 				else {
+					
+					//If the ring does give a powerup based on actual state
+					if (other.progressive == true) {
         
-		            //If the player is small
-					if (global.powerup == cs_tiny)
-		            && (global.powerup == cs_small)            
-		                sprite_index = spr_mushroom;
+			            //If the player is small
+						if (global.powerup == cs_tiny)
+			            && (global.powerup == cs_small)            
+			                sprite_index = spr_mushroom;
             
-		            //Otherwise, if the player is big
-		            else if (global.powerup == cs_big)            
-		                sprite_index = macro_get_sprite(other.sprout);
+			            //Otherwise, if the player is big
+			            else if (global.powerup == cs_big)            
+			                sprite_index = macro_get_sprite(other.sprout);
             
-		            //Otherwise, get a life.
-		            else
-		                sprite_index = spr_1up;
+			            //Otherwise, get a life.
+			            else
+			                sprite_index = spr_1up;
+					}
+					else {
+					
+						//If Mario does not have the powerup the ring gives
+						if (global.powerup != other.sprout)
+							sprite_index = macro_get_sprite(other.sprout);
+						else
+							sprite_index = spr_1up;
+					}
 				}
 			}
         }

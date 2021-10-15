@@ -95,7 +95,7 @@ if (global.powerup == cs_mega) {
 	swim_y = -32;
 	
 	//Set bottom collision
-	if (!collision_rectangle(bbox_left, bbox_bottom-0.99, bbox_right, bbox_bottom+4.99, obj_slopeparent, 1, 0))
+	if (!collision_rectangle(bbox_left, bbox_bottom-2, bbox_right, bbox_bottom+4, obj_slopeparent, 1, 0))
 		ismega = 0;
 	else
 		ismega = -24;
@@ -125,10 +125,10 @@ else {
 }
 
 //Handle position when on a slope
-if (yspeed >= 0) {
+if (yspeed >= -0.85) {
 	
 	//If there's a slope collision in-position
-	if (collision_rectangle(x-1, bbox_bottom-0.99, x+1, bbox_bottom+4.99, obj_slopeparent, 1, 0)) {
+	if (collision_rectangle(x-1, bbox_bottom-2, x+1, bbox_bottom+4, obj_slopeparent, 1, 0)) {
 		
 		//Calculate slope position
 		slope_collision();

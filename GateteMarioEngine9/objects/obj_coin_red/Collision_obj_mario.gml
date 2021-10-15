@@ -42,11 +42,11 @@ if (visible) {
 
     //Increment coins
     global.coins_red++;
-    with (instance_create_depth(x+8, y, -6, obj_score_coins)) {
+    with (instance_create_depth(x+8, y+8, -6, obj_score_coins)) {
     
         amount = global.coins_red;
-        if (instance_number(obj_coin_red) == 1)
-            alarm[0] = 12;
+        if (instance_number(obj_coin_red) == 1)		
+			ready2 = 1;
     }
     
     //Destroy

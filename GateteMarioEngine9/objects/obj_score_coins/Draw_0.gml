@@ -1,22 +1,13 @@
 /// @description Draw text
 
-//Set the colour
-draw_set_colour(c_white);
-
-//Set the font
-draw_set_font(font);
-
-//Align
-draw_set_halign(fa_center);
-
 //Set palette
 pal_swap_set(spr_palette_score, flash);
 
 //Draw text
-draw_text(round(x), round(y), string(amount));
+if (amount < 8)
+	draw_sprite_ext(sprite_index, amount - 1, screen_round(x), screen_round(y), scale, scale, 1, c_white, 1);
+else
+	draw_sprite_ext(sprite_index, 7, screen_round(x), screen_round(y), scale, scale, 1, c_white, 1);
 
 //Reset palette
 pal_swap_reset();
-
-//Realign
-draw_set_halign(fa_left);

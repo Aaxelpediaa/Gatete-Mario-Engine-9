@@ -54,7 +54,7 @@
             {"id":"d7f57d81-4c58-4971-9799-6748aa06d725","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"eb84ea94-c604-4169-9068-98564b4a1be7","path":"sprites/spr_track_limit/spr_track_limit.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"a1b5b963-5616-4822-b4e4-4b52ce813a41","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"642a25f3-1b2c-4c55-aba2-45aa7dac9e0c","path":"sprites/spr_track_limit/spr_track_limit.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"6c23c491-f910-419e-9afa-5072740a3dc7","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9753112a-e296-449d-863b-7edbcceb1ee4","path":"sprites/spr_track_limit/spr_track_limit.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -82,7 +82,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Tracks",
-    "path": "folders/Sprites/Items/Platforms/Tracks.yy",
+    "path": "folders/Sprites/Items/Platforms/Common/Tracks.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_track_limit",

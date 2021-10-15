@@ -8,6 +8,14 @@ if (global.powerup == cs_mega) {
 	exit;
 }
 
+//Check for a wall at the right
+wall_r = collision_line(bbox_right+1, bbox_top+4, bbox_right+2, bbox_bottom-1, obj_solid, 1, 0);
+wall_rb = collision_line(bbox_right+1, bbox_top+4, bbox_right+2, bbox_bottom-1, obj_platformparent, 1, 0);
+
+//Check for a wall to the left
+wall_l = collision_line(bbox_left-2, bbox_top+4, bbox_left-1, bbox_bottom-1, obj_solid, 1, 0);
+wall_lb = collision_line(bbox_left-2, bbox_top+4, bbox_left-1, bbox_bottom-1, obj_platformparent, 1, 0);
+
 //If moving down, and not crouched down or flying
 if (yspeed > 0) 
 && (!crouch) 
@@ -20,13 +28,9 @@ if (yspeed > 0)
         
     //If the 'Right' key is pressed and the player is facing right.
     if (((input_check(input.right)) || (gamepad_axis_value(0, gp_axislh) > 0.5)) && (xscale == 1)) {
-    
-        //Check for a wall at the right
-        wall_r = collision_line(bbox_right+1, bbox_top+4, bbox_right+2, bbox_bottom-1, obj_solid, 1, 0);
         
         //If the player hugs a wall at the right
-        if (wall_r) 
-		&& (wallready == 0) {
+        if ((wall_r) || ((wall_rb) && (wall_rb.issolid = true))) {
 			
 			//Stop squirrel propel
 			if (squirrelpropel == 1)
@@ -38,7 +42,7 @@ if (yspeed > 0)
             
             //Enable wallkick
             wallkick = 1;
-            wallready = 0;
+			wallready = 1;
 			
 			//Stop spinning
 			jumpstyle = 0;
@@ -57,11 +61,8 @@ if (yspeed > 0)
     //Otherwise, if the 'Left' key is pressed and the player is facing left.
     else if (((input_check(input.left)) || (gamepad_axis_value(0, gp_axislh) < -0.5)) && (xscale == -1)) {
     
-        //Check for a wall to the left
-        wall_l = collision_line(bbox_left-2, bbox_top+4, bbox_left-1, bbox_bottom-1, obj_solid, 1, 0);
-    
         //If the player hugs a wall at the left
-        if (wall_l) {
+        if ((wall_l) || ((wall_lb) && (wall_lb.issolid = true))) {
 			
 			//Stop squirrel propel
 			if (squirrelpropel == 1)
@@ -73,7 +74,7 @@ if (yspeed > 0)
             
             //Enable wallkick
             wallkick = 1;
-            wallready = 1;
+			wallready = 1;
 			
 			//Stop spinning
 			jumpstyle = 0;
@@ -253,8 +254,8 @@ if (wallkick == 1) {
     //End manually wall kick when not in contact with a wall.
 	if (wallkick != 2) {
 		
-	    if ((xscale < 0) && (!collision_line(bbox_left-2, bbox_top+4, bbox_left-1, bbox_bottom-1, obj_solid, 1, 0)))
-	    || ((xscale > 0) && (!collision_line(bbox_right+1, bbox_top+4, bbox_right+2, bbox_bottom-1, obj_solid, 1, 0))) {
+	    if ((xscale < 0) && ((!wall_l) && (!wall_lb)))
+	    || ((xscale > 0) && ((!wall_r) && (!wall_rb))) {
 		
 	        wallkick = 0;
 			wallready = 0;
