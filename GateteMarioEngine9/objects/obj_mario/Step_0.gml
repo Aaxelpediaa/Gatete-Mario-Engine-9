@@ -53,7 +53,8 @@
 	if (somersault) {
 		
 		angle += -30*sign(other.xscale);
-		if (global.powerup == cs_tiny) {
+		if (global.powerup == cs_tiny) 
+		|| (global.powerup == cs_mega) {
 		
 			somersault = 0;
 			angle = 0;
@@ -88,6 +89,9 @@
 //If Mario is under the effects of a mega mushroom
 if (global.powerup == cs_mega) {
 	
+	//Stop somersault
+	somersault = false;
+	
 	//Do not crouch
 	crouch = false;
 	
@@ -95,7 +99,7 @@ if (global.powerup == cs_mega) {
 	swim_y = -32;
 	
 	//Set bottom collision
-	if (!collision_rectangle(bbox_left, bbox_bottom-2, bbox_right, bbox_bottom+4, obj_slopeparent, 1, 0))
+	if (!collision_rectangle(x-1, bbox_bottom, x+1, bbox_bottom+4, obj_slopeparent, 1, 0))
 		ismega = 0;
 	else
 		ismega = -24;
@@ -121,24 +125,6 @@ else {
 			swim_y = 3;
 		else
 			swim_y = 0;
-	}
-}
-
-//Handle position when on a slope
-if (yspeed >= -0.85) {
-	
-	//If there's a slope collision in-position
-	if (collision_rectangle(x-1, bbox_bottom-2, x+1, bbox_bottom+4, obj_slopeparent, 1, 0)) {
-		
-		//Calculate slope position
-		slope_collision();
-		
-		//Stop vertical movement
-		yadd = 0;
-		yspeed = 0;
-			
-		//Reset values
-		event_user(15);
 	}
 }
 
@@ -291,8 +277,8 @@ if (enable_gravity == 1) {
 	
 		//If there's ground below and Mario is not moving upwards
 		if (semisolid)
-		&& (bbox_bottom < semisolid.yprevious+5)
-		&& (!collision_rectangle(x-1, bbox_bottom+1, x+1, bbox_bottom+4, obj_slopeparent, 1, 0)) {
+		&& (bbox_bottom < semisolid.yprevious+5) 
+		&& (!collision_rectangle(x-1, bbox_bottom, x+1, bbox_bottom+4, obj_slopeparent, 1, 0)) {
 		
 			//Snap above the semisolid
 			y = semisolid.bbox_top-16;
@@ -333,6 +319,33 @@ if (enable_gravity == 1) {
 			else
 				state = playerstate.walk;
 		}
+	}
+	
+	//Embed Mario into the slope if he is walking to ensure correct slope mechanics
+	if (collision_rectangle(x-1, bbox_bottom, x+1, bbox_bottom+4, obj_slopeparent, 1, 0))
+	&& (!collision_rectangle(x-1, bbox_bottom-4, x+1, bbox_bottom-4, obj_slopeparent, 1, 0))
+	&& (state < playerstate.jump)
+		y += 4;
+
+	//Handle slope collisions
+	if (collision_rectangle(x-1, bbox_bottom-4, x+1, bbox_bottom, obj_slopeparent, 1, 0))
+	&& (!collision_rectangle(x-1, bbox_bottom-8, x+1, bbox_bottom-8, obj_slopeparent, 1, 0)) {
+
+	    //If Mario is moving down onto a slope
+	    if (yspeed >= 0) {
+
+	        //Stop vertical movement
+	        yadd = 0;
+	        yspeed = 0;
+
+	        //Reset variables
+			event_user(15);
+	    }
+
+	    //Prevent Mario from getting embed inside a slope
+	    if (yspeed > -0.85)
+	        while (collision_rectangle(x-1, bbox_bottom-4, x+1, bbox_bottom, obj_slopeparent, 1, 0))
+	            y--;
 	}
 	
 	//Conveyor collisions

@@ -1,9 +1,9 @@
 /// @description Mario's main behaviour script
 
 //Check if there's a collision below and if Mario is on the ground
-if (yadd == 0)
-&& (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0)) 
-|| (collision_rectangle(x-1, bbox_bottom-2, x+1, bbox_bottom+4, obj_slopeparent, 1, 0)) {
+if ((collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0))
+|| (collision_rectangle(x-1, bbox_bottom+1, x+1, bbox_bottom+1, obj_slopeparent, 1, 0)))
+&& (yadd == 0) {
 
 	//If the player is flying and moving upwards...
 	if ((flying) && (yspeed < 0))
@@ -49,7 +49,7 @@ else {
 		statedelay++;
 }
 
-// Determine what the speed should be for Mario to fall at
+//Determine what the speed should be for Mario to fall at
 var yspeed_max;
 
 switch (global.powerup) {
@@ -60,8 +60,7 @@ switch (global.powerup) {
 
 	default:
 		yspeed_max = 4;
-		break;
-	
+		break;	
 }
 
 // Cap at the determined speed
@@ -178,9 +177,6 @@ if (inwall == 0)
     && (state == playerstate.jump) 
     && (yspeed > 0)
     && (jumping == 0))) {
-    
-    //Do not allow jump if the player is bouncing on a note block. 
-    //&& (!collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_noteblock, 0, 1))) {
     
         //Make the player spin jump
         if (((input_check(input.up)) || (gamepad_axis_value(0, gp_axislv) < -0.5))
@@ -302,6 +298,9 @@ if (inwall == 0)
 					
 					//Start flying
 					flying = true;
+					
+					//Stop somersault
+					somersault = 0;
 					
 					//Disable the gravity for an elegant lift-off
 					disablegrav = 50;
@@ -739,27 +738,28 @@ if ((state == playerstate.jump) || (statedelay != 0)) {
 					xscale = other.xscale;
 				
 				}
+				
+				//Stop somersault
+				somersault = false;
 			
-				// The flight object will take control
-				enable_gravity = false;
-			
+				//The flight object will take control
+				enable_gravity = false;			
 			}
 			
-		// If the criteria is met to STOP flying
-		} else if ((global.powerup == cs_cape) && (flying) && (yspeed > 0) && (jumpstyle != 0 || global.mount != 0)) {
+		//If the criteria is met to STOP flying
+		} 
+		else if ((global.powerup == cs_cape) && (flying) && (yspeed > 0) && (jumpstyle != 0 || global.mount != 0)) {
 		
 			// Then stop flying if spin jumping, mounted, etc.
 			flying = false;
 			state = playerstate.jump;
 		
-		}
-		
+		}		
     }
     
     //Otherwise, enable ygrav.
     else
-        disablegrav = 0;
-		
+        disablegrav = 0;		
 }
 
 //Climb if overlapping a climbing surface.
@@ -774,8 +774,7 @@ if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_climb, 0,
     
     //Stop movement
     yspeed = 0;
-    yadd = 0;
-	
+    yadd = 0;	
 }
 
 //Makes the player butt-slide down slopes

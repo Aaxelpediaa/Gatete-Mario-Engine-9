@@ -16,13 +16,6 @@ swimming = false;
 bouncy = 2;
 bounces = 2;
 
-//Slope sensors
-slopesensor_x = 0;
-slopesensor_y1 = 8;
-slopesensor_y2 = 16;
-slopesensor_extendedcheck = 0;
-slopesensor_slopeid = noone;
-
 //Depth
 depth = -2;
 

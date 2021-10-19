@@ -54,6 +54,9 @@ else {
 	
 	//Play 'Reserve' sound
 	audio_play_sound(snd_reserve, 0, false);
+	
+	//Set it on the reserve box
+	global.reserve = sprite_get_macro(sprite_index);
 }
 
 //Destroy

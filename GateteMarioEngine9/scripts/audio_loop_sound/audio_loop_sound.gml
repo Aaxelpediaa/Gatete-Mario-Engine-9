@@ -18,5 +18,3 @@ function audio_loop_sound() {
 	}
 	return _als._audio;
 }
-
-

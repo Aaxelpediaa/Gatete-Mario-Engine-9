@@ -195,13 +195,6 @@ event_user(9);
 //Swim top
 swim_y = 0;
 
-//Slope sensors
-slopesensor_x = 0;
-slopesensor_y1 = 8;
-slopesensor_y2 = 16;
-slopesensor_extendedcheck = 0;
-slopesensor_slopeid = noone;
-
 //Effects
 alarm[0] = 1;
 

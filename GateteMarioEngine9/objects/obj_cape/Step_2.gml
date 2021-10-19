@@ -17,6 +17,9 @@ if (instance_exists(owner)) {
     
 	//Hereby facing direction
 	image_xscale = owner.xscale;
+	
+	//Hereby angle
+	image_angle = owner.angle;
 		
 	// Set cape depth
 	switch (owner.state) {

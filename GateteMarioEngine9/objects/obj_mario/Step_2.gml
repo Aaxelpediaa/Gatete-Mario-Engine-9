@@ -315,13 +315,16 @@ else {
                             
                                 //If the player is doing a somersault
                                 if (somersault) {
-                                
-                                    //Set up the somersault sprite
-                                    sprite_index = global.somersault_sprite[global.powerup];
-                                    
-                                    //Do not animate
+									
+									//Do not animate
                                     image_speed = 0;
                                     image_index = 0;
+                                
+                                    //Set up the somersault sprite
+									if (global.powerup == cs_cape)
+										sprite_index = spr_mario_cape_somersault;
+									else
+										sprite_index = global.somersault_sprite[global.powerup];
                                 }
                              
                                 else {

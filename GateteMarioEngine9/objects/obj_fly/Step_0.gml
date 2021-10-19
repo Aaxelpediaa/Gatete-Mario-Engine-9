@@ -34,8 +34,7 @@ if (yadd == 0) {
 	xspeed = max(0,abs(xspeed)-0.25)*sign(xspeed);
 	
 	// Ruin the flight (remove the below line of code to remove flight ruining)
-	flight_ruined = true;
-	
+	flight_ruined = true;	
 }
 
 // Sprite count

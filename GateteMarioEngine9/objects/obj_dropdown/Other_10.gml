@@ -1,22 +1,5 @@
 /// @description General collision
 
-#region SLOPE COLLISION
-
-	//Handle position when on a slope
-	if (yspeed >= 0) {
-	
-		//If there's a slope collision in-position
-		if (collision_rectangle(x-1, bbox_bottom-0.99, x+1, bbox_bottom+4.99, obj_slopeparent, 1, 0)) {
-		
-			//Calculate slope position
-			slope_collision();
-		
-			//Destroy
-			instance_destroy();
-		}
-	}
-#endregion
-
 #region HORIZONTAL COLLISION
 
 	//If moving right and there's a wall in position
@@ -44,6 +27,30 @@
 			//Destroy
 			instance_destroy();
 		}	
+	}
+	
+	//Embed into the slope to ensure correct slope mechanics
+	if (collision_rectangle(x-1, bbox_bottom, x+1, bbox_bottom+4, obj_slopeparent, 1, 0))
+	&& (!collision_rectangle(x-1, bbox_bottom-4, x+1, bbox_bottom-4, obj_slopeparent, 1, 0))
+	&& (yadd == 0)
+	    y += 4;
+
+	///Handle slope collisions
+	if (collision_rectangle(x-1, bbox_bottom-4, x+1, bbox_bottom, obj_slopeparent, 1, 0))
+	&& (!collision_rectangle(x-1, bbox_bottom-8, x+1, bbox_bottom-8, obj_slopeparent, 1, 0)) {
+
+		//If Mario is moving down onto a slope
+		if (yspeed >= 0) {
+
+		    //Stop vertical movement
+		    yadd = 0;
+			yspeed = 0;
+		}
+
+		//Prevent NPC from getting embed inside a slope
+		if (yspeed > -0.85)
+		    while (collision_rectangle(x-1, bbox_bottom-4, x+1, bbox_bottom, obj_slopeparent, 1, 0))
+		        y--;
 	}
 	
 	//Destroy if Mario is swimming

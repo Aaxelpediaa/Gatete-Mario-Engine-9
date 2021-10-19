@@ -17,3 +17,6 @@ tempY = noone;
 
 //Sequence
 sequence = 4;
+
+//Give points when picked up?
+noscore = false;
