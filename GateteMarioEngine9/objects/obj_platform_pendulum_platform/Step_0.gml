@@ -1,8 +1,8 @@
 /// @description Pendulum Platform (Platform) logic
 
 //Time it
-mytimer += 0.45;
-angle = cos(mytimer * 0.045) * (pi/2);
+mytimer += parent.spd;
+angle = cos(mytimer * (parent.spd / 10)) * (pi/2);
 
 //Set the position of the block
 x = xx - sin(angle) * parent.distance;

@@ -9,12 +9,12 @@ if (global.powerup == cs_mega) {
 }
 
 //Check for a wall at the right
-wall_r = collision_line(bbox_right+1, bbox_top+4, bbox_right+2, bbox_bottom-1, obj_solid, 1, 0);
-wall_rb = collision_line(bbox_right+1, bbox_top+4, bbox_right+2, bbox_bottom-1, obj_platformparent, 1, 0);
+wall_r = collision_rectangle(bbox_right+1, bbox_top+4, bbox_right+4, bbox_bottom-1, obj_solid, 1, 0);
+wall_rb = collision_rectangle(bbox_right+1, bbox_top+4, bbox_right+4, bbox_bottom-1, obj_platformparent, 1, 0);
 
 //Check for a wall to the left
-wall_l = collision_line(bbox_left-2, bbox_top+4, bbox_left-1, bbox_bottom-1, obj_solid, 1, 0);
-wall_lb = collision_line(bbox_left-2, bbox_top+4, bbox_left-1, bbox_bottom-1, obj_platformparent, 1, 0);
+wall_l = collision_rectangle(bbox_left-4, bbox_top+4, bbox_left-1, bbox_bottom-1, obj_solid, 1, 0);
+wall_lb = collision_rectangle(bbox_left-4, bbox_top+4, bbox_left-1, bbox_bottom-1, obj_platformparent, 1, 0);
 
 //If moving down, and not crouched down or flying
 if (yspeed > 0) 

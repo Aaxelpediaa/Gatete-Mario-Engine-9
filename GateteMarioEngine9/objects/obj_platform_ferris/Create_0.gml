@@ -7,17 +7,16 @@
 //      1       =       Clockwise
 //      -1      =       Counter-Clockwise
 //
+//	spd			= Speed of the platforms
 //  amount      = Amount of platforms
 //  distance    = Distance between platform and center
 */
 
 //Default values
 turn = 1;
+spd = 1;
 amount = 3;
 distance = 48;
-
-//Platform speed
-spd = 1;
 
 //Depth
 depth = 10;

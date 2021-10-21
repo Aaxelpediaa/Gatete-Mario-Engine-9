@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_platform_ferris_edit",
-    "path": "sprites/spr_platform_ferris_edit/spr_platform_ferris_edit.yy",
+    "name": "spr_platform_ferris_editor",
+    "path": "sprites/spr_platform_ferris_editor/spr_platform_ferris_editor.yy",
   },
   "solid": false,
   "visible": false,
@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "SMW",
-    "path": "folders/Objetos/Items/Platforms/SMW.yy",
+    "name": "Platforms",
+    "path": "folders/Objetos/Items/Platforms.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_platform_ferris",

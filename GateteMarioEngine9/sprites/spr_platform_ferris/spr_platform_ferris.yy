@@ -93,8 +93,8 @@
     "resourceType": "GMNineSliceData",
   },
   "parent": {
-    "name": "SMW",
-    "path": "folders/Sprites/Items/Platforms/SMW.yy",
+    "name": "Platforms",
+    "path": "folders/Sprites/Items/Platforms.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_platform_ferris",

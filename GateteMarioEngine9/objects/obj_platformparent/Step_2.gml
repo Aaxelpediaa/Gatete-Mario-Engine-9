@@ -18,14 +18,18 @@
 		if (!check) {
     
 		    //Snap the player vertically
-		    player.y = ceil(bbox_top-15);
+		    player.y = ceil(bbox_top-16);
+			
+			//If the platform can transport Mario horizontally
+			if (no_horiz == false) {
 
-		    //Snap the player horizontally
-		    player.x += x-xprevious;
-		    if (collision_rectangle(player.bbox_right, player.bbox_top+4, player.bbox_right+1, player.bbox_bottom-1, obj_solid, 1, 1))
-		        player.x--;
-		    else if (collision_rectangle(player.bbox_left-1, player.bbox_top+4, player.bbox_left, player.bbox_bottom-1, obj_solid, 1, 1))
-		        player.x++;
+			    //Snap the player horizontally
+			    player.x += x-xprevious;
+			    if (collision_rectangle(player.bbox_right, player.bbox_top+4, player.bbox_right+1, player.bbox_bottom-1, obj_solid, 1, 1))
+			        player.x--;
+			    else if (collision_rectangle(player.bbox_left-1, player.bbox_top+4, player.bbox_left, player.bbox_bottom-1, obj_solid, 1, 1))
+			        player.x++;
+			}
 		}
 	}
 
@@ -48,13 +52,17 @@
 	
 				    //Snap the player vertically
 				    list[| i].y = ceil(bbox_top-list[| i].sprite_height);
+					
+					//If the platform can transport NPCs horizontally
+					if (no_horiz == false) {
 
-				    //Snap the player horizontally
-				    list[| i].x += x-xprevious;
-				    if (collision_rectangle(list[| i].bbox_right, list[| i].bbox_top+4, list[| i].bbox_right+1, list[| i].bbox_bottom-1, obj_solid, 1, 1))
-				        list[| i].x--;
-				    else if (collision_rectangle(list[| i].bbox_left-1, list[| i].bbox_top+4, list[| i].bbox_left, list[| i].bbox_bottom-1, obj_solid, 1, 1))
-				        list[| i].x++;
+					    //Snap the player horizontally
+					    list[| i].x += x-xprevious;
+					    if (collision_rectangle(list[| i].bbox_right, list[| i].bbox_top+4, list[| i].bbox_right+1, list[| i].bbox_bottom-1, obj_solid, 1, 1))
+					        list[| i].x--;
+					    else if (collision_rectangle(list[| i].bbox_left-1, list[| i].bbox_top+4, list[| i].bbox_left, list[| i].bbox_bottom-1, obj_solid, 1, 1))
+					        list[| i].x++;
+					}
 				}
 			}
 		}
@@ -160,11 +168,22 @@ if (issolid == true) {
 					}
 		        }
 		    }
+			
+			//If Mario is walljumping
+			if (obj_mario.wallkick == 1) {
+			
+				if ((x-xprevious != 0) && (collision_rectangle(obj_mario.bbox_left - 5, obj_mario.bbox_top+4, obj_mario.bbox_right + 5, obj_mario.bbox_bottom, other.id, 1, 0)))
+					obj_mario.x += x-xprevious;
+			}
+			
+			//Otherwise
+			else {
 
-		    //Push Mario in the direction the platform moves    
-		    if ((x-xprevious < 0) && (collision_rectangle(bbox_left-2-(x-xprevious), bbox_top+4, bbox_left-2, bbox_bottom-1, obj_mario, 0, 0)))
-		    || ((x-xprevious > 0) && (collision_rectangle(bbox_right+2, bbox_top+4, bbox_right+2+(x-xprevious), bbox_bottom-1, obj_mario, 0, 0)))
-		        obj_mario.x += x-xprevious;
+			    //Push Mario in the direction the platform moves    
+			    if ((x-xprevious < 0) && (collision_rectangle(bbox_left-2-(x-xprevious), bbox_top+4, bbox_left-2, bbox_bottom-1, obj_mario, 0, 0)))
+			    || ((x-xprevious > 0) && (collision_rectangle(bbox_right+2, bbox_top+4, bbox_right+2+(x-xprevious), bbox_bottom-1, obj_mario, 0, 0)))
+			        obj_mario.x += x-xprevious;
+			}
 		}
 	}
 	
