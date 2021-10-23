@@ -4,12 +4,6 @@
 width = 5;
 height = 6;
 
-//Make it solid
-issolid = true;
-
-//Carry player horizontally
-no_horiz = false;
-
 //State
 state = "IDLE";
 
@@ -18,8 +12,8 @@ spd = 1;
 st_spd = spd;
 
 //Origin
-xorig = sprite_width/2-1;
-yorig = sprite_height/2-1;;
+xorig = 7;
+yorig = 7;
 
 //Steps to take per steps
 step = 0;

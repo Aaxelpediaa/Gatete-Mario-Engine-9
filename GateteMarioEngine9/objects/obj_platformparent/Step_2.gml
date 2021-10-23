@@ -172,8 +172,13 @@ if (issolid == true) {
 			//If Mario is walljumping
 			if (obj_mario.wallkick == 1) {
 			
-				if ((x-xprevious != 0) && (collision_rectangle(obj_mario.bbox_left - 5, obj_mario.bbox_top+4, obj_mario.bbox_right + 5, obj_mario.bbox_bottom, other.id, 1, 0)))
+				if ((x-xprevious != 0) 
+				&& (collision_rectangle(obj_mario.bbox_left - 5, obj_mario.bbox_top+4, obj_mario.bbox_right + 5, obj_mario.bbox_bottom, other.id, 1, 0))) {
+					
 					obj_mario.x += x-xprevious;
+					if (y-yprevious != 0)
+						obj_mario.y += y-yprevious;
+				}
 			}
 			
 			//Otherwise

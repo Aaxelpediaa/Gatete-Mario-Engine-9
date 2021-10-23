@@ -57,7 +57,7 @@ if (state = "IN_LINE") {
             step = 0;             
             
             //Apply gravity
-            gravity = 0.15;
+            gravity = 0.1;
             
             //Set direction
             direction = direct;
@@ -65,7 +65,7 @@ if (state = "IN_LINE") {
             //If moving up, jump
             if (direction == 90) {
             
-                vspeed = -spd*4;
+                vspeed = -spd*3;
                 if (node.hsp == true) {
                 
                     if (x > xprevious)
@@ -79,10 +79,10 @@ if (state = "IN_LINE") {
             else if (direction == 0) {
             
                 //If this is a jump node
-                if (node.jump == 1) {
-						
-					hspeed = spd*2;
-					vspeed = -spd*2.5;
+                if (node.jump == true) {
+                
+                    vspeed = -spd*2.5;
+                    hspeed = spd*2;
                 }
                 else
                     hspeed = spd;         
@@ -92,10 +92,10 @@ if (state = "IN_LINE") {
             else if (direction == 180) {
             
                 //If this is a jump node
-                if (node.jump == 1) {
+                if (node.jump == true) {
                 
-					hspeed = -spd*2;
-					vspeed = -spd*2.5;                    
+                    vspeed = -spd*2.5;
+                    hspeed = -spd*2;
                 }
                 else
                     hspeed = -spd;              
@@ -108,7 +108,7 @@ if (state = "IN_LINE") {
         if (limit) then direct = -180;
         
         //Update alarm 0
-        alarm[0] = 4;
+        alarm[0] = 8;
         
         //Update step
         step--;
@@ -223,4 +223,7 @@ if (outside_view()) {
 			direct = 0;
     }        
 }
-    
+
+//Cap vertical speed
+if (vspeed > 2.5)
+	vspeed = 2.5;
