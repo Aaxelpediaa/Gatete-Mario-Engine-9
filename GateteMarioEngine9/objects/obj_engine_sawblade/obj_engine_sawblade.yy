@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "spr_track_circle",
-    "path": "sprites/spr_track_circle/spr_track_circle.yy",
+    "name": "spr_engine_sawblade",
+    "path": "sprites/spr_engine_sawblade/spr_engine_sawblade.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "obj_trackparent",
-    "path": "objects/obj_trackparent/obj_trackparent.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -23,15 +20,17 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_mario","path":"objects/obj_mario/obj_mario.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Tracks",
-    "path": "folders/Objetos/Items/Platforms/Common/Tracks.yy",
+    "name": "Items",
+    "path": "folders/Objetos/Special/Do Not Use!/Items.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_track_circle",
+  "name": "obj_engine_sawblade",
   "tags": [],
   "resourceType": "GMObject",
 }

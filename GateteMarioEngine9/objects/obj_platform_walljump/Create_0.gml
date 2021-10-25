@@ -1,6 +1,13 @@
 /// @description Wall Jump Platform
 
-//Default variables
+/*
+//	This object uses creation code
+//
+//	width	= Width (In blocks) of the wall jump area.
+//	height	= Height (In blocks) of the wall jump area.
+*/
+
+//Default values
 width = 5;
 height = 6;
 
