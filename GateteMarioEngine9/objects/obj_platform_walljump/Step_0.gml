@@ -251,17 +251,13 @@ if (platform != noone) {
 	if (wall_l != noone) {
 		
 		wall_l.x = platform.bbox_left;
-		wall_l.y = y+28;
+		wall_l.y = y + 28;
 	}
 	
 	//Set the right wall position
 	if (wall_r != noone) {
 		
 		wall_r.x = platform.bbox_right - 15;
-		wall_r.y = y+28;
+		wall_r.y = y + 28;
 	}
 }
-
-//Cap vertical speed
-if (vspeed > 2)
-	vspeed = 2;

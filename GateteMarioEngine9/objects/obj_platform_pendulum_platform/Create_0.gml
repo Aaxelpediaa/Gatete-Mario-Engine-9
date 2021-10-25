@@ -1,10 +1,13 @@
 /// @description Pendulum Platform (Platform)
 
-//Make it semisolid
+//Parent of the object
+parent = noone;
+
+//Make it non-solid
 issolid = false;
 
-//Parent of the object, if it exists
-parent = noone;
+//Make it able to carry horizontally
+no_horiz = false;
 
 //Start position
 xx = xstart;

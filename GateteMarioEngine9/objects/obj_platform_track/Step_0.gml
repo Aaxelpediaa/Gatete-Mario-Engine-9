@@ -223,7 +223,3 @@ if (outside_view()) {
 			direct = 0;
     }        
 }
-
-//Cap vertical speed
-if (vspeed > 2.5)
-	vspeed = 2.5;

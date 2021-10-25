@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_blocktrain",
-    "path": "sprites/spr_blocktrain/spr_blocktrain.yy",
+    "name": "spr_platform_blocktrain",
+    "path": "sprites/spr_platform_blocktrain/spr_platform_blocktrain.yy",
   },
   "solid": false,
   "visible": true,

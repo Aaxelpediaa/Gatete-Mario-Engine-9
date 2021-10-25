@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_accordionblock",
-    "path": "sprites/spr_accordionblock/spr_accordionblock.yy",
+    "name": "spr_platform_accordion",
+    "path": "sprites/spr_platform_accordion/spr_platform_accordion.yy",
   },
   "solid": false,
   "visible": true,

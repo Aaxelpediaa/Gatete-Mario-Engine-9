@@ -7,7 +7,7 @@ with (instance_create_depth(x, y, -6, obj_score)) value = -1;
 with (instance_create_depth(x, y+8, -6, obj_blend_ring)) {
 	
 	beam = true;
-	image_blend = c_lime;
+	image_blend = make_colour_rgb(160, 232, 32);
 }
 
 //Destroy
