@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "spr_coin_ace",
-    "path": "sprites/spr_coin_ace/spr_coin_ace.yy",
+    "name": "spr_jelly",
+    "path": "sprites/spr_jelly/spr_jelly.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_platformparent",
+    "path": "objects/obj_platformparent/obj_platformparent.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -21,17 +24,18 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_mario","path":"objects/obj_mario/obj_mario.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Special Coins",
-    "path": "folders/Objetos/Items/Collectibles/Coins/Special Coins.yy",
+    "name": "Items",
+    "path": "folders/Objetos/Items.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_coin_ace",
+  "name": "obj_jelly",
   "tags": [],
   "resourceType": "GMObject",
 }
