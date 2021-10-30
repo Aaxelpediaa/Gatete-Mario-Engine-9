@@ -5,9 +5,41 @@ with (instance_create_depth(x, y+8, -6, obj_blend_ring)) beam = true;
 
 //If Mario does not have the 'Mega' powerup
 if (global.powerup != cs_mega) {
+	
+	//If the reserve item is a tiny mushroom
+	if (sprite_index == spr_tinyshroom) {
+		
+		//If Mario is not tiny
+		if (global.powerup != cs_tiny) {
+	
+			//Play 'Mini' sound.
+			audio_play_sound(snd_mini, 0, false);
+        
+			//Perform animation sequence
+			with (instance_create_depth(0, 0, -5, obj_mario_transform)) {
+		
+				if (global.powerup >= cs_big)
+					sequence = -3;
+				else
+					sequence = -2;
+			}
+	
+			//Turn Mario into 'Tiny' Mario.
+			global.powerup = cs_tiny;
+		}
+		else {
+
+			//Play 'Reserve' sound
+			audio_play_sound(snd_reserve, 0, false);
+	
+			//Add a 'Tiny' shroom to the reserve box
+			if (global.reserve != cs_tiny)
+				global.reserve = cs_tiny;
+		}		
+	}
 
 	//If the reserve item is a mushroom
-	if (sprite_index == spr_mushroom) {
+	else if (sprite_index == spr_mushroom) {
 
 		//If Mario is tiny or small
 		if (global.powerup == cs_tiny)

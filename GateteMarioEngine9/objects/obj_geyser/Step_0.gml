@@ -5,6 +5,7 @@ if (instance_exists(obj_mario)) {
 
 	//If Mario is on this geyser and does not have the frog or penguin powerup, push him up
 	if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_mario, 0, 0))
+	&& (obj_mario.bbox_bottom > yprevious+5)
 	&& (obj_mario.yspeed > -4)
 	    obj_mario.yspeed -= 0.5;
 }

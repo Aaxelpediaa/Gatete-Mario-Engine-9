@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_hammer",
-    "path": "sprites/spr_hammer/spr_hammer.yy",
+    "name": "spr_mushroom_trampoline",
+    "path": "sprites/spr_mushroom_trampoline/spr_mushroom_trampoline.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,21 +21,20 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":40,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_powerupparent","path":"objects/obj_powerupparent/obj_powerupparent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":10,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_mario","path":"objects/obj_mario/obj_mario.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_physicsparent","path":"objects/obj_physicsparent/obj_physicsparent.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Projectiles",
-    "path": "folders/Objetos/Special/Do Not Use!/Mario/Projectiles.yy",
+    "name": "Mushrooms",
+    "path": "folders/Objetos/Items/Platforms/NSMB/Mushrooms.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_hammer",
+  "name": "obj_mushroom_trampoline",
   "tags": [],
   "resourceType": "GMObject",
 }

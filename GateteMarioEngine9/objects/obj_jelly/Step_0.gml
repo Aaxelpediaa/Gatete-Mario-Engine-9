@@ -46,11 +46,11 @@ if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_mario
 	//If bouncing on
 	if (ready == 1) {
 		
-		xscale = approach(xscale, 1.5, 0.1);
-		yscale = approach(yscale, 0.5, 0.1);
+		xscale = lerp(xscale, 1.5, 0.3);
+		yscale = lerp(yscale, 0.5, 0.3);
 		if (xscale > 1.49) {
 		
-			ready = 2;
+			ready = 0;
 			xscale = 1.5;
 			yscale = 0.5;
 		}
@@ -59,14 +59,8 @@ if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_mario
 	//If returning to normal
 	else {
 		
-		xscale = approach(xscale, 1, 0.1);
-		yscale = approach(yscale, 1, 0.1);
-		if (xscale < 1.01) {
-			
-			ready = 0;
-			xscale = 1;
-			yscale = 1;
-		}
+		xscale = lerp(xscale, 1, 0.15);
+		yscale = lerp(yscale, 1, 0.15);
 	}
 #endregion
 
