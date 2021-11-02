@@ -36,4 +36,4 @@ else if (ready == 1) {
 	//Cap vertical speed
 	if (vspeed > 3)
 		vspeed = 3;
-}  
+}
